@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # VitePress cleanUrls routing logic
+  # If requested URL is exactly a directory (and does not end with /), append /
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [L,R=301]
+
+  # If an .html file exists for the specific request (e.g. /about => /about.html)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+# Handle 404 pages using VitePress default structure
+ErrorDocument 404 /404.html
