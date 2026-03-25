@@ -15,8 +15,14 @@ const texts = computed(() => {
       arch: 'Arquitetura',
       sdk: 'Referência SDK',
       tax: 'Biomarcadores',
+      spec: 'Especificação',
+      specOverview: 'Visão Geral',
+      specBeo: 'Schema BEO',
+      specBiorecord: 'Schema BioRecord',
+      specTaxonomy: 'Taxonomia',
       resources: 'Recursos',
       gov: 'Governança',
+      bips: 'BIPs',
       blog: 'Blog',
       langTitle: 'Idioma'
     }
@@ -29,8 +35,14 @@ const texts = computed(() => {
       arch: 'Arquitectura',
       sdk: 'Referencia SDK',
       tax: 'Biomarcadores',
+      spec: 'Especificación',
+      specOverview: 'Resumen',
+      specBeo: 'Schema BEO',
+      specBiorecord: 'Schema BioRecord',
+      specTaxonomy: 'Taxonomía',
       resources: 'Recursos',
       gov: 'Gobernanza',
+      bips: 'BIPs',
       blog: 'Blog',
       langTitle: 'Idioma'
     }
@@ -43,8 +55,14 @@ const texts = computed(() => {
     arch: 'Architecture',
     sdk: 'SDK Reference',
     tax: 'Biomarkers',
+    spec: 'Specification',
+    specOverview: 'Overview',
+    specBeo: 'BEO Schema',
+    specBiorecord: 'BioRecord Schema',
+    specTaxonomy: 'Taxonomy',
     resources: 'Resources',
     gov: 'Governance',
+    bips: 'BIPs',
     blog: 'Blog',
     langTitle: 'Language'
   }
@@ -101,6 +119,17 @@ const hasSidebar = computed(() => {
       </div>
 
       <div class="footer-col">
+        <h4 class="col-title">{{ texts.spec }}</h4>
+        <ul>
+          <li><a :href="`${prefix}/specification/overview`">{{ texts.specOverview }}</a></li>
+          <li><a :href="`${prefix}/specification/beo`">{{ texts.specBeo }}</a></li>
+          <li><a :href="`${prefix}/specification/biorecord`">{{ texts.specBiorecord }}</a></li>
+          <li><a :href="`${prefix}/specification/taxonomy/level-1-core`">{{ texts.specTaxonomy }}</a></li>
+          <li><a :href="`${prefix}/bips/`">{{ texts.bips }}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
         <h4 class="col-title">{{ texts.resources }}</h4>
         <ul>
           <li><a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank">GitHub</a></li>
@@ -152,7 +181,7 @@ const hasSidebar = computed(() => {
 }
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 2rem;
   max-width: 1152px;
   margin: 0 auto;

@@ -253,7 +253,19 @@ export default defineConfig({
                             { text: 'Ecosystem Flow', link: '/architecture/ecosystem-flow' }
                         ]
                     },
+                    {
+                        text: 'Specification',
+                        items: [
+                            { text: 'Overview', link: '/specification/overview' },
+                            { text: 'BEO Schema', link: '/specification/beo' },
+                            { text: 'IEO Schema', link: '/specification/ieo' },
+                            { text: 'BioRecord Schema', link: '/specification/biorecord' },
+                            { text: 'Exchange Protocol', link: '/specification/exchange' },
+                            { text: 'Biomarker Taxonomy', link: '/specification/taxonomy/level-1-core' }
+                        ]
+                    },
                     { text: 'SDK & Tools', link: '/developers/sdk-reference' },
+                    { text: 'BIPs', link: '/bips/' },
                     { text: 'Blog', link: '/blog/' }
                 ],
                 sidebar: {
@@ -288,7 +300,19 @@ export default defineConfig({
                             { text: 'Fluxo do Ecossistema', link: '/pt/architecture/ecosystem-flow' }
                         ]
                     },
+                    {
+                        text: 'Especificação',
+                        items: [
+                            { text: 'Visão Geral', link: '/pt/specification/overview' },
+                            { text: 'Schema BEO', link: '/pt/specification/beo' },
+                            { text: 'Schema IEO', link: '/pt/specification/ieo' },
+                            { text: 'Schema BioRecord', link: '/pt/specification/biorecord' },
+                            { text: 'Protocolo de Exchange', link: '/pt/specification/exchange' },
+                            { text: 'Taxonomia de Biomarcadores', link: '/pt/specification/taxonomy/level-1-core' }
+                        ]
+                    },
                     { text: 'SDK e Ferramentas', link: '/pt/developers/sdk-reference' },
+                    { text: 'BIPs', link: '/pt/bips/' },
                     { text: 'Blog', link: '/blog/' }
                 ],
                 sidebar: {
@@ -313,7 +337,19 @@ export default defineConfig({
                             { text: 'Flujo del Ecosistema', link: '/es/architecture/ecosystem-flow' }
                         ]
                     },
+                    {
+                        text: 'Especificación',
+                        items: [
+                            { text: 'Resumen', link: '/es/specification/overview' },
+                            { text: 'Schema BEO', link: '/es/specification/beo' },
+                            { text: 'Schema IEO', link: '/es/specification/ieo' },
+                            { text: 'Schema BioRecord', link: '/es/specification/biorecord' },
+                            { text: 'Protocolo de Exchange', link: '/es/specification/exchange' },
+                            { text: 'Taxonomía de Biomarcadores', link: '/es/specification/taxonomy/level-1-core' }
+                        ]
+                    },
                     { text: 'SDK y Herramientas', link: '/es/developers/sdk-reference' },
+                    { text: 'BIPs', link: '/es/bips/' },
                     { text: 'Blog', link: '/blog/' }
                 ],
                 sidebar: {
