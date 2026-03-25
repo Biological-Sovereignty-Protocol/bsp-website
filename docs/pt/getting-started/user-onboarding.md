@@ -1,54 +1,54 @@
-# User Onboarding Flow
+# Fluxo de Onboarding do Usuário
 
-"The moment a person creates their BEO, they cross a threshold — from patient to sovereign."
+"No momento em que uma pessoa cria seu BEO, ela atravessa um limiar — de paciente para soberano."
 
-## Design Philosophy
+## Filosofia de Design
 
-Most health apps onboard users into a product. BSP onboards users into a lifelong biological identity. This 12-minute process is intentionally architectural; the user should feel the weight of setting up permanent infrastructure for their health data.
+A maioria dos aplicativos de saúde integra usuários a um produto. O BSP integra usuários a uma identidade biológica para toda a vida. Este processo de 12 minutos é intencionalmente arquitetônico; o usuário deve sentir o peso de configurar uma infraestrutura permanente para seus dados de saúde.
 
-| Traditional Health Apps | BSP Onboarding |
-|-------------------------|----------------|
-| Creates an account on their servers | Creates a sovereign identity on permanent infrastructure |
-| User data belongs to the platform | User holds the private key to their own biology |
-| Account can be deleted by company | BEO cannot be deleted by anyone |
-| Recovers via email reset | Recovers via social guardian network |
-| Data locked in one app | Data is fully portable (`EXPORT_DATA`) |
+| Aplicativos de Saúde Tradicionais | Onboarding BSP |
+|-----------------------------------|----------------|
+| Cria uma conta nos servidores deles | Cria uma identidade soberana em infraestrutura permanente |
+| Dados do usuário pertencem à plataforma | Usuário detém a chave privada para sua própria biologia |
+| Conta pode ser excluída pela empresa | BEO não pode ser excluído por ninguém |
+| Recupera via redefinição de e-mail | Recupera via rede de guardiões sociais |
+| Dados bloqueados em um aplicativo | Dados são totalmente portáteis (`EXPORT_DATA`) |
 
-## The Four Phases of Onboarding
+## As Quatro Fases do Onboarding
 
-### Phase 01: Identity (Creating the BEO)
-*   **Action**: The user chooses their `.bsp` domain (e.g., `andre.bsp`, or a privacy-preserving identifier).
-*   **Under the hood**: A cryptographic key pair is generated instantly and locally on the device's secure enclave. The public key is registered on Arweave. The identity is permanently created.
+### Fase 01: Identidade (Criando o BEO)
+*   **Ação**: O usuário escolhe seu domínio `.bsp` (ex: `andre.bsp`, ou um identificador que preserve a privacidade).
+*   **Por baixo dos panos**: Um par de chaves criptográficas é gerado instantaneamente e localmente no enclave seguro do dispositivo. A chave pública é registrada no Arweave. A identidade é criada permanentemente.
 
-### Phase 02: Sovereignty (Protecting the BEO)
-A BEO protected only by a seed phrase is vulnerable if the device is lost. This phase sets up the safety net.
-*   **Guardians**: The user selects 3 trusted people. A 2-of-3 threshold is established.
-*   **Seed Phrase**: The user must backup their 24-word recovery phrase offline. 
-*   **UX Note**: Guardian setup is highly encouraged but *optional* during initial onboarding. A user can skip it and add guardians later, ensuring they are never blocked from entering the ecosystem.
+### Fase 02: Soberania (Protegendo o BEO)
+Um BEO protegido apenas por uma frase-semente é vulnerável se o dispositivo for perdido. Esta fase configura a rede de segurança.
+*   **Guardiões**: O usuário seleciona 3 pessoas de confiança. Um limiar de 2 em 3 é estabelecido.
+*   **Frase-Semente**: O usuário deve fazer backup da sua frase de recuperação de 24 palavras offline.
+*   **Nota de UX**: A configuração dos guardiões é altamente encorajada, mas *opcional* durante o onboarding inicial. Um usuário pode pular isso e adicionar guardiões depois, garantindo que nunca seja bloqueado de entrar no ecossistema.
 
-### Phase 03: Activation (First BioRecords)
-The protocol comes alive with data. The user has three paths to build their baseline:
-*   **Path A: Import**. Connect a BSP-Compliant laboratory to import existing exam histories instantly.
-*   **Path B: Wearable**. Connect an Oura Ring, Apple Watch, etc. to start syncing continuous biometric data.
-*   **Path C: Manual Entry**. Manually type in recent blood test values to trigger the first data points.
+### Fase 03: Ativação (Primeiros BioRecords)
+O protocolo ganha vida com dados. O usuário tem três caminhos para construir sua linha de base:
+*   **Caminho A: Importação**. Conectar um laboratório compatível com BSP para importar históricos de exames existentes instantaneamente.
+*   **Caminho B: Wearable**. Conectar um Oura Ring, Apple Watch, etc. para começar a sincronizar dados biométricos contínuos.
+*   **Caminho C: Entrada Manual**. Digitar manualmente os valores recentes de exames de sangue para gerar os primeiros pontos de dados.
 
-### Phase 04: Living Protocol (Vitality Intelligence)
-The user authorizes the intelligence layer (AVA). 
-*   **Action**: The user grants AVA continuous, revocable reading rights to process their BioRecords.
-*   **Result**: The user receives their first **Ambrósio Vitality Score (SVA)** — e.g., a score of 68.4, showing an biological age of 41.2 against a chronological age of 42. It is framed as an opportunity to improve, never a verdict.
+### Fase 04: Protocolo Vivo (Inteligência de Vitalidade)
+O usuário autoriza a camada de inteligência (AVA).
+*   **Ação**: O usuário concede à AVA direitos de leitura contínuos e revogáveis para processar seus BioRecords.
+*   **Resultado**: O usuário recebe seu primeiro **Score de Vitalidade Ambrósio (SVA)** — ex: uma pontuação de 68,4, mostrando uma idade biológica de 41,2 contra uma idade cronológica de 42. É enquadrado como uma oportunidade de melhora, nunca como um veredicto.
 
-## Post-Onboarding: The Living BEO
-A BEO grows continuously. A user starting with 50 lab results and connecting a wearable will accumulate thousands of BioRecords in their first year. 
+## Pós-Onboarding: O BEO Vivo
+Um BEO cresce continuamente. Um usuário que começa com 50 resultados laboratoriais e conecta um wearable acumulará milhares de BioRecords no primeiro ano.
 
-At any moment, the user can trigger a `EXPORT_DATA`, receiving a complete, decrypted JSON file of their biological history. This export demonstrates true portability and sovereignty.
+A qualquer momento, o usuário pode acionar um `EXPORT_DATA`, recebendo um arquivo JSON completo e descriptografado do seu histórico biológico. Essa exportação demonstra portabilidade e soberania verdadeiras.
 
-### Triggering New BioRecords
-The app prompts users to add data at high-intent moments:
-*   **Automatic**: Wearables sync silently daily; lab results arrive automatically.
-*   **Prompted**: "You had a medical appointment today — add your results?"
-*   **Action-driven**: If the SVA drops significantly, the app prompts the user to book a new blood panel to investigate.
+### Acionando Novos BioRecords
+O aplicativo solicita aos usuários que adicionem dados em momentos de alta intenção:
+*   **Automático**: Wearables sincronizam silenciosamente todos os dias; resultados de laboratório chegam automaticamente.
+*   **Solicitado**: "Você teve uma consulta médica hoje — adicionar seus resultados?"
+*   **Orientado por ação**: Se o SVA cair significativamente, o aplicativo solicita ao usuário que agende um novo painel de sangue para investigar.
 
-## Special Cases
+## Casos Especiais
 
-*   **Minors**: BEOs for minors are created under a custodial model held by the parent. At age 18, an automated transfer initiates, handing full sovereign control to the adult without losing any historical data.
-*   **Data Correction**: If a lab makes a transcription error, they submit a correction. The new BioRecord marks the old one as `SUPERSEDED`, preserving the immutable audit trail while displaying the correct value.
+*   **Menores de Idade**: BEOs para menores são criados sob um modelo custodial mantido pelo responsável. Aos 18 anos, uma transferência automatizada é iniciada, entregando o controle soberano completo ao adulto sem perder nenhum dado histórico.
+*   **Correção de Dados**: Se um laboratório cometer um erro de transcrição, ele envia uma correção. O novo BioRecord marca o anterior como `SUPERSEDED`, preservando a trilha de auditoria imutável enquanto exibe o valor correto.

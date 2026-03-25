@@ -1,5 +1,3 @@
-# Protocol Architecture
-
 # Arquitetura do Protocolo
 
 O BSP é um padrão aberto que define como os dados biológicos são estruturados, armazenados, trocados e governados. Ele opera em três camadas.

@@ -1,50 +1,50 @@
-# Keys, Blockchain & Access
+# Chaves, Blockchain e Acesso
 
-"How users, laboratories, and systems connect to the ecosystem decentralized — without a central server, without an intermediary, without prior permission."
+"Como usuários, laboratórios e sistemas se conectam ao ecossistema de forma descentralizada — sem servidor central, sem intermediário, sem permissão prévia."
 
-## Part 1: The Foundation — Cryptographic Keys
+## Parte 1: O Fundamento — Chaves Criptográficas
 
-BSP is built on a simple principle: **no central authority controls access to your biological data. You do.** Control is exercised entirely through cryptographic keys.
+O BSP é construído sobre um princípio simples: **nenhuma autoridade central controla o acesso aos seus dados biológicos. Você controla.** O controle é exercido inteiramente por meio de pares de chaves criptográficas.
 
-### The Key Pair
-*   **Public Key**: Your address in the BSP ecosystem (e.g., `andre.bsp`). Shared freely with labs and systems to identify your BEO.
-*   **Private Key**: Your control key. Never leaves your device. Never sent to any server. Used to sign authorizations and decrypt your data. Without it, no one accesses your BEO.
+### O Par de Chaves
+*   **Chave Pública**: Seu endereço no ecossistema BSP (ex: `andre.bsp`). Compartilhada livremente com laboratórios e sistemas para identificar seu BEO.
+*   **Chave Privada**: Sua chave de controle. Nunca sai do seu dispositivo. Nunca enviada a nenhum servidor. Usada para assinar autorizações e descriptografar seus dados. Sem ela, ninguém acessa seu BEO.
 
-### Analogy: Crypto Wallet
-Like a Bitcoin address, your public key receives data (BioRecords). Your private key authorizes transactions (ConsentTokens). Unlike banks, if you permanently lose your private key without backups, you lose access to your data forever. 
+### Analogia: Carteira de Criptomoedas
+Como um endereço Bitcoin, sua chave pública recebe dados (BioRecords). Sua chave privada autoriza transações (ConsentTokens). Ao contrário dos bancos, se você perder permanentemente sua chave privada sem backups, perde o acesso aos seus dados para sempre.
 
-### Social Recovery
-To mitigate loss risks, users can set up 3 trusted **Guardians**. 
-Using Shamir Secret Sharing, fragments of the recovery key are encrypted to the guardians' public keys. If a user loses their device, any 2 of the 3 guardians can confirm their identity to authorize a Key Rotation, restoring access without any central server involvement.
+### Recuperação Social
+Para mitigar riscos de perda, os usuários podem configurar 3 **Guardiões** de confiança.
+Usando Shamir Secret Sharing, fragmentos da chave de recuperação são criptografados com as chaves públicas dos guardiões. Se um usuário perder seu dispositivo, qualquer 2 dos 3 guardiões podem confirmar sua identidade para autorizar uma Rotação de Chave, restaurando o acesso sem envolver nenhum servidor central.
 
-## Part 2: Arweave — Permanent Storage
+## Parte 2: Arweave — Armazenamento Permanente
 
-BSP uses **Arweave**, a permanent storage blockchain. 
+O BSP usa **Arweave**, uma blockchain de armazenamento permanente.
 
-*   **Traditional DBs**: Run by central servers. If the company closes, the data dies.
-*   **Arweave**: Pay once, store forever. A decentralized network of nodes ensures no company, government, or even the Ambrósio Institute can delete or alter the data. 
+*   **BDs Tradicionais**: Gerenciados por servidores centrais. Se a empresa fechar, os dados morrem.
+*   **Arweave**: Pague uma vez, armazene para sempre. Uma rede descentralizada de nós garante que nenhuma empresa, governo ou mesmo o Ambrósio Institute possa excluir ou alterar os dados.
 
-If the Ambrósio Institute ceases to exist in 50 years, the BEOs, BioRecords, and Smart Contracts continue executing on Arweave seamlessly. Sovereign data truly outlives its creators.
+Se o Ambrósio Institute deixar de existir em 50 anos, os BEOs, BioRecords e Contratos Inteligentes continuam executando no Arweave sem interrupções. Dados soberanos verdadeiramente sobrevivem a seus criadores.
 
-## Part 3: Smart Contracts — Immutable Rules
+## Parte 3: Contratos Inteligentes — Regras Imutáveis
 
-Every major action on a BEO generates a permanent transaction on Arweave. The Arweave chain **accumulates** transactions, it never overwrites them.
+Toda ação relevante em um BEO gera uma transação permanente no Arweave. A chain do Arweave **acumula** transações — nunca as sobrescreve.
 
-Relevant contracts include:
-*   **BEORegistry**: Creates and manages BEOs (open to anyone). Defines the "current" state of a BEO by resolving the most recent valid transactions.
-*   **IEORegistry**: Manages BSP-Certified institutions.
-*   **DomainRegistry**: Manages the `.bsp` namespace.
-*   **AccessControl**: The true gatekeeper. Verifies `ConsentTokens` globally.
+Os contratos relevantes incluem:
+*   **BEORegistry**: Cria e gerencia BEOs (aberto a qualquer pessoa). Define o estado "atual" de um BEO resolvendo as transações válidas mais recentes.
+*   **IEORegistry**: Gerencia instituições certificadas pelo BSP.
+*   **DomainRegistry**: Gerencia o namespace `.bsp`.
+*   **AccessControl**: O verdadeiro guardião. Verifica `ConsentTokens` globalmente.
 
-## Part 4: The MCP Model Applied to BSP
+## Parte 4: O Modelo MCP Aplicado ao BSP
 
-The Anthropic Model Context Protocol (MCP) lets anyone create an MCP Server or Client without Anthropic's approval. Safety comes from the user actively consenting to which servers the assistant can access.
+O Anthropic Model Context Protocol (MCP) permite que qualquer pessoa crie um Servidor ou Cliente MCP sem a aprovação da Anthropic. A segurança vem do usuário que consente ativamente em quais servidores o assistente pode acessar.
 
-BSP follows the exact same logic.
-*   Anyone can create a BEO, or an IEO to submit data.
-*   The sole gatekeeper is the individual's **ConsentToken** in the `AccessControl` contract.
+O BSP segue exatamente a mesma lógica.
+*   Qualquer pessoa pode criar um BEO, ou um IEO para enviar dados.
+*   O único guardião é o **ConsentToken** do indivíduo no contrato `AccessControl`.
 
-### Flow Examples
-*   **The User**: Opens app -> Generates keys locally -> Creates BEO on Arweave -> Receives `.bsp` domain -> Authorizes labs.
-*   **The Lab (Certified or not)**: Installs `bsp-sdk` -> Requests authorization -> Submits encrypted BioRecords to Arweave.
-*   **The AVA (Intelligence)**: User opens app -> App decrypts records locally -> User explicitly requests analysis from AVA -> AVA processes data and returns SVA Score -> Ambrósio Institute discards raw data after processing.
+### Exemplos de Fluxo
+*   **O Usuário**: Abre o aplicativo -> Gera chaves localmente -> Cria BEO no Arweave -> Recebe domínio `.bsp` -> Autoriza laboratórios.
+*   **O Laboratório (certificado ou não)**: Instala o `bsp-sdk` -> Solicita autorização -> Envia BioRecords criptografados para o Arweave.
+*   **A AVA (Inteligência)**: Usuário abre o aplicativo -> Aplicativo descriptografa registros localmente -> Usuário solicita explicitamente análise da AVA -> AVA processa dados e retorna SVA Score -> Ambrósio Institute descarta dados brutos após o processamento.

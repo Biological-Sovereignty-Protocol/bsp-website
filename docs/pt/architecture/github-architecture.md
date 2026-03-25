@@ -1,32 +1,32 @@
-# GitHub Architecture
+# Arquitetura GitHub
 
-BSP's GitHub infrastructure is split into two distinct organizations — one public, one private. This separation reflects the core philosophy: **the protocol belongs to the world, the intelligence belongs to Ambrósio.**
+A infraestrutura GitHub do BSP está dividida em duas organizações distintas — uma pública, uma privada. Essa separação reflete a filosofia central: **o protocolo pertence ao mundo, a inteligência pertence à Ambrósio.**
 
-## Public Organization: `biological-sovereignty-protocol`
-These repositories define the open standard. Anyone can clone, contribute, and build upon them without approval. Licensed under Creative Commons CC BY 4.0.
+## Organização Pública: `biological-sovereignty-protocol`
+Esses repositórios definem o padrão aberto. Qualquer pessoa pode clonar, contribuir e construir sobre eles sem aprovação. Licenciados sob Creative Commons CC BY 4.0.
 
-*   `bsp-spec`: The central specification repository (BEO, IEO, Exchange, Taxonomy, BIPs). The "public law" of the protocol.
-*   `bsp-sdk-typescript`: The official TypeScript SDK (`@bsp/sdk`) for web, mobile, and backend integrations.
-*   `bsp-sdk-python`: The official Python SDK (`bsp-sdk`) for laboratories, bioinformaticians, and research pipelines.
-*   `bsp-mcp`: The official Model Context Protocol server. Connects AI agents (Claude, GPT) to the BSP protocol with active user consent.
-*   `bsp-docs-repo`: The public documentation website engine (what you form part of right now).
+*   `bsp-spec`: O repositório central de especificações (BEO, IEO, Exchange, Taxonomia, BIPs). A "lei pública" do protocolo.
+*   `bsp-sdk-typescript`: O SDK TypeScript oficial (`@bsp/sdk`) para integrações web, mobile e backend.
+*   `bsp-sdk-python`: O SDK Python oficial (`bsp-sdk`) para laboratórios, bioinformatas e pipelines de pesquisa.
+*   `bsp-mcp`: O servidor oficial Model Context Protocol. Conecta agentes de IA (Claude, GPT) ao protocolo BSP com consentimento ativo do usuário.
+*   `bsp-docs-repo`: O site de documentação pública (do qual você faz parte agora).
 
-## Private Organization: `ambrosio-institute`
-These repositories contain the Institute's operational infrastructure and proprietary intelligence. They are private to protect the organization's core competitive advantage.
+## Organização Privada: `ambrosio-institute`
+Esses repositórios contêm a infraestrutura operacional do Instituto e a inteligência proprietária. São privados para proteger a vantagem competitiva central da organização.
 
-*   `bsp-contracts`: The 5 smart contracts deployed on Arweave (`BEORegistry`, `IEORegistry`, `DomainRegistry`, `AccessControl`, `Governance`). Publicly queryable on-chain, but the deployment code is maintained here.
-*   `bsp-registry-api`: The Institute's API for managing the human process of voluntary BSP Certification. *Biological data never passes through this API.*
-*   `ava-core`: The Ambrósio Vitality Algorithm. Proprietary models that analyze biological aging, processing BioRecords only when a user actively initiates a session.
-*   `sva-engine`: The scoring engine that converts AVA's analysis into the multi-dimensional Ambrósio Vitality Score (SVA) presented to the user.
+*   `bsp-contracts`: Os 5 contratos inteligentes implantados no Arweave (`BEORegistry`, `IEORegistry`, `DomainRegistry`, `AccessControl`, `Governance`). Consultáveis publicamente on-chain, mas o código de implantação é mantido aqui.
+*   `bsp-registry-api`: A API do Instituto para gerenciar o processo humano de Certificação BSP voluntária. *Dados biológicos nunca passam por esta API.*
+*   `ava-core`: O Algoritmo de Vitalidade Ambrósio. Modelos proprietários que analisam o envelhecimento biológico, processando BioRecords apenas quando um usuário inicia ativamente uma sessão.
+*   `sva-engine`: O motor de pontuação que converte a análise da AVA no multidimensional Score de Vitalidade Ambrósio (SVA) apresentado ao usuário.
 
-## Build Sequence
-Dependencies dictate the build order of the ecosystem:
+## Sequência de Construção
+As dependências ditam a ordem de construção do ecossistema:
 
-1.  `bsp-spec` (Foundation)
-2.  `bsp-contracts` (Smart Contracts on Arweave)
-3.  `bsp-registry-api` (Certification Portal)
-4.  `bsp-sdk-typescript` (Core Web Integrations)
-5.  `bsp-mcp` (AI Agent Connectivity)
-6.  `bsp-sdk-python` (Lab & Research Pipelines)
-7.  `ava-core` & `sva-engine` (Intelligence scoring built entirely on top of SDK primitives)
-8.  `bsp-docs-repo` (Evolving constantly alongside the ecosystem)
+1.  `bsp-spec` (Fundação)
+2.  `bsp-contracts` (Contratos Inteligentes no Arweave)
+3.  `bsp-registry-api` (Portal de Certificação)
+4.  `bsp-sdk-typescript` (Integrações Web Principais)
+5.  `bsp-mcp` (Conectividade para Agentes de IA)
+6.  `bsp-sdk-python` (Pipelines de Laboratório e Pesquisa)
+7.  `ava-core` e `sva-engine` (Pontuação de inteligência construída inteiramente sobre as primitivas do SDK)
+8.  `bsp-docs-repo` (Evolui constantemente junto com o ecossistema)

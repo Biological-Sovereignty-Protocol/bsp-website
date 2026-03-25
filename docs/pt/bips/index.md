@@ -1,36 +1,41 @@
 ---
-title: BSP Improvement Proposals (BIPs)
+title: Propostas de Melhoria BSP (BIPs)
 ---
 
-# BSP Improvement Proposals (BIPs)
+<div class="page-hero-image">
+  <img src="/images/bips-hero.png" alt="BSP Improvement Proposals — community governance" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-BSP evolves through a public improvement process. Anyone can propose changes to the protocol.
 
-## How to Submit a BIP
+# Propostas de Melhoria BSP (BIPs)
 
-1. Fork [bsp-spec on GitHub](https://github.com/Biological-Sovereignty-Protocol/bsp-spec)
-2. Copy `bip/BIP-0000-template.md` to `bip/BIP-XXXX-your-title.md`
-3. Fill in the template completely
-4. Open a Pull Request
+O BSP evolui por meio de um processo público de melhorias. Qualquer pessoa pode propor mudanças no protocolo.
 
-The PR opens a public review period. See [Governance](../specification/governance) for the full process.
+## Como Enviar um BIP
 
-## BIP Categories
+1. Faça um fork do [bsp-spec no GitHub](https://github.com/Biological-Sovereignty-Protocol/bsp-spec)
+2. Copie `bip/BIP-0000-template.md` para `bip/BIP-XXXX-seu-titulo.md`
+3. Preencha o template completamente
+4. Abra um Pull Request
 
-| Category | Description |
+O PR abre um período de revisão pública. Veja [Governança](../specification/governance) para o processo completo.
+
+## Categorias de BIP
+
+| Categoria | Descrição |
 |---|---|
-| **BSP-BIP-TAXONOMY** | Add or modify biomarker codes |
-| **BSP-BIP-SCHEMA** | Changes to BEO, IEO, or BioRecord schema |
-| **BSP-BIP-EXCHANGE** | Changes to the Exchange Protocol |
-| **BSP-BIP-GOVERNANCE** | Changes to the governance process |
-| **BSP-BIP-INFRA** | Smart contract upgrades |
+| **BSP-BIP-TAXONOMY** | Adicionar ou modificar códigos de biomarcadores |
+| **BSP-BIP-SCHEMA** | Mudanças no schema do BEO, IEO ou BioRecord |
+| **BSP-BIP-EXCHANGE** | Mudanças no Protocolo de Troca |
+| **BSP-BIP-GOVERNANCE** | Mudanças no processo de governança |
+| **BSP-BIP-INFRA** | Atualizações de contratos inteligentes |
 
-## BIP Index
+## Índice de BIPs
 
-| BIP | Title | Status |
+| BIP | Título | Status |
 |---|---|---|
-| [BIP-0000](./BIP-0000) | BIP Template | FINAL |
+| [BIP-0000](./BIP-0000) | Template de BIP | FINAL |
 
 ---
 
-*All BIPs are tracked in the [bsp-spec repository](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/bip).*
+*Todos os BIPs são acompanhados no [repositório bsp-spec](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/bip).*

@@ -2,6 +2,11 @@
 title: BSP Improvement Proposals (BIPs)
 ---
 
+<div class="page-hero-image">
+  <img src="/images/bips-hero.png" alt="BSP Improvement Proposals — community governance" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
+
 # BSP Improvement Proposals (BIPs)
 
 BSP evolves through a public improvement process. Anyone can propose changes to the protocol.

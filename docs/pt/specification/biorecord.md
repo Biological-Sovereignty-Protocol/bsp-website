@@ -1,22 +1,22 @@
 ---
-title: BioRecord — Biological Measurement Object
+title: BioRecord — Objeto de Medição Biológica
 ---
 
-# BioRecord — Biological Measurement Object
+# BioRecord — Objeto de Medição Biológica
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-Every biological measurement in the BSP ecosystem is represented as a **BioRecord**.
-
-BioRecords are the atomic units of biological data. Every blood test result, wearable reading, genomic marker, or clinical assessment that enters the BSP ecosystem is structured as a BioRecord.
+> Versão 0.2 | Ambrósio Institute
 
 ---
 
-## BioRecord Schema
+## Visão Geral
+
+Toda medição biológica no ecossistema BSP é representada como um **BioRecord**.
+
+BioRecords são as unidades atômicas de dados biológicos. Todo resultado de exame de sangue, leitura de wearable, marcador genômico ou avaliação clínica que entra no ecossistema BSP é estruturado como um BioRecord.
+
+---
+
+## Schema do BioRecord
 
 ```typescript
 BioRecord {
@@ -75,32 +75,32 @@ RangeObject {
 
 ---
 
-## BioLevel Values
+## Valores de BioLevel
 
-| Level | Code | Description |
+| Nível | Código | Descrição |
 |---|---|---|
-| Core | `CORE` | Advanced longevity and biological aging biomarkers (L1) |
-| Standard | `STANDARD` | Routine laboratory biomarkers performed worldwide (L2) |
-| Extended | `EXTENDED` | Specialized clinical and research biomarkers (L3) |
-| Device | `DEVICE` | Continuous biometric data from wearable devices (L4) |
+| Core | `CORE` | Biomarcadores avançados de longevidade e envelhecimento biológico (L1) |
+| Standard | `STANDARD` | Biomarcadores laboratoriais de rotina realizados no mundo todo (L2) |
+| Extended | `EXTENDED` | Biomarcadores clínicos e de pesquisa especializados (L3) |
+| Device | `DEVICE` | Dados biométricos contínuos de dispositivos wearables (L4) |
 
 ---
 
-## RecordStatus Values
+## Valores de RecordStatus
 
-| Status | Description |
+| Status | Descrição |
 |---|---|
-| `ACTIVE` | This is the current, valid record |
-| `SUPERSEDED` | This record has been corrected by a newer record |
-| `PENDING` | Submitted but awaiting confirmation (e.g. device sync) |
+| `ACTIVE` | Este é o registro atual e válido |
+| `SUPERSEDED` | Este registro foi corrigido por um registro mais recente |
+| `PENDING` | Enviado, mas aguardando confirmação (ex: sincronização de dispositivo) |
 
 ---
 
-## Immutability and Corrections
+## Imutabilidade e Correções
 
-BioRecords are **immutable once written**. They cannot be altered or deleted after submission to Arweave.
+BioRecords são **imutáveis após serem escritos**. Não podem ser alterados ou excluídos após o envio ao Arweave.
 
-When a correction is necessary (e.g. a lab transcription error), the corrected value is submitted as a **new BioRecord** that supersedes the original:
+Quando uma correção é necessária (ex: erro de transcrição em laboratório), o valor corrigido é enviado como um **novo BioRecord** que substitui o original:
 
 ```typescript
 // Corrected record
@@ -122,13 +122,13 @@ When a correction is necessary (e.g. a lab transcription error), the corrected v
 }
 ```
 
-The complete audit trail — including the original incorrect value — is preserved permanently on Arweave.
+A trilha de auditoria completa — incluindo o valor original incorreto — é preservada permanentemente no Arweave.
 
 ---
 
-## Submitting a BioRecord
+## Enviando um BioRecord
 
-Any system can submit a BioRecord to a BEO — subject to the holder's consent via AccessControl.
+Qualquer sistema pode enviar um BioRecord para um BEO — sujeito ao consentimento do titular via AccessControl.
 
 ```typescript
 // TypeScript SDK
@@ -176,24 +176,24 @@ result = client.submit(record)
 
 ---
 
-## Biomarker Codes
+## Códigos de Biomarcadores
 
-Every biomarker in the BSP taxonomy has a standardized code in the format:
+Todo biomarcador na taxonomia BSP tem um código padronizado no formato:
 
 ```
 BSP-[CATEGORY]-[NUMBER]
 ```
 
-Examples:
-- `BSP-LA-004` — NAD+ (Longevity & Aging category, marker #004)
-- `BSP-GL-001` — Fasting Glucose (Glycemia & Metabolic category, marker #001)
-- `BSP-DV-001` — Heart Rate Variability (Device category, marker #001)
+Exemplos:
+- `BSP-LA-004` — NAD+ (categoria Longevidade e Envelhecimento, marcador #004)
+- `BSP-GL-001` — Glicose em Jejum (categoria Glicemia e Metabólico, marcador #001)
+- `BSP-DV-001` — Variabilidade da Frequência Cardíaca (categoria Device, marcador #001)
 
-→ See [Biomarker Taxonomy](taxonomy/level-1-core) for the complete biomarker reference.
+→ Veja [Taxonomia de Biomarcadores](taxonomy/level-1-core) para a referência completa de biomarcadores.
 
 ---
 
-## Example BioRecord (JSON)
+## Exemplo de BioRecord (JSON)
 
 ```json
 {
@@ -230,7 +230,7 @@ Examples:
 }
 ```
 
-→ Full example: [`../examples/biorecord-example.json`](../examples/biorecord-example.json)
+→ Exemplo completo: [`../examples/biorecord-example.json`](../examples/biorecord-example.json)
 
 ---
 

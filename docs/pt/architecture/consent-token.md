@@ -1,59 +1,158 @@
-# ConsentToken & AccessControl
+<div class="page-hero-image">
+  <img src="/images/consent-flow.png" alt="Consent Flow" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"Consent is not a privacy policy. It is a mathematical instruction recorded on the blockchain."
+# ConsentToken e Controle de Acesso
 
-## Overview
-The BSP consent system makes biological sovereignty a technical reality. It defines how a BEO holder authorizes other systems to interact with their biological data with surgical precision over what can be accessed, by whom, and for how long.
+> "Consentimento não é uma política de privacidade. É uma instrução matemática registrada na blockchain."
 
-The central instrument is the **ConsentToken** — a cryptographic authorization issued by the `AccessControl` smart contract on Arweave after the holder signs it with their private key.
+## Visão Geral
 
-Without a valid ConsentToken, no data operation is possible. The gatekeeper is the individual, not the Ambrósio Institute.
+O sistema de consentimento do BSP torna a soberania biológica uma realidade técnica. O **ConsentToken** é uma autorização criptográfica emitida pelo contrato inteligente `AccessControl` no Arweave após o titular assiná-la com sua chave privada.
 
-## The ConsentToken Schema
+**Nenhuma instituição pode ler ou gravar dados em um BEO sem um ConsentToken válido.** A blockchain faz cumprir — nenhum servidor pode contornar isso.
 
-```json
-{
-  "token_id": "uuid",
-  "beo_id": "uuid",
-  "ieo_id": "uuid",
-  "granted_at": "ISO8601",
-  "expires_at": "ISO8601 | null",
-  "scope": {
-    "intents": ["SUBMIT_RECORD", "READ_RECORDS"],
-    "categories": ["BSP-LA", "BSP-CV"],
-    "levels": ["CORE", "STANDARD"],
-    "period": { "from": null, "to": null },
-    "max_records": 100
-  },
-  "revocable": true,
-  "owner_signature": "ed25519_signature"
+---
+
+## Como o Consentimento Funciona
+
+```
+Usuário (Titular do BEO)
+     │  assina autorização com chave privada
+     ▼
+Contrato Inteligente AccessControl (Arweave)
+     │  cria ConsentToken on-chain
+     ▼
+Instituição (IEO)
+     │  apresenta o token a cada requisição
+     ▼
+AccessControl verifica → concede ou rejeita
+```
+
+---
+
+## Schema do ConsentToken
+
+```typescript
+interface ConsentToken {
+  token_id:    string      // Identificador único para esta concessão de consentimento
+  beo_id:      string      // O BEO que concede o consentimento
+  ieo_id:      string      // O IEO que recebe a permissão
+  granted_at:  string      // ISO8601
+  expires_at:  string | null  // null = permanente até revogação
+
+  scope: {
+    intents:    BSPIntent[]   // Quais ações são permitidas
+    categories: string[]      // Quais categorias BSP são acessíveis (ex: ["BSP-LA", "BSP-HM"])
+    levels:     BioLevel[]    // Quais níveis da taxonomia
+    period: {
+      from: string | null
+      to:   string | null
+    } | null
+    max_records: number | null
+  }
+
+  revocable:    boolean     // Sempre true
+  revoked:      boolean
+  revoked_at:   string | null
+  owner_signature: string   // Assinatura Ed25519 do titular do BEO
+  token_hash:   string      // Hash de verificação on-chain
 }
 ```
 
-### Scope Properties
-*   **intents**: The actions the IEO is authorized to perform (e.g., `READ_RECORDS`, `ANALYZE_VITALITY`).
-*   **categories**: Which BSP categories are accessible. Limiting this ensures a hematology lab cannot access neurology data (`BSP-NR`).
-*   **levels**: Which taxonomy levels are accessible.
-*   **period**: The historical time window of data the IEO can see.
+---
 
-## Standard Token Types by Relationship
+## Tipos de Intent
 
-| Relationship | Default Duration | Intents | Scope | Renewal |
-|--------------|------------------|---------|-------|---------|
-| **User → Laboratory** | Single use / Permanent | `SUBMIT_RECORD` | Lab-specific | Revocation only |
-| **User → Physician** | 30–90 days | `READ_RECORDS` | Selected categories | Manual |
-| **User → AVA/PLT** | Permanent | `ANALYZE_VITALITY`, `REQUEST_SCORE` | All categories | Annual refresh |
-| **User → Wearable** | Permanent | `SUBMIT_RECORD` | `BSP-DV` only | Revocation only |
-| **User → Insurer** | 12 months | `REQUEST_SCORE` | SVA score only | Annual opt-in |
+| Intent | Descrição | Duração Típica |
+|--------|-----------|---------------|
+| `SUBMIT_RECORD` | Gravar um BioRecord no BEO | Uso único ou permanente |
+| `READ_RECORDS` | Ler BioRecords do BEO | 30–90 dias (médicos); permanente (plataformas) |
+| `ANALYZE_VITALITY` | Solicitar análise de vitalidade AVA | Permanente (renovável) |
+| `REQUEST_SCORE` | Solicitar score SVA | Anual (planos de saúde com opt-in) |
+| `EXPORT_DATA` | Exportar todos os dados — sempre disponível para o titular do BEO | — |
+| `SYNC_PROTOCOL` | Negociação de versão do protocolo | Por sessão |
 
-### Principle of Least Privilege
-BSP adopts the principle of least privilege: each ConsentToken must contain only the intents, categories, and periods strictly necessary for the stated purpose.
+---
 
-## Revocation
-Revocation is the most important right of the BEO holder. **Any ConsentToken can be revoked at any time, with immediate on-chain effect.**
+## Tipos de Token Padrão por Relacionamento
 
-*   `revokeToken(token_id)`: Revokes a specific token.
-*   `revokeAllFromIEO(ieo_id)`: Revokes all tokens from a specific institution.
-*   `revokeAllTokens()`: Emergency switch to revoke everything.
+| Relacionamento | Duração | Escopo |
+|----------------|---------|--------|
+| Usuário → Laboratório (envio) | Uso único | `SUBMIT_RECORD` — apenas categorias específicas |
+| Usuário → Médico (revisão) | 30–90 dias | `READ_RECORDS` — categorias selecionadas |
+| Usuário → Hospital (tratamento) | Duração do tratamento | `READ_RECORDS` — todas as categorias relevantes |
+| Usuário → Plataforma AVA | Permanente (renovável) | `ANALYZE_VITALITY` + `REQUEST_SCORE` |
+| Usuário → Plano de Saúde (opt-in) | Anual — deve ser renovado | `REQUEST_SCORE` — apenas SVA composto |
 
-The moment a token is revoked, the `AccessControl` contract records `revoked_at`. From that second onward, any operation attempting to use that token will fail immediately with `TOKEN_REVOKED`. The institution is not notified automatically; they discover it when access is blocked.
+---
+
+## Verificar um Token (SDK Institucional)
+
+```python
+from bsp_sdk import BSPClient
+
+client = BSPClient(
+    ieo_domain  = "seulaboratorio.bsp",
+    private_key = SUA_CHAVE_PRIVADA,
+)
+
+verification = client.verify_consent(
+    token_id   = "token-uuid-apresentado-pelo-usuario",
+    beo_domain = "patient.bsp",
+    intent     = "SUBMIT_RECORD",
+    category   = "BSP-HM",
+)
+
+if not verification.valid:
+    print(verification.reason)
+    # TOKEN_NOT_FOUND | TOKEN_REVOKED | TOKEN_EXPIRED
+    # INTENT_NOT_AUTHORIZED | CATEGORY_NOT_AUTHORIZED
+```
+
+---
+
+## Revogação
+
+A revogação é **instantânea e on-chain**. No momento em que um usuário revoga um token, o contrato `AccessControl` marca como revogado. Todas as requisições subsequentes da instituição são imediatamente rejeitadas.
+
+```python
+# Do app do usuário (titular do BEO)
+result = client.revoke_consent(token_id="token-uuid")
+print(result.status)  # REVOKED — efeito imediato
+
+# Ou revogar tudo de uma instituição de uma vez
+client.revoke_all_from_ieo(ieo_domain="fleury.bsp")
+
+# Opção nuclear — revogar todos os tokens ativos
+client.revoke_all_tokens()
+```
+
+> **Instituições não são notificadas automaticamente.** Elas descobrem a revogação quando sua próxima requisição é rejeitada com `TOKEN_REVOKED`.
+
+---
+
+## Funções do Contrato AccessControl
+
+| Função | Chamador Autorizado | Descrição |
+|--------|--------------------|-----------|
+| `grantConsent()` | Apenas titular do BEO | Emite um novo ConsentToken |
+| `revokeToken()` | Apenas titular do BEO | Revoga imediatamente um token |
+| `verifyToken()` | Qualquer IEO | Verifica se um token é válido para um dado intent + categoria |
+| `listTokens()` | Apenas titular do BEO | Registro de auditoria completo de todos os tokens emitidos |
+
+> [!IMPORTANT]
+> Apenas o titular do BEO pode conceder ou revogar consentimento. Nenhuma instituição, nenhum outro sistema e nem mesmo o Ambrósio Institute pode conceder acesso aos dados de um usuário em seu nome.
+
+---
+
+## Códigos de Erro
+
+| Código | Descrição | Retentável |
+|--------|-----------|-----------|
+| `TOKEN_NOT_FOUND` | ID do token não existe on-chain | Não — usuário deve reemitir |
+| `TOKEN_REVOKED` | Revogado pelo titular | Não — nunca tentar novamente |
+| `TOKEN_EXPIRED` | `expires_at` passou | Não — usuário deve renovar |
+| `INTENT_NOT_AUTHORIZED` | Intent solicitado não está no escopo do token | Não |
+| `CATEGORY_NOT_AUTHORIZED` | Categoria não está no escopo do token | Não |
+| `BEO_LOCKED` | BEO está no estado LOCKED | Não — titular deve desbloquear |

@@ -1,44 +1,44 @@
 ---
-title: Governance & BIPs
+title: Governança e BIPs
 ---
 
-# BSP Governance — Protocol Changes and BIPs
+# Governança BSP — Mudanças no Protocolo e BIPs
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-The BSP specification evolves through a public improvement process — **BSP Improvement Proposals (BIPs)**.
-
-Any individual, company, or institution can propose changes to the protocol. The Ambrósio Institute reviews all proposals and coordinates community discussion. Critical protocol changes require multi-signature authorization.
+> Versão 0.2 | Ambrósio Institute
 
 ---
 
-## Governance Principles
+## Visão Geral
 
-1. **Openness** — Anyone can propose a BIP. No institutional affiliation required.
-2. **Transparency** — All proposals, discussions, and decisions are public.
-3. **Conservative change** — Protocol changes have a high bar. Stability is a feature.
-4. **Backward compatibility** — Accepted changes must not break existing implementations, unless the break is clearly necessary and the migration path is defined.
-5. **Institute guardianship** — The Ambrósio Institute is the guardian of the specification, not its owner. The protocol serves the ecosystem.
+A especificação BSP evolui por meio de um processo público de melhorias — **BSP Improvement Proposals (BIPs)**.
+
+Qualquer indivíduo, empresa ou instituição pode propor mudanças no protocolo. O Ambrósio Institute analisa todas as propostas e coordena a discussão da comunidade. Mudanças críticas no protocolo exigem autorização multi-assinatura.
 
 ---
 
-## BIP Categories
+## Princípios de Governança
 
-| Category | Description | Examples |
+1. **Abertura** — Qualquer pessoa pode propor um BIP. Nenhuma afiliação institucional necessária.
+2. **Transparência** — Todas as propostas, discussões e decisões são públicas.
+3. **Mudança conservadora** — Mudanças no protocolo têm um critério elevado. Estabilidade é uma funcionalidade.
+4. **Compatibilidade retroativa** — Mudanças aceitas não devem quebrar implementações existentes, a menos que a quebra seja claramente necessária e o caminho de migração esteja definido.
+5. **Custódia do Instituto** — O Ambrósio Institute é guardião da especificação, não seu proprietário. O protocolo serve ao ecossistema.
+
+---
+
+## Categorias de BIP
+
+| Categoria | Descrição | Exemplos |
 |---|---|---|
-| **BSP-BIP-TAXONOMY** | Add or modify biomarker codes | New biomarker, unit correction |
-| **BSP-BIP-SCHEMA** | Changes to BEO, IEO, or BioRecord schema | New field, field type change |
-| **BSP-BIP-EXCHANGE** | Changes to the Exchange Protocol | New intent, error code |
-| **BSP-BIP-GOVERNANCE** | Changes to the governance process itself | BIP template, review timeline |
-| **BSP-BIP-INFRA** | Smart contract upgrades | New contract, parameter change |
+| **BSP-BIP-TAXONOMY** | Adicionar ou modificar códigos de biomarcadores | Novo biomarcador, correção de unidade |
+| **BSP-BIP-SCHEMA** | Mudanças no schema do BEO, IEO ou BioRecord | Novo campo, mudança de tipo de campo |
+| **BSP-BIP-EXCHANGE** | Mudanças no Protocolo de Troca | Nova intenção, código de erro |
+| **BSP-BIP-GOVERNANCE** | Mudanças no próprio processo de governança | Template de BIP, prazo de revisão |
+| **BSP-BIP-INFRA** | Atualizações de contratos inteligentes | Novo contrato, mudança de parâmetro |
 
 ---
 
-## BIP Status Flow
+## Fluxo de Status do BIP
 
 ```
 DRAFT → REVIEW → ACCEPTED | REJECTED
@@ -46,40 +46,40 @@ DRAFT → REVIEW → ACCEPTED | REJECTED
                   FINAL (after implementation)
 ```
 
-| Status | Description |
+| Status | Descrição |
 |---|---|
-| `DRAFT` | Author is drafting — not yet submitted for review |
-| `REVIEW` | Submitted — open for community discussion (30 days) |
-| `ACCEPTED` | Approved by Institute — scheduled for implementation |
-| `REJECTED` | Not accepted — with explanation |
-| `FINAL` | Implemented and active in a released BSP version |
+| `DRAFT` | Autor está redigindo — ainda não enviado para revisão |
+| `REVIEW` | Enviado — aberto para discussão da comunidade (30 dias) |
+| `ACCEPTED` | Aprovado pelo Instituto — agendado para implementação |
+| `REJECTED` | Não aceito — com explicação |
+| `FINAL` | Implementado e ativo em uma versão BSP lançada |
 
 ---
 
-## Submitting a BIP
+## Enviando um BIP
 
-1. Fork this repository
-2. Copy `bip/BIP-0000-template.md` to `bip/BIP-XXXX-your-title.md`
-3. Fill in the template completely
-4. Open a Pull Request
+1. Faça um fork deste repositório
+2. Copie `bip/BIP-0000-template.md` para `bip/BIP-XXXX-seu-titulo.md`
+3. Preencha o template completamente
+4. Abra um Pull Request
 
-The PR opens the 30-day public review period. The Ambrósio Institute will schedule a review call for proposals that reach community consensus.
-
----
-
-## Critical Parameter Changes
-
-Changes to smart contract parameters or the Governance contract itself require **multi-signature authorization** from Institute keyholders.
-
-This prevents unilateral changes — including by the Institute's founder. The protocol is protected from any single actor.
+O PR abre o período de revisão pública de 30 dias. O Ambrósio Institute agendará uma chamada de revisão para propostas que alcançarem consenso da comunidade.
 
 ---
 
-## BIP Index
+## Mudanças em Parâmetros Críticos
 
-| BIP | Title | Status |
+Mudanças nos parâmetros de contratos inteligentes ou no próprio contrato de Governança exigem **autorização multi-assinatura** dos detentores de chaves do Instituto.
+
+Isso previne mudanças unilaterais — inclusive pelo fundador do Instituto. O protocolo está protegido de qualquer ator único.
+
+---
+
+## Índice de BIPs
+
+| BIP | Título | Status |
 |---|---|---|
-| BIP-0000 | BIP Template | FINAL |
+| BIP-0000 | Template de BIP | FINAL |
 
 ---
 

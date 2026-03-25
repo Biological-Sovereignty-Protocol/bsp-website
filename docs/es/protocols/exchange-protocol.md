@@ -1,57 +1,61 @@
-# Exchange Protocol
+<div class="page-hero-image">
+  <img src="/images/exchange-protocol.png" alt="Exchange Protocol" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"BSP defines the format of the conversation. What each system does with it is their responsibility."
+# Protocolo de Intercambio
 
-## Overview
-The Exchange Protocol is the layer of BSP that defines how biological data moves between systems. It specifies the exact format of requests and responses, available operation types (Intents), authentication, and error handling. Any system correctly implementing the Exchange Protocol can send and receive biological data in the BSP format — without prior approval, without intermediaries.
+"BSP define el formato de la conversación. Lo que cada sistema hace con ella es su responsabilidad."
 
-The Exchange Protocol defines:
-*   Schema of `BSPRequest` and `BSPResponse`.
-*   Types of `BSPIntent` and their parameters.
-*   Authentication via `ConsentToken` + IEO signature.
+## Visión General
+El Protocolo de Intercambio es la capa de BSP que define cómo se mueven los datos biológicos entre sistemas. Especifica el formato exacto de las solicitudes y respuestas, los tipos de operación disponibles (Intents), la autenticación y el manejo de errores. Cualquier sistema que implemente correctamente el Protocolo de Intercambio puede enviar y recibir datos biológicos en formato BSP — sin aprobación previa, sin intermediarios.
 
-The Exchange Protocol **DOES NOT** define:
-*   What systems do with the received data.
-*   Analysis or scoring algorithms (e.g., AVA, SVA).
-*   Transport infrastructure (HTTP, WebSocket, etc).
+El Protocolo de Intercambio define:
+*   Schema de `BSPRequest` y `BSPResponse`.
+*   Tipos de `BSPIntent` y sus parámetros.
+*   Autenticación mediante `ConsentToken` + firma IEO.
 
-## BSPIntent — Operation Types
-Intents define the vocabulary of operations. Each Intent requires specific parameters and expected responses. The `ConsentToken` must include the requested Intent, otherwise the `AccessControl` contract rejects the request immediately.
+El Protocolo de Intercambio **NO** define:
+*   Lo que los sistemas hacen con los datos recibidos.
+*   Algoritmos de análisis o puntuación (ej., AVA, SVA).
+*   Infraestructura de transporte (HTTP, WebSocket, etc.).
+
+## BSPIntent — Tipos de Operación
+Los Intents definen el vocabulario de operaciones. Cada Intent requiere parámetros específicos y respuestas esperadas. El `ConsentToken` debe incluir el Intent solicitado; de lo contrario, el contrato `AccessControl` rechaza la solicitud inmediatamente.
 
 ### 1. SUBMIT_RECORD
-Used by laboratories, wearables, and authorized systems to write biological measurements to a BEO.
-*   **Required Parameter**: `payload` (BioRecord or array of BioRecords).
-*   **Consent:** Requires token with `SUBMIT_RECORD` and the corresponding category.
+Usado por laboratorios, wearables y sistemas autorizados para escribir mediciones biológicas en un BEO.
+*   **Parámetro Requerido**: `payload` (BioRecord o array de BioRecords).
+*   **Consentimiento:** Requiere token con `SUBMIT_RECORD` y la categoría correspondiente.
 
 ### 2. READ_RECORDS
-Used by physicians, platforms, and analysis systems to read biological data from a BEO.
-*   **Options**: Filters by `biomarkers`, `categories`, `levels`, `period`, `limit`, and `offset`.
-*   **Consent:** Requires token with `READ_RECORDS` in scope.
+Usado por médicos, plataformas y sistemas de análisis para leer datos biológicos de un BEO.
+*   **Opciones**: Filtros por `biomarkers`, `categories`, `levels`, `period`, `limit` y `offset`.
+*   **Consentimiento:** Requiere token con `READ_RECORDS` en el alcance.
 
 ### 3. ANALYZE_VITALITY
-Requests a complete biological aging analysis from an intelligence system.
-*   **Process:** Only AVA-powered systems produce SVA scores. Other systems can implement their own logic.
+Solicita un análisis completo de envejecimiento biológico a un sistema de inteligencia.
+*   **Proceso:** Solo los sistemas impulsados por AVA producen puntuaciones SVA. Otros sistemas pueden implementar su propia lógica.
 
 ### 4. REQUEST_SCORE
-Simplified version of `ANALYZE_VITALITY` — returns only the composite vitality score, not detailed analysis. Mainly used by opt-in insurers.
+Versión simplificada de `ANALYZE_VITALITY` — devuelve solo la puntuación de vitalidad compuesta, no el análisis detallado. Usada principalmente por aseguradoras con opt-in.
 
 ### 5. EXPORT_DATA
-The most fundamental right of the BEO holder. Returns all BioRecords in standardized BSP format, decrypted with the holder's private key, facilitating total data portability.
+El derecho más fundamental del titular del BEO. Devuelve todos los BioRecords en formato BSP estandarizado, descifrados con la clave privada del titular, facilitando la portabilidad total de datos.
 > [!IMPORTANT]
-> `EXPORT_DATA` cannot be blocked, limited, or denied by any BSP-compliant system. Any system that blocks this violates the BSP specification.
+> `EXPORT_DATA` no puede ser bloqueado, limitado ni denegado por ningún sistema BSP-compatible. Cualquier sistema que bloquee esto viola la especificación BSP.
 
 ### 6. SYNC_PROTOCOL
-Synchronizes a user's active health protocol (interventions, supplements, goals) across BSP-compatible systems.
+Sincroniza el protocolo de salud activo de un usuario (intervenciones, suplementos, objetivos) entre sistemas compatibles con BSP.
 
-## Double Authentication
-The `BSPRequest` demands two levels of authentication:
-1.  **ConsentToken**: Proves the BEO holder authorized the IEO.
-2.  **ieo_signature**: Proves the requesting IEO actually constructed the request. The IEO signs the request payload with its private key, preventing intercepted ConsentTokens from being misused.
+## Doble Autenticación
+El `BSPRequest` exige dos niveles de autenticación:
+1.  **ConsentToken**: Prueba que el titular del BEO autorizó al IEO.
+2.  **ieo_signature**: Prueba que el IEO solicitante realmente construyó la solicitud. El IEO firma el payload de la solicitud con su clave privada, impidiendo que los ConsentTokens interceptados sean mal utilizados.
 
-## BSPResponse & Errors
-Responses strictly follow the `BSPResponse` schema containing the `status` (`SUCCESS`, `ERROR`, `PARTIAL`, `PENDING`). 
+## BSPResponse y Errores
+Las respuestas siguen estrictamente el schema `BSPResponse` que contiene el `status` (`SUCCESS`, `ERROR`, `PARTIAL`, `PENDING`).
 
-Common errors include:
-*   **Authentication/Authorization**: `TOKEN_NOT_FOUND`, `TOKEN_REVOKED`, `INTENT_NOT_AUTHORIZED`, `CATEGORY_NOT_AUTHORIZED`.
-*   **Schema/Data**: `BIOMARKER_NOT_FOUND`, `INVALID_UNIT`, `SCHEMA_VALIDATION_FAILED`, `DUPLICATE_RECORD`.
-*   **System**: `ARWEAVE_WRITE_FAILED`, `INTENT_NOT_SUPPORTED`.
+Los errores comunes incluyen:
+*   **Autenticación/Autorización**: `TOKEN_NOT_FOUND`, `TOKEN_REVOKED`, `INTENT_NOT_AUTHORIZED`, `CATEGORY_NOT_AUTHORIZED`.
+*   **Schema/Datos**: `BIOMARKER_NOT_FOUND`, `INVALID_UNIT`, `SCHEMA_VALIDATION_FAILED`, `DUPLICATE_RECORD`.
+*   **Sistema**: `ARWEAVE_WRITE_FAILED`, `INTENT_NOT_SUPPORTED`.

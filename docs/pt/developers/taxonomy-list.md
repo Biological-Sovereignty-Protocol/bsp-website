@@ -1,58 +1,58 @@
-# Complete Biomarker Taxonomy
+# Taxonomia Completa de Biomarcadores
 
-The BSP Taxonomy is the universal language for measuring biological state. It currently contains 210+ approved biomarkers divided into 25 categories and 4 access levels.
+A Taxonomia BSP é a linguagem universal para medir o estado biológico. Atualmente contém mais de 210 biomarcadores aprovados divididos em 25 categorias e 4 níveis de acesso.
 
 > [!NOTE]
-> This is a living standard. New biomarkers are added quarterly via the [BIP Governance Process](/protocols/governance).
+> Este é um padrão vivo. Novos biomarcadores são adicionados trimestralmente por meio do [Processo de Governança BIP](/protocols/governance).
 
-## 1. Core Longevity (BSP-LA)
-The primary markers used by the AVA engine to determine the Ambrósio Vitality Score (SVA).
+## 1. Longevidade Core (BSP-LA)
+Os marcadores primários utilizados pelo motor AVA para determinar o Índice de Vitalidade Ambrósio (SVA).
 
-| Code | Biomarker | Unit | Expected Optimal Range | Method |
+| Código | Biomarcador | Unidade | Faixa Ótima Esperada | Método |
 |------|-----------|------|------------------------|--------|
-| `BSP-LA-001` | High-Sensitivity CRP (hs-CRP) | mg/L | < 0.5 | Immunoassay |
-| `BSP-LA-002` | Fasting Insulin | µIU/mL | 2.0 - 5.0 | ECLIA |
-| `BSP-LA-003` | Homocysteine | µmol/L | 5.0 - 7.0 | HPLC |
-| `BSP-LA-004` | HbA1c | % | 4.6 - 5.0 | HPLC |
-| `BSP-LA-005` | Free Testosterone | ng/dL | Age/Sex dependent | LC-MS/MS |
-| `BSP-LA-006` | Vitamin D (25-OH) | ng/mL | 50.0 - 80.0 | LC-MS/MS |
-| `BSP-LA-007` | Omega-3 Index | % | > 8.0 | GC-MS |
-| `BSP-LA-008` | ApoB | mg/dL | < 60 | Immunoturbidimetry |
-| `BSP-LA-009` | NAD+ / NADH Ratio | ratio | > 400 | LC-MS |
+| `BSP-LA-001` | PCR de Alta Sensibilidade (hs-CRP) | mg/L | < 0,5 | Imunoensaio |
+| `BSP-LA-002` | Insulina em Jejum | µIU/mL | 2,0 - 5,0 | ECLIA |
+| `BSP-LA-003` | Homocisteína | µmol/L | 5,0 - 7,0 | HPLC |
+| `BSP-LA-004` | HbA1c | % | 4,6 - 5,0 | HPLC |
+| `BSP-LA-005` | Testosterona Livre | ng/dL | Dependente de idade/sexo | LC-MS/MS |
+| `BSP-LA-006` | Vitamina D (25-OH) | ng/mL | 50,0 - 80,0 | LC-MS/MS |
+| `BSP-LA-007` | Índice Ômega-3 | % | > 8,0 | GC-MS |
+| `BSP-LA-008` | ApoB | mg/dL | < 60 | Imunoturbidimetria |
+| `BSP-LA-009` | Razão NAD+ / NADH | razão | > 400 | LC-MS |
 
-## 2. Essential Metabolism (BSP-MT)
-Markers for assessing metabolic flexibility, mitochondrial function, and energy substrates.
+## 2. Metabolismo Essencial (BSP-MT)
+Marcadores para avaliar flexibilidade metabólica, função mitocondrial e substratos energéticos.
 
-| Code | Biomarker | Unit | Expected Optimal Range | Method |
+| Código | Biomarcador | Unidade | Faixa Ótima Esperada | Método |
 |------|-----------|------|------------------------|--------|
-| `BSP-MT-001` | Fasting Glucose | mg/dL | 75 - 85 | Hexokinase |
-| `BSP-MT-002` | Uric Acid | mg/dL | 3.5 - 5.0 | Uricase |
-| `BSP-MT-003` | Lactate Dehydrogenase (LDH) | U/L | 140 - 200 | UV Kinetic |
-| `BSP-MT-004` | Ferritin | ng/mL | 50 - 150 | ECLIA |
-| `BSP-MT-005` | Triglycerides | mg/dL | < 70 | Enzymatic |
+| `BSP-MT-001` | Glicose em Jejum | mg/dL | 75 - 85 | Hexoquinase |
+| `BSP-MT-002` | Ácido Úrico | mg/dL | 3,5 - 5,0 | Uricase |
+| `BSP-MT-003` | Desidrogenase Lática (LDH) | U/L | 140 - 200 | UV Cinético |
+| `BSP-MT-004` | Ferritina | ng/mL | 50 - 150 | ECLIA |
+| `BSP-MT-005` | Triglicerídeos | mg/dL | < 70 | Enzimático |
 
-## 3. Cardiovascular Dynamics (BSP-CV)
-Advanced lipidology, endothelial function, and vascular health.
+## 3. Dinâmica Cardiovascular (BSP-CV)
+Lipidologia avançada, função endotelial e saúde vascular.
 
-| Code | Biomarker | Unit | Expected Optimal Range | Method |
+| Código | Biomarcador | Unidade | Faixa Ótima Esperada | Método |
 |------|-----------|------|------------------------|--------|
-| `BSP-CV-001` | LDL Particle Number (LDL-P) | nmol/L | < 1000 | NMR |
-| `BSP-CV-002` | Lipoprotein(a) | mg/dL | < 14 | Immunoturbidimetry |
-| `BSP-CV-003` | Fibrinogen | mg/dL | 200 - 300 | Clauss |
-| `BSP-CV-004` | Oxidized LDL | U/L | < 45 | ELISA |
+| `BSP-CV-001` | Número de Partículas LDL (LDL-P) | nmol/L | < 1000 | NMR |
+| `BSP-CV-002` | Lipoproteína(a) | mg/dL | < 14 | Imunoturbidimetria |
+| `BSP-CV-003` | Fibrinogênio | mg/dL | 200 - 300 | Clauss |
+| `BSP-CV-004` | LDL Oxidado | U/L | < 45 | ELISA |
 
-## 4. Device & Wearables Continuously Tracked (BSP-DV)
-Data collected continuously from BSP-certified consumer and clinical hardware (Oura, Apple Watch, WHOOP).
+## 4. Dispositivos e Wearables com Rastreamento Contínuo (BSP-DV)
+Dados coletados continuamente por hardware clínico e de consumo certificado BSP (Oura, Apple Watch, WHOOP).
 
-| Code | Biomarker | Unit | Frequency | Method |
+| Código | Biomarcador | Unidade | Frequência | Método |
 |------|-----------|------|-----------|--------|
-| `BSP-DV-001` | Resting Heart Rate (RHR) | bpm | Daily Avg | PPG / ECG |
-| `BSP-DV-002` | Heart Rate Variability (HRV) | ms (RMSSD) | Daily Avg | PPG / ECG |
-| `BSP-DV-003` | Slow Wave Sleep Duration | min | Nightly | Actigraphy + Temp |
-| `BSP-DV-004` | REM Sleep Duration | min | Nightly | Actigraphy + Temp |
-| `BSP-DV-005` | Nocturnal Body Temp Deviation | °C | Nightly | Thermistor |
-| `BSP-DV-006` | VO2 Max Estimate | mL/kg/min | Monthly | Multisensor model |
+| `BSP-DV-001` | Frequência Cardíaca em Repouso (FCR) | bpm | Média Diária | PPG / ECG |
+| `BSP-DV-002` | Variabilidade da Frequência Cardíaca (VFC) | ms (RMSSD) | Média Diária | PPG / ECG |
+| `BSP-DV-003` | Duração do Sono de Ondas Lentas | min | Noturno | Actigrafia + Temp |
+| `BSP-DV-004` | Duração do Sono REM | min | Noturno | Actigrafia + Temp |
+| `BSP-DV-005` | Desvio da Temperatura Corporal Noturna | °C | Noturno | Termistor |
+| `BSP-DV-006` | Estimativa de VO2 Máx | mL/kg/min | Mensal | Modelo multisensor |
 
 ---
 
-*For the complete JSON list of all 210+ biomarkers to integrate into your application, see the `bsp-spec` repository.*
+*Para a lista JSON completa com mais de 210 biomarcadores para integrar em sua aplicação, consulte o repositório `bsp-spec`.*

@@ -5,6 +5,10 @@ outline: deep
 title: "**BSP** Whitepaper"
 ---
 
+<div class="page-hero-image">
+  <img src="/images/whitepaper-hero.png" alt="BSP Whitepaper — protocol specification document" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
 
 <div class="whitepaper-hero">
   <div class="wp-badge">v 1.0</div>

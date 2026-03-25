@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+/* ── Global smooth scroll ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Selection color ──────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 118, 255, 0.22);
+  color: inherit;
+}
+.dark ::selection {
+  background: rgba(50, 145, 255, 0.28);
+}
+
+/* ── Custom scrollbar (thin, brand color) ─────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-1);
+  border-radius: 6px;
+  opacity: 0.6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-2);
+}
+
+/* ── Smooth theme transition ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
+
 :root {
   --vp-font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --vp-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -138,6 +176,57 @@ hr {
   display: block;
 }
 
+/* ── Header transparente na homepage (topo) ───────────────────── */
+body.bsp-home:not(.bsp-scrolled) .VPNav,
+body.bsp-home:not(.bsp-scrolled) .VPNavBar {
+  background: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+body.bsp-home:not(.bsp-scrolled) .VPNavBarTitle .title,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarExtra button,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarAppearance button svg,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarHamburger .bar {
+  color: #fff !important;
+  fill: #fff !important;
+  background-color: #fff !important;
+}
+
+body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
+body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button {
+  background-color: transparent !important;
+}
+
+/* Ao rolar: header opaco com cores normais */
+body.bsp-home.bsp-scrolled .VPNav,
+body.bsp-home.bsp-scrolled .VPNavBar {
+  background: var(--vp-c-bg) !important;
+  border-bottom: 1px solid var(--vp-c-border) !important;
+  backdrop-filter: saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
+}
+
+body.bsp-home.bsp-scrolled .VPNavBarTitle .title,
+body.bsp-home.bsp-scrolled .VPNavBarMenuLink,
+body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button,
+body.bsp-home.bsp-scrolled .VPNavBarExtra button,
+body.bsp-home.bsp-scrolled .VPSocialLink,
+body.bsp-home.bsp-scrolled .VPNavBarAppearance button {
+  color: var(--vp-c-text-1) !important;
+  fill: var(--vp-c-text-1) !important;
+}
+
+body.bsp-home.bsp-scrolled .VPNavBarMenuLink:hover,
+body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button:hover {
+  color: var(--vp-c-brand-1) !important;
+}
+
 /* Navbar logo size */
 .VPNavBarTitle .logo {
   height: 61px !important;
@@ -241,4 +330,54 @@ hr {
 
 .wp-divider {
   color: var(--vp-c-border);
+}
+
+/* ── "On This Page" outline — Ethereum style ─────────────────── */
+.VPDocAsideOutline {
+  border-left: 2px solid var(--vp-c-brand-soft);
+  padding-left: 16px;
+}
+
+.VPDocAsideOutline .outline-link {
+  transition: color 0.15s ease;
+}
+
+.VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.VPDocAsideOutline .outline-link:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ── Breadcrumb hover with animated underline ────────────────── */
+.VPDocBreadcrumbs .item a,
+.vp-doc .vp-breadcrumb a {
+  position: relative;
+  text-decoration: none;
+  color: var(--vp-c-text-2);
+  transition: color 0.18s ease;
+}
+
+.VPDocBreadcrumbs .item a::after,
+.vp-doc .vp-breadcrumb a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--vp-c-brand-1);
+  transition: width 0.22s ease;
+}
+
+.VPDocBreadcrumbs .item a:hover,
+.vp-doc .vp-breadcrumb a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.VPDocBreadcrumbs .item a:hover::after,
+.vp-doc .vp-breadcrumb a:hover::after {
+  width: 100%;
 }

@@ -71,6 +71,15 @@ const enSidebar = [
             { text: 'JSON Payloads', link: '/developers/payloads' },
             { text: 'Ecosystem Directory', link: '/developers/directory' }
         ]
+    },
+    {
+        text: 'Use Cases',
+        items: [
+            { text: 'Health Data Ownership', link: '/use-cases/health-data-ownership' },
+            { text: 'Decentralized Health Records', link: '/use-cases/decentralized-health-records' },
+            { text: 'Open Data Standard', link: '/use-cases/open-health-data-standard' },
+            { text: 'Longevity AI', link: '/use-cases/longevity-ai-data' }
+        ]
     }
 ]
 
@@ -144,6 +153,15 @@ const ptSidebar = [
             { text: 'Tutoriais e Guias', link: '/pt/developers/tutorials' },
             { text: 'Cargas JSON', link: '/pt/developers/payloads' },
             { text: 'Diretório do Ecossistema', link: '/pt/developers/directory' }
+        ]
+    },
+    {
+        text: 'Casos de Uso',
+        items: [
+            { text: 'Soberania de Dados de Saúde', link: '/pt/use-cases/health-data-ownership' },
+            { text: 'Registros de Saúde Descentralizados', link: '/pt/use-cases/decentralized-health-records' },
+            { text: 'Padrão Aberto de Dados', link: '/pt/use-cases/open-health-data-standard' },
+            { text: 'IA de Longevidade', link: '/pt/use-cases/longevity-ai-data' }
         ]
     }
 ]
@@ -219,6 +237,15 @@ const esSidebar = [
             { text: 'Cargas JSON', link: '/es/developers/payloads' },
             { text: 'Directorio del Ecosistema', link: '/es/developers/directory' }
         ]
+    },
+    {
+        text: 'Casos de Uso',
+        items: [
+            { text: 'Soberanía de Datos de Salud', link: '/es/use-cases/health-data-ownership' },
+            { text: 'Registros de Salud Descentralizados', link: '/es/use-cases/decentralized-health-records' },
+            { text: 'Estándar Abierto de Datos', link: '/es/use-cases/open-health-data-standard' },
+            { text: 'IA de Longevidad', link: '/es/use-cases/longevity-ai-data' }
+        ]
     }
 ]
 
@@ -226,6 +253,31 @@ export default defineConfig({
     title: "Biological Sovereignty Protocol",
     description: "The protocol that gives every human being permanent sovereignty over their own biology.",
     cleanUrls: true,
+
+    sitemap: {
+        hostname: 'https://biologicalsovereigntyprotocol.com'
+    },
+    head: [
+        ['meta', { name: 'theme-color', content: '#0076ff' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:site_name', content: 'Biological Sovereignty Protocol' }],
+        ['meta', { property: 'og:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:site', content: '@BSProtocol' }],
+        ['meta', { name: 'twitter:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        ['link', { rel: 'canonical', href: 'https://biologicalsovereigntyprotocol.com' }],
+        ['script', { type: 'application/ld+json' }, JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Biological Sovereignty Protocol",
+            "url": "https://biologicalsovereigntyprotocol.com",
+            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.png",
+            "description": "Open cryptographic standard for health and longevity data sovereignty",
+            "sameAs": [
+                "https://github.com/Biological-Sovereignty-Protocol"
+            ]
+        })]
+    ],
 
     themeConfig: {
         logo: {
@@ -243,6 +295,7 @@ export default defineConfig({
             label: 'English',
             lang: 'en',
             themeConfig: {
+                description: 'BSP is the open cryptographic standard for health data sovereignty. Own your biological data permanently on Arweave. No gatekeepers. No API fees.',
                 nav: [
                     { text: 'Whitepaper', link: '/whitepaper' },
                     {
@@ -264,21 +317,11 @@ export default defineConfig({
                             { text: 'Biomarker Taxonomy', link: '/specification/taxonomy/level-1-core' }
                         ]
                     },
+                    { text: 'Use Cases', link: '/use-cases/' },
                     { text: 'SDK & Tools', link: '/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/bips/' },
-                    { text: 'Blog', link: '/blog/' }
+                    { text: 'BIPs', link: '/bips/' }
                 ],
                 sidebar: {
-                    '/blog/': [
-                        {
-                            text: 'Blog',
-                            items: [
-                                { text: 'All Posts', link: '/blog/' },
-                                { text: 'The Structural Failure of Modern Health Data', link: '/blog/the-problem-with-data-silos' },
-                                { text: 'Introducing the Biological Sovereignty Protocol', link: '/blog/introducing-bsp' }
-                            ]
-                        }
-                    ],
                     '/': enSidebar
                 }
             }
@@ -290,6 +333,7 @@ export default defineConfig({
             title: 'Protocolo de Soberania Biológica',
             description: 'O protocolo que dá a cada humano soberania permanente sobre sua própria biologia.',
             themeConfig: {
+                description: 'BSP é o padrão criptográfico aberto para soberania de dados de saúde. Seja dono dos seus dados biológicos permanentemente no Arweave.',
                 nav: [
                     { text: 'Whitepaper', link: '/pt/whitepaper' },
                     {
@@ -311,9 +355,9 @@ export default defineConfig({
                             { text: 'Taxonomia de Biomarcadores', link: '/pt/specification/taxonomy/level-1-core' }
                         ]
                     },
+                    { text: 'Casos de Uso', link: '/pt/use-cases/' },
                     { text: 'SDK e Ferramentas', link: '/pt/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/pt/bips/' },
-                    { text: 'Blog', link: '/blog/' }
+                    { text: 'BIPs', link: '/pt/bips/' }
                 ],
                 sidebar: {
                     '/pt/': ptSidebar
@@ -327,6 +371,7 @@ export default defineConfig({
             title: 'Protocolo de Soberanía Biológica',
             description: 'El protocolo que otorga a cada ser humano soberanía permanente sobre su propia biología.',
             themeConfig: {
+                description: 'BSP es el estándar criptográfico abierto para la soberanía de datos de salud. Sea dueño de sus datos biológicos permanentemente en Arweave.',
                 nav: [
                     { text: 'Whitepaper', link: '/es/whitepaper' },
                     {
@@ -348,9 +393,9 @@ export default defineConfig({
                             { text: 'Taxonomía de Biomarcadores', link: '/es/specification/taxonomy/level-1-core' }
                         ]
                     },
+                    { text: 'Casos de Uso', link: '/es/use-cases/' },
                     { text: 'SDK y Herramientas', link: '/es/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/es/bips/' },
-                    { text: 'Blog', link: '/blog/' }
+                    { text: 'BIPs', link: '/es/bips/' }
                 ],
                 sidebar: {
                     '/es/': esSidebar

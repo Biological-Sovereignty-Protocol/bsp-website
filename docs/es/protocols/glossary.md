@@ -1,68 +1,68 @@
-# Canonical Glossary
+# Glosario Canónico
 
-This document is the canonical reference for all technical terms, objects, types, contracts, repositories, and concepts of the Biological Sovereignty Protocol.
+Este documento es la referencia canónica para todos los términos técnicos, objetos, tipos, contratos, repositorios y conceptos del Biological Sovereignty Protocol.
 
-## Section 1: Core Protocol Objects
+## Sección 1: Objetos Principales del Protocolo
 
 *   **BEO — Biological Entity Object**
-    The sovereign biological identity of a human being within the BSP ecosystem. It is a permanent object stored on Arweave, identified by a `.bsp` domain (e.g., `andre.bsp`), and controlled exclusively by the owner through a private key.
+    La identidad biológica soberana de un ser humano dentro del ecosistema BSP. Es un objeto permanente almacenado en Arweave, identificado por un dominio `.bsp` (ej., `andre.bsp`), y controlado exclusivamente por el propietario a través de una clave privada.
 *   **BEORegistry**
-    Smart contract on Arweave responsible for creating and indexing BEOs. Stores the public address, public key hash, and basic metadata.
+    Contrato inteligente en Arweave responsable de crear e indexar BEOs. Almacena la dirección pública, el hash de la clave pública y metadatos básicos.
 *   **BioRecord**
-    The atomic unit of biological data. Each biological measurement is represented as an immutable BioRecord, containing the BSP biomarker code, the value/unit, reference range, the submitting institution signature, and a timestamp.
+    La unidad atómica de datos biológicos. Cada medición biológica se representa como un BioRecord inmutable, que contiene el código de biomarcador BSP, el valor/unidad, el rango de referencia, la firma de la institución que lo envió y un timestamp.
 *   **BIP — BSP Improvement Proposal**
-    Formal mechanism for protocol evolution. Anyone can submit a BIP proposing additions to the biomarker taxonomy or protocol specification.
-*   **.bsp Domain**
-    Permanent, human-readable biological address (e.g., `andre.bsp` or `fleury.bsp`). Registered in the DomainRegistry smart contract.
+    Mecanismo formal para la evolución del protocolo. Cualquiera puede enviar un BIP proponiendo adiciones a la taxonomía de biomarcadores o a la especificación del protocolo.
+*   **Dominio .bsp**
+    Dirección biológica permanente y legible por humanos (ej., `andre.bsp` o `fleury.bsp`). Registrada en el contrato inteligente DomainRegistry.
 *   **IEO — Institutional Entity Object**
-    The institutional identity of any organization, system, or professional interacting with biological data.
+    La identidad institucional de cualquier organización, sistema o profesional que interactúa con datos biológicos.
 *   **IEORegistry**
-    Smart contract that manages BSP-Certified IEOs.
+    Contrato inteligente que gestiona los IEOs BSP-Certificados.
 *   **ConsentToken**
-    Cryptographic authorization that allows an institution to interact with user data. Emitted by the AccessControl contract, specifying actions, categories, and expiration.
+    Autorización criptográfica que permite a una institución interactuar con los datos del usuario. Emitida por el contrato AccessControl, especificando acciones, categorías y expiración.
 
-## Section 2: Smart Contracts & Blockchain
+## Sección 2: Contratos Inteligentes y Blockchain
 
 *   **AccessControl**
-    The most critical protocol contract. Manages all consent access between BEOs and IEOs.
+    El contrato de protocolo más crítico. Gestiona todo el acceso por consentimiento entre BEOs e IEOs.
 *   **Arweave**
-    Permanent storage blockchain where all BSP ecosystem data is recorded.
+    Blockchain de almacenamiento permanente donde se registran todos los datos del ecosistema BSP.
 *   **DomainRegistry**
-    Smart contract controlling the `.bsp` namespace, ensuring global uniqueness.
+    Contrato inteligente que controla el namespace `.bsp`, garantizando la unicidad global.
 *   **Governance**
-    Smart contract controlling modifications to other BSP contracts through a multi-signature model.
+    Contrato inteligente que controla las modificaciones a otros contratos BSP a través de un modelo multi-firma.
 *   **SmartWeave**
-    Smart contract framework running on top of Arweave.
+    Framework de contratos inteligentes que corre sobre Arweave.
 
-## Section 3: Proprietary Intelligence — AVA & SVA
+## Sección 3: Inteligencia Propietaria — AVA y SVA
 
 *   **AVA — Ambrósio Vitality Algorithm**
-    The proprietary biological aging algorithm developed by the Ambrósio Institute. It processes data only when the user explicitly initiates an analysis. It is an implementation built on top of the open protocol.
+    El algoritmo propietario de envejecimiento biológico desarrollado por el Ambrósio Institute. Procesa datos solo cuando el usuario inicia explícitamente un análisis. Es una implementación construida sobre el protocolo abierto.
 *   **SVA — Ambrósio Vitality Score**
-    The multi-dimensional biological age score produced by AVA when processing a set of BSP BioRecords.
+    La puntuación de edad biológica multidimensional producida por AVA al procesar un conjunto de BioRecords BSP.
 
-## Section 4: Protocol & Taxonomy Concepts
+## Sección 4: Conceptos de Protocolo y Taxonomía
 
 *   **BSP — Biological Sovereignty Protocol**
-    The open standard defining the universal language for biological data exchange.
+    El estándar abierto que define el lenguaje universal para el intercambio de datos biológicos.
 *   **BSP-Certification**
-    Voluntary trust mark granted to institutions meeting technical and compliance requirements.
+    Sello de confianza voluntario otorgado a instituciones que cumplen con los requisitos técnicos y de cumplimiento.
 *   **BSPIntent**
-    Enumerated type defining the action a system requests in the Exchange Protocol (e.g., `SUBMIT_RECORD`, `READ_RECORDS`).
+    Tipo enumerado que define la acción que un sistema solicita en el Protocolo de Intercambio (ej., `SUBMIT_RECORD`, `READ_RECORDS`).
 *   **CertLevel**
-    Enumerated type representing BSP certification levels: `UNCERTIFIED`, `BASIC`, `ADVANCED`, `FULL`, `RESEARCH`, `DEVICE`.
-*   **Private Key**
-    Cryptographic key granting sovereign control over a BEO or IEO.
-*   **Public Key**
-    The public identifier address of a BEO or IEO.
-*   **Exchange Protocol**
-    The layer defining how data moves between systems.
-*   **Social Recovery**
-    Mechanism to recover a private key without a central server by designating 3 trusted guardians. 2 out of 3 confirmations are required to recover access. 
+    Tipo enumerado que representa los niveles de certificación BSP: `UNCERTIFIED`, `BASIC`, `ADVANCED`, `FULL`, `RESEARCH`, `DEVICE`.
+*   **Clave Privada**
+    Clave criptográfica que otorga el control soberano sobre un BEO o IEO.
+*   **Clave Pública**
+    La dirección identificadora pública de un BEO o IEO.
+*   **Protocolo de Intercambio**
+    La capa que define cómo se mueven los datos entre sistemas.
+*   **Recuperación Social**
+    Mecanismo para recuperar una clave privada sin un servidor central, designando 3 guardianes de confianza. Se requieren 2 de 3 confirmaciones para recuperar el acceso.
 
-## Section 5: Repositories & SDKs
+## Sección 5: Repositorios y SDKs
 
-*   **bsp-spec**: Canonical protocol specification.
-*   **bsp-sdk-typescript / bsp-sdk-python**: Official SDKs.
-*   **bsp-mcp**: Official MCP Server for AI Agents.
-*   **ava-core / sva-engine**: Private proprietary repositories for Ambrósio Intelligence.
+*   **bsp-spec**: Especificación canónica del protocolo.
+*   **bsp-sdk-typescript / bsp-sdk-python**: SDKs oficiales.
+*   **bsp-mcp**: Servidor MCP oficial para Agentes de IA.
+*   **ava-core / sva-engine**: Repositorios propietarios privados para la Inteligencia Ambrósio.

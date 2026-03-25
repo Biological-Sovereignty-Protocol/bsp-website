@@ -1,79 +1,200 @@
-# Biological Entity Object (BEO)
+<div class="page-hero-image">
+  <img src="/images/beo-identity.png" alt="BEO Digital Identity" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"The sovereign biological identity of a human being. The anchor point for all measured life."
+# Objeto de Entidad Biológica (BEO)
 
-## Overview - What is a BEO?
-The BEO is the foundation of the entire BSP ecosystem. It represents a living human being — the sovereign owner of their biological data. All of a person's BioRecords are anchored to it. All ConsentTokens that authorize access are issued from it. 
+> "La identidad biológica soberana de un ser humano. El punto de anclaje de toda la vida medida."
 
-A BEO is the permanent, sovereign identity of a human in the BSP ecosystem. It is created by the individual directly on Arweave, without approval from any authority. Once created, it belongs to the holder forever.
+## ¿Qué es un BEO?
+El BEO es la base de todo el ecosistema BSP. Representa a un ser humano vivo — el propietario soberano de sus datos biológicos. Todos los BioRecords de una persona están anclados a él. Todos los ConsentTokens que autorizan el acceso se emiten desde él.
 
-### BEO vs IEO — Fundamental Distinction
+Un BEO es **creado por el individuo directamente en Arweave, sin aprobación de ninguna autoridad.** Una vez creado, pertenece al titular para siempre.
 
-| Feature | BEO — Biological Entity Object | IEO — Institutional Entity Object |
-|---------|----------------|----------------|
-| **Represents** | A living human being | An organization, system, or professional |
-| **Created by** | The individual — no approval required | Any institution — directly |
-| **Transferable** | Never — permanent individual identity | Yes — on company acquisition or merger |
-| **Can read BEOs** | Own data only | Never without valid consent token |
-| **Can write BioRecords** | Cannot — humans observe, not record | Yes — with active ConsentToken |
-| **Domain format** | `firstname.bsp` | `institutionname.bsp` |
-| **Cost** | Free — sovereignty is a right | Paid — annual certification fee |
-| **Revocable by** | Individual only | Institute can revoke for violations |
+### BEO vs IEO — Distinción Fundamental
 
-## Cryptographic Identity — The BEO Keys
-BEO control is entirely determined by the possession of the private key.
+| Característica | BEO | IEO |
+|---------|-----|-----|
+| **Representa** | Un ser humano vivo | Una organización, sistema o profesional |
+| **Creado por** | El individuo — sin aprobación necesaria | Cualquier institución — directamente |
+| **Transferible** | Nunca — identidad individual permanente | Sí — en adquisición o fusión empresarial |
+| **Puede leer BEOs** | Solo sus propios datos | Nunca sin un ConsentToken válido |
+| **Puede escribir BioRecords** | No puede — los individuos observan, no registran | Sí — con ConsentToken activo |
+| **Formato de dominio** | `nombre.bsp` | `institucion.bsp` |
 
-*   `private_key`: Ed25519 format. Generated locally. Never transmitted. Used to sign authorizations, decrypt records, and sign Arweave transactions.
-*   `public_key`: Registered in the BEORegistry on Arweave. Used to identify the target BEO and encrypt data before submission.
-*   `seed_phrase`: 24 BIP-39 words. Mnemonic representation of the private key.
+---
 
-### Social Recovery
-The BEO functions normally without guardians, but users can configure Social Recovery at any time.
+## Identidad Criptográfica
 
-*   **Guardians**: Up to 3 trusted contacts. No guardian has access to the BEO's data. Each receives a cryptographic fragment of the recovery key.
-*   **Threshold**: Minimum of 2 guardians needed to authorize recovery (Padrão BSP: 2-of-3).
-*   **Mechanism**: Shamir Secret Sharing is used. Fragments are encrypted with the guardian's public key and stored on Arweave.
+El control del BEO está determinado enteramente por la posesión de la clave privada.
 
-## Schema
-The BEO is a structured object managed by the `BEORegistry` smart contract on Arweave.
+| Clave | Tipo | Uso |
+|-----|------|-------|
+| `private_key` | Ed25519 (64 bytes) | Generada localmente, nunca transmitida. Firma autorizaciones, descifra BioRecords, firma transacciones Arweave. |
+| `public_key` | Ed25519 (32 bytes) | Registrada públicamente en Arweave. Los laboratorios la usan para identificar tu BEO y cifrar datos antes del envío. |
+| `seed_phrase` | 24 palabras BIP-39 | Representación mnemónica de la clave privada. Guárdala offline — es tu copia de seguridad. |
+
+### Generación de Claves
+
+```javascript
+// 100% en el dispositivo — nada se envía a ningún servidor
+const entropy  = crypto.getRandomValues(new Uint8Array(32))
+const mnemonic = bip39.entropyToMnemonic(entropy)
+const seed     = await bip39.mnemonicToSeed(mnemonic)
+const keyPair  = ed25519.fromSeed(seed.slice(0, 32))
+
+const privateKey = keyPair.secretKey  // permanece en el dispositivo para siempre
+const publicKey  = keyPair.publicKey  // registrada en Arweave
+```
+
+---
+
+## Recuperación Social
+
+Si pierdes tu dispositivo y tu frase semilla, la Recuperación Social te permite recuperar el acceso usando Guardianes de confianza — sin necesidad de servidor central.
+
+- **Hasta 3 Guardianes**: personas o plataformas de confianza que designas
+- **Umbral**: 2 de 3 confirmaciones requeridas (por defecto)
+- **Mecanismo**: Shamir Secret Sharing — tu clave se divide en 3 fragmentos cifrados almacenados en Arweave
+- **Seguridad**: Ningún guardián puede actuar solo. El Instituto nunca está involucrado.
+
+### Flujo de Recuperación
+
+```
+1. Usuario abre app en dispositivo nuevo → no se encuentra clave privada
+2. App genera nuevo par de claves localmente
+3. Solicitud de recuperación publicada en Arweave (transacción RECOVERY_REQUEST)
+4. Dos guardianes descifran sus fragmentos y publican transacciones GUARDIAN_CONFIRM
+5. BEORegistry actualiza el BEO con la nueva clave pública
+6. Acceso restaurado — clave antigua invalidada permanentemente
+```
+
+---
+
+## Schema Completo del BEO
 
 ```json
 {
-  "beo_id": "uuid",
-  "domain": "andre.bsp",
-  "public_key": "ed25519_key",
-  "records": [],
-  "record_count": 0,
-  "access_control": {
-    "active_consents": [],
-    "revoked_consents": [],
-    "default_policy": "DENY_ALL"
-  },
+  "beo_id":     "uuid-v4",
+  "domain":     "andre.bsp",
+  "public_key": "ed25519_pub_...a1b2",
+  "created_at": "2026-01-10T14:32:00Z",
+  "version":    "1.0.0",
+
   "recovery": {
-    "guardians": [],
-    "threshold": 2
+    "enabled":   true,
+    "threshold": 2,
+    "guardians": [
+      {
+        "contact":     "maria.bsp",
+        "public_key":  "ed25519_pub_...",
+        "role":        "primary",
+        "status":      "active",
+        "accepted_at": "2026-01-10T15:00:00Z"
+      }
+    ]
   },
-  "status": "ACTIVE"
+
+  "status":      "ACTIVE",
+  "locked_at":   null,
+  "key_version": 1
 }
 ```
 
-## Smart Contracts — BEO Operations
+---
 
-The BEO is governed by two smart contracts on Arweave:
+## Schema del BioRecord
+
+Cada medición biológica adjuntada a un BEO es un BioRecord:
+
+```json
+{
+  "record_id":    "arweave-tx-id",
+  "beo_id":       "uuid-v4",
+  "ieo_id":       "uuid-v4",
+  "biomarker":    "BSP-LA-004",
+  "value":        4.8,
+  "unit":         "%",
+  "collected_at": "2026-02-26T08:00:00Z",
+  "submitted_at": "2026-02-26T09:00:00Z",
+  "ref_range": {
+    "optimal":    "4.0-6.0",
+    "functional": "3.5-6.5",
+    "deficiency": "<3.5",
+    "toxicity":   null
+  },
+  "status":     "CURRENT",
+  "supersedes": null,
+  "data_hash":  "sha256_..."
+}
+```
+
+> **Los BioRecords son inmutables.** Las correcciones se envían como nuevos registros que `superseden` al anterior — el error permanece en el historial.
+
+---
+
+## Estados del Ciclo de Vida
+
+| Estado | Descripción |
+|-------|-------------|
+| `ACTIVE` | Operación normal. Todas las operaciones autorizadas permitidas. |
+| `LOCKED` | Bloqueado voluntariamente por el titular — útil si se sospecha compromiso. Ninguna institución lee o escribe. El progreso de recuperación se rastrea en `active_recovery.status`. |
+
+---
+
+## Contratos Inteligentes — Operaciones BEO
 
 ### BEORegistry
-*   `createBEO()`: Creates a new BEO and registers the `.bsp` domain.
-*   `getBEO()`: Reads public metadata of a BEO.
-*   `updateRecovery()`: Updates guardian configuration (requires private key signature).
-*   `rotateKey()`: Replaces the public key after Social Recovery.
-*   `lockBEO()` / `unlockBEO()`: Temporarily locks/unlocks the BEO.
+
+| Función | Quién puede llamar | Descripción |
+|----------|-------------|-------------|
+| `createBEO()` | Cualquiera | Crea un nuevo BEO. Abierto — sin aprobación necesaria. |
+| `getBEO()` | Cualquiera | Devuelve datos públicos del BEO. |
+| `updateRecovery()` | Solo titular del BEO | Configurar o actualizar la configuración de guardianes. |
+| `lockBEO()` | Solo titular del BEO | Bloquea temporalmente todas las operaciones. |
+| `rotateKey()` | Titular del BEO (recuperación) | Reemplaza la clave pública tras recuperación exitosa. |
 
 ### AccessControl
-*   `issueToken()`: Issues a ConsentToken for a specific IEO.
-*   `revokeToken()`: Immediately revokes a ConsentToken.
-*   `verifyToken()`: Verifies if a ConsentToken is valid for a specific operation.
-*   `listActiveTokens()`: Lists all active ConsentTokens.
-*   `getTokenHistory()`: Returns the full history of issued, expired, and revoked tokens.
+
+| Función | Quién puede llamar | Descripción |
+|----------|-------------|-------------|
+| `issueToken()` | Solo titular del BEO | Emite un nuevo ConsentToken a un IEO. |
+| `revokeToken()` | Solo titular del BEO | Revoca inmediatamente un ConsentToken. |
+| `verifyToken()` | Cualquier IEO | Comprueba si un token es válido para una operación específica. |
+| `getTokenHistory()` | Solo titular del BEO | Registro de auditoría completo de todos los tokens emitidos. |
 
 > [!IMPORTANT]
-> `issueToken()` and `revokeToken()` are exclusively reserved for the BEO holder. No institution — not even the Ambrósio Institute — can grant or revoke access to a person's data.
+> `issueToken()` y `revokeToken()` están reservados exclusivamente para el titular del BEO. Ninguna institución — ni siquiera el Ambrósio Institute — puede otorgar o revocar el acceso a los datos de una persona.
+
+---
+
+## Crear un BEO con el SDK
+
+```python
+from bsp_sdk import BEOBuilder, Guardian
+
+beo = BEOBuilder(domain="andre.bsp").build()
+result = beo.register()
+
+print(result.beo_id)      # UUID permanente en Arweave
+print(result.domain)      # andre.bsp
+print(result.seed_phrase) # 24 palabras — guárdalas offline, nunca digitalmente
+
+# Opcional: configurar Recuperación Social
+beo.update_recovery(
+    guardians=[
+        Guardian(contact="maria.bsp",   role="primary"),
+        Guardian(contact="+5511999...", role="secondary"),
+        Guardian(contact="carlos.bsp",  role="tertiary"),
+    ],
+    threshold=2
+)
+```
+
+## Derechos del Titular (Incondicionales)
+
+- ✓ Siempre recuperar tu BEO usando la frase semilla
+- ✓ Siempre revocar cualquier ConsentToken, instantáneamente
+- ✓ Siempre exportar todos tus datos (intent `EXPORT_DATA`)
+- ✓ Siempre bloquear tu BEO
+- ✓ Siempre elegir o reemplazar guardianes

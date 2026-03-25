@@ -1,32 +1,32 @@
 ---
-title: BSP Exchange Protocol
+title: Protocolo de Troca BSP
 ---
 
-# BSP Exchange Protocol
+# Protocolo de Troca BSP
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-The BSP Exchange Protocol defines how systems request and respond with biological data — the communication layer of the protocol.
-
-All exchange operations are subject to the **AccessControl** smart contract. The BEO holder's consent is required for every data transaction involving their biological data.
+> Versão 0.2 | Ambrósio Institute
 
 ---
 
-## Core Principle
+## Visão Geral
 
-> No system — laboratory, platform, AI engine, or the Ambrósio Institute itself — can access a BEO without explicit authorization from the holder, enforced by the AccessControl smart contract on Arweave.
+O Protocolo de Troca BSP define como sistemas solicitam e respondem com dados biológicos — a camada de comunicação do protocolo.
 
-The consent requirement is **mathematical**, not institutional. The smart contract rejects unauthorized transactions automatically — no human review, no backend server, no institutional trust required.
+Todas as operações de troca estão sujeitas ao contrato inteligente **AccessControl**. O consentimento do titular do BEO é exigido para toda transação de dados envolvendo seus dados biológicos.
 
 ---
 
-## Consent Token
+## Princípio Central
 
-Before any exchange operation, the executing system must hold a valid **ConsentToken** signed by the BEO holder.
+> Nenhum sistema — laboratório, plataforma, motor de IA ou o próprio Ambrósio Institute — pode acessar um BEO sem autorização explícita do titular, aplicada pelo contrato inteligente AccessControl no Arweave.
+
+O requisito de consentimento é **matemático**, não institucional. O contrato inteligente rejeita transações não autorizadas automaticamente — sem revisão humana, sem servidor de backend, sem confiança institucional necessária.
+
+---
+
+## Token de Consentimento
+
+Antes de qualquer operação de troca, o sistema executor deve possuir um **ConsentToken** válido assinado pelo titular do BEO.
 
 ```typescript
 ConsentToken {
@@ -43,25 +43,25 @@ ConsentToken {
 }
 ```
 
-### Token Properties
+### Propriedades do Token
 
-| Property | Description |
+| Propriedade | Descrição |
 |---|---|
-| **Scoped** | Limited to specific intents and data categories |
-| **Time-limited** | Expire at `expires_at` — automatically invalid after |
-| **Revocable** | Holder can revoke at any time, recorded on-chain |
-| **Auditable** | All grants, uses, and revocations permanently on Arweave |
-| **Non-transferable** | Tokens are bound to a specific IEO — cannot be shared |
+| **Escopo definido** | Limitado a intenções e categorias de dados específicas |
+| **Temporário** | Expira em `expires_at` — automaticamente inválido após esse prazo |
+| **Revogável** | O titular pode revogar a qualquer momento, registrado on-chain |
+| **Auditável** | Todas as concessões, usos e revogações permanentemente no Arweave |
+| **Intransferível** | Tokens estão vinculados a um IEO específico — não podem ser compartilhados |
 
 ---
 
-## Exchange Operations
+## Operações de Troca
 
 ### SUBMIT_RECORD
 
-Submit a biological measurement to a BEO.
+Envia uma medição biológica para um BEO.
 
-**Required consent:** `SUBMIT_RECORD` intent + authorized category matching the biomarker
+**Consentimento necessário:** intenção `SUBMIT_RECORD` + categoria autorizada correspondente ao biomarcador
 
 ```typescript
 // Request
@@ -79,22 +79,22 @@ SubmitRecordResponse {
 }
 ```
 
-**Validation rules:**
-1. ConsentToken must be valid, not expired, not revoked
-2. Token's `intents` must include `SUBMIT_RECORD`
-3. Token's `categories` must include the record's `category`
-4. Record's `beo_id` must match token's `beo_id`
-5. Record must pass schema validation (all required fields present)
-6. Biomarker code must exist in the BSP taxonomy
-7. Value must be within plausible physiological range
+**Regras de validação:**
+1. ConsentToken deve ser válido, não expirado e não revogado
+2. `intents` do token deve incluir `SUBMIT_RECORD`
+3. `categories` do token deve incluir a `category` do registro
+4. `beo_id` do registro deve corresponder ao `beo_id` do token
+5. O registro deve passar na validação de schema (todos os campos obrigatórios presentes)
+6. O código do biomarcador deve existir na taxonomia BSP
+7. O valor deve estar dentro de um intervalo fisiológico plausível
 
 ---
 
 ### READ_RECORDS
 
-Read BioRecords from a BEO.
+Lê BioRecords de um BEO.
 
-**Required consent:** `READ_RECORDS` intent + authorized categories
+**Consentimento necessário:** intenção `READ_RECORDS` + categorias autorizadas
 
 ```typescript
 // Request
@@ -125,9 +125,9 @@ ReadRecordsResponse {
 
 ### REQUEST_CONSENT
 
-An institution requests a consent token from a BEO holder.
+Uma instituição solicita um token de consentimento ao titular do BEO.
 
-This operation is initiated by the institution but must be completed by the BEO holder — the token does not exist until the holder signs.
+Esta operação é iniciada pela instituição, mas deve ser concluída pelo titular do BEO — o token não existe até que o titular assine.
 
 ```typescript
 // Consent Request (sent to holder)
@@ -159,7 +159,7 @@ ConsentDenial {
 
 ### REVOKE_CONSENT
 
-The BEO holder revokes a previously granted consent token.
+O titular do BEO revoga um token de consentimento previamente concedido.
 
 ```typescript
 // Revocation (signed by holder)
@@ -173,30 +173,30 @@ ConsentRevocation {
 }
 ```
 
-After revocation, any further use of the token is rejected by the AccessControl smart contract.
+Após a revogação, qualquer uso adicional do token é rejeitado pelo contrato inteligente AccessControl.
 
 ---
 
-## Error Codes
+## Códigos de Erro
 
-| Code | Description |
+| Código | Descrição |
 |---|---|
-| `BSP-E-001` | Invalid or missing consent token |
-| `BSP-E-002` | Token expired |
-| `BSP-E-003` | Token revoked |
-| `BSP-E-004` | Intent not authorized by token |
-| `BSP-E-005` | Category not authorized by token |
-| `BSP-E-006` | BEO not found |
-| `BSP-E-007` | IEO not found or suspended |
-| `BSP-E-008` | Schema validation failure |
-| `BSP-E-009` | Biomarker code not found in taxonomy |
-| `BSP-E-010` | Value outside plausible physiological range |
-| `BSP-E-011` | Arweave write failure — retry |
-| `BSP-E-012` | Signature verification failure |
+| `BSP-E-001` | Token de consentimento inválido ou ausente |
+| `BSP-E-002` | Token expirado |
+| `BSP-E-003` | Token revogado |
+| `BSP-E-004` | Intenção não autorizada pelo token |
+| `BSP-E-005` | Categoria não autorizada pelo token |
+| `BSP-E-006` | BEO não encontrado |
+| `BSP-E-007` | IEO não encontrado ou suspenso |
+| `BSP-E-008` | Falha na validação do schema |
+| `BSP-E-009` | Código de biomarcador não encontrado na taxonomia |
+| `BSP-E-010` | Valor fora do intervalo fisiológico plausível |
+| `BSP-E-011` | Falha de escrita no Arweave — tente novamente |
+| `BSP-E-012` | Falha na verificação de assinatura |
 
 ---
 
-## SDK Usage
+## Uso do SDK
 
 ```typescript
 // TypeScript — Submit a BioRecord

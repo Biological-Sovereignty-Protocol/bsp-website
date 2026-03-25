@@ -1,129 +1,134 @@
 ---
-title: Specification Overview
+title: Visão Geral da Especificação
 ---
 
-# BSP Architecture — The Three Layers
+<div class="page-hero-image">
+  <img src="/images/spec-overview.png" alt="BSP Specification Overview — protocol architecture" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-> Version 0.2 | Ambrósio Institute
+
+# Arquitetura BSP — As Três Camadas
+
+> Versão 0.2 | Ambrósio Institute
 
 ---
 
-## Overview
+## Visão Geral
 
-The Biological Sovereignty Protocol is organized into three distinct layers. Each layer has a clearly defined responsibility and is designed to be independent — changes to one layer do not break implementations of another.
+O Protocolo de Soberania Biológica é organizado em três camadas distintas. Cada camada tem uma responsabilidade claramente definida e foi projetada para ser independente — mudanças em uma camada não quebram implementações de outra.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                  INTELLIGENCE LAYER                      │
-│         AVA · SVA · Third-party algorithms              │
-│    (above the protocol — not defined by BSP)            │
+│                  CAMADA DE INTELIGÊNCIA                  │
+│         AVA · SVA · Algoritmos de terceiros             │
+│    (acima do protocolo — não definida pelo BSP)         │
 └─────────────────────────────────────────────────────────┘
                            │
 ┌─────────────────────────────────────────────────────────┐
-│              LAYER 3 — BSP-Exchange                      │
-│           Communication Protocol                        │
-│   How systems request and respond with biological data  │
+│              CAMADA 3 — BSP-Exchange                     │
+│           Protocolo de Comunicação                      │
+│   Como sistemas solicitam e respondem com dados biológicos │
 └─────────────────────────────────────────────────────────┘
                            │
 ┌─────────────────────────────────────────────────────────┐
-│              LAYER 2 — BSP-Data                          │
-│           Biological Data Schema                        │
-│   Structure of all biological measurements (BioRecord)  │
+│              CAMADA 2 — BSP-Data                         │
+│           Schema de Dados Biológicos                    │
+│   Estrutura de todas as medições biológicas (BioRecord) │
 └─────────────────────────────────────────────────────────┘
                            │
 ┌─────────────────────────────────────────────────────────┐
-│              LAYER 1 — BSP-Identity                      │
-│           Biological Identity                           │
-│   The sovereign identity object — BEO                   │
-│   Stored on Arweave — permanent, decentralized          │
+│              CAMADA 1 — BSP-Identity                     │
+│           Identidade Biológica                          │
+│   O objeto de identidade soberana — BEO                 │
+│   Armazenado no Arweave — permanente, descentralizado   │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Layer 1 — BSP-Identity
+## Camada 1 — BSP-Identity
 
-**What it defines:** Who holds the data.
+**O que define:** Quem detém os dados.
 
-Every individual and every institution in the BSP ecosystem has a permanent, decentralized identity:
-- **BEO** — Biological Entity Object (individual)
-- **IEO** — Institutional Entity Object (laboratory, hospital, platform, etc.)
+Todo indivíduo e toda instituição no ecossistema BSP tem uma identidade permanente e descentralizada:
+- **BEO** — Biological Entity Object (indivíduo)
+- **IEO** — Institutional Entity Object (laboratório, hospital, plataforma, etc.)
 
-The BEO is the center of gravity of the entire protocol. Every BioRecord, every consent, every interaction is anchored to a BEO.
+O BEO é o centro de gravidade de todo o protocolo. Cada BioRecord, cada consentimento, cada interação está ancorado a um BEO.
 
-BEOs and IEOs are stored on the **Arweave** blockchain — permanent and decentralized. No company, government, or the Ambrósio Institute itself can delete or alter a registered identity.
+BEOs e IEOs são armazenados na blockchain **Arweave** — permanentes e descentralizados. Nenhuma empresa, governo ou o próprio Ambrósio Institute pode excluir ou alterar uma identidade registrada.
 
-→ See [`beo.md`](beo.md) and [`ieo.md`](ieo.md) for complete specifications.
-
----
-
-## Layer 2 — BSP-Data
-
-**What it defines:** What the data contains.
-
-Every biological measurement — a blood test result, a genomic marker, a wearable reading, a clinical assessment — is represented as a **BioRecord**.
-
-BioRecords are the atomic units of biological data in the BSP ecosystem. They are:
-- **Immutable** — once written, they cannot be altered
-- **Anchored** — every BioRecord belongs to a specific BEO
-- **Classified** — every BioRecord carries a BSP taxonomy code
-- **Signed** — every BioRecord carries a cryptographic signature from the submitting entity
-
-→ See [`biorecord.md`](biorecord.md) for the complete BioRecord specification.
-→ See [Biomarker Taxonomy](taxonomy/level-1-core) for the full biomarker taxonomy.
+→ Veja [`beo.md`](beo.md) e [`ieo.md`](ieo.md) para especificações completas.
 
 ---
 
-## Layer 3 — BSP-Exchange
+## Camada 2 — BSP-Data
 
-**What it defines:** How data moves.
+**O que define:** O que os dados contêm.
 
-The BSP Exchange Protocol defines the format of requests and responses between systems:
-- How any system submits data to a BEO
-- How a platform requests read access
-- How an AI engine queries a biological history
-- How consent tokens are structured and verified
+Toda medição biológica — um resultado de exame de sangue, um marcador genômico, uma leitura de wearable, uma avaliação clínica — é representada como um **BioRecord**.
 
-All exchange operations are subject to the **AccessControl** smart contract — the BEO holder's consent is required for every data transaction.
+BioRecords são as unidades atômicas de dados biológicos no ecossistema BSP. Eles são:
+- **Imutáveis** — uma vez escritos, não podem ser alterados
+- **Ancorados** — todo BioRecord pertence a um BEO específico
+- **Classificados** — todo BioRecord carrega um código de taxonomia BSP
+- **Assinados** — todo BioRecord carrega uma assinatura criptográfica da entidade que o enviou
 
-→ See [`exchange.md`](exchange.md) for the complete Exchange Protocol specification.
+→ Veja [`biorecord.md`](biorecord.md) para a especificação completa do BioRecord.
+→ Veja [Taxonomia de Biomarcadores](taxonomy/level-1-core) para a taxonomia completa de biomarcadores.
 
 ---
 
-## Decentralized Infrastructure
+## Camada 3 — BSP-Exchange
 
-BSP records are stored on **Arweave** — a permanent, decentralized storage protocol designed to preserve data for 200+ years.
+**O que define:** Como os dados se movem.
 
-Smart contracts managing BEO identities, domain registrations, and access permissions are deployed via SmartWeave on Arweave. This ensures:
-- No single point of failure
-- No company (including Ambrósio Institute) can alter the rules unilaterally
-- Data written to BSP infrastructure exists permanently
+O Protocolo de Troca BSP define o formato de requisições e respostas entre sistemas:
+- Como qualquer sistema envia dados para um BEO
+- Como uma plataforma solicita acesso de leitura
+- Como um motor de IA consulta um histórico biológico
+- Como tokens de consentimento são estruturados e verificados
 
-The five smart contracts in the BSP infrastructure:
+Todas as operações de troca estão sujeitas ao contrato inteligente **AccessControl** — o consentimento do titular do BEO é exigido para toda transação de dados.
 
-| Contract | Purpose |
+→ Veja [`exchange.md`](exchange.md) para a especificação completa do Protocolo de Troca.
+
+---
+
+## Infraestrutura Descentralizada
+
+Os registros BSP são armazenados no **Arweave** — um protocolo de armazenamento permanente e descentralizado projetado para preservar dados por mais de 200 anos.
+
+Contratos inteligentes gerenciando identidades de BEO, registros de domínio e permissões de acesso são implantados via SmartWeave no Arweave. Isso garante:
+- Nenhum ponto único de falha
+- Nenhuma empresa (incluindo o Ambrósio Institute) pode alterar as regras unilateralmente
+- Dados gravados na infraestrutura BSP existem permanentemente
+
+Os cinco contratos inteligentes na infraestrutura BSP:
+
+| Contrato | Finalidade |
 |---|---|
-| **BEORegistry** | Creates and manages biological identities — open to anyone |
-| **IEORegistry** | Manages institutional identities and certification status |
-| **DomainRegistry** | Controls the `.bsp` namespace — guarantees uniqueness |
-| **AccessControl** | Manages consent tokens — the true gatekeeper of the protocol |
-| **Governance** | Multi-signature authorization for critical protocol changes |
+| **BEORegistry** | Cria e gerencia identidades biológicas — aberto a qualquer pessoa |
+| **IEORegistry** | Gerencia identidades institucionais e status de certificação |
+| **DomainRegistry** | Controla o namespace `.bsp` — garante unicidade |
+| **AccessControl** | Gerencia tokens de consentimento — o verdadeiro guardião do protocolo |
+| **Governance** | Autorização multi-assinatura para mudanças críticas do protocolo |
 
-→ See [`bsp-domain.md`](bsp-domain.md) for the `.bsp` domain system.
-→ See [`governance.md`](governance.md) for the governance model.
+→ Veja [`bsp-domain.md`](bsp-domain.md) para o sistema de domínio `.bsp`.
+→ Veja [`governance.md`](governance.md) para o modelo de governança.
 
 ---
 
-## The Intelligence Layer (Above BSP)
+## A Camada de Inteligência (Acima do BSP)
 
-The intelligence layer is **not part of the BSP specification**.
+A camada de inteligência **não faz parte da especificação BSP**.
 
-BSP defines how data is structured and transported — not what conclusions to draw from it. Intelligence layers such as:
-- Ambrósio Vitality Algorithm (AVA)
-- Ambrósio Vitality Score (SVA)
-- Any third-party analytics engine
+O BSP define como os dados são estruturados e transportados — não quais conclusões tirar deles. Camadas de inteligência como:
+- Algoritmo de Vitalidade Ambrósio (AVA)
+- Score de Vitalidade Ambrósio (SVA)
+- Qualquer motor analítico de terceiros
 
-...operate above the protocol, consuming standardized BSP data to produce insights. Any system in the world can implement the BSP. Only Ambrósio holds the AVA.
+...operam acima do protocolo, consumindo dados BSP padronizados para produzir insights. Qualquer sistema no mundo pode implementar o BSP. Apenas a Ambrósio detém a AVA.
 
 ---
 

@@ -1,42 +1,46 @@
-# The Ecosystem Flow
+<div class="page-hero-image">
+  <img src="/images/arch-overview.png" alt="BSP Architecture Overview" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"From first access to Vitality Score — the complete journey of the developer and the user through the BSP repositories."
+# O Fluxo do Ecossistema
 
-This document explains step-by-step how the BSP ecosystem operates in practice. The two protagonists are the **Developer** (who builds on the protocol) and the **User** (who lives under its protection). Both paths intersect at the **BEO** (Biological Entity Object).
+"Do primeiro acesso ao Score de Vitalidade — a jornada completa do desenvolvedor e do usuário pelos repositórios BSP."
+
+Este documento explica passo a passo como o ecossistema BSP opera na prática. Os dois protagonistas são o **Desenvolvedor** (que constrói sobre o protocolo) e o **Usuário** (que vive sob sua proteção). Ambos os caminhos se cruzam no **BEO** (Biological Entity Object).
 
 <EcosystemFlowMcp />
 
-## Part 1: The Developer's Journey
-How a laboratory, app, or platform enters the BSP ecosystem:
+## Parte 1: A Jornada do Desenvolvedor
+Como um laboratório, aplicativo ou plataforma entra no ecossistema BSP:
 
-1.  **Understand the Protocol (`bsp-spec`)**: A developer accesses the public BSP specification. They learn what a BEO is and how the Exchange Protocol works. No registration or approval is needed.
-2.  **Install the SDK (`bsp-sdk`)**: Whether building in Python or TypeScript, the developer installs the SDK (e.g., `pip install bsp-sdk`). They can immediately start structuring data into valid, sovereign BioRecords.
-3.  **Request Authorization**: The lab wants to submit data. They use the SDK to ask the user for authorization. The user signs a ConsentToken on-chain. Without this, the Arweave blockchain automatically rejects the transaction.
-4.  **Connect AI Agents (`bsp-mcp`)**: A health platform wants their AI to read the BEO. They install `bsp-mcp` (the official Model Context Protocol server for BSP), allowing AIs like Claude to query biological data — strictly under the user's consent.
+1.  **Entender o Protocolo (`bsp-spec`)**: Um desenvolvedor acessa a especificação pública do BSP. Aprende o que é um BEO e como o Protocolo de Troca funciona. Não é necessário registro ou aprovação.
+2.  **Instalar o SDK (`bsp-sdk`)**: Seja construindo em Python ou TypeScript, o desenvolvedor instala o SDK (ex: `pip install bsp-sdk`). Pode imediatamente começar a estruturar dados em BioRecords válidos e soberanos.
+3.  **Solicitar Autorização**: O laboratório quer enviar dados. Usam o SDK para solicitar autorização ao usuário. O usuário assina um ConsentToken on-chain. Sem isso, a blockchain Arweave automaticamente rejeita a transação.
+4.  **Conectar Agentes de IA (`bsp-mcp`)**: Uma plataforma de saúde quer que sua IA leia o BEO. Instala o `bsp-mcp` (o servidor oficial Model Context Protocol para BSP), permitindo que IAs como Claude consultem dados biológicos — estritamente sob o consentimento do usuário.
 
-## Part 2: The User's Journey
-From the perspective of a person living within the ecosystem:
+## Parte 2: A Jornada do Usuário
+Da perspectiva de uma pessoa que vive dentro do ecossistema:
 
-1.  **Identity Creation (`bsp-contracts`)**: The first time you use a BSP app, your BEO is created. Keys are generated locally. The address (e.g., `andre.bsp`) belongs to you forever.
-2.  **Data Arrival (`bsp-sdk` + Arweave)**: You do a blood test. The laboratory formats the data as BioRecords and sends them. Because you authorized the lab, the data is encrypted with your key and stored permanently on Arweave.
-3.  **Vitality Analysis (`ava-core`)**: You open your app and actively request an analysis. The app decrypts the BioRecords locally and sends them to the AVA intelligence engine (with session consent). AVA processes the data.
-4.  **The Final Product (`sva-engine`)**: You receive your Ambrósio Vitality Score (SVA) — a multi-dimensional biological age score showing where you are winning and where you need to act.
-5.  **AI Assistant (`bsp-mcp`)**: You ask your AI healthcare assistant about your results. Through the MCP connection, the AI reads your sovereign data and provides deeply contextualized medical insights.
+1.  **Criação de Identidade (`bsp-contracts`)**: Na primeira vez que usa um aplicativo BSP, seu BEO é criado. As chaves são geradas localmente. O endereço (ex: `andre.bsp`) pertence a você para sempre.
+2.  **Chegada de Dados (`bsp-sdk` + Arweave)**: Você faz um exame de sangue. O laboratório formata os dados como BioRecords e os envia. Como você autorizou o laboratório, os dados são criptografados com sua chave e armazenados permanentemente no Arweave.
+3.  **Análise de Vitalidade (`ava-core`)**: Você abre seu aplicativo e solicita ativamente uma análise. O aplicativo descriptografa os BioRecords localmente e os envia para o motor de inteligência AVA (com consentimento de sessão). A AVA processa os dados.
+4.  **O Produto Final (`sva-engine`)**: Você recebe seu Score de Vitalidade Ambrósio (SVA) — um score multidimensional de idade biológica mostrando onde você está ganhando e onde precisa agir.
+5.  **Assistente de IA (`bsp-mcp`)**: Você pergunta ao seu assistente de IA sobre seus resultados. Por meio da conexão MCP, a IA lê seus dados soberanos e fornece insights médicos profundamente contextualizados.
 
-## Where Paths Cross: The Repository Roles
+## Onde os Caminhos se Cruzam: Os Papéis dos Repositórios
 
-| Repository | Who Uses It | Purpose |
-|------------|-------------|---------|
-| `bsp-spec` | Devs, Labs, Auditors | The public law of the protocol. |
-| `bsp-sdk` | App & Backend Devs | The builder's tools (Python/TypeScript). |
-| `bsp-mcp` | AI Platforms | Connects AI agents to the protocol with consent. |
-| `bsp-contracts` | Ambrósio Institute | Smart contracts on Arweave (identities live here). |
-| `ava-core` | Ambrósio Institute | Proprietary intelligence (processes BioRecords). |
-| `sva-engine` | Ambrósio Institute | Produces the Vitality Score for the user. |
+| Repositório | Quem Usa | Finalidade |
+|-------------|----------|------------|
+| `bsp-spec` | Devs, Laboratórios, Auditores | A lei pública do protocolo. |
+| `bsp-sdk` | Devs de App e Backend | As ferramentas do construtor (Python/TypeScript). |
+| `bsp-mcp` | Plataformas de IA | Conecta agentes de IA ao protocolo com consentimento. |
+| `bsp-contracts` | Ambrósio Institute | Contratos inteligentes no Arweave (identidades vivem aqui). |
+| `ava-core` | Ambrósio Institute | Inteligência proprietária (processa BioRecords). |
+| `sva-engine` | Ambrósio Institute | Produz o Score de Vitalidade para o usuário. |
 
-## Why is it designed this way?
+## Por que foi projetado assim?
 
-*   **Why is the protocol open?** Because a closed standard is just a product. If BSP required approval to create a BEO, the Institute would be a bottleneck.
-*   **Why does consent replace certification as the gatekeeper?** Because an on-chain signature is mathematically verifiable; it doesn't require trusting an institution. Certification is a badge of trust, not the key to the door.
-*   **Why is the intelligence (AVA) closed?** The competitive advantage of the Institute is not the protocol itself, but the intelligence applied to the standardized data flowing through it.
-*   **Why does AVA never have passive access?** Because true sovereignty means no system analyzes your data unless you ask it to.
+*   **Por que o protocolo é aberto?** Porque um padrão fechado é apenas um produto. Se o BSP exigisse aprovação para criar um BEO, o Instituto seria um gargalo.
+*   **Por que o consentimento substitui a certificação como guardião?** Porque uma assinatura on-chain é matematicamente verificável; não requer confiar em uma instituição. A certificação é um distintivo de confiança, não a chave da porta.
+*   **Por que a inteligência (AVA) é fechada?** A vantagem competitiva do Instituto não é o próprio protocolo, mas a inteligência aplicada aos dados padronizados que fluem por ele.
+*   **Por que a AVA nunca tem acesso passivo?** Porque soberania verdadeira significa que nenhum sistema analisa seus dados a menos que você solicite.

@@ -1,16 +1,16 @@
 ---
-title: Canonical JSON Examples
+title: Ejemplos JSON Canónicos
 ---
 
-# Canonical JSON Examples
+# Ejemplos JSON Canónicos
 
-These are the canonical example payloads for the three core BSP objects. Use them as reference when building integrations.
+Estos son los payloads de ejemplo canónicos para los tres objetos BSP principales. Úsalos como referencia al construir integraciones.
 
 ---
 
-## BEO — Biological Entity Object
+## BEO — Objeto de Entidad Biológica
 
-A complete BEO with three guardians (2 active, 1 pending) and one consent log entry.
+Un BEO completo con tres guardianes (2 activos, 1 pendiente) y una entrada de registro de consentimiento.
 
 ```json
 {
@@ -67,9 +67,9 @@ A complete BEO with three guardians (2 active, 1 pending) and one consent log en
 
 ---
 
-## BioRecord — Biological Measurement Object
+## BioRecord — Objeto de Medición Biológica
 
-Three example BioRecords: fasting glucose (Standard), telomere length (Core), and HRV from a wearable (Device).
+Tres BioRecords de ejemplo: glucosa en ayunas (Standard), longitud de telómeros (Core) y HRV de un wearable (Device).
 
 ```json
 [
@@ -190,7 +190,7 @@ Three example BioRecords: fasting glucose (Standard), telomere length (Core), an
 
 ## ConsentToken
 
-A physician receiving 90-day read access to cardiovascular and longevity data.
+Un médico que recibe acceso de lectura por 90 días a datos cardiovasculares y de longevidad.
 
 ```json
 {
@@ -225,4 +225,4 @@ A physician receiving 90-day read access to cardiovascular and longevity data.
 
 ---
 
-*Source files: [bsp-spec/examples](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/examples)*
+*Archivos fuente: [bsp-spec/examples](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/examples)*

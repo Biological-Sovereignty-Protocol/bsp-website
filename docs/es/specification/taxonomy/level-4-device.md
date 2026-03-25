@@ -1,84 +1,84 @@
 ---
-title: Taxonomy — Level 4 device
+title: Taxonomía — Nivel 4 Device
 ---
 
-# BSP Taxonomy — Level 4: Device Biomarkers
+# Taxonomía BSP — Nivel 4: Biomarcadores de Dispositivo
 
-> Version 0.2 | Ambrósio Institute
+> Versión 0.2 | Ambrósio Institute
 
-Continuous biometric data from wearable devices and monitoring equipment. Submitted as daily consolidated BioRecords — statistical summaries of continuous measurements.
+Datos biométricos continuos de dispositivos wearables y equipos de monitoreo. Se envían como BioRecords consolidados diarios — resúmenes estadísticos de mediciones continuas.
 
-**Note:** Wearable IEOs submit daily consolidated records per biomarker — not second-by-second raw data. This prevents infrastructure overload while preserving clinical utility.
-
----
-
-## Category 25 — Device & Continuous Monitoring (BSP-DV)
-
-### Cardiac & Cardiovascular
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-001` | Heart Rate Variability (RMSSD) | ms | Daily mean + SD |
-| `BSP-DV-002` | Resting Heart Rate | bpm | Daily mean + min |
-| `BSP-DV-003` | HRV (SDNN) | ms | Daily mean |
-| `BSP-DV-004` | ECG — Rhythm Classification | categorical | Continuous file (compressed) |
-| `BSP-DV-005` | Blood Pressure (continuous) | mmHg | Daily mean + peak |
-
-### Respiratory & Oxygenation
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-006` | SpO2 (blood oxygen) | % | Daily mean + nadir |
-| `BSP-DV-007` | Respiratory Rate | breaths/min | Daily mean + nocturnal |
-
-### Metabolic
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-008` | Continuous Glucose (CGM) | mg/dL | Daily mean, SD, TIR, TAR, TBR |
-| `BSP-DV-009` | Skin Temperature | °C | Daily mean + nocturnal delta |
-| `BSP-DV-010` | Core Body Temperature | °C | Daily mean |
-
-### Activity & Movement
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-011` | Daily Steps | steps | Daily total |
-| `BSP-DV-012` | Active Energy Expenditure | kcal | Daily total |
-| `BSP-DV-013` | VO2 Max (estimated) | mL/kg/min | Weekly (stable metric) |
-| `BSP-DV-014` | Activity Intensity Distribution | minutes | Daily (sedentary/light/moderate/vigorous) |
-
-### Sleep Architecture
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-015` | Total Sleep Duration | minutes | Nightly |
-| `BSP-DV-016` | REM Sleep | minutes | Nightly |
-| `BSP-DV-017` | Deep Sleep (N3) | minutes | Nightly |
-| `BSP-DV-018` | Sleep Efficiency | % | Nightly |
-| `BSP-DV-019` | Sleep Latency | minutes | Nightly |
-| `BSP-DV-020` | Sleep Regularity Index | score | Weekly |
-
-### Recovery & Readiness
-
-| BSP Code | Biomarker | Unit | Consolidation |
-|---|---|---|---|
-| `BSP-DV-021` | Recovery Score | 0–100 | Daily |
-| `BSP-DV-022` | Readiness Score | 0–100 | Daily |
-| `BSP-DV-023` | Stress Level Index | 0–100 | Daily |
+**Nota:** Los IEOs de wearables envían registros consolidados diarios por biomarcador — no datos brutos segundo a segundo. Esto previene la sobrecarga de infraestructura mientras preserva la utilidad clínica.
 
 ---
 
-## Device SDK Requirement
+## Categoría 25 — Dispositivo y Monitoreo Continuo (BSP-DV)
 
-Wearable IEOs must use the official BSP Device SDK to ensure:
-- Correct daily consolidation format
-- Proper biomarker coding
-- Cryptographic signing of daily batches
-- Automated consent verification before submission
+### Cardíaco y Cardiovascular
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-001` | Variabilidad de Frecuencia Cardíaca (RMSSD) | ms | Media diaria + DE |
+| `BSP-DV-002` | Frecuencia Cardíaca en Reposo | bpm | Media diaria + mín |
+| `BSP-DV-003` | VFC (SDNN) | ms | Media diaria |
+| `BSP-DV-004` | ECG — Clasificación de Ritmo | categórico | Archivo continuo (comprimido) |
+| `BSP-DV-005` | Presión Arterial (continua) | mmHg | Media diaria + pico |
+
+### Respiratorio y Oxigenación
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-006` | SpO2 (oxígeno en sangre) | % | Media diaria + nadir |
+| `BSP-DV-007` | Frecuencia Respiratoria | respiraciones/min | Media diaria + nocturna |
+
+### Metabólico
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-008` | Glucosa Continua (CGM) | mg/dL | Media diaria, DE, TIR, TAR, TBR |
+| `BSP-DV-009` | Temperatura de Piel | °C | Media diaria + delta nocturno |
+| `BSP-DV-010` | Temperatura Corporal Central | °C | Media diaria |
+
+### Actividad y Movimiento
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-011` | Pasos Diarios | pasos | Total diario |
+| `BSP-DV-012` | Gasto Energético Activo | kcal | Total diario |
+| `BSP-DV-013` | VO2 Máx (estimado) | mL/kg/min | Semanal (métrica estable) |
+| `BSP-DV-014` | Distribución de Intensidad de Actividad | minutos | Diario (sedentario/leve/moderado/vigoroso) |
+
+### Arquitectura del Sueño
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-015` | Duración Total del Sueño | minutos | Nocturno |
+| `BSP-DV-016` | Sueño REM | minutos | Nocturno |
+| `BSP-DV-017` | Sueño Profundo (N3) | minutos | Nocturno |
+| `BSP-DV-018` | Eficiencia del Sueño | % | Nocturno |
+| `BSP-DV-019` | Latencia del Sueño | minutos | Nocturno |
+| `BSP-DV-020` | Índice de Regularidad del Sueño | puntaje | Semanal |
+
+### Recuperación y Preparación
+
+| Código BSP | Biomarcador | Unidad | Consolidación |
+|---|---|---|---|
+| `BSP-DV-021` | Puntaje de Recuperación | 0–100 | Diario |
+| `BSP-DV-022` | Puntaje de Preparación | 0–100 | Diario |
+| `BSP-DV-023` | Índice de Nivel de Estrés | 0–100 | Diario |
+
+---
+
+## Requisito del Device SDK
+
+Los IEOs de wearables deben usar el BSP Device SDK oficial para garantizar:
+- Formato de consolidación diaria correcto
+- Codificación correcta de biomarcadores
+- Firma criptográfica de lotes diarios
+- Verificación automática de consentimiento antes del envío
 
 ```python
-# BSP Device SDK — daily consolidation example
+# BSP Device SDK — ejemplo de consolidación diaria
 from bsp_sdk.device import DeviceRecordBuilder
 
 record = (DeviceRecordBuilder()

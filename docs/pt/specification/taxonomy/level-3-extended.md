@@ -1,16 +1,16 @@
 ---
-title: Taxonomy — Level 3 extended
+title: Taxonomia — Nível 3 Extended
 ---
 
-# BSP Taxonomy — Level 3: Extended Biomarkers
+# Taxonomia BSP — Nível 3: Biomarcadores Extended
 
-> Version 0.2 | Ambrósio Institute
+> Versão 0.2 | Ambrósio Institute
 
-Specialized biomarkers from advanced clinical and research contexts. Requires specialized analytical capabilities not available at every laboratory.
+Biomarcadores especializados de contextos clínicos e de pesquisa avançados. Requer capacidades analíticas especializadas não disponíveis em todos os laboratórios.
 
 ---
 
-## Category 19 — Fertility & Reproductive Health (BSP-FR)
+## Categoria 19 — Fertilidade e Saúde Reprodutiva (BSP-FR)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -25,7 +25,7 @@ Specialized biomarkers from advanced clinical and research contexts. Requires sp
 
 ---
 
-## Category 20 — Genomics (BSP-GN)
+## Categoria 20 — Genômica (BSP-GN)
 
 | BSP Code | Biomarker | Type |
 |---|---|---|
@@ -39,7 +39,7 @@ Specialized biomarkers from advanced clinical and research contexts. Requires sp
 
 ---
 
-## Category 21 — Microbiome (BSP-MB)
+## Categoria 21 — Microbioma (BSP-MB)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -52,7 +52,7 @@ Specialized biomarkers from advanced clinical and research contexts. Requires sp
 
 ---
 
-## Category 22 — Environmental Toxicology (BSP-TX)
+## Categoria 22 — Toxicologia Ambiental (BSP-TX)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -67,7 +67,7 @@ Specialized biomarkers from advanced clinical and research contexts. Requires sp
 
 ---
 
-## Category 23 — Advanced Immunology (BSP-IM2)
+## Categoria 23 — Imunologia Avançada (BSP-IM2)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -80,7 +80,7 @@ Specialized biomarkers from advanced clinical and research contexts. Requires sp
 
 ---
 
-## Category 24 — Advanced Cardiovascular (BSP-CV2)
+## Categoria 24 — Cardiovascular Avançado (BSP-CV2)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|

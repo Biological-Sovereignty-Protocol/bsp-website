@@ -1,76 +1,166 @@
-# Institutional Entity Object (IEO)
+<div class="page-hero-image">
+  <img src="/images/ieo-institution.png" alt="IEO Institution" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"Every institution that touches human biology needs a language to speak it."
+# Objeto de Entidade Institucional (IEO)
 
-## Overview - What is an IEO?
-The Institutional Entity Object (IEO) represents any organization, system, or professional that interacts with biological data on behalf of, or with the consent of, a BEO holder.
+> "Toda instituição que toca a biologia humana precisa de uma linguagem para expressá-la."
 
-Every institution in the ecosystem — from a national hospital chain to a wearable device manufacturer — is an IEO. It establishes cryptographic identity, defines capabilities, and encodes certification status. Creating an IEO is open to any institution. Obtaining BSP Certification is voluntary, but unlocks meaningful benefits.
+## O que é um IEO?
 
-## IEO Types
-Each IEO type represents a distinct category with specific capabilities, restrictions, and certification pathways.
+O IEO representa qualquer organização, sistema ou profissional que interage com dados biológicos no ecossistema BSP — desde um laboratório clínico até uma plataforma de IA. Qualquer instituição pode criar um IEO sem aprovação. A Certificação BSP é voluntária, mas desbloqueia benefícios significativos.
 
-### Laboratory (LAB)
-Clinical and diagnostic laboratories. They are the primary source of BioRecords.
-*   **Authorized levels**: L2 Standard (default), L1 Core/L3 Extended (advanced).
-*   **Can READ BEOs**: Never — submission is strictly write-only.
-*   **Domain**: `institutionname.bsp` (e.g., `fleury.bsp`).
+---
 
-### Hospital & Health System (HSP)
-Hospitals and integrated care providers. They generate data across clinical domains.
-*   **Authorized levels**: L1 Core + L2 Standard (default).
-*   **Can READ BEOs**: Only with active, time-limited consent token.
-*   **Physicians**: May credential physicians under the hospital IEO (`dr.silva@hcor.bsp`).
+## Tipos de IEO
 
-### Wearable & Device (WRB)
-Hardware and software companies producing continuous monitoring systems.
-*   **Authorized levels**: L4 Device (`BSP-DV`) exclusively.
-*   **Submission frequency**: Daily consolidated records per user (no second-by-second spam).
-*   **Can READ BEOs**: Never. Devices produce data; they do not consume it.
-*   **SDK**: Must use the official BSP Device SDK for automated daily batch submission.
+| Código | Tipo | Função Principal |
+|--------|------|-----------------|
+| `LAB` | Laboratório | Enviar BioRecords — a principal fonte de dados |
+| `HOSP` | Hospital e Sistema de Saúde | Enviar + Ler registros em múltiplos domínios clínicos |
+| `WEAR` | Wearable e Dispositivo | Enviar dados contínuos de Nível 4 (Dispositivo) diariamente |
+| `PHY` | Médico e Profissional | Ler registros para interpretar o histórico médico do paciente |
+| `INS` | Plano de Saúde | Ler apenas o score SVA agregado — nunca dados brutos |
+| `RES` | Instituição de Pesquisa | Acesso agregado anonimizado para ciência aberta |
+| `PLT` | Plataforma e Sistema de IA | Analisar vitalidade, solicitar scores SVA |
 
-### Physician & Practitioner (PHY)
-Licensed physicians, specialists, and health practitioners.
-*   **Primary function**: `READ_RECORDS` to interpret existing data.
-*   **Write capabilities**: Can only submit clinical assessment BioRecords (`BSP-CL`).
-*   **Consent model**: Time-limited and scope-limited tokens only (e.g., 30 days, `BSP-LA` only).
+---
 
-### Health Insurer (INS)
-Health insurance companies and managed care organizations. They operate under the most restrictive access model.
-*   **Read access**: Aggregate anonymized data only. No individual BEOs.
-*   **Individual access**: Only with explicit ongoing opt-in consent; receives **SVA score only**, no raw data.
-*   **Prohibited use**: Cannot use BSP data for underwriting decisions or coverage denial.
+## Matriz de Permissões
 
-### Research Institution (RES)
-Universities, research centers, and clinical trials.
-*   **Data access**: Anonymized aggregate with explicit opt-in.
-*   **BIP Contribution**: Required for BSP Research Partner status.
-*   **Publication**: Open access publication of BSP-derived findings.
+| Ação | LAB | HOSP | WEAR | PHY | INS | RES |
+|------|:---:|:----:|:----:|:---:|:---:|:---:|
+| Enviar BioRecords | ✓ | ✓ | ✓ | ✓* | — | — |
+| Ler BEO (com token) | — | ✓ | — | ✓ | — | — |
+| Dados agregados anonimizados | — | — | — | — | ✓* | ✓ |
+| Analisar vitalidade (AVA) | — | — | — | ✓ | — | — |
+| Solicitar score SVA | — | — | — | ✓ | ✓* | — |
 
-### Platform & AI System (PLT)
-Digital health platforms, telemedicine, and AI systems (like AVA).
-*   **Primary function**: `ANALYZE_VITALITY` and `REQUEST_SCORE` intents.
-*   **Read access**: With persistent, refreshable user consent.
-*   **Write access**: Cannot write BioRecords — platforms interpret, not measure.
+*PHY: apenas avaliações clínicas (BSP-CL) | INS: apenas SVA composto com opt-in do usuário*
 
-## Permission Matrix
+---
 
-| Action | LAB | HOSP | WEAR | PHY | INS | RES |
-|--------|-----|------|------|-----|-----|-----|
-| Submit BioRecords | ✅ | ✅ | ✅ | ✅* | — | — |
-| Read own submissions | — | — | — | — | — | — |
-| Read BEO (with token) | — | ✅ | — | ✅ | — | — |
-| Aggregate anonymized | — | — | — | — | ✅* | ✅ |
-| Analyze vitality (AVA) | — | — | — | ✅ | — | — |
-| Request SVA score | — | — | — | ✅ | ✅* | — |
-| Issue consent tokens | — | — | — | — | — | — |
-| Revoke consent tokens| — | — | — | — | — | — |
+## Schema Completo do IEO
 
-*\* PHY may only submit clinical assessment records. INS may only access SVA score with opt-in.*
+```typescript
+interface IEO {
+  ieo_id:       string    // Identificador institucional universalmente único
+  domain:       string    // Endereço .bsp — ex: "fleury.bsp"
+  display_name: string    // Nome legal completo
+  ieo_type:     IEOType   // LABORATORY | HOSPITAL | WEARABLE | PHYSICIAN | INSURER | RESEARCH | PLATFORM
+  country:      string    // Código de país ISO3166
+  jurisdiction: string    // Jurisdição regulatória
+  legal_id:     string    // CNPJ (BR) / EIN (US) / VAT (EU) etc.
+  public_key:   string    // Chave pública Ed25519 institucional
+  created_at:   string    // ISO8601
+  version:      string    // Versão BSP no momento da criação
 
-## Public IEO Registry & Certification
-Every active IEO is listed in the **BSP Public Registry** — a transparent, on-chain record queryable by anyone. Users can verify an institution's claims before granting consent.
+  certification: {
+    level:      "UNCERTIFIED" | "BASIC" | "ADVANCED" | "FULL" | "DEVICE" | "RESEARCH"
+    granted_at: string
+    expires_at: string     // Renovação anual
+    categories: string[]   // Categorias BSP autorizadas (ex: ["BSP-LA", "BSP-HM"])
+    intents:    BSPIntent[]
+  }
 
-Certified institutions receive an embeddable **Certification Badge** that links directly to their live on-chain registry entry. It cannot be spoofed.
+  operations: {
+    biorecords_submitted: number
+    last_submission:      string
+    compliance_rate:      number  // 0.0–1.0
+    active_consents:      number
+  }
 
-The `IEORegistry` smart contract handles IEO creations (free and open) and certification updates (managed by the Institute).
+  status: "ACTIVE" | "SUSPENDED" | "REVOKED" | "PENDING"
+}
+```
+
+---
+
+## Níveis de Certificação
+
+| Nível | Código | Acesso a Dados | Alvo |
+|-------|--------|---------------|------|
+| Não Certificado | — | Qualquer categoria com consentimento do usuário | Qualquer instituição começando |
+| Básico | BSP-1 | L2 Standard | Laboratórios clínicos, diagnósticos de rotina |
+| Avançado | BSP-2 | L1 Core + L2 | Clínicas de longevidade avançada |
+| Espectro Completo | BSP-3 | L1 + L2 + L3 Extended | Centros de pesquisa abrangentes |
+| Dispositivo | BSP-4 | L4 Device (contínuo) | Fabricantes de wearables |
+
+---
+
+## Processo de Certificação
+
+### Caminho Padrão para Laboratório (BSP-1)
+
+1. **Solicitação** — Enviar em `biologicalsovereigntyprotocol.com/certify`. Necessário: ID de entidade legal, contatos, lista de categorias analíticas.
+2. **Revisão de Documentos** — Instituto revisa em 5 dias úteis: legitimidade legal, posição regulatória, correspondência de capacidades.
+3. **Auditoria Técnica** — Acesso ao BSP Compliance Test Suite. Deve enviar 100 BioRecords válidos em todas as categorias solicitadas em modo sandbox usando o SDK.
+4. **Atualização do IEO** — Após aprovação, o Instituto atualiza o IEO da instituição no Arweave para `BSP-CERTIFIED` com categorias autorizadas e referência de auditoria.
+5. **Produção** — Credenciais de produção do SDK emitidas. Selo torna-se ativo e verificável on-chain.
+6. **Renovação Anual** — Falha → status muda para `SUSPENDED`.
+
+---
+
+## Restrições Especiais
+
+### IEOs de Wearables
+**Nunca** podem receber acesso `READ_RECORDS` — nem mesmo com consentimento explícito do usuário. Dispositivos produzem dados; não os consomem. Essa restrição é permanente e codificada no contrato `IEORegistry`.
+
+### IEOs de Planos de Saúde
+Permanentemente proibidos de:
+- Usar dados BSP para subscrição de seguros
+- Acessar BioRecords brutos (apenas score SVA composto com opt-in anual explícito)
+- Armazenar dados BSP brutos
+
+---
+
+## Criar um IEO
+
+```python
+from bsp_sdk import IEOBuilder, IEOType
+
+ieo = IEOBuilder(
+    domain       = "seulaboratorio.bsp",
+    name         = "Nome do Seu Laboratório",
+    ieo_type     = IEOType.LABORATORY,
+    jurisdiction = "BR",
+    legal_id     = "12.345.678/0001-99",
+    contact      = "tech@seulaboratorio.com",
+    website      = "https://seulaboratorio.com",
+).build()
+
+result = ieo.register()
+
+print(result.ieo_id)       # UUID permanente no Arweave
+print(result.domain)       # seulaboratorio.bsp
+print(result.arweave_tx)   # ID de transação on-chain
+print(result.status)       # ACTIVE (UNCERTIFIED por padrão)
+
+# CRÍTICO: Armazenar com segurança — sem recuperação se perdido
+# result.private_key  → armazenar em .env como BSP_IEO_PRIVATE_KEY
+# result.seed_phrase  → armazenar offline
+```
+
+---
+
+## Registro Público e Selo de Certificação
+
+Cada IEO ativo aparece no Registro Público BSP, consultável por qualquer pessoa. A certificação é verificável on-chain — o selo não pode ser falsificado.
+
+```typescript
+const registry = new IEORegistry("mainnet")
+const status = await registry.verify("fleury.bsp")
+
+console.log(status.isCertified)   // true
+console.log(status.certifiedSince) // 2026-03-01
+console.log(status.level)          // "ADVANCED"
+```
+
+```html
+<!-- Selo de certificação incorporável -->
+<a href="https://biologicalsovereigntyprotocol.com/registry/fleury.bsp">
+  <img src="https://biologicalsovereigntyprotocol.com/badges/BSP-Compliant-Advanced.svg"
+       alt="BSP-Certificado Avançado"
+       width="200" />
+</a>
+```

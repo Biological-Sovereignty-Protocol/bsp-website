@@ -1,12 +1,12 @@
-# Tutorials & Cookbooks
+# Tutoriales y Recetas
 
-These practical guides bridge the gap between protocol theory and working code. Use them as starting points for your own BSP integrations.
+Estas guías prácticas conectan la teoría del protocolo con código funcional. Úsalas como punto de partida para tus propias integraciones BSP.
 
-## 1. Laboratory Integration (Submit Data)
-*Scenario: A clinic wants to automatically convert daily blood test results into BSP BioRecords and send them to patients' BEOs.*
+## 1. Integración de Laboratorio (Enviar Datos)
+*Escenario: Una clínica quiere convertir automáticamente los resultados diarios de análisis de sangre en BioRecords BSP y enviarlos a los BEOs de los pacientes.*
 
-### Step 1: Connect to the Network
-The lab initializes their institution identity using their private key.
+### Paso 1: Conectarse a la Red
+El laboratorio inicializa su identidad institucional usando su clave privada.
 
 ```python
 from bsp_sdk import BSPClient
@@ -17,8 +17,8 @@ lab = BSPClient(
 )
 ```
 
-### Step 2: Validate Patient Consent
-Before processing data, ensure the patient has granted you the right to submit to their BEO.
+### Paso 2: Validar el Consentimiento del Paciente
+Antes de procesar datos, asegúrate de que el paciente te haya otorgado el derecho de enviar a su BEO.
 
 ```python
 patient_domain = "andre.bsp"
@@ -31,12 +31,12 @@ check = lab.access.verify_consent(
 
 if not check.valid:
     print(f"Cannot submit. Reason: {check.reason}")
-    # e.g., TOKEN_REVOKED or TOKEN_EXPIRED
+    # ej., TOKEN_REVOKED o TOKEN_EXPIRED
     return
 ```
 
-### Step 3: Map LIS Data to BSP Format
-Convert the internal laboratory data into standardized BSP BioRecords.
+### Paso 3: Mapear Datos LIS al Formato BSP
+Convierte los datos internos del laboratorio en BioRecords BSP estandarizados.
 
 ```python
 from bsp_sdk import BioRecordBuilder
@@ -52,8 +52,8 @@ for result in internal_lis_results:
     records.append(record)
 ```
 
-### Step 4: Encrypt and Transmit
-Submit the records to Arweave. The SDK automatically handles encrypting the data with the patient's public key.
+### Paso 4: Cifrar y Transmitir
+Envía los registros a Arweave. El SDK maneja automáticamente el cifrado de los datos con la clave pública del paciente.
 
 ```python
 response = lab.submit_records(
@@ -67,26 +67,26 @@ print(f"Successfully secured {len(records)} records on-chain.")
 
 ---
 
-## 2. Platform Integration (Read Data)
-*Scenario: A longevity platform wants to read a user's historical cardiovascular data to render a custom dashboard widget.*
+## 2. Integración de Plataforma (Leer Datos)
+*Escenario: Una plataforma de longevidad quiere leer el historial cardiovascular de un usuario para renderizar un widget de dashboard personalizado.*
 
-### Step 1: Request Access
-The platform prompts the user for access. This usually triggers a flow in the user's BSP wallet app.
+### Paso 1: Solicitar Acceso
+La plataforma solicita acceso al usuario. Esto generalmente activa un flujo en la app de wallet BSP del usuario.
 
 ```typescript
-// The platform requests a token scoping ONLY cardiovascular data
+// La plataforma solicita un token acotando SOLO datos cardiovasculares
 const requestUrl = platform.access.createAuthRequestUrl({
     intents: ["READ_RECORDS"],
-    categories: ["BSP-CV"], // Cardiovascular focus
-    durationDays: 30,       // Time-limited
+    categories: ["BSP-CV"], // Enfoque cardiovascular
+    durationDays: 30,       // Con límite de tiempo
     purpose: "Render the CV Health Dashboard"
 });
 
-// User clicks, approves on their device, returns an active AuthToken
+// El usuario hace clic, aprueba en su dispositivo, devuelve un AuthToken activo
 ```
 
-### Step 2: Fetch and Filter Data
-Once authorized, query the network for the relevant records. The SDK will decrypt the response locally since it's operating on behalf of the user's explicit consent session.
+### Paso 2: Obtener y Filtrar Datos
+Una vez autorizado, consulta la red para los registros relevantes. El SDK descifrará la respuesta localmente ya que opera en nombre de la sesión de consentimiento explícito del usuario.
 
 ```typescript
 const cvRecords = await platform.readRecords({
@@ -96,17 +96,17 @@ const cvRecords = await platform.readRecords({
         categories: ["BSP-CV"],
         period: {
             from: "2024-01-01T00:00:00Z",
-            to: null // Up to today
+            to: null // Hasta hoy
         }
     }
 });
 ```
 
-### Step 3: Aggregate and Render
-Iterate over the standardized records without worrying about which lab produced them. 
+### Paso 3: Agregar y Renderizar
+Itera sobre los registros estandarizados sin preocuparte de qué laboratorio los produjo.
 
 ```typescript
-// All LDL-P records are standardized to nmol/L, regardless of the source.
+// Todos los registros de LDL-P están estandarizados en nmol/L, independientemente del origen.
 const ldlpHistory = cvRecords
     .filter(r => r.biomarker === "BSP-CV-001")
     .map(r => ({ date: r.collected_at, value: r.value }));

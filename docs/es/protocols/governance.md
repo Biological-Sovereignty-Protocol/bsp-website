@@ -1,50 +1,54 @@
-# Governance & BIP Process
+<div class="page-hero-image">
+  <img src="/images/governance-bip.png" alt="BSP Governance" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-"A protocol that cannot evolve is dead. A protocol that anyone can change is not a protocol."
+# Gobernanza y Proceso BIP
 
-## Governance Philosophy
-BSP is a public good. Its governance model resolves the fundamental tension between stability (systems built on it shouldn't break) and flexibility (incorporating scientific breakthroughs).
+"Un protocolo que no puede evolucionar está muerto. Un protocolo que cualquiera puede cambiar no es un protocolo."
 
-The solution is a strict separation of layers:
-*   **Protocol Core**: Changes rarely. Requires multi-sig consensus & 90-day public comment.
-*   **Biomarker Taxonomy**: Evolves quarterly based on approved BIPs. Requires Scientific Council vote + formal ratification.
-*   **Implementations (AVA, SDKs)**: Evolve continuously without impacting the protocol.
+## Filosofía de Gobernanza
+BSP es un bien público. Su modelo de gobernanza resuelve la tensión fundamental entre estabilidad (los sistemas construidos sobre él no deben romperse) y flexibilidad (incorporar avances científicos).
 
-## The Ambrósio Institute as Guardian
-The Ambrósio Institute is the guardian of the BSP standard — not its owner.
+La solución es una separación estricta de capas:
+*   **Núcleo del Protocolo**: Cambia raramente. Requiere consenso multi-sig y 90 días de comentario público.
+*   **Taxonomía de Biomarcadores**: Evoluciona trimestralmente basándose en BIPs aprobados. Requiere votación del Consejo Científico + ratificación formal.
+*   **Implementaciones (AVA, SDKs)**: Evolucionan continuamente sin impactar el protocolo.
 
-### The Scientific Council
-*   **Composition**: 7 independent global experts (longevity, cardiology, metabolism, etc.).
-*   **Independence**: Mandatory. No member can have financial ties to the Institute.
-*   **Quorum**: 5 of 7 needed to vote. Simple majority decides.
-*   **Meetings**: Quarterly (Jan, Apr, Jul, Oct) to review pending BIPs.
+## El Ambrósio Institute como Guardián
+El Ambrósio Institute es el guardián del estándar BSP — no su propietario.
 
-### The Three Keys — Multi-Sig
-Critical operations on the Arweave smart contracts require at least 2 of 3 authorized keys.
-*   **Key A — Founder**: Director of the Institute.
-*   **Key B — Chief Scientific Officer**: Technical protocol lead.
-*   **Key C — Legal Custody**: Independent fiduciary. Acts as a safeguard against unilateral abuse.
+### El Consejo Científico
+*   **Composición**: 7 expertos globales independientes (longevidad, cardiología, metabolismo, etc.).
+*   **Independencia**: Obligatoria. Ningún miembro puede tener vínculos financieros con el Instituto.
+*   **Quórum**: 5 de 7 necesarios para votar. La mayoría simple decide.
+*   **Reuniones**: Trimestrales (Jan, Abr, Jul, Oct) para revisar BIPs pendientes.
 
-## BSP Improvement Proposals (BIPs)
-A BIP is the formal unit of evolution for the BSP protocol. Anyone globally can submit a BIP — researchers, physicians, developers — without paying fees or requiring membership.
+### Las Tres Claves — Multi-Sig
+Las operaciones críticas en los contratos inteligentes de Arweave requieren al menos 2 de 3 claves autorizadas.
+*   **Clave A — Fundador**: Director del Instituto.
+*   **Clave B — Director Científico**: Responsable técnico del protocolo.
+*   **Clave C — Custodia Legal**: Fiduciario independiente. Actúa como salvaguarda contra el abuso unilateral.
 
-### Types of BIPs
-| Type | Name | Process |
+## Propuestas de Mejora BSP (BIPs)
+Un BIP es la unidad formal de evolución del protocolo BSP. Cualquier persona en el mundo puede enviar un BIP — investigadores, médicos, desarrolladores — sin pagar tarifas ni requerir membresía.
+
+### Tipos de BIPs
+| Tipo | Nombre | Proceso |
 |------|------|---------|
-| **BIP-T** | Taxonomy | Addition/modification of biomarkers. Voted on quarterly. |
-| **BIP-P** | Protocol | Core modifications. Requires 90-day public comment. |
-| **BIP-G** | Governance | Changes to the governance model itself. Requires 120-day comment. |
-| **BIP-I** | Informational | Best practices, documentation guidelines. Simplified approval. |
+| **BIP-T** | Taxonomía | Adición/modificación de biomarcadores. Se vota trimestralmente. |
+| **BIP-P** | Protocolo | Modificaciones al núcleo. Requiere 90 días de comentario público. |
+| **BIP-G** | Gobernanza | Cambios al modelo de gobernanza en sí. Requiere 120 días de comentario. |
+| **BIP-I** | Informacional | Mejores prácticas, guías de documentación. Aprobación simplificada. |
 
-### The BIP Lifecycle
-1.  **Submission (1 day)**: Author submits a Pull Request to `bsp-spec/bip` using the template. Status: `DRAFT`.
-2.  **Technical Review (2 weeks)**: Institute verifies schema, references, and completeness. Status: `REVIEW`.
-3.  **Public Comment (30-120 days)**: Open debate on GitHub. Status: `COUNCIL`.
-4.  **Scientific Council Vote**: Quarterly evaluation. Evaluates evidence (requires at least 2 peer-reviewed papers).
-5.  **Decision & Ratification (1-2 weeks)**: If approved, the Scientific Keyholder ratifies the change on-chain. SDK implementations are scheduled.
+### El Ciclo de Vida del BIP
+1.  **Envío (1 día)**: El autor envía un Pull Request a `bsp-spec/bip` usando el template. Estado: `DRAFT`.
+2.  **Revisión Técnica (2 semanas)**: El Instituto verifica el schema, las referencias y la completitud. Estado: `REVIEW`.
+3.  **Comentario Público (30-120 días)**: Debate abierto en GitHub. Estado: `COUNCIL`.
+4.  **Votación del Consejo Científico**: Evaluación trimestral. Evalúa evidencia (requiere al menos 2 artículos revisados por pares).
+5.  **Decisión y Ratificación (1-2 semanas)**: Si se aprueba, el Titular de Clave Científica ratifica el cambio on-chain. Se programan las implementaciones en el SDK.
 
-## Emergency Procedures & Protections
-What prevents the Institute from "capturing" the protocol?
-1.  **Independent Key C**: Prevents unilateral contract changes.
-2.  **Public Auditability**: Every BIP, vote, and justification is permanently public and on-chain.
-3.  **Fork Protection Commitment**: The Institute publicly commits to never legally contest implementations that fork away from the standard if the community disagrees with Institute decisions.
+## Procedimientos de Emergencia y Protecciones
+¿Qué impide que el Instituto "capture" el protocolo?
+1.  **Clave C Independiente**: Impide cambios unilaterales en los contratos.
+2.  **Auditabilidad Pública**: Cada BIP, voto y justificación es permanentemente público y on-chain.
+3.  **Compromiso de Protección de Fork**: El Instituto se compromete públicamente a nunca impugnar legalmente las implementaciones que se bifurquen del estándar si la comunidad no está de acuerdo con las decisiones del Instituto.

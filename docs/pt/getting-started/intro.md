@@ -1,3 +1,7 @@
+<div class="page-hero-image">
+  <img src="/images/intro-hero.png" alt="BSP Introduction — biological sovereignty activation" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
 # O que é o Protocolo de Soberania Biológica (BSP)?
 
 O sistema global de saúde é construído sobre uma falha estrutural fundamental: os indivíduos não são proprietários dos seus próprios dados biológicos. Registros médicos pertencem a hospitais. Resultados de laboratório pertencem a laboratórios. Dados de wearables pertencem a empresas de tecnologia.
@@ -32,6 +36,7 @@ Sua idade biológica — o estado funcional de seus órgãos, sistema imunológi
 
 <div class="vp-doc">
   <ul>
-    <li><a href="/architecture">Learn the architecture and core concepts of BSP</a></li>
+    <li><a href="/pt/getting-started/quickstart">Início Rápido para Desenvolvedores: Crie sua integração em 30 minutos</a></li>
+    <li><a href="/pt/architecture">Conheça a arquitetura e os conceitos centrais do BSP</a></li>
   </ul>
 </div>

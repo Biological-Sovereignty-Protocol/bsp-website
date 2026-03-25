@@ -1,20 +1,20 @@
 ---
-title: Taxonomy — Level 4 device
+title: Taxonomia — Nível 4 Device
 ---
 
-# BSP Taxonomy — Level 4: Device Biomarkers
+# Taxonomia BSP — Nível 4: Biomarcadores Device
 
-> Version 0.2 | Ambrósio Institute
+> Versão 0.2 | Ambrósio Institute
 
-Continuous biometric data from wearable devices and monitoring equipment. Submitted as daily consolidated BioRecords — statistical summaries of continuous measurements.
+Dados biométricos contínuos de dispositivos wearables e equipamentos de monitoramento. Enviados como BioRecords consolidados diários — resumos estatísticos de medições contínuas.
 
-**Note:** Wearable IEOs submit daily consolidated records per biomarker — not second-by-second raw data. This prevents infrastructure overload while preserving clinical utility.
+**Nota:** IEOs Wearable enviam registros consolidados diários por biomarcador — não dados brutos segundo a segundo. Isso previne sobrecarga de infraestrutura mantendo a utilidade clínica.
 
 ---
 
-## Category 25 — Device & Continuous Monitoring (BSP-DV)
+## Categoria 25 — Device e Monitoramento Contínuo (BSP-DV)
 
-### Cardiac & Cardiovascular
+### Cardíaco e Cardiovascular
 
 | BSP Code | Biomarker | Unit | Consolidation |
 |---|---|---|---|

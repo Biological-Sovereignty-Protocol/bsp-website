@@ -1,16 +1,16 @@
 ---
-title: Canonical JSON Examples
+title: Exemplos JSON Canônicos
 ---
 
-# Canonical JSON Examples
+# Exemplos JSON Canônicos
 
-These are the canonical example payloads for the three core BSP objects. Use them as reference when building integrations.
+Estes são os payloads de exemplo canônicos para os três objetos BSP principais. Use-os como referência ao construir integrações.
 
 ---
 
-## BEO — Biological Entity Object
+## BEO — Objeto de Entidade Biológica
 
-A complete BEO with three guardians (2 active, 1 pending) and one consent log entry.
+Um BEO completo com três guardiões (2 ativos, 1 pendente) e uma entrada no log de consentimento.
 
 ```json
 {
@@ -67,9 +67,9 @@ A complete BEO with three guardians (2 active, 1 pending) and one consent log en
 
 ---
 
-## BioRecord — Biological Measurement Object
+## BioRecord — Objeto de Medição Biológica
 
-Three example BioRecords: fasting glucose (Standard), telomere length (Core), and HRV from a wearable (Device).
+Três exemplos de BioRecords: glicose em jejum (Standard), comprimento de telômeros (Core) e HRV de um wearable (Device).
 
 ```json
 [
@@ -190,7 +190,7 @@ Three example BioRecords: fasting glucose (Standard), telomere length (Core), an
 
 ## ConsentToken
 
-A physician receiving 90-day read access to cardiovascular and longevity data.
+Um médico recebendo acesso de leitura por 90 dias para dados cardiovasculares e de longevidade.
 
 ```json
 {
@@ -200,7 +200,7 @@ A physician receiving 90-day read access to cardiovascular and longevity data.
   "beo_domain": "andre.bsp",
   "ieo_id": "c2d4e6f8-a0b2-4c6e-8f0a-2b4d6e8f0a2b",
   "ieo_domain": "dr-carlos.bsp",
-  "ieo_name": "Dr. Carlos Mendes — Functional Medicine",
+  "ieo_name": "Dr. Carlos Mendes — Medicina Funcional",
   "granted_at": "2026-02-26T10:00:00Z",
   "expires_at": "2026-05-27T10:00:00Z",
   "revoked": false,
@@ -225,4 +225,4 @@ A physician receiving 90-day read access to cardiovascular and longevity data.
 
 ---
 
-*Source files: [bsp-spec/examples](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/examples)*
+*Arquivos fonte: [bsp-spec/examples](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/tree/main/examples)*

@@ -1,19 +1,23 @@
-# SDK Reference
+<div class="page-hero-image">
+  <img src="/images/developers-sdk.png" alt="BSP SDK" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
 
-BSP provides official SDKs to streamline integration. Both `@bsp/sdk` (TypeScript) and `bsp-sdk` (Python) share the exact same architectural principles and class names.
+# Referencia del SDK
+
+BSP proporciona SDKs oficiales para simplificar la integración. Tanto `@bsp/sdk` (TypeScript) como `bsp-sdk` (Python) comparten exactamente los mismos principios arquitectónicos y nombres de clases.
 
 > [!TIP]
-> The examples below use TypeScript syntax, but the Python equivalent is structurally identical, following synchronous or `async/await` patterns native to Python.
+> Los ejemplos abajo usan sintaxis TypeScript, pero el equivalente en Python es estructuralmente idéntico, siguiendo patrones síncronos o `async/await` nativos de Python.
 
-## Core Clients
+## Clientes Principales
 
 ### `BSPClient`
-The primary entry point for the SDK. It handles connecting to Arweave, signing transactions, and managing identity.
+El punto de entrada principal del SDK. Maneja la conexión con Arweave, la firma de transacciones y la gestión de identidad.
 
 ```typescript
 import { BSPClient } from '@bsp/sdk';
 
-// Initialize a client for an Institution (IEO)
+// Inicializar un cliente para una Institución (IEO)
 const client = new BSPClient({
   domain: "fleury.bsp",
   privateKey: process.env.BSP_PRIVATE_KEY,
@@ -21,10 +25,10 @@ const client = new BSPClient({
 });
 ```
 
-## Creating Records
+## Creación de Registros
 
 ### `BioRecordBuilder`
-Used to construct immutable, schema-valid data objects before submission.
+Usado para construir objetos de datos inmutables y válidos según el schema antes del envío.
 
 ```typescript
 import { BioRecordBuilder } from '@bsp/sdk';
@@ -36,16 +40,16 @@ const record = builder
   .setValue(0.42)
   .setUnit("mg/L")
   .setCollectionTime("2026-02-26T08:30:00Z")
-  .setSource("fleury.bsp") // automatically signed
+  .setSource("fleury.bsp") // firmado automáticamente
   .build();
-  
-// Validation happens automatically on .build()
+
+// La validación ocurre automáticamente en .build()
 ```
 
-## Network Operations
+## Operaciones de Red
 
 ### `submitRecords()`
-Submits one or more BioRecords to a target BEO. Requires a valid `ConsentToken`.
+Envía uno o más BioRecords a un BEO destino. Requiere un `ConsentToken` válido.
 
 ```typescript
 const response = await client.submitRecords({
@@ -54,12 +58,12 @@ const response = await client.submitRecords({
   consentToken: "token-uuid-abc123"
 });
 
-console.log(response.transactionId); // Arweave TX ID
+console.log(response.transactionId); // ID de transacción Arweave
 console.log(response.status); // "SUCCESS"
 ```
 
 ### `readRecords()`
-Fetches decrypted BioRecords from a BEO, scoped by the provided consent.
+Obtiene BioRecords descifrados de un BEO, acotados por el consentimiento proporcionado.
 
 ```typescript
 const results = await client.readRecords({
@@ -77,10 +81,10 @@ const results = await client.readRecords({
 console.log(`Retrieved ${results.records.length} records.`);
 ```
 
-## Access Control
+## Control de Acceso
 
 ### `issueConsentToken()`
-*(BEO Holders Only)*. Issues a new token authorizing an IEO.
+*(Solo Titulares de BEO)*. Emite un nuevo token autorizando a un IEO.
 
 ```typescript
 const token = await client.access.issueConsentToken({
@@ -88,14 +92,14 @@ const token = await client.access.issueConsentToken({
   scope: {
     intents: ["READ_RECORDS"],
     categories: ["BSP-CV"],
-    period: { from: null, to: null } // All history
+    period: { from: null, to: null } // Todo el historial
   },
   expiresInDays: 30
 });
 ```
 
 ### `verifyToken()`
-*(Target IEOs)*. Verifies if a token is valid for a specific action before attempting network transmission.
+*(IEOs destinatarios)*. Verifica si un token es válido para una acción específica antes de intentar la transmisión por red.
 
 ```typescript
 const check = await client.access.verifyToken({
@@ -105,6 +109,6 @@ const check = await client.access.verifyToken({
 });
 
 if (!check.valid) {
-  throw new Error(`Consent invalid: ${check.reason}`); // e.g., "TOKEN_EXPIRED"
+  throw new Error(`Consent invalid: ${check.reason}`); // ej., "TOKEN_EXPIRED"
 }
 ```

@@ -1,22 +1,22 @@
 ---
-title: Implementation Guide
+title: Guía de Implementación
 ---
 
-# BSP Implementation Guide
+# Guía de Implementación BSP
 
-> Version 0.2 — Practical guide for building on the Biological Sovereignty Protocol.
+> Versión 0.2 — Guía práctica para construir sobre el Biological Sovereignty Protocol.
 
-This document is for people who want to **build**, not just read the spec. Pick your persona below and follow the steps in order.
+Este documento es para quienes quieren **construir**, no solo leer la especificación. Elige tu perfil abajo y sigue los pasos en orden.
 
 ---
 
-## Persona 1: The User App Developer
+## Perfil 1: El Desarrollador de App de Usuario
 
-**Goal:** Build an app where users create their BSP identity and manage their biological data.
+**Objetivo:** Construir una app donde los usuarios creen su identidad BSP y gestionen sus datos biológicos.
 
-### Step 1 — Set up bsp-id-web
+### Paso 1 — Configurar bsp-id-web
 
-Fork the reference implementation or build your own UI. The reference app lives at `bsp-id-web/`.
+Haz un fork de la implementación de referencia o construye tu propia interfaz. La app de referencia está en `bsp-id-web/`.
 
 ```bash
 git clone https://github.com/Biological-Sovereignty-Protocol/bsp-id-web
@@ -25,54 +25,54 @@ npm install
 cp .env.example .env.local
 ```
 
-### Step 2 — Configure your relayer URL
+### Paso 2 — Configurar la URL del relayer
 
-The relayer is the off-chain API that bridges your app to Arweave SmartWeave contracts. Point your app at it:
+El relayer es la API off-chain que conecta tu app con los contratos SmartWeave de Arweave. Apunta tu app hacia él:
 
 ```env
 # .env.local
 NEXT_PUBLIC_BSP_RELAYER_URL=https://api.yourdomain.com
 ```
 
-For local development, you can run the relayer from `bsp-registry-api/`:
+Para desarrollo local, puedes ejecutar el relayer desde `bsp-registry-api/`:
 
 ```bash
 cd bsp-registry-api
 npm install
 npm run dev
-# Runs on http://localhost:3001
+# Corre en http://localhost:3001
 ```
 
-### Step 3 — Implement BEO creation flow
+### Paso 3 — Implementar el flujo de creación de BEO
 
-A user's identity starts with a seed phrase that generates a keypair, which then creates their Biological Entity Object (BEO).
+La identidad de un usuario comienza con una seed phrase que genera un keypair, que luego crea su Biological Entity Object (BEO).
 
 ```typescript
 import { BSPClient, generateKeypair } from '@bsp/sdk';
 
 const client = new BSPClient({ relayerUrl: process.env.NEXT_PUBLIC_BSP_RELAYER_URL });
 
-// 1. Generate seed phrase (show this to the user — they must save it)
+// 1. Generar seed phrase (mostrar esto al usuario — debe guardarlo)
 const { mnemonic, keypair } = await generateKeypair();
 
-// 2. Create the BEO on-chain
+// 2. Crear el BEO on-chain
 const beo = await client.identity.createBEO({
   publicKey: keypair.publicKey,
   metadata: {
-    alias: 'user-chosen-alias',  // optional, not PII
+    alias: 'user-chosen-alias',  // opcional, no PII
     created: Date.now(),
   }
 });
 
-console.log('BEO ID:', beo.id); // store this locally
+console.log('BEO ID:', beo.id); // guardar esto localmente
 ```
 
-### Step 4 — Implement ConsentToken UI
+### Paso 4 — Implementar la interfaz de ConsentToken
 
-Before any institution can access a user's data, the user must issue a ConsentToken. Show them what they're authorizing.
+Antes de que cualquier institución pueda acceder a los datos del usuario, este debe emitir un ConsentToken. Muéstrale qué está autorizando.
 
 ```typescript
-// Display the consent request to the user
+// Mostrar la solicitud de consentimiento al usuario
 function ConsentDialog({ request }) {
   return (
     <div>
@@ -86,7 +86,7 @@ function ConsentDialog({ request }) {
   );
 }
 
-// Issue the token
+// Emitir el token
 async function issueConsent(request) {
   const token = await client.consent.issue({
     beoId: currentUser.beoId,
@@ -95,37 +95,37 @@ async function issueConsent(request) {
     period: request.period,
     keypair: currentUser.keypair,
   });
-  return token; // share this token with the institution
+  return token; // compartir este token con la institución
 }
 ```
 
-### Step 5 — Implement key export and backup
+### Paso 5 — Implementar exportación y copia de seguridad de clave
 
-Users must be able to export their private key. If they lose it, their data is permanently inaccessible.
+Los usuarios deben poder exportar su clave privada. Si la pierden, sus datos son permanentemente inaccesibles.
 
 ```typescript
-// Export encrypted key backup
+// Exportar copia de seguridad de clave cifrada
 const backup = await client.identity.exportKey({
   keypair: currentUser.keypair,
-  password: userEnteredPassword, // encrypt with user-chosen password
+  password: userEnteredPassword, // cifrar con contraseña elegida por el usuario
 });
 
-// Offer download
+// Ofrecer descarga
 const blob = new Blob([JSON.stringify(backup)], { type: 'application/json' });
 downloadFile(blob, `bsp-key-backup-${Date.now()}.json`);
 ```
 
-Present this step as mandatory during onboarding, not optional.
+Presentar este paso como obligatorio durante el onboarding, no opcional.
 
 ---
 
-## Persona 2: The Institution (IEO) Developer
+## Perfil 2: El Desarrollador Institucional (IEO)
 
-**Goal:** You run a lab, clinic, or health platform and want to receive BSP-authorized health data from users.
+**Objetivo:** Gestionas un laboratorio, clínica o plataforma de salud y quieres recibir datos de salud autorizados por BSP de los usuarios.
 
-### Step 1 — Create your IEO
+### Paso 1 — Crear tu IEO
 
-An Institutional Entity Object (IEO) is your institution's on-chain identity. Create it once.
+Un Institutional Entity Object (IEO) es la identidad on-chain de tu institución. Créalo una sola vez.
 
 ```typescript
 import { BSPClient } from '@bsp/sdk';
@@ -137,43 +137,43 @@ const ieo = await client.institutions.createIEO({
   type: 'laboratory',   // laboratory | clinic | platform | research
   publicKey: yourInstitutionKeypair.publicKey,
   metadata: {
-    jurisdiction: 'BR',
+    jurisdiction: 'AR',
     contact: 'tech@acmelab.com',
   }
 });
 
-console.log('IEO ID:', ieo.id); // store this — it identifies your institution
+console.log('IEO ID:', ieo.id); // guardar esto — identifica tu institución
 ```
 
-### Step 2 — Request consent from users
+### Paso 2 — Solicitar consentimiento a los usuarios
 
-Direct users to authorize your IEO. You can deep-link into bsp-id-web or implement the consent flow in your own app.
+Dirige a los usuarios para que autoricen tu IEO. Puedes hacer un deep-link a bsp-id-web o implementar el flujo de consentimiento en tu propia app.
 
 ```typescript
-// Generate a consent request link
+// Generar un enlace de solicitud de consentimiento
 const consentUrl = client.consent.buildRequestUrl({
   ieoId: yourIeo.id,
-  scope: ['BSP-HM', 'BSP-LF'],  // biomarker taxonomy category codes
+  scope: ['BSP-HM', 'BSP-LF'],  // códigos de categoría de taxonomía de biomarcadores
   period: {
     start: Date.now(),
-    end: Date.now() + 90 * 24 * 60 * 60 * 1000, // 90 days
+    end: Date.now() + 90 * 24 * 60 * 60 * 1000, // 90 días
   },
   callbackUrl: 'https://yourapp.com/bsp/callback',
 });
 
-// Send this URL to the user (email, SMS, in-app link)
-// They approve in their BSP identity app, then your callback receives the ConsentToken
+// Enviar esta URL al usuario (email, SMS, enlace in-app)
+// Lo aprueba en su app de identidad BSP, luego tu callback recibe el ConsentToken
 ```
 
-### Step 3 — Verify ConsentToken before accepting data
+### Paso 3 — Verificar el ConsentToken antes de aceptar datos
 
-Never accept data submissions without verifying the token. This is not optional.
+Nunca aceptes envíos de datos sin verificar el token. Esto no es opcional.
 
 ```typescript
 async function handleDataSubmission(payload) {
   const { consentToken, biorecords } = payload;
 
-  // Verify the token is valid, not expired, and covers the submitted scope
+  // Verificar que el token es válido, no expirado y cubre el alcance enviado
   const verification = await client.consent.verify({
     token: consentToken,
     ieoId: yourIeo.id,
@@ -184,12 +184,12 @@ async function handleDataSubmission(payload) {
     throw new Error(`Consent invalid: ${verification.reason}`);
   }
 
-  // Safe to proceed
+  // Seguro para proceder
   await storeRecords(biorecords, verification.beoId);
 }
 ```
 
-### Step 4 — Submit BioRecords using ExchangeClient
+### Paso 4 — Enviar BioRecords usando ExchangeClient
 
 ```typescript
 import { ExchangeClient } from '@bsp/sdk';
@@ -204,14 +204,14 @@ const result = await exchange.submitRecords({
   consentToken: verifiedToken,
   records: [
     {
-      biomarkerCode: 'BSP-HM-HGB',  // Hemoglobin
+      biomarkerCode: 'BSP-HM-HGB',  // Hemoglobina
       value: 14.2,
       unit: 'g/dL',
       collectedAt: '2024-01-15T09:30:00Z',
       method: 'venous_blood',
     },
     {
-      biomarkerCode: 'BSP-HM-HCT',  // Hematocrit
+      biomarkerCode: 'BSP-HM-HCT',  // Hematocrito
       value: 42.1,
       unit: '%',
       collectedAt: '2024-01-15T09:30:00Z',
@@ -220,13 +220,13 @@ const result = await exchange.submitRecords({
   ],
 });
 
-console.log('Transaction ID:', result.txId); // Arweave transaction — permanent
+console.log('Transaction ID:', result.txId); // transacción Arweave — permanente
 ```
 
-### Step 5 — Query authorized records
+### Paso 5 — Consultar registros autorizados
 
 ```typescript
-// Fetch all records your IEO is authorized to read for a specific BEO
+// Obtener todos los registros que tu IEO está autorizado a leer para un BEO específico
 const records = await exchange.queryRecords({
   beoId: patientBeoId,
   scope: ['BSP-HM'],
@@ -243,37 +243,37 @@ records.forEach(record => {
 
 ---
 
-## Persona 3: The Protocol Integrator
+## Perfil 3: El Integrador de Protocolo
 
-**Goal:** Run your own BSP infrastructure — your own node/relayer for a private network or regional deployment.
+**Objetivo:** Ejecutar tu propia infraestructura BSP — tu propio nodo/relayer para una red privada o despliegue regional.
 
-### Step 1 — Deploy the SmartWeave contracts
+### Paso 1 — Desplegar los contratos SmartWeave
 
-BSP uses four SmartWeave contracts on Arweave. Deploy them in this order (each depends on the previous).
+BSP usa cuatro contratos SmartWeave en Arweave. Despliégalos en este orden (cada uno depende del anterior).
 
 ```bash
-cd bsp-spec/contracts  # or obtain from the registry repository
+cd bsp-spec/contracts  # o obtener del repositorio del registro
 
-# 1. BEORegistry — stores all biological entity identities
+# 1. BEORegistry — almacena todas las identidades de entidades biológicas
 arweave deploy BEORegistry --wallet ./wallet.json
 
-# 2. IEORegistry — stores all institutional identities
+# 2. IEORegistry — almacena todas las identidades institucionales
 arweave deploy IEORegistry --wallet ./wallet.json
 
-# 3. AccessControl — manages consent tokens and access permissions
+# 3. AccessControl — gestiona tokens de consentimiento y permisos de acceso
 arweave deploy AccessControl --wallet ./wallet.json \
   --init '{"beoRegistry":"<BEO_TX_ID>","ieoRegistry":"<IEO_TX_ID>"}'
 
-# 4. DomainRegistry — manages the .bsp namespace
+# 4. DomainRegistry — gestiona el namespace .bsp
 arweave deploy DomainRegistry --wallet ./wallet.json \
   --init '{"accessControl":"<ACCESS_CONTROL_TX_ID>"}'
 ```
 
-Save all four transaction IDs. They are permanent and identify your deployment.
+Guarda los cuatro IDs de transacción. Son permanentes e identifican tu despliegue.
 
-### Step 2 — Set up bsp-registry-api (the relayer)
+### Paso 2 — Configurar bsp-registry-api (el relayer)
 
-The relayer is the HTTP API that your apps talk to. It handles batching, caching, and translating REST calls into SmartWeave interactions.
+El relayer es la API HTTP con la que hablan tus apps. Maneja batching, caché y traduce llamadas REST a interacciones SmartWeave.
 
 ```bash
 git clone https://github.com/Biological-Sovereignty-Protocol/bsp-registry-api
@@ -281,7 +281,7 @@ cd bsp-registry-api
 npm install
 ```
 
-Configure it to point at your contracts:
+Configúralo para apuntar a tus contratos:
 
 ```env
 # .env
@@ -298,67 +298,67 @@ BSP_DOMAIN_REGISTRY_TX=<YOUR_DOMAIN_REGISTRY_TX_ID>
 PORT=3001
 ```
 
-Start the relayer:
+Iniciar el relayer:
 
 ```bash
 npm run build
 npm start
-# or with PM2: pm2 start ecosystem.config.js
+# o con PM2: pm2 start ecosystem.config.js
 ```
 
-### Step 3 — Configure authorized callers
+### Paso 3 — Configurar callers autorizados
 
-Restrict which origins and API keys can write to your relayer.
+Restringe qué orígenes y API keys pueden escribir en tu relayer.
 
 ```env
-# .env — add these
+# .env — agregar esto
 ALLOWED_ORIGINS=https://yourapp.com,https://youradminpanel.com
-API_KEYS=key_abc123,key_def456   # generate strong random keys
-RATE_LIMIT_WRITES=100            # write requests per minute per key
-RATE_LIMIT_READS=1000            # read requests per minute per key
+API_KEYS=key_abc123,key_def456   # generar claves aleatorias fuertes
+RATE_LIMIT_WRITES=100            # solicitudes de escritura por minuto por clave
+RATE_LIMIT_READS=1000            # solicitudes de lectura por minuto por clave
 ```
 
-For production, put the relayer behind a reverse proxy (nginx, Caddy) with TLS.
+Para producción, coloca el relayer detrás de un reverse proxy (nginx, Caddy) con TLS.
 
-### Step 4 — Point bsp-id-web at your relayer
+### Paso 4 — Apuntar bsp-id-web a tu relayer
 
-Any BSP-compatible app can point at your relayer by setting the relayer URL:
+Cualquier app compatible con BSP puede apuntar a tu relayer configurando la URL del relayer:
 
 ```env
-# In bsp-id-web or any SDK consumer
+# En bsp-id-web o cualquier consumidor del SDK
 NEXT_PUBLIC_BSP_RELAYER_URL=https://relayer.yourdomain.com
 ```
 
-Apps and SDKs are relayer-agnostic. The same `@bsp/sdk` code works against any compliant relayer.
+Las apps y SDKs son agnósticos al relayer. El mismo código `@bsp/sdk` funciona contra cualquier relayer compatible.
 
 ---
 
-## Common Pitfalls
+## Errores Comunes
 
-### 1. Losing the private key
+### 1. Perder la clave privada
 
-The user's keypair is the only access credential. There is no password reset, no recovery email, no support ticket that can restore it. Make key backup a hard requirement during onboarding, not a suggestion.
+El keypair del usuario es la única credencial de acceso. No hay restablecimiento de contraseña, ni email de recuperación, ni ticket de soporte que pueda restaurarlo. Haz que la copia de seguridad de la clave sea un requisito obligatorio durante el onboarding, no una sugerencia.
 
-### 2. Skipping ConsentToken verification
+### 2. Omitir la verificación del ConsentToken
 
-If your institution accepts data without verifying the token, you have no proof of consent. This is a compliance risk and a BSP protocol violation. Always call `client.consent.verify()` before processing submissions.
+Si tu institución acepta datos sin verificar el token, no tienes prueba de consentimiento. Esto es un riesgo de cumplimiento y una violación del protocolo BSP. Siempre llama a `client.consent.verify()` antes de procesar envíos.
 
-### 3. Using mutable metadata for identity
+### 3. Usar metadatos mutables para la identidad
 
-BEO and IEO records on Arweave are permanent. Do not store PII (name, date of birth, email) in the on-chain object. Store only the public key and a stable alias. Keep sensitive metadata in your own database, linked by BEO ID.
+Los registros de BEO e IEO en Arweave son permanentes. No almacenes PII (nombre, fecha de nacimiento, email) en el objeto on-chain. Almacena solo la clave pública y un alias estable. Guarda los metadatos sensibles en tu propia base de datos, vinculados por BEO ID.
 
-### 4. Deploying contracts in the wrong order
+### 4. Desplegar contratos en orden incorrecto
 
-The Consent Registry needs the BEO and IEO registry transaction IDs at deployment time. The BioRecord Index needs the Consent Registry TX ID. Deploy in sequence: BEO → IEO → Consent → Index.
+El Consent Registry necesita los IDs de transacción del registro BEO e IEO en el momento del despliegue. El BioRecord Index necesita el TX ID del Consent Registry. Despliega en secuencia: BEO → IEO → Consent → Index.
 
-### 5. Scope creep in ConsentTokens
+### 5. Exceso de alcance en los ConsentTokens
 
-Request only the biomarker taxonomy codes you actually need. Users see the scope during the consent dialog. Requesting `BSP.*` (all data) will cause users to decline. Request the minimum scope for your use case.
+Solicita solo los códigos de taxonomía de biomarcadores que realmente necesitas. Los usuarios ven el alcance durante el diálogo de consentimiento. Solicitar `BSP.*` (todos los datos) hará que los usuarios rechacen. Solicita el alcance mínimo para tu caso de uso.
 
-### 6. Not handling Arweave latency
+### 6. No manejar la latencia de Arweave
 
-Arweave transactions are not instant. After submitting a record, the `txId` is returned immediately but the record may take 10-20 minutes to be fully confirmed. Design your UX to show a "pending" state rather than assuming immediate availability.
+Las transacciones de Arweave no son instantáneas. Después de enviar un registro, el `txId` se devuelve inmediatamente pero el registro puede tardar 10-20 minutos en confirmarse completamente. Diseña tu UX para mostrar un estado "pendiente" en lugar de asumir disponibilidad inmediata.
 
 ---
 
-*Questions or corrections? Open an issue or PR. This guide tracks the spec at version 0.2.*
+*¿Preguntas o correcciones? Abre un issue o PR. Esta guía sigue la especificación en la versión 0.2.*

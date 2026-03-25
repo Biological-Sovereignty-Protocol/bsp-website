@@ -1,142 +1,142 @@
 ---
-title: BioRecord — Biological Measurement Object
+title: BioRecord — Objeto de Medición Biológica
 ---
 
-# BioRecord — Biological Measurement Object
+# BioRecord — Objeto de Medición Biológica
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-Every biological measurement in the BSP ecosystem is represented as a **BioRecord**.
-
-BioRecords are the atomic units of biological data. Every blood test result, wearable reading, genomic marker, or clinical assessment that enters the BSP ecosystem is structured as a BioRecord.
+> Versión 0.2 | Ambrósio Institute
 
 ---
 
-## BioRecord Schema
+## Visión General
+
+Cada medición biológica en el ecosistema BSP se representa como un **BioRecord**.
+
+Los BioRecords son las unidades atómicas de datos biológicos. Cada resultado de análisis de sangre, lectura de wearable, marcador genómico o evaluación clínica que entra al ecosistema BSP se estructura como un BioRecord.
+
+---
+
+## Schema del BioRecord
 
 ```typescript
 BioRecord {
-  // ─── IDENTITY ──────────────────────────────────────────────────
-  record_id:    string      // Unique identifier for this record (UUID v4)
-  beo_id:       string      // The biological entity this record belongs to
-  version:      semver      // BSP version of this record
+  // ─── IDENTIDAD ──────────────────────────────────────────────────
+  record_id:    string      // Identificador único de este registro (UUID v4)
+  beo_id:       string      // La entidad biológica a la que pertenece este registro
+  version:      semver      // Versión BSP de este registro
 
-  // ─── TIMING ────────────────────────────────────────────────────
-  timestamp:    ISO8601     // When this measurement was taken (not submitted)
-  submitted_at: ISO8601     // When this record was written to Arweave
+  // ─── TIEMPO ────────────────────────────────────────────────────
+  timestamp:    ISO8601     // Cuándo se tomó esta medición (no cuando se envió)
+  submitted_at: ISO8601     // Cuándo se escribió este registro en Arweave
 
-  // ─── SOURCE ────────────────────────────────────────────────────
-  source:       SourceMeta  // Who produced this measurement
+  // ─── FUENTE ────────────────────────────────────────────────────
+  source:       SourceMeta  // Quién produjo esta medición
 
-  // ─── TAXONOMY ──────────────────────────────────────────────────
-  category:     string      // BSP taxonomy category code (e.g. "BSP-LA")
-  biomarker:    string      // Standardized BSP biomarker code (e.g. "BSP-LA-004")
+  // ─── TAXONOMÍA ──────────────────────────────────────────────────
+  category:     string      // Código de categoría de taxonomía BSP (ej. "BSP-LA")
+  biomarker:    string      // Código de biomarcador BSP estandarizado (ej. "BSP-LA-004")
   level:        BioLevel    // CORE | STANDARD | EXTENDED | DEVICE
 
-  // ─── MEASUREMENT ───────────────────────────────────────────────
-  value:        number | string  // The measured value
-  unit:         string           // Standardized unit (SI or BSP-defined)
-  ref_range:    RangeObject      // Optimal and functional reference ranges
+  // ─── MEDICIÓN ───────────────────────────────────────────────────
+  value:        number | string  // El valor medido
+  unit:         string           // Unidad estandarizada (SI o definida por BSP)
+  ref_range:    RangeObject      // Rangos de referencia óptimos y funcionales
 
-  // ─── QUALITY ───────────────────────────────────────────────────
-  confidence:   float       // 0.0 to 1.0 measurement confidence
+  // ─── CALIDAD ───────────────────────────────────────────────────
+  confidence:   float       // Confianza de medición de 0.0 a 1.0
   status:       RecordStatus // ACTIVE | SUPERSEDED | PENDING
 
-  // ─── CORRECTIONS ───────────────────────────────────────────────
-  supersedes:   string | null  // record_id of corrected record, if applicable
+  // ─── CORRECCIONES ───────────────────────────────────────────────
+  supersedes:   string | null  // record_id del registro corregido, si aplica
 
-  // ─── CRYPTOGRAPHY ──────────────────────────────────────────────
-  signature:    string      // Cryptographic signature from submitting entity
+  // ─── CRIPTOGRAFÍA ──────────────────────────────────────────────
+  signature:    string      // Firma criptográfica de la entidad que lo envió
 }
 
 SourceMeta {
-  ieo_id:      string      // The submitting institution's IEO identifier
-  ieo_domain:  string      // e.g. "fleury.bsp"
-  method:      string      // Measurement method (e.g. "HPLC", "immunoassay")
-  equipment:   string      // Equipment identifier (optional)
-  operator:    string      // Lab operator reference (optional, anonymized)
+  ieo_id:      string      // Identificador IEO de la institución que lo envió
+  ieo_domain:  string      // ej. "fleury.bsp"
+  method:      string      // Método de medición (ej. "HPLC", "immunoassay")
+  equipment:   string      // Identificador del equipo (opcional)
+  operator:    string      // Referencia del operador de laboratorio (opcional, anonimizado)
 }
 
 RangeObject {
-  optimal_low:    number   // Lower bound of optimal range
-  optimal_high:   number   // Upper bound of optimal range
-  functional_low: number   // Lower bound of functional range (no immediate risk)
-  functional_high: number  // Upper bound of functional range
-  critical_low:   number   // Below this = immediate clinical attention
-  critical_high:  number   // Above this = immediate clinical attention
-  unit:           string   // Same as parent record unit
-  population:     string   // Reference population for this range
+  optimal_low:    number   // Límite inferior del rango óptimo
+  optimal_high:   number   // Límite superior del rango óptimo
+  functional_low: number   // Límite inferior del rango funcional (sin riesgo inmediato)
+  functional_high: number  // Límite superior del rango funcional
+  critical_low:   number   // Por debajo de esto = atención clínica inmediata
+  critical_high:  number   // Por encima de esto = atención clínica inmediata
+  unit:           string   // Igual que la unidad del registro padre
+  population:     string   // Población de referencia para este rango
 }
 ```
 
 ---
 
-## BioLevel Values
+## Valores de BioLevel
 
-| Level | Code | Description |
+| Nivel | Código | Descripción |
 |---|---|---|
-| Core | `CORE` | Advanced longevity and biological aging biomarkers (L1) |
-| Standard | `STANDARD` | Routine laboratory biomarkers performed worldwide (L2) |
-| Extended | `EXTENDED` | Specialized clinical and research biomarkers (L3) |
-| Device | `DEVICE` | Continuous biometric data from wearable devices (L4) |
+| Core | `CORE` | Biomarcadores avanzados de longevidad y envejecimiento biológico (L1) |
+| Standard | `STANDARD` | Biomarcadores de laboratorio rutinarios realizados en todo el mundo (L2) |
+| Extended | `EXTENDED` | Biomarcadores clínicos y de investigación especializados (L3) |
+| Device | `DEVICE` | Datos biométricos continuos de dispositivos wearables (L4) |
 
 ---
 
-## RecordStatus Values
+## Valores de RecordStatus
 
-| Status | Description |
+| Estado | Descripción |
 |---|---|
-| `ACTIVE` | This is the current, valid record |
-| `SUPERSEDED` | This record has been corrected by a newer record |
-| `PENDING` | Submitted but awaiting confirmation (e.g. device sync) |
+| `ACTIVE` | Este es el registro válido actual |
+| `SUPERSEDED` | Este registro ha sido corregido por un registro más reciente |
+| `PENDING` | Enviado pero esperando confirmación (ej. sincronización de dispositivo) |
 
 ---
 
-## Immutability and Corrections
+## Inmutabilidad y Correcciones
 
-BioRecords are **immutable once written**. They cannot be altered or deleted after submission to Arweave.
+Los BioRecords son **inmutables una vez escritos**. No pueden alterarse ni eliminarse después de su envío a Arweave.
 
-When a correction is necessary (e.g. a lab transcription error), the corrected value is submitted as a **new BioRecord** that supersedes the original:
+Cuando es necesaria una corrección (ej. un error de transcripción del laboratorio), el valor corregido se envía como un **nuevo BioRecord** que supercede al original:
 
 ```typescript
-// Corrected record
+// Registro corregido
 {
   record_id:    "new-uuid-...",
   beo_id:       "550e8400-...",
   status:       "ACTIVE",
-  supersedes:   "original-uuid-...",   // References the incorrect record
+  supersedes:   "original-uuid-...",   // Referencia al registro incorrecto
   biomarker:    "BSP-GL-001",
   value:        94,
   // ...
 }
 
-// Original record (automatically updated on-chain)
+// Registro original (actualizado automáticamente on-chain)
 {
   record_id:    "original-uuid-...",
-  status:       "SUPERSEDED",          // Status updated to SUPERSEDED
-  // ... original data preserved
+  status:       "SUPERSEDED",          // Estado actualizado a SUPERSEDED
+  // ... datos originales preservados
 }
 ```
 
-The complete audit trail — including the original incorrect value — is preserved permanently on Arweave.
+La pista de auditoría completa — incluido el valor incorrecto original — se preserva permanentemente en Arweave.
 
 ---
 
-## Submitting a BioRecord
+## Enviar un BioRecord
 
-Any system can submit a BioRecord to a BEO — subject to the holder's consent via AccessControl.
+Cualquier sistema puede enviar un BioRecord a un BEO — sujeto al consentimiento del titular a través de AccessControl.
 
 ```typescript
-// TypeScript SDK
+// SDK TypeScript
 import { BioRecordBuilder, ExchangeClient } from '@bsp/sdk'
 
 const record = new BioRecordBuilder()
   .beoId('550e8400-e29b-41d4-a716-446655440000')
-  .biomarker('BSP-GL-001')           // Fasting glucose
+  .biomarker('BSP-GL-001')           // Glucosa en ayunas
   .value(94)
   .unit('mg/dL')
   .timestamp('2026-02-24T08:30:00Z')
@@ -158,7 +158,7 @@ const result = await client.submit(record)
 ```
 
 ```python
-# Python SDK
+# SDK Python
 from bsp_sdk import BioRecordBuilder, ExchangeClient
 
 record = (BioRecordBuilder()
@@ -176,24 +176,24 @@ result = client.submit(record)
 
 ---
 
-## Biomarker Codes
+## Códigos de Biomarcadores
 
-Every biomarker in the BSP taxonomy has a standardized code in the format:
+Cada biomarcador en la taxonomía BSP tiene un código estandarizado con el formato:
 
 ```
-BSP-[CATEGORY]-[NUMBER]
+BSP-[CATEGORÍA]-[NÚMERO]
 ```
 
-Examples:
-- `BSP-LA-004` — NAD+ (Longevity & Aging category, marker #004)
-- `BSP-GL-001` — Fasting Glucose (Glycemia & Metabolic category, marker #001)
-- `BSP-DV-001` — Heart Rate Variability (Device category, marker #001)
+Ejemplos:
+- `BSP-LA-004` — NAD+ (categoría Longevidad y Envejecimiento, marcador #004)
+- `BSP-GL-001` — Glucosa en Ayunas (categoría Glucemia y Metabolismo, marcador #001)
+- `BSP-DV-001` — Variabilidad de Frecuencia Cardíaca (categoría Dispositivo, marcador #001)
 
-→ See [Biomarker Taxonomy](taxonomy/level-1-core) for the complete biomarker reference.
+→ Ver [Taxonomía de Biomarcadores](taxonomy/level-1-core) para la referencia completa de biomarcadores.
 
 ---
 
-## Example BioRecord (JSON)
+## Ejemplo de BioRecord (JSON)
 
 ```json
 {
@@ -230,7 +230,7 @@ Examples:
 }
 ```
 
-→ Full example: [`../examples/biorecord-example.json`](../examples/biorecord-example.json)
+→ Ejemplo completo: [`../examples/biorecord-example.json`](../examples/biorecord-example.json)
 
 ---
 

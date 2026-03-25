@@ -1,42 +1,42 @@
-# Ecosystem Directory
+# Directorio del Ecosistema
 
-The Biological Sovereignty Protocol connects individuals to an open network of health institutions, hardware manufacturers, and intelligence platforms. 
+El Biological Sovereignty Protocol conecta a individuos con una red abierta de instituciones de salud, fabricantes de hardware y plataformas de inteligencia.
 
-This directory lists prominent **Institutional Entity Objects (IEOs)** implementing the standard. 
+Este directorio lista los principales **Objetos de Entidad Institucional (IEOs)** que implementan el estándar.
 
 > [!NOTE]
-> Any institution can interact with the BSP without permission. The **BSP-Certified** badge (`✓`) indicates institutions that have voluntarily registered with the Ambrósio Institute for cryptographically verifiable identity checks.
+> Cualquier institución puede interactuar con el BSP sin permiso. El sello **BSP-Certified** (`✓`) indica instituciones que se han registrado voluntariamente con el Ambrósio Institute para verificaciones de identidad criptográficamente verificables.
 
-## Laboratories & Diagnostics (`BSP-LA`, `BSP-HM`)
-Laboratories submit high-fidelity, standardized BioRecords directly into patient BEOs.
+## Laboratorios y Diagnósticos (`BSP-LA`, `BSP-HM`)
+Los laboratorios envían BioRecords estandarizados de alta fidelidad directamente a los BEOs de los pacientes.
 
-| Name | IEO Domain | Type | Status |
+| Nombre | Dominio IEO | Tipo | Estado |
 |------|------------|------|--------|
-| Fleury | `fleury.bsp` | National Diagnostic | Certified ✓ |
-| Dasa | `dasa.bsp` | National Diagnostic | Integration |
-| DB Molecular | `db.bsp` | Specialized Lab | Certified ✓ |
+| Fleury | `fleury.bsp` | Diagnóstico Nacional | Certificado ✓ |
+| Dasa | `dasa.bsp` | Diagnóstico Nacional | Integración |
+| DB Molecular | `db.bsp` | Laboratorio Especializado | Certificado ✓ |
 
-## Wearables & Hardware (`BSP-DV`)
-Hardware manufacturers syncing continuous physiological data securely to the protocol.
+## Wearables y Hardware (`BSP-DV`)
+Fabricantes de hardware que sincronizan datos fisiológicos continuos de forma segura al protocolo.
 
-| Name | IEO Domain | Type | Status |
+| Nombre | Dominio IEO | Tipo | Estado |
 |------|------------|------|--------|
-| Oura | `oura.bsp` | Sleep/Recovery Ring | Certified ✓ |
-| WHOOP | `whoop.bsp` | Strain/Sleep Strap | Integration |
-| Apple Health | `apple.bsp` | Aggregator OS | Integration |
+| Oura | `oura.bsp` | Anillo Sueño/Recuperación | Certificado ✓ |
+| WHOOP | `whoop.bsp` | Banda Esfuerzo/Sueño | Integración |
+| Apple Health | `apple.bsp` | Agregador OS | Integración |
 
-## Intelligence & Platforms
-Platforms that process, synthesize, and provide insight onto biological data.
+## Inteligencia y Plataformas
+Plataformas que procesan, sintetizan y proporcionan insights sobre datos biológicos.
 
-| Name | IEO Domain | Type | Status |
+| Nombre | Dominio IEO | Tipo | Estado |
 |------|------------|------|--------|
-| Ambrósio Institute | `ambrosio.bsp` | SVA / AVA Core | Foundation ✓ |
-| InsideTracker | `insidetracker.bsp` | Biomarker Platform | Exploring |
+| Ambrósio Institute | `ambrosio.bsp` | SVA / AVA Core | Fundación ✓ |
+| InsideTracker | `insidetracker.bsp` | Plataforma de Biomarcadores | Explorando |
 
 ---
 
-### Verifying a Certification
-A true BSP certification is verifiable on-chain via the `IEORegistry` smart contract.
+### Verificar una Certificación
+Una certificación BSP real es verificable on-chain a través del contrato inteligente `IEORegistry`.
 
 ```typescript
 const registry = new IEORegistry("mainnet");

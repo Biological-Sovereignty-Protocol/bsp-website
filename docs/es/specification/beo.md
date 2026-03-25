@@ -1,82 +1,82 @@
 ---
-title: BEO — Biological Entity Object
+title: BEO — Objeto de Entidad Biológica
 ---
 
-# BEO — Biological Entity Object
+# BEO — Objeto de Entidad Biológica
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-The **Biological Entity Object (BEO)** is the central unit of the BSP. Every piece of data in the BSP ecosystem is anchored to a BEO.
-
-The BEO is **sovereign** — it belongs to the individual, not to any platform. It is stored on decentralized infrastructure (Arweave) and identified by a permanent `.bsp` domain name.
-
-> **The difference between a BEO and a traditional medical record is fundamental:**
-> The medical record belongs to the hospital. The BEO belongs to you.
-> The hospital is only a contributor — not the owner.
+> Versión 0.2 | Ambrósio Institute
 
 ---
 
-## BEO Object Schema
+## Visión General
+
+El **Biological Entity Object (BEO)** es la unidad central del BSP. Cada dato en el ecosistema BSP está anclado a un BEO.
+
+El BEO es **soberano** — pertenece al individuo, no a ninguna plataforma. Se almacena en infraestructura descentralizada (Arweave) y se identifica por un nombre de dominio `.bsp` permanente.
+
+> **La diferencia entre un BEO y un historial médico tradicional es fundamental:**
+> El historial médico pertenece al hospital. El BEO te pertenece a ti.
+> El hospital es solo un contribuyente — no el propietario.
+
+---
+
+## Schema del Objeto BEO
 
 ```typescript
 BEO {
-  // ─── IDENTITY ──────────────────────────────────────────────────
-  beo_id:      string     // Universally unique biological identifier (UUID v4)
-  domain:      string     // Human-readable address — e.g. "andre.bsp"
-  created_at:  ISO8601    // When this entity was first registered
-  version:     semver     // BSP version of this record
+  // ─── IDENTIDAD ──────────────────────────────────────────────────
+  beo_id:      string     // Identificador biológico universalmente único (UUID v4)
+  domain:      string     // Dirección legible por humanos — ej. "andre.bsp"
+  created_at:  ISO8601    // Cuándo se registró por primera vez esta entidad
+  version:     semver     // Versión BSP de este registro
 
-  // ─── CRYPTOGRAPHY ──────────────────────────────────────────────
-  public_key:  string     // Owner's public key (RSA-4096 or Ed25519)
-  key_version: number     // Increments on key rotation (starts at 1)
+  // ─── CRIPTOGRAFÍA ──────────────────────────────────────────────
+  public_key:  string     // Clave pública del propietario (RSA-4096 o Ed25519)
+  key_version: number     // Se incrementa en rotación de clave (comienza en 1)
 
-  // ─── DATA ──────────────────────────────────────────────────────
-  records:     BioRecord[]  // All biological measurements
-  protocols:   Protocol[]   // Active health protocols
+  // ─── DATOS ──────────────────────────────────────────────────────
+  records:     BioRecord[]  // Todas las mediciones biológicas
+  protocols:   Protocol[]   // Protocolos de salud activos
 
-  // ─── SOVEREIGNTY ───────────────────────────────────────────────
-  sovereignty: SovereigntyMeta  // Ownership, consent, and recovery metadata
+  // ─── SOBERANÍA ───────────────────────────────────────────────────
+  sovereignty: SovereigntyMeta  // Metadatos de propiedad, consentimiento y recuperación
 
-  // ─── STATUS ────────────────────────────────────────────────────
-  active_recovery: object | null  // Active recovery request metadata, or null
-  locked_at:       string | null  // ISO8601 timestamp if BEO is locked, or null
+  // ─── ESTADO ────────────────────────────────────────────────────
+  active_recovery: object | null  // Metadatos de solicitud de recuperación activa, o null
+  locked_at:       string | null  // Timestamp ISO8601 si el BEO está bloqueado, o null
 }
 
 SovereigntyMeta {
-  guardians:       Guardian[]   // Social recovery network (3 recommended)
-  recovery_scheme: string       // "2-of-3" threshold
-  seed_phrase_hash: string      // Hashed verification (phrase stored offline by user)
-  consent_log:     ConsentEntry[] // All access authorizations — on-chain
+  guardians:       Guardian[]   // Red de recuperación social (3 recomendados)
+  recovery_scheme: string       // Umbral "2-of-3"
+  seed_phrase_hash: string      // Verificación con hash (frase guardada offline por el usuario)
+  consent_log:     ConsentEntry[] // Todas las autorizaciones de acceso — on-chain
 }
 
 Guardian {
-  contact:     string              // How to reach this guardian (encrypted)
-  public_key:  string             // Guardian's public key for the recovery protocol
+  contact:     string              // Cómo contactar a este guardián (cifrado)
+  public_key:  string             // Clave pública del guardián para el protocolo de recuperación
   role:        string             // 'primary' | 'secondary' | 'tertiary'
-  status:      'PENDING' | 'ACTIVE'  // Whether they have accepted the guardian role
-  accepted_at: string | null      // ISO8601 timestamp of acceptance, or null if pending
+  status:      'PENDING' | 'ACTIVE'  // Si ha aceptado el rol de guardián
+  accepted_at: string | null      // Timestamp ISO8601 de aceptación, o null si pendiente
 }
 ```
 
 ---
 
-## Creating a BEO
+## Crear un BEO
 
-BEO creation is **open to anyone**. No permission from the Ambrósio Institute or any authority is required.
+La creación de un BEO está **abierta a cualquiera**. No se requiere permiso del Ambrósio Institute ni de ninguna autoridad.
 
 ```typescript
-// Using the bsp-sdk-typescript
+// Usando bsp-sdk-typescript
 import { BEOClient } from '@bsp/sdk'
 
 const client = new BEOClient()
 
 const beo = await client.create({
-  domain: 'andre.bsp',       // Desired .bsp domain
-  guardians: [               // Optional at creation — can add later
+  domain: 'andre.bsp',       // Dominio .bsp deseado
+  guardians: [               // Opcional en la creación — se pueden agregar después
     { contact: 'maria@example.com', public_key: '...' },
     { contact: 'joao@example.com',  public_key: '...' },
   ]
@@ -87,7 +87,7 @@ console.log(beo.domain)   // "andre.bsp"
 ```
 
 ```python
-# Using the bsp-sdk-python
+# Usando bsp-sdk-python
 from bsp_sdk import BEOClient
 
 client = BEOClient()
@@ -105,92 +105,92 @@ print(beo.domain)    # "andre.bsp"
 
 ---
 
-## The .bsp Domain
+## El Dominio .bsp
 
-Every BEO is identified by a human-readable `.bsp` domain — a permanent, sovereign biological address.
+Cada BEO se identifica por un dominio `.bsp` legible por humanos — una dirección biológica permanente y soberana.
 
-| Domain Type | Example | Rules |
+| Tipo de Dominio | Ejemplo | Reglas |
 |---|---|---|
-| Individual | `andre.bsp` | Free, permanent, non-transferable, tied to one BEO |
-| Professional | `dr.carlos.bsp` | Paid, permanent, non-transferable, tied to practitioner IEO |
-| Institutional | `fleury.bsp` | Paid, annual renewal, transferable, tied to IEO |
-| Research | `usp.longevity.bsp` | Paid, tied to Research Partner certification |
+| Individual | `andre.bsp` | Gratuito, permanente, no transferible, vinculado a un BEO |
+| Profesional | `dr.carlos.bsp` | De pago, permanente, no transferible, vinculado al IEO del profesional |
+| Institucional | `fleury.bsp` | De pago, renovación anual, transferible, vinculado al IEO |
+| Investigación | `usp.longevity.bsp` | De pago, vinculado a la certificación de Research Partner |
 
-→ See [`bsp-domain.md`](bsp-domain.md) for the complete domain system specification.
-
----
-
-## BEO Properties
-
-### Permanence
-Once created, a BEO cannot be deleted — by the owner, by any institution, or by the Ambrósio Institute. The biological identity exists permanently on Arweave.
-
-### Sovereignty
-The individual holds the private key. No system — including the Ambrósio Institute — can access the BEO's data without explicit authorization from the key holder.
-
-### Portability
-All data within a BEO can be exported in BSP-standard format at any time. No lock-in.
-
-### Immutability
-BioRecords cannot be altered once written. Corrections are submitted as new BioRecords that supersede previous records — preserving the complete audit trail.
+→ Ver [`bsp-domain.md`](bsp-domain.md) para la especificación completa del sistema de dominios.
 
 ---
 
-## Access Control
+## Propiedades del BEO
 
-All third-party access to a BEO is governed by the **AccessControl** smart contract on Arweave.
+### Permanencia
+Una vez creado, un BEO no puede ser eliminado — ni por el propietario, ni por ninguna institución, ni por el Ambrósio Institute. La identidad biológica existe permanentemente en Arweave.
 
-Any system that wants to read from or write to a BEO must:
-1. Request authorization from the BEO holder
-2. Receive a signed consent token from the holder
-3. Submit that token with every transaction
+### Soberanía
+El individuo posee la clave privada. Ningún sistema — incluido el Ambrósio Institute — puede acceder a los datos del BEO sin autorización explícita del titular de la clave.
 
-Without a valid token, the smart contract automatically rejects the transaction. The individual is the gatekeeper — not the Ambrósio Institute.
+### Portabilidad
+Todos los datos dentro de un BEO pueden exportarse en formato estándar BSP en cualquier momento. Sin bloqueo de proveedor.
 
-Consent tokens are:
-- **Scoped** — limited to specific data categories and intents
-- **Time-limited** — expire automatically unless renewed
-- **Revocable** — the holder can revoke at any time
-- **Auditable** — all grants and revocations are permanently recorded on-chain
-
-→ See [`exchange.md`](exchange.md) for the complete consent token specification.
+### Inmutabilidad
+Los BioRecords no pueden alterarse una vez escritos. Las correcciones se envían como nuevos BioRecords que superceden a los anteriores — preservando la pista de auditoría completa.
 
 ---
 
-## Social Recovery
+## Control de Acceso
 
-If a BEO holder loses their private key, recovery is possible through the guardian network.
+Todo el acceso de terceros a un BEO está gobernado por el contrato inteligente **AccessControl** en Arweave.
 
-**Recovery requires:** 2 of 3 guardians to confirm the holder's identity.
+Cualquier sistema que quiera leer o escribir en un BEO debe:
+1. Solicitar autorización al titular del BEO
+2. Recibir un token de consentimiento firmado del titular
+3. Enviar ese token con cada transacción
 
-No single guardian can restore access alone. No central server is involved. The recovery protocol is executed on-chain.
+Sin un token válido, el contrato inteligente rechaza automáticamente la transacción. El individuo es el guardián — no el Ambrósio Institute.
 
-**Guardian setup:**
-1. At BEO creation (recommended), designate 3 trusted people
-2. Each guardian accepts the role and provides a public key
-3. Recovery threshold: 2-of-3 signatures required
+Los tokens de consentimiento son:
+- **Acotados** — limitados a categorías de datos e intents específicos
+- **Con límite de tiempo** — expiran automáticamente salvo renovación
+- **Revocables** — el titular puede revocar en cualquier momento
+- **Auditables** — todas las concesiones y revocaciones se registran permanentemente on-chain
 
-→ See [`bsp-domain.md`](bsp-domain.md) for recovery protocol details.
+→ Ver [`exchange.md`](exchange.md) para la especificación completa del token de consentimiento.
 
 ---
 
-## BEO vs IEO — Key Distinctions
+## Recuperación Social
 
-| Property | BEO (Individual) | IEO (Institution) |
+Si un titular de BEO pierde su clave privada, la recuperación es posible a través de la red de guardianes.
+
+**La recuperación requiere:** 2 de 3 guardianes para confirmar la identidad del titular.
+
+Ningún guardián individual puede restaurar el acceso por sí solo. No hay ningún servidor central involucrado. El protocolo de recuperación se ejecuta on-chain.
+
+**Configuración de guardianes:**
+1. En la creación del BEO (recomendado), designar 3 personas de confianza
+2. Cada guardián acepta el rol y proporciona una clave pública
+3. Umbral de recuperación: se requieren 2 de 3 firmas
+
+→ Ver [`bsp-domain.md`](bsp-domain.md) para los detalles del protocolo de recuperación.
+
+---
+
+## BEO vs IEO — Distinciones Clave
+
+| Propiedad | BEO (Individuo) | IEO (Institución) |
 |---|---|---|
-| Represents | A living human being | An organization, system, or professional |
-| Created by | The individual | Any institution, directly |
-| Transferable | Never | Yes — on acquisition or merger |
-| Can read BEOs | Own data only | Only with valid consent token |
-| Can write to BEOs | Cannot | Yes — with AccessControl authorization |
-| Domain format | `firstname.bsp` | `institutionname.bsp` |
-| Cost | Free — sovereignty is a right | Paid — annual certification fee |
+| Representa | Un ser humano vivo | Una organización, sistema o profesional |
+| Creado por | El individuo | Cualquier institución, directamente |
+| Transferible | Nunca | Sí — en adquisición o fusión |
+| Puede leer BEOs | Solo sus propios datos | Solo con token de consentimiento válido |
+| Puede escribir en BEOs | No puede | Sí — con autorización de AccessControl |
+| Formato de dominio | `nombre.bsp` | `nombreinstitucion.bsp` |
+| Costo | Gratuito — la soberanía es un derecho | De pago — tarifa anual de certificación |
 
-→ See [`ieo.md`](ieo.md) for the complete IEO specification.
+→ Ver [`ieo.md`](ieo.md) para la especificación completa del IEO.
 
 ---
 
-## Example BEO (JSON)
+## Ejemplo de BEO (JSON)
 
 ```json
 {
@@ -218,7 +218,7 @@ No single guardian can restore access alone. No central server is involved. The 
 }
 ```
 
-→ Full example: [`../examples/beo-example.json`](../examples/beo-example.json)
+→ Ejemplo completo: [`../examples/beo-example.json`](../examples/beo-example.json)
 
 ---
 

@@ -1,23 +1,27 @@
+<div class="page-hero-image">
+  <img src="/images/quickstart-hero.png" alt="BSP Developer Quickstart — SDK integration" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
 # BSP Developer Quickstart
-*From zero to first functional integration in 30 minutes*
+*De cero a tu primera integración funcional en 30 minutos*
 
-## What you will build in this guide:
-1. Create an IEO for your organization on Arweave (permanent, verifiable)
-2. Verify ConsentTokens issued by users
-3. Submit BioRecords to an authorized BEO (Laboratory/Wearable) or Read BioRecords from an authorized BEO (Clinic/Platform)
-4. Handle errors correctly
+## Lo que construirás en esta guía:
+1. Crear un IEO para tu organización en Arweave (permanente, verificable)
+2. Verificar ConsentTokens emitidos por usuarios
+3. Enviar BioRecords a un BEO autorizado (Laboratorio/Wearable) o Leer BioRecords de un BEO autorizado (Clínica/Plataforma)
+4. Manejar errores correctamente
 
-## Prerequisites
-* Python 3.9+ or Node.js 18+ installed
-* Arweave account with AR tokens
-* Your organization's legal ID (CNPJ, EIN, etc.)
+## Prerrequisitos
+* Python 3.9+ o Node.js 18+ instalado
+* Cuenta de Arweave con tokens AR
+* ID legal de tu organización (CNPJ, EIN, etc.)
 
 ---
 
-## Part 1: Installation & Configuration
+## Parte 1: Instalación y Configuración
 
-### Step 1: Install the bsp-sdk
-The `bsp-sdk` abstracts all protocol complexity: cryptography, communication with Arweave, token verification, and BioRecord construction.
+### Paso 1: Instalar el bsp-sdk
+El `bsp-sdk` abstrae toda la complejidad del protocolo: criptografía, comunicación con Arweave, verificación de tokens y construcción de BioRecords.
 
 **Python**
 ```bash
@@ -29,9 +33,9 @@ pip install bsp-sdk
 npm install @bsp/sdk
 ```
 
-### Step 2: Configure Environment Variables
+### Paso 2: Configurar Variables de Entorno
 ```env
-# .env (never commit this file)
+# .env (nunca subir este archivo al repositorio)
 BSP_IEO_PRIVATE_KEY=your_private_key_here
 BSP_NETWORK=testnet
 BSP_REGISTRY_URL=https://api.biologicalsovereigntyprotocol.com
@@ -40,34 +44,34 @@ BSP_IEO_DOMAIN=yourlab.bsp
 
 ---
 
-## Part 2: Create your IEO
+## Parte 2: Crear tu IEO
 
-The IEO is the permanent identity of your organization in the BSP ecosystem.
+El IEO es la identidad permanente de tu organización en el ecosistema BSP.
 
 ```python
 from bsp_sdk import IEOBuilder, IEOType
 
 ieo = IEOBuilder(
     domain      = "yourlab.bsp",
-    name        = "Example Laboratory Ltd",
-    ieo_type    = IEOType.LABORATORY,     
-    jurisdiction = "BR",                 
-    legal_id    = "12.345.678/0001-99",  
-    contact     = "contact@ambrosioinstitute.org",
+    name        = "Laboratorio Ejemplo S.A.",
+    ieo_type    = IEOType.LABORATORY,
+    jurisdiction = "AR",
+    legal_id    = "30-12345678-9",
+    contact     = "contacto@tulaboratorio.com",
     website     = "https://yourlab.com",
 ).build()
 
 result = ieo.register()
-print(result.ieo_id)      # Permanent UUID on Arweave
+print(result.ieo_id)      # UUID permanente en Arweave
 ```
 
-> **Note:** The IEO is permanent and public. Once created, it is registered on Arweave forever. The generated private key is the only way to sign operations.
+> **Nota:** El IEO es permanente y público. Una vez creado, queda registrado en Arweave para siempre. La clave privada generada es la única forma de firmar operaciones.
 
 ---
 
-## Part 3A: Laboratory Track — Submit BioRecords 🔬
+## Parte 3A: Ruta Laboratorio — Enviar BioRecords
 
-### Step 4A: Receive and Verify a ConsentToken
+### Paso 4A: Recibir y Verificar un ConsentToken
 ```python
 from bsp_sdk import BSPClient, BSPIntent
 import os
@@ -84,19 +88,19 @@ verification = client.verify_consent(
     token_id   = token_id,
     beo_domain = beo_domain,
     intent     = BSPIntent.SUBMIT_RECORD,
-    category   = "BSP-HM",  
+    category   = "BSP-HM",
 )
 
 if verification.valid:
-    print("Valid token")
+    print("Token válido")
 ```
 
-### Step 5A: Submit a BioRecord
+### Paso 5A: Enviar un BioRecord
 ```python
 result = client.submit_biorecord(
     beo_domain   = "patient.bsp",
     consent_token = token_id,
-    biomarker    = "BSP-HM-001",    
+    biomarker    = "BSP-HM-001",
     value        = 13.8,
     unit         = "g/dL",
     collected_at = "2026-02-26T08:00:00Z",
@@ -110,9 +114,9 @@ result = client.submit_biorecord(
 
 ---
 
-## Part 3B: Clinic/Platform Track — Read BioRecords 🩺
+## Parte 3B: Ruta Clínica/Plataforma — Leer BioRecords
 
-### Step 4B: Read data from an authorized BEO
+### Paso 4B: Leer datos de un BEO autorizado
 
 ```python
 response = client.read_records(
@@ -134,17 +138,17 @@ for record in response.records:
 
 ---
 
-## Part 3C: Wearable/Device Track — Continuous Data ⌚
+## Parte 3C: Ruta Wearable/Dispositivo — Datos Continuos
 
-Wearables submit `BSP-DV` data in daily consolidations.
+Los wearables envían datos `BSP-DV` en consolidaciones diarias.
 
 ```python
 daily_records = [
     BioRecord(
         biomarker    = "BSP-DV-001",
-        value        = 52.3,          
+        value        = 52.3,
         unit         = "ms",
-        collected_at = f"{today}T23:59:00Z",  
+        collected_at = f"{today}T23:59:00Z",
         ref_range    = { "optimal": ">60", "functional": ">40", "deficiency": "<40" },
     )
 ]
@@ -157,8 +161,8 @@ result = client.submit_biorecords(
 )
 ```
 
-## Next Steps
-- **Testnet to Mainnet**: Once your integration works in testnet, migrate to mainnet.
-- **Get BSP-Certification**: Voluntary certification adds you to the official directory.
-- **Integrate bsp-mcp for AI Agents**: The official MCP server to connect AI agents to users' BEOs.
-- **Propose a BIP**: Suggest new biomarkers to the taxonomy.
+## Próximos Pasos
+- **De testnet a mainnet**: Una vez que tu integración funcione en testnet, migra a mainnet.
+- **Obtener Certificación BSP**: La certificación voluntaria te agrega al directorio oficial.
+- **Integrar bsp-mcp para Agentes de IA**: El servidor MCP oficial para conectar agentes de IA a los BEOs de los usuarios.
+- **Proponer un BIP**: Sugiere nuevos biomarcadores para la taxonomía.

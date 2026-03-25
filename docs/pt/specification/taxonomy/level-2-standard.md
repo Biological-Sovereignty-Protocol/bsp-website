@@ -1,18 +1,18 @@
 ---
-title: Taxonomy — Level 2 standard
+title: Taxonomia — Nível 2 Standard
 ---
 
-# BSP Taxonomy — Level 2: Standard Laboratory Biomarkers
+# Taxonomia BSP — Nível 2: Biomarcadores Laboratoriais Standard
 
-> Version 0.2 | Ambrósio Institute
+> Versão 0.2 | Ambrósio Institute
 
-Routine laboratory biomarkers performed by any clinical laboratory worldwide. Any conventional lab can achieve BSP-Compliant Basic certification using Level 2 biomarkers.
+Biomarcadores laboratoriais de rotina realizados por qualquer laboratório clínico no mundo. Qualquer laboratório convencional pode obter a certificação BSP-Compliant Basic utilizando os biomarcadores do Nível 2.
 
-**Required for:** BSP-Compliant Basic certification (minimum).
+**Exigido para:** Certificação BSP-Compliant Basic (mínimo).
 
 ---
 
-## Category 10 — Hematology (BSP-HM)
+## Categoria 10 — Hematologia (BSP-HM)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -34,7 +34,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 11 — Vitamins (BSP-VT)
+## Categoria 11 — Vitaminas (BSP-VT)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -50,7 +50,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 12 — Minerals & Electrolytes (BSP-MN)
+## Categoria 12 — Minerais e Eletrólitos (BSP-MN)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -70,7 +70,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 13 — Hormones (BSP-HR)
+## Categoria 13 — Hormônios (BSP-HR)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -92,7 +92,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 14 — Renal Function (BSP-RN)
+## Categoria 14 — Função Renal (BSP-RN)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -105,7 +105,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 15 — Conventional Lipids (BSP-LP)
+## Categoria 15 — Lipídeos Convencionais (BSP-LP)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -119,7 +119,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 16 — Glycemia & Metabolic (BSP-GL)
+## Categoria 16 — Glicemia e Metabólico (BSP-GL)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -132,7 +132,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 17 — Hepatic Function (BSP-LV)
+## Categoria 17 — Função Hepática (BSP-LV)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|
@@ -148,7 +148,7 @@ Routine laboratory biomarkers performed by any clinical laboratory worldwide. An
 
 ---
 
-## Category 18 — Inflammatory Markers (BSP-IF)
+## Categoria 18 — Marcadores Inflamatórios (BSP-IF)
 
 | BSP Code | Biomarker | Unit |
 |---|---|---|

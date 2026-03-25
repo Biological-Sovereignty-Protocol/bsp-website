@@ -1,56 +1,56 @@
 ---
-title: BSP Domain System — .bsp
+title: Sistema de Domínios BSP — .bsp
 ---
 
-# BSP Domain System — .bsp
+# Sistema de Domínios BSP — .bsp
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-Every BEO and IEO in the BSP ecosystem is identified by a human-readable `.bsp` domain — a permanent, sovereign biological address registered on the Arweave blockchain via the DomainRegistry smart contract.
-
-The `.bsp` namespace is managed by the Ambrósio Institute. Domain assignment and uniqueness are enforced on-chain — not by a central server.
+> Versão 0.2 | Ambrósio Institute
 
 ---
 
-## Domain Types
+## Visão Geral
 
-| Type | Format | Example | Cost | Transferable |
+Todo BEO e IEO no ecossistema BSP é identificado por um domínio `.bsp` legível por humanos — um endereço biológico permanente e soberano registrado na blockchain Arweave via o contrato inteligente DomainRegistry.
+
+O namespace `.bsp` é gerenciado pelo Ambrósio Institute. A atribuição e unicidade de domínios são aplicadas on-chain — não por um servidor central.
+
+---
+
+## Tipos de Domínio
+
+| Tipo | Formato | Exemplo | Custo | Transferível |
 |---|---|---|---|---|
-| Individual | `firstname.bsp` | `andre.bsp` | Free | Never |
-| Individual (privacy) | `initials-year.bsp` | `am1985.bsp` | Free | Never |
-| Individual (anonymous) | `[random].bsp` | `b7k3m.bsp` | Free | Never |
-| Professional | `dr.name.bsp` | `dr.carlos.bsp` | Paid, permanent | Never |
-| Institutional | `institution.bsp` | `fleury.bsp` | Paid, annual | Yes |
-| Research | `org.topic.bsp` | `usp.longevity.bsp` | Paid | No |
-| Sub-institutional | `name@institution.bsp` | `dr.silva@hcor.bsp` | Under hospital fee | No |
+| Individual | `nome.bsp` | `andre.bsp` | Gratuito | Nunca |
+| Individual (privacidade) | `iniciais-ano.bsp` | `am1985.bsp` | Gratuito | Nunca |
+| Individual (anônimo) | `[aleatório].bsp` | `b7k3m.bsp` | Gratuito | Nunca |
+| Profissional | `dr.nome.bsp` | `dr.carlos.bsp` | Pago, permanente | Nunca |
+| Institucional | `instituicao.bsp` | `fleury.bsp` | Pago, anual | Sim |
+| Pesquisa | `org.tema.bsp` | `usp.longevidade.bsp` | Pago | Não |
+| Sub-institucional | `nome@instituicao.bsp` | `dr.silva@hcor.bsp` | Incluído na taxa hospitalar | Não |
 
 ---
 
-## Domain Rules
+## Regras de Domínio
 
-### Permanence
-Individual domains are permanent and non-transferable. Once `andre.bsp` is claimed, it exists forever on Arweave and cannot be transferred to another person or deleted.
+### Permanência
+Domínios individuais são permanentes e intransferíveis. Uma vez que `andre.bsp` é registrado, existe para sempre no Arweave e não pode ser transferido para outra pessoa ou excluído.
 
-### Uniqueness
-The DomainRegistry smart contract guarantees that each `.bsp` domain can only exist once. No two entities can hold the same domain.
+### Unicidade
+O contrato inteligente DomainRegistry garante que cada domínio `.bsp` só pode existir uma vez. Duas entidades não podem ter o mesmo domínio.
 
-### Case Insensitivity
-All `.bsp` domains are stored and resolved in lowercase. `Andre.bsp` and `andre.bsp` refer to the same domain.
+### Insensibilidade a Maiúsculas/Minúsculas
+Todos os domínios `.bsp` são armazenados e resolvidos em letras minúsculas. `Andre.bsp` e `andre.bsp` referem-se ao mesmo domínio.
 
-### Reserved Namespaces
-The following prefixes are reserved by the Ambrósio Institute:
-- `bsp.*` — Protocol infrastructure
-- `institute.*` — Institute operations
-- `registry.*` — Registry services
-- `test.*` — Testing environments
+### Namespaces Reservados
+Os seguintes prefixos são reservados pelo Ambrósio Institute:
+- `bsp.*` — Infraestrutura do protocolo
+- `institute.*` — Operações do Instituto
+- `registry.*` — Serviços de registro
+- `test.*` — Ambientes de teste
 
 ---
 
-## Domain Resolution
+## Resolução de Domínio
 
 ```typescript
 // Resolve a .bsp domain to a BEO or IEO
@@ -73,11 +73,11 @@ const available = await resolver.isAvailable('newname.bsp')
 
 ---
 
-## Social Recovery Protocol
+## Protocolo de Recuperação Social
 
-If a BEO holder loses their private key, the guardian network enables recovery.
+Se um titular de BEO perder sua chave privada, a rede de guardiões permite a recuperação.
 
-### Setup
+### Configuração
 
 ```typescript
 // At BEO creation or anytime after
@@ -93,13 +93,13 @@ await recovery.addGuardian({
 await recovery.setThreshold({ required: 2, total: 3 })
 ```
 
-### Recovery Flow
+### Fluxo de Recuperação
 
-1. Holder loses device and/or private key
-2. Holder contacts 2 of 3 guardians
-3. Each guardian submits a signed confirmation on-chain
-4. After 2 confirmations: new key pair can be registered
-5. Old key is revoked; new key is associated with the domain
+1. O titular perde o dispositivo e/ou a chave privada
+2. O titular contata 2 dos 3 guardiões
+3. Cada guardião envia uma confirmação assinada on-chain
+4. Após 2 confirmações: um novo par de chaves pode ser registrado
+5. A chave antiga é revogada; a nova chave é associada ao domínio
 
 ```typescript
 // Guardian submits confirmation
@@ -111,22 +111,22 @@ await recovery.confirmRecovery({
 })
 ```
 
-### Security Properties
-- No single guardian can restore access alone
-- No central server is involved
-- The recovery protocol executes on-chain
-- The request is time-limited (72 hours default)
-- All recovery events are permanently auditable
+### Propriedades de Segurança
+- Nenhum guardião individual pode restaurar o acesso sozinho
+- Nenhum servidor central está envolvido
+- O protocolo de recuperação é executado on-chain
+- A solicitação tem prazo limitado (72 horas por padrão)
+- Todos os eventos de recuperação são permanentemente auditáveis
 
 ---
 
-## Seed Phrase Backup
+## Backup da Frase Semente
 
-As a last resort (all guardians unavailable), the 24-word seed phrase provides emergency recovery.
+Como último recurso (todos os guardiões indisponíveis), a frase semente de 24 palavras fornece recuperação de emergência.
 
-The seed phrase is generated at BEO creation and must be written down and stored offline by the holder. The BSP system stores only a cryptographic hash — never the phrase itself.
+A frase semente é gerada na criação do BEO e deve ser anotada e armazenada offline pelo titular. O sistema BSP armazena apenas um hash criptográfico — nunca a frase em si.
 
-> **Warning:** If the seed phrase is lost and no guardians are available, access to the BEO cannot be recovered by anyone — including the Ambrósio Institute. Store it safely.
+> **Aviso:** Se a frase semente for perdida e nenhum guardião estiver disponível, o acesso ao BEO não poderá ser recuperado por ninguém — incluindo o Ambrósio Institute. Guarde-a com segurança.
 
 ---
 

@@ -1,132 +1,132 @@
 ---
-title: BSP Domain System — .bsp
+title: Sistema de Dominios BSP — .bsp
 ---
 
-# BSP Domain System — .bsp
+# Sistema de Dominios BSP — .bsp
 
-> Version 0.2 | Ambrósio Institute
-
----
-
-## Overview
-
-Every BEO and IEO in the BSP ecosystem is identified by a human-readable `.bsp` domain — a permanent, sovereign biological address registered on the Arweave blockchain via the DomainRegistry smart contract.
-
-The `.bsp` namespace is managed by the Ambrósio Institute. Domain assignment and uniqueness are enforced on-chain — not by a central server.
+> Versión 0.2 | Ambrósio Institute
 
 ---
 
-## Domain Types
+## Visión General
 
-| Type | Format | Example | Cost | Transferable |
+Cada BEO e IEO en el ecosistema BSP se identifica por un dominio `.bsp` legible por humanos — una dirección biológica permanente y soberana registrada en la blockchain Arweave a través del contrato inteligente DomainRegistry.
+
+El namespace `.bsp` está gestionado por el Ambrósio Institute. La asignación de dominios y la unicidad se aplican on-chain — no mediante un servidor central.
+
+---
+
+## Tipos de Dominio
+
+| Tipo | Formato | Ejemplo | Costo | Transferible |
 |---|---|---|---|---|
-| Individual | `firstname.bsp` | `andre.bsp` | Free | Never |
-| Individual (privacy) | `initials-year.bsp` | `am1985.bsp` | Free | Never |
-| Individual (anonymous) | `[random].bsp` | `b7k3m.bsp` | Free | Never |
-| Professional | `dr.name.bsp` | `dr.carlos.bsp` | Paid, permanent | Never |
-| Institutional | `institution.bsp` | `fleury.bsp` | Paid, annual | Yes |
-| Research | `org.topic.bsp` | `usp.longevity.bsp` | Paid | No |
-| Sub-institutional | `name@institution.bsp` | `dr.silva@hcor.bsp` | Under hospital fee | No |
+| Individual | `nombre.bsp` | `andre.bsp` | Gratuito | Nunca |
+| Individual (privacidad) | `iniciales-año.bsp` | `am1985.bsp` | Gratuito | Nunca |
+| Individual (anónimo) | `[aleatorio].bsp` | `b7k3m.bsp` | Gratuito | Nunca |
+| Profesional | `dr.nombre.bsp` | `dr.carlos.bsp` | De pago, permanente | Nunca |
+| Institucional | `institucion.bsp` | `fleury.bsp` | De pago, anual | Sí |
+| Investigación | `org.tema.bsp` | `usp.longevity.bsp` | De pago | No |
+| Sub-institucional | `nombre@institucion.bsp` | `dr.silva@hcor.bsp` | Bajo tarifa hospitalaria | No |
 
 ---
 
-## Domain Rules
+## Reglas de Dominio
 
-### Permanence
-Individual domains are permanent and non-transferable. Once `andre.bsp` is claimed, it exists forever on Arweave and cannot be transferred to another person or deleted.
+### Permanencia
+Los dominios individuales son permanentes y no transferibles. Una vez que `andre.bsp` es reclamado, existe para siempre en Arweave y no puede ser transferido a otra persona ni eliminado.
 
-### Uniqueness
-The DomainRegistry smart contract guarantees that each `.bsp` domain can only exist once. No two entities can hold the same domain.
+### Unicidad
+El contrato inteligente DomainRegistry garantiza que cada dominio `.bsp` solo puede existir una vez. No pueden existir dos entidades con el mismo dominio.
 
-### Case Insensitivity
-All `.bsp` domains are stored and resolved in lowercase. `Andre.bsp` and `andre.bsp` refer to the same domain.
+### Insensibilidad a Mayúsculas
+Todos los dominios `.bsp` se almacenan y resuelven en minúsculas. `Andre.bsp` y `andre.bsp` hacen referencia al mismo dominio.
 
-### Reserved Namespaces
-The following prefixes are reserved by the Ambrósio Institute:
-- `bsp.*` — Protocol infrastructure
-- `institute.*` — Institute operations
-- `registry.*` — Registry services
-- `test.*` — Testing environments
+### Namespaces Reservados
+Los siguientes prefijos están reservados por el Ambrósio Institute:
+- `bsp.*` — Infraestructura del protocolo
+- `institute.*` — Operaciones del Instituto
+- `registry.*` — Servicios de registro
+- `test.*` — Entornos de prueba
 
 ---
 
-## Domain Resolution
+## Resolución de Dominio
 
 ```typescript
-// Resolve a .bsp domain to a BEO or IEO
+// Resolver un dominio .bsp a un BEO o IEO
 import { DomainResolver } from '@bsp/sdk'
 
 const resolver = new DomainResolver()
 
-// Resolve individual domain
+// Resolver dominio individual
 const beo = await resolver.resolve('andre.bsp')
-// Returns: { type: 'BEO', beo_id: '550e8400-...', public_key: 'ed25519:...' }
+// Devuelve: { type: 'BEO', beo_id: '550e8400-...', public_key: 'ed25519:...' }
 
-// Resolve institutional domain
+// Resolver dominio institucional
 const ieo = await resolver.resolve('fleury.bsp')
-// Returns: { type: 'IEO', ieo_id: '9f1a2b3c-...', ieo_type: 'LABORATORY', ... }
+// Devuelve: { type: 'IEO', ieo_id: '9f1a2b3c-...', ieo_type: 'LABORATORY', ... }
 
-// Check availability
+// Verificar disponibilidad
 const available = await resolver.isAvailable('newname.bsp')
-// Returns: true | false
+// Devuelve: true | false
 ```
 
 ---
 
-## Social Recovery Protocol
+## Protocolo de Recuperación Social
 
-If a BEO holder loses their private key, the guardian network enables recovery.
+Si un titular de BEO pierde su clave privada, la red de guardianes permite la recuperación.
 
-### Setup
+### Configuración
 
 ```typescript
-// At BEO creation or anytime after
+// En la creación del BEO o en cualquier momento posterior
 const recovery = new RecoveryManager(beoId)
 
 await recovery.addGuardian({
   name: 'Maria',
-  contact: 'maria@example.com',   // Encrypted and stored on-chain
+  contact: 'maria@example.com',   // Cifrado y almacenado on-chain
   public_key: 'ed25519:...'
 })
 
-// Set recovery threshold
+// Establecer umbral de recuperación
 await recovery.setThreshold({ required: 2, total: 3 })
 ```
 
-### Recovery Flow
+### Flujo de Recuperación
 
-1. Holder loses device and/or private key
-2. Holder contacts 2 of 3 guardians
-3. Each guardian submits a signed confirmation on-chain
-4. After 2 confirmations: new key pair can be registered
-5. Old key is revoked; new key is associated with the domain
+1. El titular pierde su dispositivo y/o clave privada
+2. El titular contacta a 2 de 3 guardianes
+3. Cada guardián envía una confirmación firmada on-chain
+4. Después de 2 confirmaciones: se puede registrar un nuevo par de claves
+5. La clave antigua queda revocada; la nueva clave se asocia al dominio
 
 ```typescript
-// Guardian submits confirmation
+// Guardián envía confirmación
 const recovery = new RecoveryManager(beoId)
 await recovery.confirmRecovery({
   guardian_key: guardianPrivateKey,
-  new_public_key: recoveryPublicKey,  // Holder's new key
+  new_public_key: recoveryPublicKey,  // Nueva clave del titular
   request_id: recoveryRequestId
 })
 ```
 
-### Security Properties
-- No single guardian can restore access alone
-- No central server is involved
-- The recovery protocol executes on-chain
-- The request is time-limited (72 hours default)
-- All recovery events are permanently auditable
+### Propiedades de Seguridad
+- Ningún guardián individual puede restaurar el acceso por sí solo
+- No hay ningún servidor central involucrado
+- El protocolo de recuperación se ejecuta on-chain
+- La solicitud tiene un tiempo límite (72 horas por defecto)
+- Todos los eventos de recuperación son permanentemente auditables
 
 ---
 
-## Seed Phrase Backup
+## Copia de Seguridad de la Seed Phrase
 
-As a last resort (all guardians unavailable), the 24-word seed phrase provides emergency recovery.
+Como último recurso (todos los guardianes no disponibles), la seed phrase de 24 palabras proporciona recuperación de emergencia.
 
-The seed phrase is generated at BEO creation and must be written down and stored offline by the holder. The BSP system stores only a cryptographic hash — never the phrase itself.
+La seed phrase se genera en la creación del BEO y el titular debe escribirla y guardarla offline. El sistema BSP almacena solo un hash criptográfico — nunca la frase en sí misma.
 
-> **Warning:** If the seed phrase is lost and no guardians are available, access to the BEO cannot be recovered by anyone — including the Ambrósio Institute. Store it safely.
+> **Advertencia:** Si la seed phrase se pierde y no hay guardianes disponibles, nadie — incluido el Ambrósio Institute — puede recuperar el acceso al BEO. Guárdala de forma segura.
 
 ---
 
