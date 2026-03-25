@@ -23,6 +23,27 @@ const enSidebar = [
         ]
     },
     {
+        text: 'Specification',
+        items: [
+            { text: 'Overview', link: '/specification/overview' },
+            { text: 'BEO Schema', link: '/specification/beo' },
+            { text: 'IEO Schema', link: '/specification/ieo' },
+            { text: 'BioRecord Schema', link: '/specification/biorecord' },
+            { text: 'Exchange Protocol', link: '/specification/exchange' },
+            { text: 'BSP Domain System', link: '/specification/bsp-domain' },
+            { text: 'Governance', link: '/specification/governance' },
+            {
+                text: 'Biomarker Taxonomy',
+                items: [
+                    { text: 'Level 1 — Core', link: '/specification/taxonomy/level-1-core' },
+                    { text: 'Level 2 — Standard', link: '/specification/taxonomy/level-2-standard' },
+                    { text: 'Level 3 — Extended', link: '/specification/taxonomy/level-3-extended' },
+                    { text: 'Level 4 — Device', link: '/specification/taxonomy/level-4-device' }
+                ]
+            }
+        ]
+    },
+    {
         text: 'Protocols & Guidelines',
         items: [
             { text: 'Exchange Protocol', link: '/protocols/exchange-protocol' },
@@ -31,8 +52,17 @@ const enSidebar = [
         ]
     },
     {
+        text: 'BIPs',
+        items: [
+            { text: 'About BIPs', link: '/bips/' },
+            { text: 'BIP-0000 — Template', link: '/bips/BIP-0000' }
+        ]
+    },
+    {
         text: 'Developer Resources',
         items: [
+            { text: 'Implementation Guide', link: '/developers/implementation-guide' },
+            { text: 'JSON Examples', link: '/developers/examples' },
             { text: 'Biomarker Taxonomy', link: '/developers/taxonomy' },
             { text: 'Complete Taxonomy', link: '/developers/taxonomy-list' },
             { text: 'Certification Process', link: '/developers/certification' },
@@ -67,6 +97,27 @@ const ptSidebar = [
         ]
     },
     {
+        text: 'Especificação',
+        items: [
+            { text: 'Visão Geral', link: '/pt/specification/overview' },
+            { text: 'Schema BEO', link: '/pt/specification/beo' },
+            { text: 'Schema IEO', link: '/pt/specification/ieo' },
+            { text: 'Schema BioRecord', link: '/pt/specification/biorecord' },
+            { text: 'Protocolo de Troca', link: '/pt/specification/exchange' },
+            { text: 'Sistema de Domínios .bsp', link: '/pt/specification/bsp-domain' },
+            { text: 'Governança', link: '/pt/specification/governance' },
+            {
+                text: 'Taxonomia de Biomarcadores',
+                items: [
+                    { text: 'Nível 1 — Core', link: '/pt/specification/taxonomy/level-1-core' },
+                    { text: 'Nível 2 — Standard', link: '/pt/specification/taxonomy/level-2-standard' },
+                    { text: 'Nível 3 — Extended', link: '/pt/specification/taxonomy/level-3-extended' },
+                    { text: 'Nível 4 — Device', link: '/pt/specification/taxonomy/level-4-device' }
+                ]
+            }
+        ]
+    },
+    {
         text: 'Protocolos e Diretrizes',
         items: [
             { text: 'Protocolo de Troca', link: '/pt/protocols/exchange-protocol' },
@@ -75,8 +126,17 @@ const ptSidebar = [
         ]
     },
     {
+        text: 'BIPs',
+        items: [
+            { text: 'Sobre os BIPs', link: '/pt/bips/' },
+            { text: 'BIP-0000 — Template', link: '/pt/bips/BIP-0000' }
+        ]
+    },
+    {
         text: 'Recursos para Desenvolvedores',
         items: [
+            { text: 'Guia de Implementação', link: '/pt/developers/implementation-guide' },
+            { text: 'Exemplos JSON', link: '/pt/developers/examples' },
             { text: 'Taxonomia de Biomarcadores', link: '/pt/developers/taxonomy' },
             { text: 'Taxonomia Completa', link: '/pt/developers/taxonomy-list' },
             { text: 'Processo de Certificação', link: '/pt/developers/certification' },
@@ -111,6 +171,27 @@ const esSidebar = [
         ]
     },
     {
+        text: 'Especificación',
+        items: [
+            { text: 'Visión General', link: '/es/specification/overview' },
+            { text: 'Schema BEO', link: '/es/specification/beo' },
+            { text: 'Schema IEO', link: '/es/specification/ieo' },
+            { text: 'Schema BioRecord', link: '/es/specification/biorecord' },
+            { text: 'Protocolo de Intercambio', link: '/es/specification/exchange' },
+            { text: 'Sistema de Dominios .bsp', link: '/es/specification/bsp-domain' },
+            { text: 'Gobernanza', link: '/es/specification/governance' },
+            {
+                text: 'Taxonomía de Biomarcadores',
+                items: [
+                    { text: 'Nivel 1 — Core', link: '/es/specification/taxonomy/level-1-core' },
+                    { text: 'Nivel 2 — Standard', link: '/es/specification/taxonomy/level-2-standard' },
+                    { text: 'Nivel 3 — Extended', link: '/es/specification/taxonomy/level-3-extended' },
+                    { text: 'Nivel 4 — Device', link: '/es/specification/taxonomy/level-4-device' }
+                ]
+            }
+        ]
+    },
+    {
         text: 'Protocolos y Directrices',
         items: [
             { text: 'Protocolo de Intercambio', link: '/es/protocols/exchange-protocol' },
@@ -119,8 +200,17 @@ const esSidebar = [
         ]
     },
     {
+        text: 'BIPs',
+        items: [
+            { text: 'Sobre los BIPs', link: '/es/bips/' },
+            { text: 'BIP-0000 — Template', link: '/es/bips/BIP-0000' }
+        ]
+    },
+    {
         text: 'Desarrolladores',
         items: [
+            { text: 'Guía de Implementación', link: '/es/developers/implementation-guide' },
+            { text: 'Ejemplos JSON', link: '/es/developers/examples' },
             { text: 'Taxonomía de Biomarcadores', link: '/es/developers/taxonomy' },
             { text: 'Taxonomía Completa', link: '/es/developers/taxonomy-list' },
             { text: 'Proceso de Certificación', link: '/es/developers/certification' },
