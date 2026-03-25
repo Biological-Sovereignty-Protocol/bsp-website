@@ -67,7 +67,7 @@ npm install @bsp/mcp
 - `bsp_list_categories` — List taxonomy categories
 - `bsp_check_consent` — Check current consent status
 
-### `bsp-docs` — Public Documentation
+### `bsp-docs-repo` — Public Documentation
 This website. Powers `biologicalsovereigntyprotocol.com`. The human entry point for anyone wanting to understand or integrate BSP.
 
 ---
@@ -76,7 +76,7 @@ This website. Powers `biologicalsovereigntyprotocol.com`. The human entry point 
 
 These repositories contain the Institute's operational infrastructure and proprietary intelligence.
 
-### `bsp-registry` — Smart Contracts on Arweave
+### `bsp-contracts` — Smart Contracts on Arweave
 
 | Contract | Purpose | Open to? |
 |----------|---------|---------|
@@ -110,14 +110,14 @@ Converts AVA's analysis into the multi-dimensional Ambrósio Vitality Score (SVA
 
 ```
 1. bsp-spec           ← Foundation: the standard everything implements
-2. bsp-registry       ← On-chain infrastructure (immutable after deployment)
+2. bsp-contracts      ← On-chain infrastructure (immutable after deployment)
 3. bsp-registry-api   ← Certification portal (human workflow)
 4. bsp-sdk-typescript ← First SDK (widest integration coverage)
 5. bsp-mcp            ← AI connectivity (built on the TypeScript SDK)
 6. bsp-sdk-python     ← Lab SDK (follows the same spec)
 7. ava-core           ← Intelligence (trained on BSP-standardized data)
 8. sva-engine         ← Scoring (output: the SVA Score)
-9. bsp-docs           ← Documentation (evolves with the ecosystem)
+9. bsp-docs-repo      ← Documentation (evolves with the ecosystem)
 ```
 
 ---

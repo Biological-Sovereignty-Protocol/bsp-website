@@ -94,11 +94,11 @@ const token = await client.access.issueConsentToken({
 });
 ```
 
-### `verifyConsent()`
+### `verifyToken()`
 *(Target IEOs)*. Verifies if a token is valid for a specific action before attempting network transmission.
 
 ```typescript
-const check = await client.access.verifyConsent({
+const check = await client.access.verifyToken({
   beoDomain: "andre.bsp",
   token: "token-uuid",
   intent: "SUBMIT_RECORD"

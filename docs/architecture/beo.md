@@ -82,18 +82,18 @@ If you lose your device and seed phrase, Social Recovery lets you regain access 
     "threshold": 2,
     "guardians": [
       {
-        "name":     "Maria",
-        "contact":  "maria.bsp",
-        "fragment": "arweave://encrypted-fragment-1",
-        "accepted": true,
-        "added_at": "2026-01-10T15:00:00Z"
+        "contact":     "maria.bsp",
+        "public_key":  "ed25519_pub_...",
+        "role":        "primary",
+        "status":      "active",
+        "accepted_at": "2026-01-10T15:00:00Z"
       }
     ]
   },
 
   "status":      "ACTIVE",
   "locked_at":   null,
-  "lock_reason": null
+  "key_version": 1
 }
 ```
 
@@ -134,8 +134,7 @@ Every biological measurement attached to a BEO is a BioRecord:
 | State | Description |
 |-------|-------------|
 | `ACTIVE` | Normal operation. All authorized operations permitted. |
-| `LOCKED` | Holder voluntarily locked — useful if compromise suspected. No institution reads or writes. |
-| `RECOVERY_PENDING` | Recovery in progress. No data operations permitted during the 72-hour recovery window. |
+| `LOCKED` | Holder voluntarily locked — useful if compromise suspected. No institution reads or writes. Recovery progress is tracked within `active_recovery.status`. |
 
 ---
 
@@ -149,7 +148,7 @@ Every biological measurement attached to a BEO is a BioRecord:
 | `getBEO()` | Anyone | Returns public BEO data. |
 | `updateRecovery()` | BEO holder only | Configure or update guardian setup. |
 | `lockBEO()` | BEO holder only | Temporarily locks all operations. |
-| `rotatePrimaryKey()` | BEO holder (recovery) | Replaces public key after successful recovery. |
+| `rotateKey()` | BEO holder (recovery) | Replaces public key after successful recovery. |
 
 ### AccessControl
 
@@ -180,9 +179,9 @@ print(result.seed_phrase) # 24 words — store this offline, never digitally
 # Optional: configure Social Recovery
 beo.update_recovery(
     guardians=[
-        Guardian(name="Maria",  contact="maria.bsp",   role="primary"),
-        Guardian(name="João",   contact="+5511999...", role="secondary"),
-        Guardian(name="Carlos", contact="carlos.bsp",  role="tertiary"),
+        Guardian(contact="maria.bsp",   role="primary"),
+        Guardian(contact="+5511999...", role="secondary"),
+        Guardian(contact="carlos.bsp",  role="tertiary"),
     ],
     threshold=2
 )
@@ -192,6 +191,6 @@ beo.update_recovery(
 
 - ✓ Always recover your BEO using seed phrase
 - ✓ Always revoke any ConsentToken, instantly
-- ✓ Always export all your data (`SOVEREIGN_EXPORT` intent)
+- ✓ Always export all your data (`EXPORT_DATA` intent)
 - ✓ Always lock your BEO
 - ✓ Always choose or replace guardians

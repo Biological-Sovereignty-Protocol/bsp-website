@@ -84,7 +84,7 @@ Typed enum defining what action a system requests in the Exchange Protocol.
 | `READ_RECORDS` | Read existing BioRecords |
 | `ANALYZE_VITALITY` | Request AVA analysis |
 | `REQUEST_SCORE` | Request SVA score |
-| `SOVEREIGN_EXPORT` | Export all data — always available to holder |
+| `EXPORT_DATA` | Export all data — always available to holder |
 | `SYNC_PROTOCOL` | Protocol version negotiation |
 
 **CertLevel**
@@ -107,8 +107,8 @@ Mechanism for recovering a BEO private key without a central server. The holder 
 | `bsp-sdk-typescript` | Public | TypeScript SDK (`@bsp/sdk`) |
 | `bsp-sdk-python` | Public | Python SDK (`bsp-sdk`) |
 | `bsp-mcp` | Public | MCP server for AI agents |
-| `bsp-docs` | Public | This documentation site |
-| `bsp-registry` | Private | Smart contracts on Arweave |
+| `bsp-docs-repo` | Public | This documentation site |
+| `bsp-contracts` | Private | Smart contracts on Arweave |
 | `bsp-registry-api` | Private | Certification portal API |
 | `ava-core` | Private | AVA algorithm |
 | `sva-engine` | Private | SVA scoring engine |

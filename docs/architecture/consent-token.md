@@ -66,7 +66,7 @@ interface ConsentToken {
 | `READ_RECORDS` | Read BioRecords from the BEO | 30–90 days (physicians); permanent (platforms) |
 | `ANALYZE_VITALITY` | Request AVA vitality analysis | Permanent (refreshable) |
 | `REQUEST_SCORE` | Request SVA score | Annual (insurers with opt-in) |
-| `SOVEREIGN_EXPORT` | Export all data — always available to BEO holder | — |
+| `EXPORT_DATA` | Export all data — always available to BEO holder | — |
 | `SYNC_PROTOCOL` | Protocol version negotiation | Per session |
 
 ---
@@ -132,10 +132,10 @@ client.revoke_all_tokens()
 
 | Function | Authorized Caller | Description |
 |----------|------------------|-------------|
-| `createConsent()` | BEO holder only | Issues a new ConsentToken |
-| `revokeConsent()` | BEO holder only | Immediately revokes a token |
-| `verifyConsent()` | Any IEO | Checks if a token is valid for a given intent + category |
-| `getConsentHistory()` | BEO holder only | Full audit log of all tokens ever issued |
+| `grantConsent()` | BEO holder only | Issues a new ConsentToken |
+| `revokeToken()` | BEO holder only | Immediately revokes a token |
+| `verifyToken()` | Any IEO | Checks if a token is valid for a given intent + category |
+| `listTokens()` | BEO holder only | Full audit log of all tokens ever issued |
 
 > [!IMPORTANT]
 > Only the BEO holder can grant or revoke consent. No institution, no other system, and not even the Ambrósio Institute can grant access to a user's data on their behalf.

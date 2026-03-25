@@ -12,7 +12,7 @@ Most health apps onboard users into a product. BSP onboards users into a lifelon
 | User data belongs to the platform | User holds the private key to their own biology |
 | Account can be deleted by company | BEO cannot be deleted by anyone |
 | Recovers via email reset | Recovers via social guardian network |
-| Data locked in one app | Data is fully portable (`SOVEREIGN_EXPORT`) |
+| Data locked in one app | Data is fully portable (`EXPORT_DATA`) |
 
 ## The Four Phases of Onboarding
 
@@ -40,7 +40,7 @@ The user authorizes the intelligence layer (AVA).
 ## Post-Onboarding: The Living BEO
 A BEO grows continuously. A user starting with 50 lab results and connecting a wearable will accumulate thousands of BioRecords in their first year. 
 
-At any moment, the user can trigger a `SOVEREIGN_EXPORT`, receiving a complete, decrypted JSON file of their biological history. This export demonstrates true portability and sovereignty.
+At any moment, the user can trigger a `EXPORT_DATA`, receiving a complete, decrypted JSON file of their biological history. This export demonstrates true portability and sovereignty.
 
 ### Triggering New BioRecords
 The app prompts users to add data at high-intent moments:

@@ -110,7 +110,7 @@ Five SmartWeave contracts enforce the protocol on Arweave. Once deployed, they a
 
 ```javascript
 // How AccessControl verifies every operation
-function verifyConsent(beo_id, ieo_id, consent_token_id, intent, category) {
+function verifyToken(beo_id, ieo_id, consent_token_id, intent, category) {
     const token = getToken(consent_token_id)
 
     if (token.beo_id !== beo_id)     throw "TOKEN_BEO_MISMATCH"

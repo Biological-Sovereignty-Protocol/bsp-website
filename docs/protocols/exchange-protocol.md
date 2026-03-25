@@ -138,10 +138,10 @@ Available only to PLATFORM IEOs integrated with AVA. Returns the full multi-dime
 ### `REQUEST_SCORE` — Request SVA Score
 Returns only the SVA composite score. Used mainly by opt-in insurers. Does not trigger a full AVA analysis.
 
-### `SOVEREIGN_EXPORT` — Export All Data
+### `EXPORT_DATA` — Export All Data
 
 > [!IMPORTANT]
-> `SOVEREIGN_EXPORT` **cannot be blocked, restricted, or denied** by any BSP-compliant system. Any system that refuses this violates the BSP specification.
+> `EXPORT_DATA` **cannot be blocked, restricted, or denied** by any BSP-compliant system. Any system that refuses this violates the BSP specification.
 
 Returns all BioRecords in BSP format, fully decrypted, in the user's choice of `JSON`, `CSV`, or `FHIR_R4`.
 

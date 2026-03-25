@@ -35,10 +35,10 @@ Requests a complete biological aging analysis from an intelligence system.
 ### 4. REQUEST_SCORE
 Simplified version of `ANALYZE_VITALITY` — returns only the composite vitality score, not detailed analysis. Mainly used by opt-in insurers.
 
-### 5. SOVEREIGN_EXPORT
+### 5. EXPORT_DATA
 The most fundamental right of the BEO holder. Returns all BioRecords in standardized BSP format, decrypted with the holder's private key, facilitating total data portability.
 > [!IMPORTANT]
-> `SOVEREIGN_EXPORT` cannot be blocked, limited, or denied by any BSP-compliant system. Any system that blocks this violates the BSP specification.
+> `EXPORT_DATA` cannot be blocked, limited, or denied by any BSP-compliant system. Any system that blocks this violates the BSP specification.
 
 ### 6. SYNC_PROTOCOL
 Synchronizes a user's active health protocol (interventions, supplements, goals) across BSP-compatible systems.
