@@ -3,7 +3,7 @@ title: Propostas de Melhoria BSP (BIPs)
 ---
 
 <div class="page-hero-image">
-  <img src="/images/bips-hero.png" alt="BSP Improvement Proposals — community governance" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+  <img src="/images/bips-hero.jpg" alt="BSP Improvement Proposals — community governance" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
 
 

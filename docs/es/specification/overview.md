@@ -3,7 +3,7 @@ title: Visión General de la Especificación
 ---
 
 <div class="page-hero-image">
-  <img src="/images/spec-overview.png" alt="BSP Specification Overview — protocol architecture" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+  <img src="/images/spec-overview.jpg" alt="BSP Specification Overview — protocol architecture" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
 
 

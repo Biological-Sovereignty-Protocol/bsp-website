@@ -1,5 +1,5 @@
 <div class="page-hero-image">
-  <img src="/images/quickstart-hero.png" alt="BSP Developer Quickstart — SDK integration" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+  <img src="/images/quickstart-hero.jpg" alt="BSP Developer Quickstart — SDK integration" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
 
 # Início Rápido para Desenvolvedores BSP

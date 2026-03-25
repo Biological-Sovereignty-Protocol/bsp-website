@@ -4,7 +4,7 @@ description: "Explore cómo el Protocolo de Soberanía Biológica habilita la so
 ---
 
 <div class="page-hero-image">
-  <img src="/images/usecase-health.png" alt="Health Data Sovereignty" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+  <img src="/images/usecase-health.jpg" alt="Health Data Sovereignty" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
 
 # Casos de Uso

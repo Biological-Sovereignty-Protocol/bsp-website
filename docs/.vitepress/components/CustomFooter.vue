@@ -134,8 +134,8 @@ const hasSidebar = computed(() => {
 
         <!-- Brand column -->
         <div class="footer-brand">
-          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="BSP" />
-          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="BSP" />
+          <img src="/images/bsp-logo-dark.jpg" class="footer-logo footer-logo-light" alt="BSP" />
+          <img src="/images/bsp-logo-light.jpg" class="footer-logo footer-logo-dark" alt="BSP" />
           <p class="footer-tagline">{{ t.tagline }}</p>
           <div class="social-links">
             <!-- GitHub -->

@@ -288,17 +288,17 @@ export default defineConfig({
         ['meta', { name: 'theme-color', content: '#0076ff' }],
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:site_name', content: 'Biological Sovereignty Protocol' }],
-        ['meta', { property: 'og:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        ['meta', { property: 'og:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.jpg' }],
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
         ['meta', { name: 'twitter:site', content: '@BSProtocol' }],
-        ['meta', { name: 'twitter:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        ['meta', { name: 'twitter:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.jpg' }],
         ['link', { rel: 'canonical', href: 'https://biologicalsovereigntyprotocol.com' }],
         ['script', { type: 'application/ld+json' }, JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Biological Sovereignty Protocol",
             "url": "https://biologicalsovereigntyprotocol.com",
-            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.png",
+            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.jpg",
             "description": "Open cryptographic standard for health and longevity data sovereignty",
             "sameAs": [
                 "https://github.com/Biological-Sovereignty-Protocol"
@@ -308,8 +308,8 @@ export default defineConfig({
 
     themeConfig: {
         logo: {
-            light: '/images/bsp-logo-dark.png',
-            dark: '/images/bsp-logo-light.png'
+            light: '/images/bsp-logo-dark.jpg',
+            dark: '/images/bsp-logo-light.jpg'
         },
         siteTitle: false,
         socialLinks: [

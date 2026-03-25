@@ -5,7 +5,7 @@ lang: pt
 ---
 
 <div class="page-hero-image">
-  <img src="/images/learn-hub-hero.png" alt="Aprenda sobre BSP" loading="lazy" />
+  <img src="/images/learn-hub-hero.jpg" alt="Aprenda sobre BSP" loading="lazy" />
 </div>
 
 # Hub de Aprendizado

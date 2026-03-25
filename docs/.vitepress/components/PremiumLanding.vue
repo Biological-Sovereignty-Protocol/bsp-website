@@ -490,7 +490,7 @@ const pfx = computed(() => {
         <!-- Right: Image with gradient mask -->
         <div class="p-hero-right" aria-hidden="true">
           <div class="p-hero-img-wrap">
-            <img src="/images/hero-image.png" alt="" class="p-hero-img" />
+            <img src="/images/hero-image.jpg" alt="" class="p-hero-img" />
             <div class="p-hero-img-mask"></div>
           </div>
         </div>
@@ -720,7 +720,7 @@ const pfx = computed(() => {
       <div class="uc-grid">
         <div class="uc-card">
           <div class="uc-img-wrap">
-            <img src="/images/beo-identity.png" :alt="content.uc1Title" loading="lazy" />
+            <img src="/images/beo-identity.jpg" :alt="content.uc1Title" loading="lazy" />
           </div>
           <div class="uc-card-body">
             <h3>{{ content.uc1Title }}</h3>
@@ -730,7 +730,7 @@ const pfx = computed(() => {
         </div>
         <div class="uc-card">
           <div class="uc-img-wrap">
-            <img src="/images/consent-flow.png" :alt="content.uc2Title" loading="lazy" />
+            <img src="/images/consent-flow.jpg" :alt="content.uc2Title" loading="lazy" />
           </div>
           <div class="uc-card-body">
             <h3>{{ content.uc2Title }}</h3>
@@ -740,7 +740,7 @@ const pfx = computed(() => {
         </div>
         <div class="uc-card">
           <div class="uc-img-wrap">
-            <img src="/images/exchange-protocol.png" :alt="content.uc3Title" loading="lazy" />
+            <img src="/images/exchange-protocol.jpg" :alt="content.uc3Title" loading="lazy" />
           </div>
           <div class="uc-card-body">
             <h3>{{ content.uc3Title }}</h3>
@@ -750,7 +750,7 @@ const pfx = computed(() => {
         </div>
         <div class="uc-card">
           <div class="uc-img-wrap">
-            <img src="/images/governance-bip.png" :alt="content.uc4Title" loading="lazy" />
+            <img src="/images/governance-bip.jpg" :alt="content.uc4Title" loading="lazy" />
           </div>
           <div class="uc-card-body">
             <h3>{{ content.uc4Title }}</h3>

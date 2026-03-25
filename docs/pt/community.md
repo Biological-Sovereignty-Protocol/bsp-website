@@ -5,7 +5,7 @@ lang: pt
 ---
 
 <div class="page-hero-image">
-  <img src="/images/community-hero.png" alt="Comunidade BSP" loading="lazy" />
+  <img src="/images/community-hero.jpg" alt="Comunidade BSP" loading="lazy" />
 </div>
 
 # Junte-se à Comunidade

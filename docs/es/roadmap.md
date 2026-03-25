@@ -5,7 +5,7 @@ lang: es
 ---
 
 <div class="page-hero-image">
-  <img src="/images/roadmap-hero.png" alt="Roadmap de BSP" loading="lazy" />
+  <img src="/images/roadmap-hero.jpg" alt="Roadmap de BSP" loading="lazy" />
 </div>
 
 # Roadmap de BSP

@@ -5,7 +5,7 @@ lang: pt
 ---
 
 <div class="page-hero-image">
-  <img src="/images/what-is-bsp-hero.png" alt="O que é o BSP?" loading="lazy" />
+  <img src="/images/what-is-bsp-hero.jpg" alt="O que é o BSP?" loading="lazy" />
 </div>
 
 # O que é o BSP?
