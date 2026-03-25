@@ -34,7 +34,7 @@ npm install @bsp/sdk
 # .env (never commit this file)
 BSP_IEO_PRIVATE_KEY=your_private_key_here
 BSP_NETWORK=testnet
-BSP_REGISTRY_URL=https://registry.biologicalsovereigntyprotocol.com
+BSP_REGISTRY_URL=https://api.biologicalsovereigntyprotocol.com
 BSP_IEO_DOMAIN=yourlab.bsp
 ```
 
