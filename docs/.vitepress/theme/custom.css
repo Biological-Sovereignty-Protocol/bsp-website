@@ -381,3 +381,195 @@ body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button:hover {
 .vp-doc .vp-breadcrumb a:hover::after {
   width: 100%;
 }
+
+/* ── What is BSP section ──────────────────────────────────── */
+.p-what {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.what-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.what-text h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  margin: 0.5rem 0 1.2rem;
+  line-height: 1.2;
+}
+.what-text p {
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.topics-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vp-c-text-3);
+  margin-bottom: 1rem;
+}
+.topics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.topic-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--vp-c-text-1);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.topic-link svg { color: var(--vp-c-brand-1); flex-shrink: 0; }
+.topic-link:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+@media (max-width: 768px) {
+  .what-inner { grid-template-columns: 1fr; gap: 40px; }
+  .p-what { padding: 60px 20px; }
+}
+
+/* ── Use Cases grid ───────────────────────────────────────── */
+.p-usecases {
+  padding: 80px 40px;
+  background: var(--vp-c-bg-soft);
+}
+.uc-header {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+}
+.uc-header h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  margin: 0.5rem 0 0;
+}
+.uc-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.uc-card {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.uc-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 8px 30px rgba(0, 118, 255, 0.1);
+  transform: translateY(-3px);
+}
+.uc-img-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+}
+.uc-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.uc-card:hover .uc-img-wrap img { transform: scale(1.03); }
+.uc-card-body {
+  padding: 24px;
+}
+.uc-card-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.uc-card-body p {
+  font-size: 0.92rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.uc-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.uc-link:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .uc-grid { grid-template-columns: 1fr; }
+  .p-usecases { padding: 60px 20px; }
+}
+
+/* ── Developer CTA ────────────────────────────────────────── */
+.p-dev-cta {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dev-cta-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.dev-cta-text h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.2;
+}
+.dev-cta-text p {
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.dev-cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dev-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.dev-stat {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.dev-stat-num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.dev-stat-label {
+  font-size: 0.8rem;
+  color: var(--vp-c-text-3);
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .dev-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .p-dev-cta { padding: 60px 20px; }
+}

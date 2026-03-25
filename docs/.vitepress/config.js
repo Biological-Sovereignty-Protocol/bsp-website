@@ -4,6 +4,8 @@ const enSidebar = [
     {
         text: 'Getting Started',
         items: [
+            { text: 'What is BSP?', link: '/what-is-bsp' },
+            { text: 'Learn Hub', link: '/learn' },
             { text: 'Whitepaper', link: '/whitepaper' },
             { text: 'Introduction', link: '/getting-started/intro' },
             { text: 'Quickstart', link: '/getting-started/quickstart' },
@@ -59,6 +61,13 @@ const enSidebar = [
         ]
     },
     {
+        text: 'Community & Roadmap',
+        items: [
+            { text: 'Roadmap', link: '/roadmap' },
+            { text: 'Community', link: '/community' }
+        ]
+    },
+    {
         text: 'Developer Resources',
         items: [
             { text: 'Implementation Guide', link: '/developers/implementation-guide' },
@@ -87,6 +96,8 @@ const ptSidebar = [
     {
         text: 'Primeiros Passos',
         items: [
+            { text: 'O que é o BSP?', link: '/pt/what-is-bsp' },
+            { text: 'Hub de Aprendizado', link: '/pt/learn' },
             { text: 'Whitepaper', link: '/pt/whitepaper' },
             { text: 'Introdução', link: '/pt/getting-started/intro' },
             { text: 'Início Rápido', link: '/pt/getting-started/quickstart' },
@@ -142,6 +153,13 @@ const ptSidebar = [
         ]
     },
     {
+        text: 'Comunidade e Roadmap',
+        items: [
+            { text: 'Roadmap', link: '/pt/roadmap' },
+            { text: 'Comunidade', link: '/pt/community' }
+        ]
+    },
+    {
         text: 'Recursos para Desenvolvedores',
         items: [
             { text: 'Guia de Implementação', link: '/pt/developers/implementation-guide' },
@@ -170,6 +188,8 @@ const esSidebar = [
     {
         text: 'Primeros Pasos',
         items: [
+            { text: '¿Qué es BSP?', link: '/es/what-is-bsp' },
+            { text: 'Hub de Aprendizaje', link: '/es/learn' },
             { text: 'Whitepaper', link: '/es/whitepaper' },
             { text: 'Introducción', link: '/es/getting-started/intro' },
             { text: 'Inicio Rápido', link: '/es/getting-started/quickstart' },
@@ -222,6 +242,13 @@ const esSidebar = [
         items: [
             { text: 'Sobre los BIPs', link: '/es/bips/' },
             { text: 'BIP-0000 — Template', link: '/es/bips/BIP-0000' }
+        ]
+    },
+    {
+        text: 'Comunidad y Roadmap',
+        items: [
+            { text: 'Roadmap', link: '/es/roadmap' },
+            { text: 'Comunidad', link: '/es/community' }
         ]
     },
     {
@@ -297,6 +324,10 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP is the open cryptographic standard for health data sovereignty. Own your biological data permanently on Arweave. No gatekeepers. No API fees.',
                 nav: [
+                    { text: 'What is BSP?', link: '/what-is-bsp' },
+                    { text: 'Learn', link: '/learn' },
+                    { text: 'Roadmap', link: '/roadmap' },
+                    { text: 'Community', link: '/community' },
                     { text: 'Whitepaper', link: '/whitepaper' },
                     {
                         text: 'Documentation',
@@ -335,6 +366,10 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP é o padrão criptográfico aberto para soberania de dados de saúde. Seja dono dos seus dados biológicos permanentemente no Arweave.',
                 nav: [
+                    { text: 'O que é o BSP?', link: '/pt/what-is-bsp' },
+                    { text: 'Aprenda', link: '/pt/learn' },
+                    { text: 'Roadmap', link: '/pt/roadmap' },
+                    { text: 'Comunidade', link: '/pt/community' },
                     { text: 'Whitepaper', link: '/pt/whitepaper' },
                     {
                         text: 'Documentação',
@@ -373,6 +408,10 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP es el estándar criptográfico abierto para la soberanía de datos de salud. Sea dueño de sus datos biológicos permanentemente en Arweave.',
                 nav: [
+                    { text: '¿Qué es BSP?', link: '/es/what-is-bsp' },
+                    { text: 'Aprende', link: '/es/learn' },
+                    { text: 'Roadmap', link: '/es/roadmap' },
+                    { text: 'Comunidad', link: '/es/community' },
                     { text: 'Whitepaper', link: '/es/whitepaper' },
                     {
                         text: 'Documentación',

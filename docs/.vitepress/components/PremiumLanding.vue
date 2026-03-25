@@ -69,7 +69,7 @@ onMounted(() => {
 
   // Observe all animated elements
   const targets = document.querySelectorAll(
-    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-open-banner, .p-cta, .arch-col, .how-step'
+    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-what, .p-usecases, .p-dev-cta, .p-open-banner, .p-cta, .arch-col, .how-step'
   )
   targets.forEach(el => scrollObserver.observe(el))
 })
@@ -96,11 +96,17 @@ function copyCliCommand() {
 const content = computed(() => {
   if (lang.value === 'pt') {
     return {
-      heroTitle: "Protocolo de Soberania Biológica",
-      heroSubtitle: "O protocolo que dá a cada ser humano soberania permanente sobre sua própria biologia.",
-      heroTagline: "Um padrão aberto e criptográfico para troca de dados de saúde e longevidade.",
-      btnPrimary: "O que é o BSP?",
-      btnSecondary: "Guia para Desenvolvedores",
+      heroBadge: 'Protocolo v1 Ativo · Arweave',
+      heroTitle: "Sua biologia.\nSeus dados.\nSuas regras.",
+      heroTagline: "BSP é um protocolo aberto que dá às pessoas controle criptográfico sobre seus dados biológicos — de genômica a wearables.",
+      btnPrimary: "Começar",
+      btnSecondary: "Ler o Whitepaper",
+      stat1Val: 'v1.0',
+      stat1Label: 'Versão do protocolo',
+      stat2Val: 'Ed25519',
+      stat2Label: 'Padrão de assinatura',
+      stat3Val: '∞',
+      stat3Label: 'Armazenamento permanente',
       
       f1Title: "Propriedade Permanente",
       f1Text: "O indivíduo é dono do seu BEO e de todos os dados vitalícios. Hospedado na rede Arweave, nenhuma empresa pode revogar seu acesso.",
@@ -168,14 +174,51 @@ const content = computed(() => {
       labelBadgeBegin: "INICIANTE",
       labelBadgeInter: "INTERMEDIÁRIO",
       labelBadgeAdv: "AVANÇADO",
+
+      labelWhat: 'O QUE É BSP',
+      whatTitle: 'Seus dados biológicos, suas regras.',
+      whatP1: 'O BSP é um protocolo aberto que dá às pessoas controle criptográfico sobre seus dados biológicos — genômica, registros clínicos, wearables e muito mais.',
+      whatP2: 'Nenhuma instituição é dona dos seus dados. Nenhuma empresa controla o protocolo. Todo acesso exige seu consentimento explícito e assinado.',
+      whatCta: 'Aprender sobre o BSP',
+      popularTopicsLabel: 'Tópicos populares',
+      topic1: 'Whitepaper BSP',
+      topic2: 'O que é um BEO?',
+      topic3: 'BIPs do Protocolo',
+      topic4: 'Roadmap do BSP',
+      labelUseCases: 'CASOS DE USO',
+      ucTitle: 'Uma nova forma de ser dono dos seus dados de saúde',
+      uc1Title: 'Identidade biológica soberana',
+      uc1Desc: 'Seu BEO é uma identidade criptográfica ancorada em você — não em um hospital ou laboratório. Só você pode autorizar mudanças.',
+      uc2Title: 'Consentimento que realmente funciona',
+      uc2Desc: 'ConsentTokens são assinados criptograficamente, têm prazo e são revogáveis. Conceda e revogue acesso em segundos.',
+      uc3Title: 'Uma camada global de dados de saúde',
+      uc3Desc: 'A Exchange API permite que BioRecords consentidos fluam entre indivíduos, pesquisadores e sistemas de IA — armazenados permanentemente na Arweave.',
+      uc4Title: 'Protocolo governado pela comunidade',
+      uc4Desc: 'O BSP evolui por meio de BIPs — propostas abertas que qualquer pessoa pode enviar, discutir e votar. Nenhuma empresa controla o roadmap.',
+      learnMore: 'Saiba mais',
+      labelDev: 'PARA DESENVOLVEDORES',
+      devCtaTitle: 'Construa sobre a infraestrutura da soberania biológica.',
+      devCtaDesc: 'SDKs TypeScript e Python, uma API REST completa e armazenamento permanente na Arweave. Tudo que você precisa para criar apps de saúde, ferramentas de pesquisa ou integrações de dados.',
+      devCtaBtn1: 'Começar a construir',
+      devCtaBtn2: 'Ver referência do SDK',
+      devStat1: 'Open source',
+      devStat2: 'Padrão de assinatura',
+      devStat3: 'Armazenamento permanente',
+      devStat4: 'Licença',
     }
   } else if (lang.value === 'es') {
     return {
-      heroTitle: "Protocolo de Soberanía Biológica",
-      heroSubtitle: "El protocolo que otorga a cada ser humano soberanía permanente sobre su propia biología.",
-      heroTagline: "Un estándar abierto y criptográfico para el intercambio de datos de salud y longevidad.",
-      btnPrimary: "¿Qué es el BSP?",
-      btnSecondary: "Inicio Rápido (SDK)",
+      heroBadge: 'Protocolo v1 Activo · Arweave',
+      heroTitle: "Tu biología.\nTus datos.\nTus reglas.",
+      heroTagline: "BSP es un protocolo abierto que otorga a los individuos propiedad criptográfica de sus datos biológicos — desde genómica hasta wearables.",
+      btnPrimary: "Empezar",
+      btnSecondary: "Leer el Whitepaper",
+      stat1Val: 'v1.0',
+      stat1Label: 'Versión del protocolo',
+      stat2Val: 'Ed25519',
+      stat2Label: 'Estándar de firma',
+      stat3Val: '∞',
+      stat3Label: 'Almacenamiento permanente',
       
       f1Title: "Propiedad Permanente",
       f1Text: "El individuo es dueño de su BEO y registros de por vida. En la red descentralizada Arweave, ninguna empresa puede denegar el acceso.",
@@ -243,16 +286,53 @@ const content = computed(() => {
       labelBadgeBegin: "PRINCIPIANTE",
       labelBadgeInter: "INTERMEDIO",
       labelBadgeAdv: "AVANZADO",
+
+      labelWhat: 'QUÉ ES BSP',
+      whatTitle: 'Tus datos biológicos, tus reglas.',
+      whatP1: 'BSP es un protocolo abierto que otorga a los individuos propiedad criptográfica de sus datos biológicos — genómica, registros clínicos, wearables y más.',
+      whatP2: 'Ninguna institución es dueña de tus datos. Ninguna empresa controla el protocolo. Cada acceso requiere tu consentimiento explícito y firmado.',
+      whatCta: 'Aprender sobre BSP',
+      popularTopicsLabel: 'Temas populares',
+      topic1: 'Whitepaper BSP',
+      topic2: '¿Qué es un BEO?',
+      topic3: 'BIPs del Protocolo',
+      topic4: 'Roadmap de BSP',
+      labelUseCases: 'CASOS DE USO',
+      ucTitle: 'Una nueva forma de ser dueño de tus datos de salud',
+      uc1Title: 'Identidad biológica soberana',
+      uc1Desc: 'Tu BEO es una identidad criptográfica anclada a ti — no a un hospital o laboratorio. Solo tú puedes autorizar cambios.',
+      uc2Title: 'Consentimiento que realmente funciona',
+      uc2Desc: 'Los ConsentTokens están firmados criptográficamente, tienen límite de tiempo y son revocables. Concede y revoca acceso en segundos.',
+      uc3Title: 'Una capa global de datos de salud',
+      uc3Desc: 'La Exchange API permite que BioRecords consentidos fluyan entre individuos, investigadores y sistemas de IA — almacenados permanentemente en Arweave.',
+      uc4Title: 'Protocolo gobernado por la comunidad',
+      uc4Desc: 'BSP evoluciona a través de BIPs — propuestas abiertas que cualquiera puede enviar, discutir y votar. Ninguna empresa controla el roadmap.',
+      learnMore: 'Aprender más',
+      labelDev: 'PARA DESARROLLADORES',
+      devCtaTitle: 'Construye sobre la infraestructura de la soberanía biológica.',
+      devCtaDesc: 'SDKs TypeScript y Python, una API REST completa y almacenamiento permanente en Arweave. Todo lo que necesitas para crear apps de salud, herramientas de investigación o integraciones de datos.',
+      devCtaBtn1: 'Empezar a construir',
+      devCtaBtn2: 'Ver referencia del SDK',
+      devStat1: 'Open source',
+      devStat2: 'Estándar de firma',
+      devStat3: 'Almacenamiento permanente',
+      devStat4: 'Licencia',
     }
   }
 
   // Default English (en)
   return {
-    heroTitle: "Biological Sovereignty Protocol",
-    heroSubtitle: "The protocol that gives every human being permanent sovereignty over their own biology.",
-    heroTagline: "An open, cryptographic standard for exchanging health and longevity data.",
-    btnPrimary: "What is BSP?",
-    btnSecondary: "Developer Quickstart",
+    heroBadge: 'Protocol Live v1 · Arweave',
+    heroTitle: "Your biology.\nYour data.\nYour rules.",
+    heroTagline: "BSP is an open protocol giving individuals cryptographic ownership of their biological data — from genomics to wearables.",
+    btnPrimary: "Get Started",
+    btnSecondary: "Read the Whitepaper",
+    stat1Val: 'v1.0',
+    stat1Label: 'Protocol version',
+    stat2Val: 'Ed25519',
+    stat2Label: 'Signature standard',
+    stat3Val: '∞',
+    stat3Label: 'Permanent storage',
     
     f1Title: "Permanent Ownership",
     f1Text: "The individual owns their BEO and all BioRecords within it for life. Hosted completely on the decentralized Arweave network, no company can revoke access.",
@@ -320,6 +400,37 @@ const content = computed(() => {
     labelBadgeBegin: "BEGINNER",
     labelBadgeInter: "INTERMEDIATE",
     labelBadgeAdv: "ADVANCED",
+
+    labelWhat: 'WHAT IS BSP',
+    whatTitle: 'Your biological data, your rules.',
+    whatP1: 'BSP is an open protocol that gives individuals cryptographic ownership of their biological data — genomics, clinical records, wearables, and more.',
+    whatP2: 'No institution owns your data. No company controls the protocol. Every access requires your explicit, signed consent.',
+    whatCta: 'Learn about BSP',
+    popularTopicsLabel: 'Popular topics',
+    topic1: 'BSP Whitepaper',
+    topic2: 'What is a BEO?',
+    topic3: 'Protocol BIPs',
+    topic4: 'BSP Roadmap',
+    labelUseCases: 'USE CASES',
+    ucTitle: 'A new way to own your health data',
+    uc1Title: 'Sovereign biological identity',
+    uc1Desc: 'Your BEO is a cryptographic identity anchored to you — not a hospital or lab. Only you can authorize changes.',
+    uc2Title: 'Consent that actually works',
+    uc2Desc: 'ConsentTokens are cryptographically signed, time-bound, and revocable. Grant and revoke access in seconds.',
+    uc3Title: 'A global health data layer',
+    uc3Desc: 'The Exchange API lets consented BioRecords flow between individuals, researchers, and AI systems — permanently stored on Arweave.',
+    uc4Title: 'Community-governed protocol',
+    uc4Desc: 'BSP evolves through BIPs — open proposals that anyone can submit, discuss, and vote on. No company controls the roadmap.',
+    learnMore: 'Learn more',
+    labelDev: 'FOR DEVELOPERS',
+    devCtaTitle: 'Build on the infrastructure of biological sovereignty.',
+    devCtaDesc: 'TypeScript and Python SDKs, a full REST API, and permanent storage on Arweave. Everything you need to build health apps, research tools, or data integrations.',
+    devCtaBtn1: 'Start building',
+    devCtaBtn2: 'View SDK reference',
+    devStat1: 'Open source',
+    devStat2: 'Signature standard',
+    devStat3: 'Permanent storage',
+    devStat4: 'License',
   }
 })
 
@@ -338,19 +449,50 @@ const pfx = computed(() => {
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
     
-    <!-- Hero Section — Fullscreen Cinematic -->
+    <!-- Hero Section — Split Layout Premium -->
     <section class="p-hero">
-      <img src="/images/hero-image.png" alt="BSP Protocol" class="p-hero-bg" />
-      <div class="p-hero-overlay"></div>
-      <!-- Radial gradient brand glow — top right corner, Ethereum style -->
-      <div class="p-hero-radial" aria-hidden="true"></div>
-      <div class="p-hero-content">
-        <h1 class="p-title">{{ content.heroTitle }}</h1>
-        <p class="p-subtitle">{{ content.heroSubtitle }}</p>
-        <p class="p-tagline">{{ content.heroTagline }}</p>
-        <div class="p-actions">
-          <a :href="`${pfx}/getting-started/intro`" class="btn btn-brand">{{ content.btnPrimary }}</a>
-          <a :href="`${pfx}/getting-started/quickstart`" class="btn btn-hero-alt">{{ content.btnSecondary }}</a>
+      <!-- Dot grid background -->
+      <div class="p-hero-dotgrid" aria-hidden="true"></div>
+      <!-- Gradient glow left -->
+      <div class="p-hero-glow" aria-hidden="true"></div>
+
+      <div class="p-hero-split">
+        <!-- Left: Text -->
+        <div class="p-hero-left">
+          <div class="p-hero-badge">
+            <span class="badge-dot"></span>
+            {{ content.heroBadge }}
+          </div>
+          <h1 class="p-title">{{ content.heroTitle }}</h1>
+          <p class="p-tagline">{{ content.heroTagline }}</p>
+          <div class="p-actions">
+            <a :href="`${pfx}/getting-started/intro`" class="btn btn-brand">{{ content.btnPrimary }}</a>
+            <a :href="`${pfx}/getting-started/quickstart`" class="btn btn-hero-alt">{{ content.btnSecondary }}</a>
+          </div>
+          <div class="p-hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-val">{{ content.stat1Val }}</span>
+              <span class="hero-stat-label">{{ content.stat1Label }}</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-val">{{ content.stat2Val }}</span>
+              <span class="hero-stat-label">{{ content.stat2Label }}</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-val">{{ content.stat3Val }}</span>
+              <span class="hero-stat-label">{{ content.stat3Label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Image with gradient mask -->
+        <div class="p-hero-right" aria-hidden="true">
+          <div class="p-hero-img-wrap">
+            <img src="/images/hero-image.png" alt="" class="p-hero-img" />
+            <div class="p-hero-img-mask"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -535,6 +677,123 @@ const pfx = computed(() => {
       </div>
     </section>
 
+    <!-- What is BSP — Explainer Block -->
+    <section class="p-what scroll-reveal">
+      <div class="what-inner">
+        <div class="what-text">
+          <span class="section-label">{{ content.labelWhat }}</span>
+          <h2>{{ content.whatTitle }}</h2>
+          <p>{{ content.whatP1 }}</p>
+          <p>{{ content.whatP2 }}</p>
+          <a :href="`${pfx}/what-is-bsp`" class="btn btn-brand">{{ content.whatCta }}</a>
+        </div>
+        <div class="what-topics">
+          <p class="topics-label">{{ content.popularTopicsLabel }}</p>
+          <div class="topics-grid">
+            <a :href="`${pfx}/whitepaper`" class="topic-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              {{ content.topic1 }}
+            </a>
+            <a :href="`${pfx}/architecture/beo`" class="topic-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              {{ content.topic2 }}
+            </a>
+            <a :href="`${pfx}/bips`" class="topic-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {{ content.topic3 }}
+            </a>
+            <a :href="`${pfx}/roadmap`" class="topic-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              {{ content.topic4 }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Showcase — Inspired by ethereum.org -->
+    <section class="p-usecases scroll-reveal">
+      <div class="uc-header">
+        <span class="section-label">{{ content.labelUseCases }}</span>
+        <h2>{{ content.ucTitle }}</h2>
+      </div>
+      <div class="uc-grid">
+        <div class="uc-card">
+          <div class="uc-img-wrap">
+            <img src="/images/beo-identity.png" :alt="content.uc1Title" loading="lazy" />
+          </div>
+          <div class="uc-card-body">
+            <h3>{{ content.uc1Title }}</h3>
+            <p>{{ content.uc1Desc }}</p>
+            <a :href="`${pfx}/architecture/beo`" class="uc-link">{{ content.learnMore }} →</a>
+          </div>
+        </div>
+        <div class="uc-card">
+          <div class="uc-img-wrap">
+            <img src="/images/consent-flow.png" :alt="content.uc2Title" loading="lazy" />
+          </div>
+          <div class="uc-card-body">
+            <h3>{{ content.uc2Title }}</h3>
+            <p>{{ content.uc2Desc }}</p>
+            <a :href="`${pfx}/architecture/consent-token`" class="uc-link">{{ content.learnMore }} →</a>
+          </div>
+        </div>
+        <div class="uc-card">
+          <div class="uc-img-wrap">
+            <img src="/images/exchange-protocol.png" :alt="content.uc3Title" loading="lazy" />
+          </div>
+          <div class="uc-card-body">
+            <h3>{{ content.uc3Title }}</h3>
+            <p>{{ content.uc3Desc }}</p>
+            <a :href="`${pfx}/protocols/exchange-protocol`" class="uc-link">{{ content.learnMore }} →</a>
+          </div>
+        </div>
+        <div class="uc-card">
+          <div class="uc-img-wrap">
+            <img src="/images/governance-bip.png" :alt="content.uc4Title" loading="lazy" />
+          </div>
+          <div class="uc-card-body">
+            <h3>{{ content.uc4Title }}</h3>
+            <p>{{ content.uc4Desc }}</p>
+            <a :href="`${pfx}/bips`" class="uc-link">{{ content.learnMore }} →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Developer CTA Section -->
+    <section class="p-dev-cta scroll-reveal">
+      <div class="dev-cta-inner">
+        <div class="dev-cta-text">
+          <span class="section-label">{{ content.labelDev }}</span>
+          <h2>{{ content.devCtaTitle }}</h2>
+          <p>{{ content.devCtaDesc }}</p>
+          <div class="dev-cta-actions">
+            <a :href="`${pfx}/getting-started/quickstart`" class="btn btn-brand">{{ content.devCtaBtn1 }}</a>
+            <a :href="`${pfx}/developers/sdk-reference`" class="btn btn-ghost">{{ content.devCtaBtn2 }}</a>
+          </div>
+        </div>
+        <div class="dev-stats">
+          <div class="dev-stat">
+            <span class="dev-stat-num">100%</span>
+            <span class="dev-stat-label">{{ content.devStat1 }}</span>
+          </div>
+          <div class="dev-stat">
+            <span class="dev-stat-num">Ed25519</span>
+            <span class="dev-stat-label">{{ content.devStat2 }}</span>
+          </div>
+          <div class="dev-stat">
+            <span class="dev-stat-num">∞</span>
+            <span class="dev-stat-label">{{ content.devStat3 }}</span>
+          </div>
+          <div class="dev-stat">
+            <span class="dev-stat-num">MIT</span>
+            <span class="dev-stat-label">{{ content.devStat4 }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section C: Open Standard Banner -->
     <section class="p-open-banner scroll-reveal">
       <!-- Real terminal CLI block -->
@@ -671,117 +930,225 @@ body.bsp-home .VPDoc .container {
   background: rgba(14, 99, 199, 0.15);
 }
 
-/* ----- HERO FULLSCREEN CINEMATIC ----- */
+/* ══ HERO — Split Layout Premium ══════════════════════════════ */
 .p-hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #030712 0%, #0a1628 50%, #0d1f3c 100%);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
-.p-hero-bg {
+/* Dot grid background */
+.p-hero-dotgrid {
   position: absolute;
   inset: 0;
+  background-image: radial-gradient(circle, rgba(50, 145, 255, 0.18) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 80% at 40% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 40% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Brand glow top-left */
+.p-hero-glow {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 118, 255, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Split layout */
+.p-hero-split {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 100vh;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 60px;
+  gap: 0;
+}
+
+/* Left: text */
+.p-hero-left {
+  padding: 80px 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Badge */
+.p-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 118, 255, 0.12);
+  border: 1px solid rgba(0, 118, 255, 0.3);
+  color: #7eb8ff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #22c55e;
+  animation: blink-dot 2s ease-in-out infinite;
+}
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Title — multiline with \n support */
+.p-title {
+  font-size: clamp(3rem, 5vw, 5.2rem) !important;
+  font-weight: 900;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 24px !important;
+  white-space: pre-line;
+}
+
+/* Tagline */
+.p-tagline {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 0 36px !important;
+}
+
+/* Buttons */
+.p-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Stats mini row */
+.p-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-stat-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+.hero-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Right: Image */
+.p-hero-right {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.p-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 480px;
+  max-height: 680px;
+}
+.p-hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 0;
+  border-radius: 20px 0 0 20px;
+  display: block;
 }
-
-.p-hero-overlay {
+/* Gradient mask fading left edge of image into background */
+.p-hero-img-mask {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(0, 20, 80, 0.88) 0%,
-    rgba(0, 50, 160, 0.55) 40%,
-    rgba(0, 80, 200, 0.25) 70%,
-    rgba(0, 60, 160, 0.10) 100%
+    to right,
+    #030712 0%,
+    rgba(3, 7, 18, 0.7) 20%,
+    rgba(3, 7, 18, 0.1) 50%,
+    transparent 100%
   );
-  z-index: 1;
-}
-
-.p-hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 860px;
-  padding: 0 2rem;
-}
-
-.p-title {
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
-}
-
-.p-subtitle {
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 0.85rem;
-  line-height: 1.45;
-}
-
-.p-tagline {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.68);
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.01em;
-}
-
-.p-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  border-radius: 20px 0 0 20px;
+  pointer-events: none;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.8rem;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 0.97rem;
+  font-weight: 700;
   text-decoration: none !important;
+  transition: all 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
 }
-
 .btn-brand {
-  background-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-1);
   color: #fff !important;
-  box-shadow: 0 8px 24px rgba(0, 118, 255, 0.4);
+  border: 2px solid var(--vp-c-brand-1);
 }
 .btn-brand:hover {
-  background-color: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(0, 118, 255, 0.45);
-}
-
-/* Botão secundário do hero — sobre imagem escura */
-.btn-hero-alt {
-  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 118, 255, 0.35);
   color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.btn-hero-alt {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 .btn-hero-alt:hover {
-  background-color: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
+  color: #fff !important;
 }
 
 /* btn-alt para seções abaixo do hero (fundo normal) */
@@ -1094,20 +1461,42 @@ body.bsp-home .VPDoc .container {
     transform: rotate(90deg);
     margin-top: 0;
   }
-  .p-hero, .p-split {
+  .p-split {
     flex-direction: column;
     text-align: center;
     gap: 4rem;
   }
-  
-  .p-hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .p-hero-split {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+    padding-top: 80px;
   }
-  
+  .p-hero-left {
+    padding: 60px 0 32px;
+  }
+  .p-hero-right {
+    height: 45vw;
+    min-height: 260px;
+    max-height: 320px;
+  }
+  .p-hero-img-wrap {
+    height: 100%;
+    max-height: unset;
+  }
+  .p-hero-img {
+    border-radius: 16px;
+    object-position: top;
+  }
+  .p-hero-img-mask {
+    border-radius: 16px;
+    background: linear-gradient(to bottom, transparent 50%, #030712 100%);
+  }
+  .p-title { font-size: clamp(2.4rem, 8vw, 3.6rem) !important; }
+  .p-hero-stats { flex-wrap: wrap; gap: 12px; }
+
   .p-actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .arch-col::before {
@@ -1445,26 +1834,7 @@ body.bsp-home .VPDoc .container {
   transform: translateY(-6px);
 }
 
-/* ── HERO RADIAL GRADIENT (Ethereum style) ───────────────────── */
-.p-hero-radial {
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 55%;
-  height: 90%;
-  background: radial-gradient(ellipse 60% 50% at 80% 20%,
-    rgba(0, 118, 255, 0.22) 0%,
-    rgba(50, 100, 255, 0.10) 40%,
-    transparent 70%);
-  z-index: 1;
-  pointer-events: none;
-}
-.dark .p-hero-radial {
-  background: radial-gradient(ellipse 60% 50% at 80% 20%,
-    rgba(50, 145, 255, 0.18) 0%,
-    rgba(14, 99, 199, 0.09) 40%,
-    transparent 70%);
-}
+/* .p-hero-radial removed — replaced by split layout design */
 
 /* ── QUICK-ACTION CARDS ──────────────────────────────────────── */
 .p-quick-cards {
