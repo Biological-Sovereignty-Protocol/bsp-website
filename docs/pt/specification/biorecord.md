@@ -189,7 +189,7 @@ Examples:
 - `BSP-GL-001` — Fasting Glucose (Glycemia & Metabolic category, marker #001)
 - `BSP-DV-001` — Heart Rate Variability (Device category, marker #001)
 
-→ See [`taxonomy/`](taxonomy/) for the complete biomarker reference.
+→ See [Biomarker Taxonomy](taxonomy/level-1-core) for the complete biomarker reference.
 
 ---
 

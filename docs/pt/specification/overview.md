@@ -70,7 +70,7 @@ BioRecords are the atomic units of biological data in the BSP ecosystem. They ar
 - **Signed** — every BioRecord carries a cryptographic signature from the submitting entity
 
 → See [`biorecord.md`](biorecord.md) for the complete BioRecord specification.
-→ See [`taxonomy/`](taxonomy/) for the full biomarker taxonomy.
+→ See [Biomarker Taxonomy](taxonomy/level-1-core) for the full biomarker taxonomy.
 
 ---
 
