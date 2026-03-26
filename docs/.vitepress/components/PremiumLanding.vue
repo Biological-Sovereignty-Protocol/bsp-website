@@ -453,16 +453,18 @@ const pfx = computed(() => {
     <section class="p-hero">
       <!-- Dot grid background -->
       <div class="p-hero-dotgrid" aria-hidden="true"></div>
-      <!-- Gradient glow left -->
+      <!-- Gradient glow top-left -->
       <div class="p-hero-glow" aria-hidden="true"></div>
 
+      <!-- Image: direct child of section so height:100% works correctly -->
+      <div class="p-hero-right" aria-hidden="true">
+        <img src="/images/hero-image.jpg" alt="" class="p-hero-img" />
+        <div class="p-hero-img-mask"></div>
+      </div>
+
+      <!-- Text content -->
       <div class="p-hero-split">
-        <!-- Left: Text -->
         <div class="p-hero-left">
-          <div class="p-hero-badge">
-            <span class="badge-dot"></span>
-            {{ content.heroBadge }}
-          </div>
           <h1 class="p-title">{{ content.heroTitle }}</h1>
           <p class="p-tagline">{{ content.heroTagline }}</p>
           <div class="p-actions">
@@ -484,14 +486,6 @@ const pfx = computed(() => {
               <span class="hero-stat-val">{{ content.stat3Val }}</span>
               <span class="hero-stat-label">{{ content.stat3Label }}</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Right: Image with gradient mask -->
-        <div class="p-hero-right" aria-hidden="true">
-          <div class="p-hero-img-wrap">
-            <img src="/images/hero-image.jpg" alt="" class="p-hero-img" />
-            <div class="p-hero-img-mask"></div>
           </div>
         </div>
       </div>
@@ -930,63 +924,80 @@ body.bsp-home .VPDoc .container {
   background: rgba(14, 99, 199, 0.15);
 }
 
-/* ══ HERO — Split Layout Premium ══════════════════════════════ */
+/* ══ HERO — Full-Bleed Cinematic ══════════════════════════════ */
 .p-hero {
   position: relative;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #030712 0%, #0a1628 50%, #0d1f3c 100%);
+  height: 100vh;
+  min-height: 640px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 45%, #e0ebff 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  transition: background 0.3s ease;
+}
+.dark .p-hero {
+  background: linear-gradient(135deg, #020d22 0%, #041940 45%, #062354 100%);
+}
+.dark .p-hero {
+  background: linear-gradient(135deg, #020d22 0%, #041940 45%, #062354 100%);
 }
 
-/* Dot grid background */
+/* Dot grid — sits above image, only on left half */
 .p-hero-dotgrid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(50, 145, 255, 0.18) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 80% 80% at 40% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 40% 50%, black 30%, transparent 100%);
+  z-index: 2;
+  background-image: radial-gradient(circle, rgba(100, 150, 255, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse 60% 80% at 25% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 80% at 25% 50%, black 20%, transparent 80%);
   pointer-events: none;
+}
+.dark .p-hero-dotgrid {
+  background-image: radial-gradient(circle, rgba(50, 145, 255, 0.15) 1px, transparent 1px);
 }
 
 /* Brand glow top-left */
 .p-hero-glow {
   position: absolute;
-  top: -200px;
-  left: -200px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(0, 118, 255, 0.18) 0%, transparent 70%);
+  top: -300px;
+  left: -300px;
+  width: 1100px;
+  height: 1100px;
+  z-index: 2;
+  background: radial-gradient(circle, rgba(100, 150, 255, 0.12) 0%, rgba(120, 160, 255, 0.06) 40%, transparent 68%);
   pointer-events: none;
 }
+.dark .p-hero-glow {
+  background: radial-gradient(circle, rgba(0, 120, 255, 0.35) 0%, rgba(0, 70, 210, 0.18) 40%, transparent 68%);
+}
 
-/* Split layout */
+/* Split layout — text only in flow, image is absolute */
 .p-hero-split {
   position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 55% 45%;
-  min-height: 100vh;
+  z-index: 3;
+  display: flex;
   align-items: center;
+  height: 100%;
+  flex: 1;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   padding: 0 60px;
-  gap: 0;
 }
 
 /* Left: text */
 .p-hero-left {
-  padding: 80px 0 80px;
+  width: 54%;
+  padding: 100px 0 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0;
+  position: relative;
+  z-index: 4;
 }
 
 /* Badge */
@@ -1023,18 +1034,26 @@ body.bsp-home .VPDoc .container {
   font-weight: 900;
   line-height: 1.05 !important;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #1a1a2e;
   margin: 0 0 24px !important;
   white-space: pre-line;
+  transition: color 0.3s ease;
+}
+.dark .p-title {
+  color: #ffffff;
 }
 
 /* Tagline */
 .p-tagline {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(26, 26, 46, 0.65);
   line-height: 1.65;
   max-width: 520px;
   margin: 0 0 36px !important;
+  transition: color 0.3s ease;
+}
+.dark .p-tagline {
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Buttons */
@@ -1059,58 +1078,98 @@ body.bsp-home .VPDoc .container {
 .hero-stat-val {
   font-size: 1.05rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #1a1a2e;
   letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+.dark .hero-stat-val {
+  color: #ffffff;
 }
 .hero-stat-label {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(26, 26, 46, 0.45);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+.dark .hero-stat-label {
+  color: rgba(255, 255, 255, 0.45);
 }
 .hero-stat-divider {
   width: 1px;
   height: 32px;
+  background: rgba(26, 26, 46, 0.15);
+  transition: background 0.3s ease;
+}
+.dark .hero-stat-divider {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Right: Image */
+/* Right: Image — absolute to .p-hero (direct child), guaranteed full height */
 .p-hero-right {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 75%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  transition: width 0.3s ease;
 }
-.p-hero-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 75vh;
-  min-height: 480px;
-  max-height: 680px;
+.dark .p-hero-right {
+  width: 62%;
 }
 .p-hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  border-radius: 20px 0 0 20px;
+  object-position: center center;
   display: block;
+  filter: saturate(1.1) brightness(1.0);
 }
-/* Gradient mask fading left edge of image into background */
+/* Blue gradient mask fading left into background */
 .p-hero-img-mask {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    #030712 0%,
-    rgba(3, 7, 18, 0.7) 20%,
-    rgba(3, 7, 18, 0.1) 50%,
-    transparent 100%
-  );
-  border-radius: 20px 0 0 20px;
+  background:
+    linear-gradient(
+      to right,
+      #f0f4ff 0%,
+      #f0f4ff 5%,
+      rgba(240, 244, 255, 0.92) 18%,
+      rgba(224, 235, 255, 0.55) 45%,
+      rgba(208, 228, 255, 0.15) 70%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(240, 244, 255, 0.35) 0%,
+      transparent 14%,
+      transparent 78%,
+      rgba(224, 235, 255, 0.45) 100%
+    );
   pointer-events: none;
+}
+.dark .p-hero-img-mask {
+  background:
+    linear-gradient(
+      to right,
+      #040f2e 0%,
+      #071840 10%,
+      rgba(6, 22, 58, 0.82) 28%,
+      rgba(4, 16, 48, 0.45) 50%,
+      rgba(3, 12, 36, 0.12) 70%,
+      transparent 88%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(4, 14, 44, 0.55) 0%,
+      transparent 14%,
+      transparent 78%,
+      rgba(4, 14, 44, 0.75) 100%
+    );
 }
 
 .btn {
@@ -1468,29 +1527,30 @@ body.bsp-home .VPDoc .container {
   }
 
   .p-hero-split {
-    grid-template-columns: 1fr;
     padding: 0 24px;
+    min-height: auto;
     padding-top: 80px;
+    padding-bottom: 60px;
   }
   .p-hero-left {
+    width: 100%;
     padding: 60px 0 32px;
   }
+  /* On mobile: image becomes a background behind the whole hero */
   .p-hero-right {
-    height: 45vw;
-    min-height: 260px;
-    max-height: 320px;
-  }
-  .p-hero-img-wrap {
-    height: 100%;
-    max-height: unset;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0.4;
   }
   .p-hero-img {
-    border-radius: 16px;
-    object-position: top;
+    object-position: 70% top;
+    filter: saturate(0.5) brightness(0.6);
   }
   .p-hero-img-mask {
-    border-radius: 16px;
-    background: linear-gradient(to bottom, transparent 50%, #030712 100%);
+    background:
+      linear-gradient(to right, #030712 0%, rgba(3,7,18,0.95) 50%, rgba(3,7,18,0.7) 100%),
+      linear-gradient(to bottom, rgba(3,7,18,0.3) 0%, transparent 20%, transparent 80%, #030712 100%);
   }
   .p-title { font-size: clamp(2.4rem, 8vw, 3.6rem) !important; }
   .p-hero-stats { flex-wrap: wrap; gap: 12px; }
