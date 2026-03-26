@@ -1005,15 +1005,21 @@ body.bsp-home .VPDoc .container {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 118, 255, 0.12);
-  border: 1px solid rgba(0, 118, 255, 0.3);
-  color: #7eb8ff;
+  background: rgba(100, 150, 255, 0.15);
+  border: 1px solid rgba(100, 150, 255, 0.25);
+  color: #4a7dff;
   font-size: 0.82rem;
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 100px;
   letter-spacing: 0.02em;
   margin-bottom: 28px;
+  transition: all 0.3s ease;
+}
+.dark .p-hero-badge {
+  background: rgba(0, 118, 255, 0.12);
+  border: 1px solid rgba(0, 118, 255, 0.3);
+  color: #7eb8ff;
 }
 .badge-dot {
   width: 7px;
@@ -1548,6 +1554,11 @@ body.bsp-home .VPDoc .container {
     filter: saturate(0.5) brightness(0.6);
   }
   .p-hero-img-mask {
+    background:
+      linear-gradient(to right, #f0f4ff 0%, rgba(240,244,255,0.9) 50%, rgba(224,235,255,0.6) 100%),
+      linear-gradient(to bottom, rgba(240,244,255,0.3) 0%, transparent 20%, transparent 80%, #f0f4ff 100%);
+  }
+  .dark .p-hero-img-mask {
     background:
       linear-gradient(to right, #030712 0%, rgba(3,7,18,0.95) 50%, rgba(3,7,18,0.7) 100%),
       linear-gradient(to bottom, rgba(3,7,18,0.3) 0%, transparent 20%, transparent 80%, #030712 100%);
