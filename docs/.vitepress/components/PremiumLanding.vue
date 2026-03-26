@@ -1204,15 +1204,26 @@ body.bsp-home .VPDoc .container {
   color: #fff !important;
 }
 .btn-hero-alt {
+  background: rgba(26, 26, 46, 0.08);
+  color: #1a1a2e !important;
+  border: 2px solid rgba(26, 26, 46, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+}
+.btn-hero-alt:hover {
+  background: rgba(26, 26, 46, 0.15);
+  border-color: rgba(26, 26, 46, 0.4);
+  transform: translateY(-2px);
+  color: #1a1a2e !important;
+}
+.dark .btn-hero-alt {
   background: rgba(255, 255, 255, 0.08);
   color: #fff !important;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
 }
-.btn-hero-alt:hover {
+.dark .btn-hero-alt:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
   color: #fff !important;
 }
 
