@@ -941,9 +941,6 @@ body.bsp-home .VPDoc .container {
 .dark .p-hero {
   background: linear-gradient(135deg, #020d22 0%, #041940 45%, #062354 100%);
 }
-.dark .p-hero {
-  background: linear-gradient(135deg, #020d22 0%, #041940 45%, #062354 100%);
-}
 
 /* Dot grid — sits above image, only on left half */
 .p-hero-dotgrid {
@@ -1245,15 +1242,20 @@ body.bsp-home .VPDoc .container {
   bottom: 2.5rem;
   right: 2.5rem;
   z-index: 3;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(10, 22, 40, 0.12);
   padding: 10px 20px;
   border-radius: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.dark .glass-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -1269,8 +1271,11 @@ body.bsp-home .VPDoc .container {
 .badge-text {
   font-weight: 600;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(10, 22, 40, 0.85);
   white-space: nowrap;
+}
+.dark .badge-text {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 
@@ -1562,6 +1567,9 @@ body.bsp-home .VPDoc .container {
   }
   .p-hero-img {
     object-position: 70% top;
+    filter: saturate(0.7) brightness(0.9);
+  }
+  .dark .p-hero-img {
     filter: saturate(0.5) brightness(0.6);
   }
   .p-hero-img-mask {
