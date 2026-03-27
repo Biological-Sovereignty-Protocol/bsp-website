@@ -127,7 +127,7 @@ const ptSidebar = [
             { text: 'Sistema de Domínios .bsp', link: '/pt/specification/bsp-domain' },
             { text: 'Governança', link: '/pt/specification/governance' },
             {
-                text: 'Taxonomia de Biomarcadores',
+                text: 'Taxonomia L1',
                 items: [
                     { text: 'Nível 1 — Core', link: '/pt/specification/taxonomy/level-1-core' },
                     { text: 'Nível 2 — Standard', link: '/pt/specification/taxonomy/level-2-standard' },
@@ -164,7 +164,7 @@ const ptSidebar = [
         items: [
             { text: 'Guia de Implementação', link: '/pt/developers/implementation-guide' },
             { text: 'Exemplos JSON', link: '/pt/developers/examples' },
-            { text: 'Taxonomia de Biomarcadores', link: '/pt/developers/taxonomy' },
+            { text: 'Taxonomia L1', link: '/pt/developers/taxonomy' },
             { text: 'Taxonomia Completa', link: '/pt/developers/taxonomy-list' },
             { text: 'Processo de Certificação', link: '/pt/developers/certification' },
             { text: 'Referência SDK', link: '/pt/developers/sdk-reference' },
@@ -219,7 +219,7 @@ const esSidebar = [
             { text: 'Sistema de Dominios .bsp', link: '/es/specification/bsp-domain' },
             { text: 'Gobernanza', link: '/es/specification/governance' },
             {
-                text: 'Taxonomía de Biomarcadores',
+                text: 'Taxonomía L1',
                 items: [
                     { text: 'Nivel 1 — Core', link: '/es/specification/taxonomy/level-1-core' },
                     { text: 'Nivel 2 — Standard', link: '/es/specification/taxonomy/level-2-standard' },
@@ -256,7 +256,7 @@ const esSidebar = [
         items: [
             { text: 'Guía de Implementación', link: '/es/developers/implementation-guide' },
             { text: 'Ejemplos JSON', link: '/es/developers/examples' },
-            { text: 'Taxonomía de Biomarcadores', link: '/es/developers/taxonomy' },
+            { text: 'Taxonomía L1', link: '/es/developers/taxonomy' },
             { text: 'Taxonomía Completa', link: '/es/developers/taxonomy-list' },
             { text: 'Proceso de Certificación', link: '/es/developers/certification' },
             { text: 'Referencia SDK', link: '/es/developers/sdk-reference' },
@@ -298,7 +298,7 @@ export default defineConfig({
             "@type": "Organization",
             "name": "Biological Sovereignty Protocol",
             "url": "https://biologicalsovereigntyprotocol.com",
-            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.jpg",
+            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.png",
             "description": "Open cryptographic standard for health and longevity data sovereignty",
             "sameAs": [
                 "https://github.com/Biological-Sovereignty-Protocol"
@@ -308,10 +308,30 @@ export default defineConfig({
 
     themeConfig: {
         logo: {
-            light: '/images/bsp-logo-dark.jpg',
-            dark: '/images/bsp-logo-light.jpg'
+            light: '/images/bsp-logo-dark.png',
+            dark: '/images/bsp-logo-light.png'
         },
         siteTitle: false,
+        search: {
+            provider: 'local',
+            options: {
+                translations: {
+                    button: {
+                        buttonText: 'Search',
+                        buttonAriaLabel: 'Search docs'
+                    },
+                    modal: {
+                        noResultsText: 'No results for',
+                        resetButtonTitle: 'Clear',
+                        footer: {
+                            selectText: 'to select',
+                            navigateText: 'to navigate',
+                            closeText: 'to close'
+                        }
+                    }
+                }
+            }
+        },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/Biological-Sovereignty-Protocol' }
         ]
@@ -324,33 +344,69 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP is the open cryptographic standard for health data sovereignty. Own your biological data permanently on Arweave. No gatekeepers. No API fees.',
                 nav: [
-                    { text: 'What is BSP?', link: '/what-is-bsp' },
-                    { text: 'Learn', link: '/learn' },
-                    { text: 'Roadmap', link: '/roadmap' },
-                    { text: 'Community', link: '/community' },
-                    { text: 'Whitepaper', link: '/whitepaper' },
                     {
-                        text: 'Documentation',
+                        text: 'Learn',
+                        items: [
+                            { text: 'What is BSP?', link: '/what-is-bsp' },
+                            { text: 'Learn Hub', link: '/learn' },
+                            { text: 'Compare: BSP vs FHIR', link: '/compare' },
+                            { text: 'Glossary', link: '/glossary' },
+                            { text: 'FAQ', link: '/getting-started/faq' }
+                        ]
+                    },
+                    {
+                        text: 'Use',
+                        items: [
+                            { text: 'Use Cases', link: '/use-cases/' },
+                            { text: 'Health Data Ownership', link: '/use-cases/health-data-ownership' },
+                            { text: 'Decentralized Health Records', link: '/use-cases/decentralized-health-records' },
+                            { text: 'Longevity & AI Data', link: '/use-cases/longevity-ai-data' },
+                            { text: 'Integrations', link: '/integrations' },
+                            { text: 'User Onboarding', link: '/getting-started/user-onboarding' }
+                        ]
+                    },
+                    {
+                        text: 'Build',
                         items: [
                             { text: 'Introduction', link: '/getting-started/intro' },
-                            { text: 'Architecture Diagram', link: '/architecture' },
-                            { text: 'Ecosystem Flow', link: '/architecture/ecosystem-flow' }
+                            { text: 'Quickstart', link: '/getting-started/quickstart' },
+                            { text: 'Implementation Guide', link: '/developers/implementation-guide' },
+                            { text: 'SDK Reference', link: '/developers/sdk-reference' },
+                            { text: 'Tutorials', link: '/developers/tutorials' },
+                            { text: 'Code Examples', link: '/developers/examples' },
+                            { text: 'Payload Reference', link: '/developers/payloads' },
+                            { text: 'Certification', link: '/developers/certification' }
                         ]
                     },
                     {
-                        text: 'Specification',
+                        text: 'Participate',
                         items: [
-                            { text: 'Overview', link: '/specification/overview' },
-                            { text: 'BEO Schema', link: '/specification/beo' },
-                            { text: 'IEO Schema', link: '/specification/ieo' },
-                            { text: 'BioRecord Schema', link: '/specification/biorecord' },
-                            { text: 'Exchange Protocol', link: '/specification/exchange' },
-                            { text: 'Biomarker Taxonomy', link: '/specification/taxonomy/level-1-core' }
+                            { text: 'Community', link: '/community' },
+                            { text: 'Roadmap', link: '/roadmap' },
+                            { text: 'BIPs', link: '/bips/' },
+                            { text: 'Governance', link: '/protocols/governance' },
+                            { text: 'Contribute', link: '/community#contribute' }
                         ]
                     },
-                    { text: 'Use Cases', link: '/use-cases/' },
-                    { text: 'SDK & Tools', link: '/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/bips/' }
+                    {
+                        text: 'Research',
+                        items: [
+                            { text: 'Whitepaper', link: '/whitepaper' },
+                            { text: 'Specification Overview', link: '/specification/overview' },
+                            { text: 'BEO Schema', link: '/specification/beo' },
+                            { text: 'IEO Schema', link: '/specification/ieo' },
+                            { text: 'BioRecord Format', link: '/specification/biorecord' },
+                            { text: 'BSP Domain', link: '/specification/bsp-domain' },
+                            { text: 'Exchange Protocol', link: '/specification/exchange' },
+                            { text: 'Governance Spec', link: '/specification/governance' },
+                            { text: 'Taxonomy L1 Core', link: '/specification/taxonomy/level-1-core' },
+                            { text: 'Taxonomy L2 Standard', link: '/specification/taxonomy/level-2-standard' },
+                            { text: 'Taxonomy L3 Extended', link: '/specification/taxonomy/level-3-extended' },
+                            { text: 'Taxonomy L4 Device', link: '/specification/taxonomy/level-4-device' },
+                            { text: 'Architecture Overview', link: '/architecture' },
+                            { text: 'Security & Blockchain', link: '/architecture/security-blockchain' }
+                        ]
+                    },
                 ],
                 sidebar: {
                     '/': enSidebar
@@ -366,33 +422,69 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP é o padrão criptográfico aberto para soberania de dados de saúde. Seja dono dos seus dados biológicos permanentemente no Arweave.',
                 nav: [
-                    { text: 'O que é o BSP?', link: '/pt/what-is-bsp' },
-                    { text: 'Aprenda', link: '/pt/learn' },
-                    { text: 'Roadmap', link: '/pt/roadmap' },
-                    { text: 'Comunidade', link: '/pt/community' },
-                    { text: 'Whitepaper', link: '/pt/whitepaper' },
                     {
-                        text: 'Documentação',
+                        text: 'Aprenda',
+                        items: [
+                            { text: 'O que é o BSP?', link: '/pt/what-is-bsp' },
+                            { text: 'Hub de Aprendizado', link: '/pt/learn' },
+                            { text: 'Comparativo: BSP vs FHIR', link: '/pt/compare' },
+                            { text: 'Glossário', link: '/pt/glossary' },
+                            { text: 'Perguntas Frequentes', link: '/pt/getting-started/faq' }
+                        ]
+                    },
+                    {
+                        text: 'Use',
+                        items: [
+                            { text: 'Casos de Uso', link: '/pt/use-cases/' },
+                            { text: 'Soberania de Dados de Saúde', link: '/pt/use-cases/health-data-ownership' },
+                            { text: 'Prontuários Descentralizados', link: '/pt/use-cases/decentralized-health-records' },
+                            { text: 'Longevidade e IA', link: '/pt/use-cases/longevity-ai-data' },
+                            { text: 'Integrações', link: '/pt/integrations' },
+                            { text: 'Onboarding de Usuários', link: '/pt/getting-started/user-onboarding' }
+                        ]
+                    },
+                    {
+                        text: 'Construa',
                         items: [
                             { text: 'Introdução', link: '/pt/getting-started/intro' },
-                            { text: 'Diagrama de Arquitetura', link: '/pt/architecture' },
-                            { text: 'Fluxo do Ecossistema', link: '/pt/architecture/ecosystem-flow' }
+                            { text: 'Início Rápido', link: '/pt/getting-started/quickstart' },
+                            { text: 'Guia de Implementação', link: '/pt/developers/implementation-guide' },
+                            { text: 'Referência SDK', link: '/pt/developers/sdk-reference' },
+                            { text: 'Tutoriais', link: '/pt/developers/tutorials' },
+                            { text: 'Exemplos de Código', link: '/pt/developers/examples' },
+                            { text: 'Referência de Payloads', link: '/pt/developers/payloads' },
+                            { text: 'Certificação', link: '/pt/developers/certification' }
                         ]
                     },
                     {
-                        text: 'Especificação',
+                        text: 'Participe',
                         items: [
-                            { text: 'Visão Geral', link: '/pt/specification/overview' },
-                            { text: 'Schema BEO', link: '/pt/specification/beo' },
-                            { text: 'Schema IEO', link: '/pt/specification/ieo' },
-                            { text: 'Schema BioRecord', link: '/pt/specification/biorecord' },
-                            { text: 'Protocolo de Exchange', link: '/pt/specification/exchange' },
-                            { text: 'Taxonomia de Biomarcadores', link: '/pt/specification/taxonomy/level-1-core' }
+                            { text: 'Comunidade', link: '/pt/community' },
+                            { text: 'Roadmap', link: '/pt/roadmap' },
+                            { text: 'BIPs', link: '/pt/bips/' },
+                            { text: 'Governança', link: '/pt/protocols/governance' },
+                            { text: 'Contribuir', link: '/pt/community#contribute' }
                         ]
                     },
-                    { text: 'Casos de Uso', link: '/pt/use-cases/' },
-                    { text: 'SDK e Ferramentas', link: '/pt/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/pt/bips/' }
+                    {
+                        text: 'Pesquisa',
+                        items: [
+                            { text: 'Whitepaper', link: '/pt/whitepaper' },
+                            { text: 'Visão Geral da Spec', link: '/pt/specification/overview' },
+                            { text: 'Schema BEO', link: '/pt/specification/beo' },
+                            { text: 'Schema IEO', link: '/pt/specification/ieo' },
+                            { text: 'Formato BioRecord', link: '/pt/specification/biorecord' },
+                            { text: 'Domínio BSP', link: '/pt/specification/bsp-domain' },
+                            { text: 'Protocolo de Troca', link: '/pt/specification/exchange' },
+                            { text: 'Spec de Governança', link: '/pt/specification/governance' },
+                            { text: 'Taxonomia L1 Core', link: '/pt/specification/taxonomy/level-1-core' },
+                            { text: 'Taxonomia L2 Standard', link: '/pt/specification/taxonomy/level-2-standard' },
+                            { text: 'Taxonomia L3 Extended', link: '/pt/specification/taxonomy/level-3-extended' },
+                            { text: 'Taxonomia L4 Device', link: '/pt/specification/taxonomy/level-4-device' },
+                            { text: 'Visão da Arquitetura', link: '/pt/architecture' },
+                            { text: 'Segurança e Blockchain', link: '/pt/architecture/security-blockchain' }
+                        ]
+                    },
                 ],
                 sidebar: {
                     '/pt/': ptSidebar
@@ -408,33 +500,69 @@ export default defineConfig({
             themeConfig: {
                 description: 'BSP es el estándar criptográfico abierto para la soberanía de datos de salud. Sea dueño de sus datos biológicos permanentemente en Arweave.',
                 nav: [
-                    { text: '¿Qué es BSP?', link: '/es/what-is-bsp' },
-                    { text: 'Aprende', link: '/es/learn' },
-                    { text: 'Roadmap', link: '/es/roadmap' },
-                    { text: 'Comunidad', link: '/es/community' },
-                    { text: 'Whitepaper', link: '/es/whitepaper' },
                     {
-                        text: 'Documentación',
+                        text: 'Aprende',
+                        items: [
+                            { text: '¿Qué es BSP?', link: '/es/what-is-bsp' },
+                            { text: 'Hub de Aprendizaje', link: '/es/learn' },
+                            { text: 'Comparativa: BSP vs FHIR', link: '/es/compare' },
+                            { text: 'Glosario', link: '/es/glossary' },
+                            { text: 'Preguntas Frecuentes', link: '/es/getting-started/faq' }
+                        ]
+                    },
+                    {
+                        text: 'Usa',
+                        items: [
+                            { text: 'Casos de Uso', link: '/es/use-cases/' },
+                            { text: 'Soberanía de Datos de Salud', link: '/es/use-cases/health-data-ownership' },
+                            { text: 'Registros Descentralizados', link: '/es/use-cases/decentralized-health-records' },
+                            { text: 'Longevidad e IA', link: '/es/use-cases/longevity-ai-data' },
+                            { text: 'Integraciones', link: '/es/integrations' },
+                            { text: 'Incorporación de Usuarios', link: '/es/getting-started/user-onboarding' }
+                        ]
+                    },
+                    {
+                        text: 'Construye',
                         items: [
                             { text: 'Introducción', link: '/es/getting-started/intro' },
-                            { text: 'Diagrama de Arquitectura', link: '/es/architecture' },
-                            { text: 'Flujo del Ecosistema', link: '/es/architecture/ecosystem-flow' }
+                            { text: 'Inicio Rápido', link: '/es/getting-started/quickstart' },
+                            { text: 'Guía de Implementación', link: '/es/developers/implementation-guide' },
+                            { text: 'Referencia SDK', link: '/es/developers/sdk-reference' },
+                            { text: 'Tutoriales', link: '/es/developers/tutorials' },
+                            { text: 'Ejemplos de Código', link: '/es/developers/examples' },
+                            { text: 'Referencia de Payloads', link: '/es/developers/payloads' },
+                            { text: 'Certificación', link: '/es/developers/certification' }
                         ]
                     },
                     {
-                        text: 'Especificación',
+                        text: 'Participa',
                         items: [
-                            { text: 'Resumen', link: '/es/specification/overview' },
-                            { text: 'Schema BEO', link: '/es/specification/beo' },
-                            { text: 'Schema IEO', link: '/es/specification/ieo' },
-                            { text: 'Schema BioRecord', link: '/es/specification/biorecord' },
-                            { text: 'Protocolo de Exchange', link: '/es/specification/exchange' },
-                            { text: 'Taxonomía de Biomarcadores', link: '/es/specification/taxonomy/level-1-core' }
+                            { text: 'Comunidad', link: '/es/community' },
+                            { text: 'Roadmap', link: '/es/roadmap' },
+                            { text: 'BIPs', link: '/es/bips/' },
+                            { text: 'Gobernanza', link: '/es/protocols/governance' },
+                            { text: 'Contribuir', link: '/es/community#contribute' }
                         ]
                     },
-                    { text: 'Casos de Uso', link: '/es/use-cases/' },
-                    { text: 'SDK y Herramientas', link: '/es/developers/sdk-reference' },
-                    { text: 'BIPs', link: '/es/bips/' }
+                    {
+                        text: 'Investigación',
+                        items: [
+                            { text: 'Whitepaper', link: '/es/whitepaper' },
+                            { text: 'Resumen de Especificación', link: '/es/specification/overview' },
+                            { text: 'Schema BEO', link: '/es/specification/beo' },
+                            { text: 'Schema IEO', link: '/es/specification/ieo' },
+                            { text: 'Formato BioRecord', link: '/es/specification/biorecord' },
+                            { text: 'Dominio BSP', link: '/es/specification/bsp-domain' },
+                            { text: 'Protocolo de Intercambio', link: '/es/specification/exchange' },
+                            { text: 'Spec de Gobernanza', link: '/es/specification/governance' },
+                            { text: 'Taxonomía L1 Core', link: '/es/specification/taxonomy/level-1-core' },
+                            { text: 'Taxonomía L2 Standard', link: '/es/specification/taxonomy/level-2-standard' },
+                            { text: 'Taxonomía L3 Extended', link: '/es/specification/taxonomy/level-3-extended' },
+                            { text: 'Taxonomía L4 Device', link: '/es/specification/taxonomy/level-4-device' },
+                            { text: 'Vista de Arquitectura', link: '/es/architecture' },
+                            { text: 'Seguridad y Blockchain', link: '/es/architecture/security-blockchain' }
+                        ]
+                    },
                 ],
                 sidebar: {
                     '/es/': esSidebar
