@@ -768,8 +768,7 @@ const hasSidebar = computed(() => {
     gap: 1.8rem;
   }
   .footer-secondary { grid-template-columns: 1fr; }
-  .footer-secondary-spacer,
-
+  .footer-secondary-spacer { display: none; }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
