@@ -9,25 +9,50 @@ const t = computed(() => {
   if (lang.value === 'pt') {
     return {
       tagline: 'Soberania permanente sobre a sua biologia.',
-      protocol: 'Protocolo',
-      developers: 'Desenvolvedores',
-      resources: 'Recursos',
-      community: 'Comunidade',
-      legal: 'Legal',
-      overview: 'Visão Geral',
+      colLearn: 'Aprender',
+      colProtocol: 'Protocolo',
+      colDev: 'Desenvolvedores',
+      colUseCases: 'Casos de Uso',
+      colCommunity: 'Comunidade',
+      colResources: 'Recursos',
+      colLegal: 'Legal',
+      whatIsBsp: 'O que é o BSP?',
+      learnHub: 'Hub de Aprendizado',
+      whitepaper: 'Whitepaper',
+      compare: 'BSP vs FHIR vs HL7',
+      glossary: 'Glossário',
+      faq: 'Perguntas Frequentes',
+      intro: 'Introdução ao Protocolo',
+      specOverview: 'Visão Geral da Spec',
       beo: 'Schema BEO',
       ieo: 'Schema IEO',
-      exchange: 'Exchange',
-      biorecord: 'BioRecord',
+      exchange: 'Protocolo de Exchange',
+      biorecord: 'Schema BioRecord',
+      governance: 'Governança',
+      quickstart: 'Início Rápido',
       sdkRef: 'Referência SDK',
-      quickstart: 'Quickstart',
       tutorials: 'Tutoriais',
       implGuide: 'Guia de Implementação',
-      examples: 'Exemplos',
-      whitepaper: 'Whitepaper',
+      examples: 'Exemplos JSON',
+      integrations: 'Integrações',
+      certification: 'Certificação',
+      uc1: 'Dados de Saúde Pessoais',
+      uc2: 'Registros Médicos Descentralizados',
+      uc3: 'Padrão Aberto de Dados de Saúde',
+      uc4: 'IA de Longevidade',
+      uc5: 'Soberania Biológica',
+      community: 'Hub da Comunidade',
+      roadmap: 'Roadmap',
       bips: 'BIPs',
+      contribute: 'Como Contribuir',
+      forum: 'Fórum de Discussão',
+      archDiagram: 'Diagrama de Arquitetura',
+      ecosystemFlow: 'Fluxo do Ecossistema',
       taxonomy: 'Taxonomia de Biomarcadores',
-      governance: 'Governança',
+      taxonomyL2: 'Taxonomia L2',
+      taxonomyL3: 'Taxonomia L3',
+      taxonomyL4: 'Taxonomia L4',
+      changelog: 'Changelog',
       privacy: 'Política de Privacidade',
       terms: 'Termos de Uso',
       license: 'Licença MIT',
@@ -35,29 +60,73 @@ const t = computed(() => {
       openStandard: 'Open Standard',
       mitLicense: 'MIT License',
       langTitle: 'Idioma',
+      seoLabel: 'Explorar BSP',
+      seoText: 'O Biological Sovereignty Protocol (BSP) é um padrão aberto para soberania e interoperabilidade de dados de saúde pessoais. O BSP define schemas estruturados — BEO (Biological Entity Object), IEO (Instrument Entity Object), BioRecord e Exchange Protocol — permitindo que indivíduos, desenvolvedores e instituições de saúde troquem dados com consentimento verificável. Construído para pesquisa de longevidade, registros médicos descentralizados e aplicações de saúde com IA.',
+      seoTags: [
+        { label: 'BSP Protocol', href: '/specification/overview' },
+        { label: 'Soberania Biológica', href: '/use-cases/' },
+        { label: 'Schema BEO', href: '/specification/beo' },
+        { label: 'Schema IEO', href: '/specification/ieo' },
+        { label: 'Schema BioRecord', href: '/specification/biorecord' },
+        { label: 'Taxonomia de Biomarcadores', href: '/specification/taxonomy/level-1-core' },
+        { label: 'Exchange Protocol', href: '/specification/exchange' },
+        { label: 'Padrão Aberto de Saúde', href: '/use-cases/open-health-data-standard' },
+        { label: 'Registros Descentralizados', href: '/use-cases/decentralized-health-records' },
+        { label: 'Dados de Saúde Pessoais', href: '/use-cases/health-data-ownership' },
+        { label: 'IA de Longevidade', href: '/use-cases/longevity-ai-data' },
+        { label: 'SDK Reference', href: '/developers/sdk-reference' },
+        { label: 'Governança', href: '/specification/governance' },
+        { label: 'Open Standard', href: '/whitepaper' },
+        { label: 'MIT License', href: '/legal/terms' },
+      ],
     }
   } else if (lang.value === 'es') {
     return {
       tagline: 'Soberanía permanente sobre tu biología.',
-      protocol: 'Protocolo',
-      developers: 'Desarrolladores',
-      resources: 'Recursos',
-      community: 'Comunidad',
-      legal: 'Legal',
-      overview: 'Resumen',
+      colLearn: 'Aprender',
+      colProtocol: 'Protocolo',
+      colDev: 'Desarrolladores',
+      colUseCases: 'Casos de Uso',
+      colCommunity: 'Comunidad',
+      colResources: 'Recursos',
+      colLegal: 'Legal',
+      whatIsBsp: '¿Qué es BSP?',
+      learnHub: 'Hub de Aprendizaje',
+      whitepaper: 'Whitepaper',
+      compare: 'BSP vs FHIR vs HL7',
+      glossary: 'Glosario',
+      faq: 'Preguntas Frecuentes',
+      intro: 'Introducción al Protocolo',
+      specOverview: 'Resumen de Especificación',
       beo: 'Schema BEO',
       ieo: 'Schema IEO',
-      exchange: 'Exchange',
-      biorecord: 'BioRecord',
-      sdkRef: 'Referencia SDK',
+      exchange: 'Protocolo de Exchange',
+      biorecord: 'Schema BioRecord',
+      governance: 'Gobernanza',
       quickstart: 'Inicio Rápido',
+      sdkRef: 'Referencia SDK',
       tutorials: 'Tutoriales',
       implGuide: 'Guía de Implementación',
-      examples: 'Ejemplos',
-      whitepaper: 'Whitepaper',
+      examples: 'Ejemplos JSON',
+      integrations: 'Integraciones',
+      certification: 'Certificación',
+      uc1: 'Datos de Salud Personales',
+      uc2: 'Registros Médicos Descentralizados',
+      uc3: 'Estándar Abierto de Datos de Salud',
+      uc4: 'IA de Longevidad',
+      uc5: 'Soberanía Biológica',
+      community: 'Hub de la Comunidad',
+      roadmap: 'Roadmap',
       bips: 'BIPs',
+      contribute: 'Cómo Contribuir',
+      forum: 'Foro de Discusión',
+      archDiagram: 'Diagrama de Arquitectura',
+      ecosystemFlow: 'Flujo del Ecosistema',
       taxonomy: 'Taxonomía de Biomarcadores',
-      governance: 'Gobernanza',
+      taxonomyL2: 'Taxonomía L2',
+      taxonomyL3: 'Taxonomía L3',
+      taxonomyL4: 'Taxonomía L4',
+      changelog: 'Changelog',
       privacy: 'Política de Privacidad',
       terms: 'Términos de Uso',
       license: 'Licencia MIT',
@@ -65,29 +134,70 @@ const t = computed(() => {
       openStandard: 'Open Standard',
       mitLicense: 'MIT License',
       langTitle: 'Idioma',
+      seoLabel: 'Explorar BSP',
+      seoText: 'Biological Sovereignty Protocol (BSP) es un estándar abierto para la soberanía e interoperabilidad de datos de salud personal. BSP define schemas estructurados — BEO, IEO, BioRecord y Exchange Protocol — permitiendo a individuos, desarrolladores e instituciones de salud intercambiar datos con consentimiento verificable. Construido para investigación de longevidad, registros médicos descentralizados y aplicaciones de salud con IA.',
+      seoTags: [
+        { label: 'BSP Protocol', href: '/es/specification/overview' },
+        { label: 'Soberanía Biológica', href: '/es/use-cases/' },
+        { label: 'Schema BEO', href: '/es/specification/beo' },
+        { label: 'Schema IEO', href: '/es/specification/ieo' },
+        { label: 'Schema BioRecord', href: '/es/specification/biorecord' },
+        { label: 'Taxonomía de Biomarcadores', href: '/es/specification/taxonomy/level-1-core' },
+        { label: 'Exchange Protocol', href: '/es/specification/exchange' },
+        { label: 'Estándar Abierto de Salud', href: '/es/use-cases/open-health-data-standard' },
+        { label: 'Registros Descentralizados', href: '/es/use-cases/decentralized-health-records' },
+        { label: 'IA de Longevidad', href: '/es/use-cases/longevity-ai-data' },
+        { label: 'SDK Reference', href: '/es/developers/sdk-reference' },
+        { label: 'Open Standard', href: '/es/whitepaper' },
+      ],
     }
   }
   return {
     tagline: 'Permanent sovereignty over your biology.',
-    protocol: 'Protocol',
-    developers: 'Developers',
-    resources: 'Resources',
-    community: 'Community',
-    legal: 'Legal',
-    overview: 'Overview',
+    colLearn: 'Learn',
+    colProtocol: 'Protocol',
+    colDev: 'Developers',
+    colUseCases: 'Use Cases',
+    colCommunity: 'Community',
+    colResources: 'Resources',
+    colLegal: 'Legal',
+    whatIsBsp: 'What is BSP?',
+    learnHub: 'Learn Hub',
+    whitepaper: 'Whitepaper',
+    compare: 'BSP vs FHIR vs HL7',
+    glossary: 'Glossary',
+    faq: 'FAQ',
+    intro: 'Protocol Introduction',
+    specOverview: 'Specification Overview',
     beo: 'BEO Schema',
     ieo: 'IEO Schema',
-    exchange: 'Exchange',
-    biorecord: 'BioRecord',
-    sdkRef: 'SDK Reference',
+    exchange: 'Exchange Protocol',
+    biorecord: 'BioRecord Schema',
+    governance: 'Governance Spec',
     quickstart: 'Quickstart',
+    sdkRef: 'SDK Reference',
     tutorials: 'Tutorials',
     implGuide: 'Implementation Guide',
-    examples: 'Examples',
-    whitepaper: 'Whitepaper',
+    examples: 'JSON Examples',
+    integrations: 'Integrations',
+    certification: 'Certification',
+    uc1: 'Personal Health Data',
+    uc2: 'Decentralized Medical Records',
+    uc3: 'Open Health Data Standard',
+    uc4: 'Longevity AI',
+    uc5: 'Biological Sovereignty',
+    community: 'Community Hub',
+    roadmap: 'Roadmap',
     bips: 'BIPs',
+    contribute: 'How to Contribute',
+    forum: 'Discussion Forum',
+    archDiagram: 'Architecture Diagram',
+    ecosystemFlow: 'Ecosystem Flow',
     taxonomy: 'Biomarker Taxonomy',
-    governance: 'Governance',
+    taxonomyL2: 'Taxonomy L2',
+    taxonomyL3: 'Taxonomy L3',
+    taxonomyL4: 'Taxonomy L4',
+    changelog: 'Changelog',
     privacy: 'Privacy Policy',
     terms: 'Terms of Use',
     license: 'MIT License',
@@ -95,6 +205,25 @@ const t = computed(() => {
     openStandard: 'Open Standard',
     mitLicense: 'MIT License',
     langTitle: 'Language',
+    seoLabel: 'Explore BSP',
+    seoText: 'Biological Sovereignty Protocol (BSP) is an open standard for personal health data ownership, sovereignty, and interoperability. BSP defines structured schemas — BEO (Biological Entity Object), IEO (Instrument Entity Object), BioRecord, and Exchange Protocol — enabling individuals, developers, and health institutions to exchange personal health data with full consent and verifiability. Built for longevity research, decentralized health records, and AI-powered health applications. BSP is MIT-licensed and open to contributions.',
+    seoTags: [
+      { label: 'BSP Protocol', href: '/specification/overview' },
+      { label: 'Biological Sovereignty', href: '/use-cases/' },
+      { label: 'BEO Schema', href: '/specification/beo' },
+      { label: 'IEO Schema', href: '/specification/ieo' },
+      { label: 'BioRecord Schema', href: '/specification/biorecord' },
+      { label: 'Biomarker Taxonomy', href: '/specification/taxonomy/level-1-core' },
+      { label: 'Exchange Protocol', href: '/specification/exchange' },
+      { label: 'Open Health Standard', href: '/use-cases/open-health-data-standard' },
+      { label: 'Decentralized Health Records', href: '/use-cases/decentralized-health-records' },
+      { label: 'Personal Health Data', href: '/use-cases/health-data-ownership' },
+      { label: 'Longevity AI', href: '/use-cases/longevity-ai-data' },
+      { label: 'SDK Reference', href: '/developers/sdk-reference' },
+      { label: 'Governance Spec', href: '/specification/governance' },
+      { label: 'Open Standard', href: '/whitepaper' },
+      { label: 'MIT License', href: '/legal/terms' },
+    ],
   }
 })
 
@@ -129,68 +258,99 @@ const hasSidebar = computed(() => {
   <footer class="bsp-footer" :class="{ 'has-sidebar': hasSidebar }">
     <div class="footer-inner">
 
-      <!-- Main grid -->
-      <div class="footer-grid">
+      <!-- Main row: brand + 4 primary columns -->
+      <div class="footer-main">
 
-        <!-- Brand column -->
+        <!-- Brand -->
         <div class="footer-brand">
-          <img src="/images/bsp-logo-dark.jpg" class="footer-logo footer-logo-light" alt="BSP" />
-          <img src="/images/bsp-logo-light.jpg" class="footer-logo footer-logo-dark" alt="BSP" />
+          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="Biological Sovereignty Protocol" />
+          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="Biological Sovereignty Protocol" />
           <p class="footer-tagline">{{ t.tagline }}</p>
           <div class="social-links">
-            <!-- GitHub -->
             <a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <!-- Twitter/X -->
-            <a href="#" target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <!-- npm -->
-            <a href="https://www.npmjs.com/package/@bsp/sdk" target="_blank" rel="noopener" class="social-link" aria-label="npm">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm19.2 19.2H12v-9.6H9.6v9.6H4.8V4.8h14.4v14.4z"/></svg>
             </a>
           </div>
         </div>
 
+        <!-- Learn -->
+        <div class="footer-col">
+          <h4 class="col-title">{{ t.colLearn }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/what-is-bsp`">{{ t.whatIsBsp }}</a></li>
+            <li><a :href="`${pfx}/learn`">{{ t.learnHub }}</a></li>
+            <li><a :href="`${pfx}/whitepaper`">{{ t.whitepaper }}</a></li>
+            <li><a :href="`${pfx}/compare`">{{ t.compare }}</a></li>
+            <li><a :href="`${pfx}/glossary`">{{ t.glossary }}</a></li>
+            <li><a :href="`${pfx}/getting-started/faq`">{{ t.faq }}</a></li>
+            <li><a :href="`${pfx}/getting-started/intro`">{{ t.intro }}</a></li>
+          </ul>
+        </div>
+
         <!-- Protocol -->
         <div class="footer-col">
-          <h4 class="col-title">{{ t.protocol }}</h4>
+          <h4 class="col-title">{{ t.colProtocol }}</h4>
           <ul>
-            <li><a :href="`${pfx}/specification/overview`">{{ t.overview }}</a></li>
+            <li><a :href="`${pfx}/specification/overview`">{{ t.specOverview }}</a></li>
             <li><a :href="`${pfx}/specification/beo`">{{ t.beo }}</a></li>
             <li><a :href="`${pfx}/specification/ieo`">{{ t.ieo }}</a></li>
             <li><a :href="`${pfx}/specification/exchange`">{{ t.exchange }}</a></li>
             <li><a :href="`${pfx}/specification/biorecord`">{{ t.biorecord }}</a></li>
+            <li><a :href="`${pfx}/specification/bsp-domain`">BSP Domain</a></li>
+            <li><a :href="`${pfx}/specification/governance`">{{ t.governance }}</a></li>
           </ul>
         </div>
 
         <!-- Developers -->
         <div class="footer-col">
-          <h4 class="col-title">{{ t.developers }}</h4>
+          <h4 class="col-title">{{ t.colDev }}</h4>
           <ul>
-            <li><a :href="`${pfx}/developers/sdk-reference`">{{ t.sdkRef }}</a></li>
             <li><a :href="`${pfx}/getting-started/quickstart`">{{ t.quickstart }}</a></li>
+            <li><a :href="`${pfx}/getting-started/user-onboarding`">User Onboarding</a></li>
+            <li><a :href="`${pfx}/developers/sdk-reference`">{{ t.sdkRef }}</a></li>
             <li><a :href="`${pfx}/developers/tutorials`">{{ t.tutorials }}</a></li>
             <li><a :href="`${pfx}/developers/implementation-guide`">{{ t.implGuide }}</a></li>
             <li><a :href="`${pfx}/developers/examples`">{{ t.examples }}</a></li>
+            <li><a :href="`${pfx}/developers/payloads`">Payload Reference</a></li>
+            <li><a :href="`${pfx}/integrations`">{{ t.integrations }}</a></li>
+            <li><a :href="`${pfx}/developers/certification`">{{ t.certification }}</a></li>
           </ul>
         </div>
 
-        <!-- Resources -->
-        <div class="footer-col">
-          <h4 class="col-title">{{ t.resources }}</h4>
+      </div>
+
+      <!-- Secondary row: Community + Resources + Legal (alinhado com colunas acima) -->
+      <div class="footer-secondary">
+
+        <!-- spacer alinha com brand -->
+        <div class="footer-secondary-spacer"></div>
+
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colCommunity }}</h4>
           <ul>
-            <li><a :href="`${pfx}/whitepaper`">{{ t.whitepaper }}</a></li>
+            <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
+            <li><a :href="`${pfx}/roadmap`">{{ t.roadmap }}</a></li>
             <li><a :href="`${pfx}/bips/`">{{ t.bips }}</a></li>
-            <li><a :href="`${pfx}/specification/taxonomy/level-1-core`">{{ t.taxonomy }}</a></li>
-            <li><a :href="`${pfx}/protocols/governance`">{{ t.governance }}</a></li>
+            <li><a :href="`${pfx}/community#contribute`">{{ t.contribute }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
           </ul>
         </div>
 
-        <!-- Legal -->
-        <div class="footer-col">
-          <h4 class="col-title">{{ t.legal }}</h4>
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colResources }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/architecture`">{{ t.archDiagram }}</a></li>
+            <li><a :href="`${pfx}/architecture/ecosystem-flow`">{{ t.ecosystemFlow }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-1-core`">{{ t.taxonomy }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-2-standard`">{{ t.taxonomyL2 }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-3-extended`">{{ t.taxonomyL3 }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-4-device`">{{ t.taxonomyL4 }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/releases" target="_blank" rel="noopener">{{ t.changelog }}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colLegal }}</h4>
           <ul>
             <li><a :href="`${pfx}/legal/privacy`">{{ t.privacy }}</a></li>
             <li><a :href="`${pfx}/legal/terms`">{{ t.terms }}</a></li>
@@ -198,6 +358,31 @@ const hasSidebar = computed(() => {
           </ul>
         </div>
 
+        <!-- Use Cases (desceu do row principal) -->
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colUseCases }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/use-cases/health-data-ownership`">{{ t.uc1 }}</a></li>
+            <li><a :href="`${pfx}/use-cases/decentralized-health-records`">{{ t.uc2 }}</a></li>
+            <li><a :href="`${pfx}/use-cases/open-health-data-standard`">{{ t.uc3 }}</a></li>
+            <li><a :href="`${pfx}/use-cases/longevity-ai-data`">{{ t.uc4 }}</a></li>
+            <li><a :href="`${pfx}/use-cases/`">{{ t.uc5 }}</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- SEO Tags -->
+      <div class="footer-seo-tags">
+        <span class="seo-label">{{ t.seoLabel }}</span>
+        <div class="seo-pills">
+          <a v-for="tag in t.seoTags" :key="tag.label" :href="`${pfx}${tag.href}`" class="seo-pill">{{ tag.label }}</a>
+        </div>
+      </div>
+
+      <!-- SEO Text Block -->
+      <div class="footer-seo-text">
+        <p>{{ t.seoText }}</p>
       </div>
 
       <!-- Bottom bar -->
@@ -206,7 +391,7 @@ const hasSidebar = computed(() => {
           <span class="copyright-text">{{ t.copyright }}</span>
           <span class="separator">·</span>
           <span class="badge badge-open">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><circle cx="12" cy="12" r="10"/></svg>
             {{ t.openStandard }}
           </span>
           <span class="badge badge-mit">{{ t.mitLicense }}</span>
@@ -256,17 +441,17 @@ const hasSidebar = computed(() => {
 }
 
 .footer-inner {
-  max-width: 1152px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 2rem 0;
 }
 
-/* Grid */
-.footer-grid {
+/* ─── Main row: brand + 3 primary cols ─── */
+.footer-main {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 3rem;
-  padding-bottom: 3.5rem;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 3rem;
 }
 
 /* Brand */
@@ -276,12 +461,12 @@ const hasSidebar = computed(() => {
 }
 
 .footer-logo {
-  height: 52px;
+  height: 56px;
   width: auto;
-  max-width: 180px;
+  max-width: 200px;
   object-fit: contain;
   display: block;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
 }
 
 .footer-logo-dark { display: none; }
@@ -290,17 +475,15 @@ const hasSidebar = computed(() => {
 
 .footer-tagline {
   color: var(--vp-c-text-2);
-  font-size: 0.875rem;
-  line-height: 1.55;
-  margin-bottom: 1.5rem;
-  max-width: 240px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  max-width: 200px;
 }
 
-/* Social links */
 .social-links {
   display: flex;
   gap: 0.6rem;
-  margin-top: auto;
 }
 
 .social-link {
@@ -322,16 +505,7 @@ const hasSidebar = computed(() => {
   background-color: var(--vp-c-brand-soft);
 }
 
-/* Columns */
-.col-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--vp-c-text-1);
-  margin-bottom: 1.1rem;
-}
-
+/* Primary columns */
 .footer-col ul {
   list-style: none;
   padding: 0;
@@ -339,13 +513,13 @@ const hasSidebar = computed(() => {
 }
 
 .footer-col li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.55rem;
 }
 
 .footer-col a {
   color: var(--vp-c-text-2);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   line-height: 1.5;
   transition: color 0.18s;
 }
@@ -354,7 +528,105 @@ const hasSidebar = computed(() => {
   color: var(--vp-c-brand-1);
 }
 
-/* Bottom bar */
+/* ─── Secondary row: spacer + 4 cols (alinha com brand acima) ─── */
+.footer-secondary {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 2.5rem;
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 2.5rem 0 3rem;
+}
+
+.footer-secondary-spacer {
+  /* alinha com brand acima */
+}
+
+.footer-col-sm ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col-sm li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col-sm a {
+  color: var(--vp-c-text-2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  transition: color 0.18s;
+}
+
+.footer-col-sm a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* Column titles */
+.col-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-1);
+  margin-bottom: 1rem;
+}
+
+/* ─── SEO Tags ─── */
+.footer-seo-tags {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 2rem 0 1.5rem;
+}
+
+.seo-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  margin-bottom: 1rem;
+}
+
+.seo-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.seo-pill {
+  display: inline-block;
+  padding: 5px 13px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--vp-c-text-2);
+  border: 1px solid var(--vp-c-divider);
+  text-decoration: none;
+  transition: color 0.18s, border-color 0.18s, background-color 0.18s;
+  white-space: nowrap;
+}
+
+.seo-pill:hover {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* ─── SEO Text Block ─── */
+.footer-seo-text {
+  padding: 1rem 0 2rem;
+}
+
+.footer-seo-text p {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--vp-c-text-3);
+  max-width: 960px;
+  margin: 0;
+}
+
+/* ─── Bottom bar ─── */
 .footer-bottom {
   border-top: 1px solid var(--vp-c-divider);
   padding: 1.25rem 0 1.5rem;
@@ -432,16 +704,8 @@ const hasSidebar = computed(() => {
   border-color: var(--vp-c-brand-1);
 }
 
-.globe-icon {
-  color: var(--vp-c-text-3);
-  flex-shrink: 0;
-}
-
-.chevron-icon {
-  color: var(--vp-c-text-3);
-  pointer-events: none;
-  flex-shrink: 0;
-}
+.globe-icon { color: var(--vp-c-text-3); flex-shrink: 0; }
+.chevron-icon { color: var(--vp-c-text-3); pointer-events: none; flex-shrink: 0; }
 
 .lang-selector {
   appearance: none;
@@ -461,29 +725,55 @@ const hasSidebar = computed(() => {
   color: var(--vp-c-text-1);
 }
 
-/* Tablet: 2 columns */
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem 3rem;
+/* ─── Responsive ─── */
+@media (max-width: 1200px) {
+  .footer-main {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
   .footer-brand {
     grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
-  .footer-tagline {
-    max-width: 100%;
-  }
-}
-
-/* Mobile: 1 column */
-@media (max-width: 540px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .footer-tagline { max-width: 300px; margin-bottom: 0; }
+  .footer-secondary {
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
+  .footer-secondary-spacer { display: none; }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    flex-direction: column;
+  }
+  .footer-secondary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .footer-secondary-spacer { display: none; }
+}
+
+@media (max-width: 480px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+  .footer-secondary { grid-template-columns: 1fr; }
+  .footer-secondary-spacer,
+
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
   }
+  .seo-pills { gap: 0.4rem; }
 }
 </style>
