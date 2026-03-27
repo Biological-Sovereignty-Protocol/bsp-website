@@ -14,6 +14,7 @@ const t = computed(() => {
       colDev: 'Desenvolvedores',
       colUseCases: 'Casos de Uso',
       colCommunity: 'Comunidade',
+      colEcosystem: 'Ecossistema',
       colResources: 'Recursos',
       colLegal: 'Legal',
       whatIsBsp: 'O que é o BSP?',
@@ -48,7 +49,7 @@ const t = computed(() => {
       forum: 'Fórum de Discussão',
       archDiagram: 'Diagrama de Arquitetura',
       ecosystemFlow: 'Fluxo do Ecossistema',
-      taxonomy: 'Taxonomia de Biomarcadores',
+      taxonomy: 'Taxonomia L1',
       taxonomyL2: 'Taxonomia L2',
       taxonomyL3: 'Taxonomia L3',
       taxonomyL4: 'Taxonomia L4',
@@ -68,7 +69,7 @@ const t = computed(() => {
         { label: 'Schema BEO', href: '/specification/beo' },
         { label: 'Schema IEO', href: '/specification/ieo' },
         { label: 'Schema BioRecord', href: '/specification/biorecord' },
-        { label: 'Taxonomia de Biomarcadores', href: '/specification/taxonomy/level-1-core' },
+        { label: 'Taxonomia L1', href: '/specification/taxonomy/level-1-core' },
         { label: 'Exchange Protocol', href: '/specification/exchange' },
         { label: 'Padrão Aberto de Saúde', href: '/use-cases/open-health-data-standard' },
         { label: 'Registros Descentralizados', href: '/use-cases/decentralized-health-records' },
@@ -88,6 +89,7 @@ const t = computed(() => {
       colDev: 'Desarrolladores',
       colUseCases: 'Casos de Uso',
       colCommunity: 'Comunidad',
+      colEcosystem: 'Ecosistema',
       colResources: 'Recursos',
       colLegal: 'Legal',
       whatIsBsp: '¿Qué es BSP?',
@@ -122,7 +124,7 @@ const t = computed(() => {
       forum: 'Foro de Discusión',
       archDiagram: 'Diagrama de Arquitectura',
       ecosystemFlow: 'Flujo del Ecosistema',
-      taxonomy: 'Taxonomía de Biomarcadores',
+      taxonomy: 'Taxonomía L1',
       taxonomyL2: 'Taxonomía L2',
       taxonomyL3: 'Taxonomía L3',
       taxonomyL4: 'Taxonomía L4',
@@ -142,7 +144,7 @@ const t = computed(() => {
         { label: 'Schema BEO', href: '/es/specification/beo' },
         { label: 'Schema IEO', href: '/es/specification/ieo' },
         { label: 'Schema BioRecord', href: '/es/specification/biorecord' },
-        { label: 'Taxonomía de Biomarcadores', href: '/es/specification/taxonomy/level-1-core' },
+        { label: 'Taxonomía L1', href: '/es/specification/taxonomy/level-1-core' },
         { label: 'Exchange Protocol', href: '/es/specification/exchange' },
         { label: 'Estándar Abierto de Salud', href: '/es/use-cases/open-health-data-standard' },
         { label: 'Registros Descentralizados', href: '/es/use-cases/decentralized-health-records' },
@@ -159,6 +161,7 @@ const t = computed(() => {
     colDev: 'Developers',
     colUseCases: 'Use Cases',
     colCommunity: 'Community',
+    colEcosystem: 'Ecosystem',
     colResources: 'Resources',
     colLegal: 'Legal',
     whatIsBsp: 'What is BSP?',
@@ -193,7 +196,7 @@ const t = computed(() => {
     forum: 'Discussion Forum',
     archDiagram: 'Architecture Diagram',
     ecosystemFlow: 'Ecosystem Flow',
-    taxonomy: 'Biomarker Taxonomy',
+    taxonomy: 'Taxonomy L1',
     taxonomyL2: 'Taxonomy L2',
     taxonomyL3: 'Taxonomy L3',
     taxonomyL4: 'Taxonomy L4',
@@ -213,7 +216,7 @@ const t = computed(() => {
       { label: 'BEO Schema', href: '/specification/beo' },
       { label: 'IEO Schema', href: '/specification/ieo' },
       { label: 'BioRecord Schema', href: '/specification/biorecord' },
-      { label: 'Biomarker Taxonomy', href: '/specification/taxonomy/level-1-core' },
+      { label: 'Taxonomy L1', href: '/specification/taxonomy/level-1-core' },
       { label: 'Exchange Protocol', href: '/specification/exchange' },
       { label: 'Open Health Standard', href: '/use-cases/open-health-data-standard' },
       { label: 'Decentralized Health Records', href: '/use-cases/decentralized-health-records' },
@@ -317,49 +320,8 @@ const hasSidebar = computed(() => {
           </ul>
         </div>
 
-      </div>
-
-      <!-- Secondary row: Community + Resources + Legal (alinhado com colunas acima) -->
-      <div class="footer-secondary">
-
-        <!-- spacer alinha com brand -->
-        <div class="footer-secondary-spacer"></div>
-
-        <div class="footer-col-sm">
-          <h4 class="col-title">{{ t.colCommunity }}</h4>
-          <ul>
-            <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
-            <li><a :href="`${pfx}/roadmap`">{{ t.roadmap }}</a></li>
-            <li><a :href="`${pfx}/bips/`">{{ t.bips }}</a></li>
-            <li><a :href="`${pfx}/community#contribute`">{{ t.contribute }}</a></li>
-            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col-sm">
-          <h4 class="col-title">{{ t.colResources }}</h4>
-          <ul>
-            <li><a :href="`${pfx}/architecture`">{{ t.archDiagram }}</a></li>
-            <li><a :href="`${pfx}/architecture/ecosystem-flow`">{{ t.ecosystemFlow }}</a></li>
-            <li><a :href="`${pfx}/specification/taxonomy/level-1-core`">{{ t.taxonomy }}</a></li>
-            <li><a :href="`${pfx}/specification/taxonomy/level-2-standard`">{{ t.taxonomyL2 }}</a></li>
-            <li><a :href="`${pfx}/specification/taxonomy/level-3-extended`">{{ t.taxonomyL3 }}</a></li>
-            <li><a :href="`${pfx}/specification/taxonomy/level-4-device`">{{ t.taxonomyL4 }}</a></li>
-            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/releases" target="_blank" rel="noopener">{{ t.changelog }}</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col-sm">
-          <h4 class="col-title">{{ t.colLegal }}</h4>
-          <ul>
-            <li><a :href="`${pfx}/legal/privacy`">{{ t.privacy }}</a></li>
-            <li><a :href="`${pfx}/legal/terms`">{{ t.terms }}</a></li>
-            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/blob/main/LICENSE" target="_blank" rel="noopener">{{ t.license }}</a></li>
-          </ul>
-        </div>
-
-        <!-- Use Cases (desceu do row principal) -->
-        <div class="footer-col-sm">
+        <!-- Use Cases -->
+        <div class="footer-col">
           <h4 class="col-title">{{ t.colUseCases }}</h4>
           <ul>
             <li><a :href="`${pfx}/use-cases/health-data-ownership`">{{ t.uc1 }}</a></li>
@@ -367,6 +329,56 @@ const hasSidebar = computed(() => {
             <li><a :href="`${pfx}/use-cases/open-health-data-standard`">{{ t.uc3 }}</a></li>
             <li><a :href="`${pfx}/use-cases/longevity-ai-data`">{{ t.uc4 }}</a></li>
             <li><a :href="`${pfx}/use-cases/`">{{ t.uc5 }}</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Secondary row: 4 colunas (Community, Ecosystem, Resources, Legal) -->
+      <div class="footer-secondary">
+
+        <div class="footer-secondary-spacer"></div>
+
+        <!-- Community -->
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colCommunity }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
+            <li><a :href="`${pfx}/community#contribute`">{{ t.contribute }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
+          </ul>
+        </div>
+
+        <!-- Ecosystem -->
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colEcosystem }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/architecture`">{{ t.archDiagram }}</a></li>
+            <li><a :href="`${pfx}/architecture/ecosystem-flow`">{{ t.ecosystemFlow }}</a></li>
+            <li><a :href="`${pfx}/roadmap`">{{ t.roadmap }}</a></li>
+            <li><a :href="`${pfx}/bips/`">{{ t.bips }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/releases" target="_blank" rel="noopener">{{ t.changelog }}</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colResources }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/specification/taxonomy/level-1-core`">{{ t.taxonomy }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-2-standard`">{{ t.taxonomyL2 }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-3-extended`">{{ t.taxonomyL3 }}</a></li>
+            <li><a :href="`${pfx}/specification/taxonomy/level-4-device`">{{ t.taxonomyL4 }}</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-col-sm">
+          <h4 class="col-title">{{ t.colLegal }}</h4>
+          <ul>
+            <li><a :href="`${pfx}/legal/privacy`">{{ t.privacy }}</a></li>
+            <li><a :href="`${pfx}/legal/terms`">{{ t.terms }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/blob/main/LICENSE" target="_blank" rel="noopener">{{ t.license }}</a></li>
           </ul>
         </div>
 
@@ -446,10 +458,10 @@ const hasSidebar = computed(() => {
   padding: 4rem 2rem 0;
 }
 
-/* ─── Main row: brand + 3 primary cols ─── */
+/* ─── Main row: brand + 4 primary cols ─── */
 .footer-main {
   display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
+  grid-template-columns: 1.5fr repeat(4, 1fr);
   gap: 2.5rem;
   padding-bottom: 3rem;
 }
