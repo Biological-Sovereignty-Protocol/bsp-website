@@ -280,6 +280,7 @@ export default defineConfig({
     title: "Biological Sovereignty Protocol",
     description: "The protocol that gives every human being permanent sovereignty over their own biology.",
     cleanUrls: true,
+    srcExclude: ['**/README.md', '**/LICENSE'],
 
     sitemap: {
         hostname: 'https://biologicalsovereigntyprotocol.com'
