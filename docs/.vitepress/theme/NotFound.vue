@@ -1,7 +1,41 @@
+<script setup>
+import { useData } from 'vitepress'
+import { computed } from 'vue'
+
+const { lang } = useData()
+
+const t = computed(() => {
+  if (lang.value === 'pt') {
+    return {
+      title: 'Entidade Não Encontrada',
+      description: 'O registro biológico, nó de taxonomia ou protocolo solicitado não pôde ser localizado no estado atual da rede.',
+      button: 'Voltar ao Início'
+    }
+  } else if (lang.value === 'es') {
+    return {
+      title: 'Entidad No Encontrada',
+      description: 'El registro biológico, nodo de taxonomía o protocolo solicitado no pudo ser localizado en el estado actual de la red.',
+      button: 'Volver al Inicio'
+    }
+  }
+  return {
+    title: 'Entity Not Found',
+    description: 'The biological record, taxonomy node, or requested protocol could not be located in the current network state.',
+    button: 'Return to Main Node'
+  }
+})
+
+const homeLink = computed(() => {
+  if (lang.value === 'pt') return '/pt/'
+  if (lang.value === 'es') return '/es/'
+  return '/'
+})
+</script>
+
 <template>
   <div class="not-found-modern">
     <div class="content-wrapper">
-      
+
       <!-- Premium Animated Abstract SVG -->
       <div class="svg-container">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="bsp-404-svg">
@@ -61,15 +95,13 @@
       <!-- Typography Fixed (No clipping) -->
       <div class="text-block">
         <div class="error-number">404</div>
-        <h1 class="error-title">Entity Not Found</h1>
-        <p class="error-description">
-          The biological record, taxonomy node, or requested protocol could not be located in the current network state.
-        </p>
+        <h1 class="error-title">{{ t.title }}</h1>
+        <p class="error-description">{{ t.description }}</p>
       </div>
 
       <!-- Sleek Button -->
-      <a href="/" class="return-btn">
-        <span class="btn-text">Return to Main Node</span>
+      <a :href="homeLink" class="return-btn">
+        <span class="btn-text">{{ t.button }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       

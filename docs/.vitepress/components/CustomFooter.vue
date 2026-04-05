@@ -49,7 +49,7 @@ const t = computed(() => {
       forum: 'Fórum de Discussão',
       archDiagram: 'Diagrama de Arquitetura',
       ecosystemFlow: 'Fluxo do Ecossistema',
-      taxonomy: 'Taxonomia L1',
+      taxonomy: 'Taxonomia de Biomarcadores',
       taxonomyL2: 'Taxonomia L2',
       taxonomyL3: 'Taxonomia L3',
       taxonomyL4: 'Taxonomia L4',
@@ -124,7 +124,7 @@ const t = computed(() => {
       forum: 'Foro de Discusión',
       archDiagram: 'Diagrama de Arquitectura',
       ecosystemFlow: 'Flujo del Ecosistema',
-      taxonomy: 'Taxonomía L1',
+      taxonomy: 'Taxonomía de Biomarcadores',
       taxonomyL2: 'Taxonomía L2',
       taxonomyL3: 'Taxonomía L3',
       taxonomyL4: 'Taxonomía L4',
@@ -196,7 +196,7 @@ const t = computed(() => {
     forum: 'Discussion Forum',
     archDiagram: 'Architecture Diagram',
     ecosystemFlow: 'Ecosystem Flow',
-    taxonomy: 'Taxonomy L1',
+    taxonomy: 'Biomarker Taxonomy',
     taxonomyL2: 'Taxonomy L2',
     taxonomyL3: 'Taxonomy L3',
     taxonomyL4: 'Taxonomy L4',
@@ -344,7 +344,7 @@ const hasSidebar = computed(() => {
           <h4 class="col-title">{{ t.colCommunity }}</h4>
           <ul>
             <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
-            <li><a :href="`${pfx}/community#contribute`">{{ t.contribute }}</a></li>
+            <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">{{ t.contribute }}</a></li>
             <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
           </ul>
         </div>

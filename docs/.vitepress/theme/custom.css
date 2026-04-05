@@ -176,9 +176,9 @@ hr {
   display: block;
 }
 
-/* ── Header transparente na homepage (topo) ───────────────────── */
-body.bsp-home:not(.bsp-scrolled) .VPNav,
-body.bsp-home:not(.bsp-scrolled) .VPNavBar {
+/* ── Header transparente na homepage (topo) — dark mode only ──── */
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNav,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBar {
   background: transparent !important;
   border-bottom: none !important;
   backdrop-filter: none !important;
@@ -186,19 +186,22 @@ body.bsp-home:not(.bsp-scrolled) .VPNavBar {
   box-shadow: none !important;
 }
 
-body.bsp-home:not(.bsp-scrolled) .VPNavBarTitle .title,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarExtra button,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarAppearance button svg,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarHamburger .bar {
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarTitle .title,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarExtra button,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarAppearance button svg,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarHamburger .bar {
   color: #fff !important;
   fill: #fff !important;
+}
+
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarHamburger .bar {
   background-color: #fff !important;
 }
 
-body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
-body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button {
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuLink,
+html.dark body.bsp-home:not(.bsp-scrolled) .VPNavBarMenuGroup .button {
   background-color: transparent !important;
 }
 
@@ -234,6 +237,11 @@ body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button:hover {
   max-height: 61px !important;
 }
 
+/* Remove white background from logo in light mode */
+html:not(.dark) .VPNavBarTitle .logo {
+  mix-blend-mode: multiply;
+}
+
 @media (max-width: 768px) {
   .VPNavBarTitle .logo {
     height: 48px !important;
@@ -241,7 +249,169 @@ body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button:hover {
   }
 }
 
-/* Force Wider Layout for standard text/blog pages */
+/* ── Navbar: tudo à direita, ordem correta ── */
+/* justify-content: flex-end é o padrão do VitePress — mantemos, só corrigimos ordem */
+.VPNavBar .wrapper .container .content .content-body > .menu {
+  order: 1 !important;
+}
+.VPNavBar .wrapper .container .content .content-body > .search {
+  order: 2 !important;
+  margin-left: 0 !important;
+  flex-grow: 0 !important;
+}
+.VPNavBar .wrapper .container .content .content-body > .social-links {
+  order: 3 !important;
+}
+.VPNavBar .wrapper .container .content .content-body > .appearance {
+  order: 4 !important;
+}
+.VPNavBar .wrapper .container .content .content-body > .translations {
+  order: 5 !important;
+}
+.VPNavBar .wrapper .container .content .content-body > .extra,
+.VPNavBar .wrapper .container .content .content-body > .hamburger {
+  order: 6 !important;
+}
+
+/* ── Search button in navbar (VitePress local search) ─────────── */
+.VPNavBarSearch .search-button {
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  padding: 0 12px !important;
+  height: 32px !important;
+  font-size: 0.82rem !important;
+  transition: background 0.2s, border-color 0.2s !important;
+  gap: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+.VPNavBarSearch .search-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(0, 118, 255, 0.4) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.VPNavBarSearch .search-button .search-button-label {
+  font-size: 0.82rem !important;
+  color: inherit !important;
+}
+
+/* Light theme search button */
+html:not(.dark) .VPNavBarSearch .search-button {
+  background: rgba(0,0,0,0.05) !important;
+  border-color: rgba(0,0,0,0.12) !important;
+  color: rgba(0,0,0,0.55) !important;
+}
+html:not(.dark) .VPNavBarSearch .search-button:hover {
+  background: rgba(0,118,255,0.06) !important;
+  border-color: rgba(0,118,255,0.35) !important;
+  color: rgba(0,0,0,0.8) !important;
+}
+
+/* Mobile: ícone de busca visível e alinhado */
+@media (max-width: 767px) {
+  .VPNavBarSearch .search-button {
+    padding: 0 8px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    justify-content: center !important;
+  }
+  .VPNavBarSearch .search-button .search-button-label {
+    display: none !important;
+  }
+  .VPNavBarSearch .search-button .vp-icon {
+    display: flex !important;
+  }
+}
+
+/* ── Local search modal — Spotlight style ─────────────────────── */
+.VPLocalSearchBox {
+  --vp-local-search-bg: rgba(10, 12, 20, 0.96) !important;
+}
+
+.dark .VPLocalSearchBox .shell {
+  background: rgba(10, 12, 22, 0.97) !important;
+  border: 1px solid rgba(0, 118, 255, 0.2) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 118, 255, 0.1),
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 8px 20px rgba(0, 118, 255, 0.08) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  overflow: hidden !important;
+}
+
+html:not(.dark) .VPLocalSearchBox .shell {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0,0,0,0.08) !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+/* Search input area */
+.VPLocalSearchBox .search-bar {
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  padding: 16px 20px !important;
+}
+
+html:not(.dark) .VPLocalSearchBox .search-bar {
+  border-bottom-color: rgba(0,0,0,0.07) !important;
+}
+
+.VPLocalSearchBox input {
+  font-size: 1.05rem !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+html:not(.dark) .VPLocalSearchBox input {
+  color: #111 !important;
+}
+
+.VPLocalSearchBox input::placeholder {
+  color: rgba(255,255,255,0.35) !important;
+}
+html:not(.dark) .VPLocalSearchBox input::placeholder {
+  color: rgba(0,0,0,0.35) !important;
+}
+
+/* Results */
+.VPLocalSearchBox .results {
+  padding: 8px 12px !important;
+}
+
+.VPLocalSearchBox .result {
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  transition: background 0.15s !important;
+}
+
+.dark .VPLocalSearchBox .result:hover,
+.dark .VPLocalSearchBox .result.selected {
+  background: rgba(0, 118, 255, 0.12) !important;
+}
+
+html:not(.dark) .VPLocalSearchBox .result:hover,
+html:not(.dark) .VPLocalSearchBox .result.selected {
+  background: rgba(0, 118, 255, 0.07) !important;
+}
+
+/* Footer keyboard hints */
+.VPLocalSearchBox .search-keyboard-shortcuts {
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  padding: 10px 20px !important;
+}
+
+html:not(.dark) .VPLocalSearchBox .search-keyboard-shortcuts {
+  border-top-color: rgba(0,0,0,0.07) !important;
+}
+
+/* ── Force Wider Layout for standard text/blog pages ────────── */
 .VPDoc:not(.has-sidebar) .container,
 .VPDoc:not(.has-sidebar) .content {
   max-width: 1200px !important;
@@ -334,7 +504,6 @@ body.bsp-home.bsp-scrolled .VPNavBarMenuGroup .button:hover {
 
 /* ── "On This Page" outline — Ethereum style ─────────────────── */
 .VPDocAsideOutline {
-  border-left: 2px solid var(--vp-c-brand-soft);
   padding-left: 16px;
 }
 

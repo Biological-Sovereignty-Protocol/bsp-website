@@ -69,7 +69,7 @@ onMounted(() => {
 
   // Observe all animated elements
   const targets = document.querySelectorAll(
-    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-what, .p-usecases, .p-dev-cta, .p-open-banner, .p-cta, .arch-col, .how-step'
+    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-what, .p-usecases, .p-faq, .p-dev-cta, .p-open-banner, .p-cta, .arch-col, .how-step'
   )
   targets.forEach(el => scrollObserver.observe(el))
 })
@@ -205,6 +205,39 @@ const content = computed(() => {
       devStat2: 'Padrão de assinatura',
       devStat3: 'Armazenamento permanente',
       devStat4: 'Licença',
+
+      faqLabel: 'PERGUNTAS FREQUENTES',
+      faqTitle: 'Dúvidas sobre o BSP',
+      faq1Q: 'O que é o BSP?',
+      faq1A: 'O Biological Sovereignty Protocol é um protocolo aberto que dá a cada indivíduo propriedade criptográfica sobre seus dados biológicos — genômica, exames clínicos, wearables e mais.',
+      faq2Q: 'Onde os dados ficam armazenados?',
+      faq2A: 'Todos os dados são armazenados permanentemente na rede Arweave, uma blockchain de armazenamento descentralizado. Nenhuma empresa pode excluir ou revogar o acesso.',
+      faq3Q: 'Preciso pagar para usar o BSP?',
+      faq3A: 'Não. O BSP é open source e licenciado sob MIT. Qualquer desenvolvedor pode integrar gratuitamente. Os custos de armazenamento na Arweave são mínimos.',
+      faq4Q: 'Como funciona o consentimento?',
+      faq4A: 'Cada acesso requer um ConsentToken — assinado criptograficamente pelo titular do BEO. Você define escopo, prazo e pode revogar a qualquer momento.',
+      faq5Q: 'Posso integrar com sistemas existentes (FHIR, HL7)?',
+      faq5A: 'Sim. O BSP foi desenhado para interoperar com padrões existentes. Nossa Exchange API traduz entre formatos nativamente.',
+      faq6Q: 'Quem está por trás do BSP?',
+      faq6A: 'O BSP é mantido pelo Ambrósio Institute e governado pela comunidade via BIPs (BSP Improvement Proposals). Qualquer pessoa pode propor mudanças.',
+
+      testimonialsLabel: 'QUEM APOIA',
+      testimonialsTitle: 'Confiado por quem constrói o futuro da saúde',
+      t1Quote: 'O BSP resolve o problema fundamental da saúde digital: quem é dono dos dados. A abordagem criptográfica é a única que escala.',
+      t1Name: 'Research Lab',
+      t1Role: 'Genômica & Bioinformática',
+      t2Quote: 'Finalmente um padrão aberto que não depende de intermediários. Integrar com nosso app levou menos de um dia.',
+      t2Name: 'Health Tech Startup',
+      t2Role: 'Wearable Data Platform',
+      t3Quote: 'A taxonomia universal de biomarcadores é o que faltava para a IA de longevidade funcionar com dados reais e padronizados.',
+      t3Name: 'AI Research Group',
+      t3Role: 'Longevity AI',
+
+      newsletterLabel: 'FIQUE POR DENTRO',
+      newsletterTitle: 'Receba updates do BSP',
+      newsletterDesc: 'Novos BIPs, releases, integrações e eventos da comunidade. Sem spam.',
+      newsletterPlaceholder: 'seu@email.com',
+      newsletterBtn: 'Inscrever-se',
     }
   } else if (lang.value === 'es') {
     return {
@@ -317,6 +350,39 @@ const content = computed(() => {
       devStat2: 'Estándar de firma',
       devStat3: 'Almacenamiento permanente',
       devStat4: 'Licencia',
+
+      faqLabel: 'PREGUNTAS FRECUENTES',
+      faqTitle: 'Dudas sobre el BSP',
+      faq1Q: '¿Qué es el BSP?',
+      faq1A: 'El Biological Sovereignty Protocol es un protocolo abierto que otorga a cada individuo propiedad criptográfica sobre sus datos biológicos — genómica, registros clínicos, wearables y más.',
+      faq2Q: '¿Dónde se almacenan los datos?',
+      faq2A: 'Todos los datos se almacenan permanentemente en la red Arweave, una blockchain de almacenamiento descentralizado. Ninguna empresa puede eliminar o revocar el acceso.',
+      faq3Q: '¿Necesito pagar para usar BSP?',
+      faq3A: 'No. BSP es open source y licenciado bajo MIT. Cualquier desarrollador puede integrarlo gratuitamente. Los costos de almacenamiento en Arweave son mínimos.',
+      faq4Q: '¿Cómo funciona el consentimiento?',
+      faq4A: 'Cada acceso requiere un ConsentToken — firmado criptográficamente por el titular del BEO. Defines alcance, plazo y puedes revocarlo en cualquier momento.',
+      faq5Q: '¿Puedo integrar con sistemas existentes (FHIR, HL7)?',
+      faq5A: 'Sí. BSP fue diseñado para interoperar con estándares existentes. Nuestra Exchange API traduce entre formatos de forma nativa.',
+      faq6Q: '¿Quién está detrás del BSP?',
+      faq6A: 'BSP es mantenido por el Ambrósio Institute y gobernado por la comunidad a través de BIPs (BSP Improvement Proposals). Cualquier persona puede proponer cambios.',
+
+      testimonialsLabel: 'QUIÉN APOYA',
+      testimonialsTitle: 'Confiado por quienes construyen el futuro de la salud',
+      t1Quote: 'BSP resuelve el problema fundamental de la salud digital: quién es dueño de los datos. El enfoque criptográfico es el único que escala.',
+      t1Name: 'Research Lab',
+      t1Role: 'Genómica & Bioinformática',
+      t2Quote: 'Finalmente un estándar abierto que no depende de intermediarios. Integrar con nuestra app tomó menos de un día.',
+      t2Name: 'Health Tech Startup',
+      t2Role: 'Wearable Data Platform',
+      t3Quote: 'La taxonomía universal de biomarcadores es lo que faltaba para que la IA de longevidad funcione con datos reales y estandarizados.',
+      t3Name: 'AI Research Group',
+      t3Role: 'Longevity AI',
+
+      newsletterLabel: 'MANTENTE AL DÍA',
+      newsletterTitle: 'Recibe updates del BSP',
+      newsletterDesc: 'Nuevos BIPs, releases, integraciones y eventos de la comunidad. Sin spam.',
+      newsletterPlaceholder: 'tu@email.com',
+      newsletterBtn: 'Suscribirse',
     }
   }
 
@@ -431,6 +497,39 @@ const content = computed(() => {
     devStat2: 'Signature standard',
     devStat3: 'Permanent storage',
     devStat4: 'License',
+
+    faqLabel: 'FAQ',
+    faqTitle: 'Frequently Asked Questions',
+    faq1Q: 'What is BSP?',
+    faq1A: 'The Biological Sovereignty Protocol is an open protocol that gives every individual cryptographic ownership of their biological data — genomics, clinical records, wearables, and more.',
+    faq2Q: 'Where is my data stored?',
+    faq2A: 'All data is permanently stored on the Arweave network, a decentralized storage blockchain. No company can delete or revoke your access.',
+    faq3Q: 'Do I need to pay to use BSP?',
+    faq3A: 'No. BSP is open source and MIT-licensed. Any developer can integrate for free. Arweave storage costs are minimal.',
+    faq4Q: 'How does consent work?',
+    faq4A: 'Every access requires a ConsentToken — cryptographically signed by the BEO holder. You define scope, time limits, and can revoke at any time.',
+    faq5Q: 'Can I integrate with existing systems (FHIR, HL7)?',
+    faq5A: 'Yes. BSP was designed to interoperate with existing standards. Our Exchange API translates between formats natively.',
+    faq6Q: 'Who is behind BSP?',
+    faq6A: 'BSP is maintained by the Ambrósio Institute and community-governed through BIPs (BSP Improvement Proposals). Anyone can propose changes.',
+
+    testimonialsLabel: 'WHO SUPPORTS BSP',
+    testimonialsTitle: 'Trusted by those building the future of health',
+    t1Quote: 'BSP solves the fundamental problem of digital health: who owns the data. The cryptographic approach is the only one that scales.',
+    t1Name: 'Research Lab',
+    t1Role: 'Genomics & Bioinformatics',
+    t2Quote: 'Finally an open standard that doesn\'t depend on intermediaries. Integrating with our app took less than a day.',
+    t2Name: 'Health Tech Startup',
+    t2Role: 'Wearable Data Platform',
+    t3Quote: 'The universal biomarker taxonomy is what was missing for longevity AI to work with real, standardized data.',
+    t3Name: 'AI Research Group',
+    t3Role: 'Longevity AI',
+
+    newsletterLabel: 'STAY UPDATED',
+    newsletterTitle: 'Get BSP updates',
+    newsletterDesc: 'New BIPs, releases, integrations, and community events. No spam.',
+    newsletterPlaceholder: 'you@email.com',
+    newsletterBtn: 'Subscribe',
   }
 })
 
@@ -469,7 +568,7 @@ const pfx = computed(() => {
           <p class="p-tagline">{{ content.heroTagline }}</p>
           <div class="p-actions">
             <a :href="`${pfx}/getting-started/intro`" class="btn btn-brand">{{ content.btnPrimary }}</a>
-            <a :href="`${pfx}/getting-started/quickstart`" class="btn btn-hero-alt">{{ content.btnSecondary }}</a>
+            <a :href="`${pfx}/whitepaper`" class="btn btn-hero-alt">{{ content.btnSecondary }}</a>
           </div>
           <div class="p-hero-stats">
             <div class="hero-stat">
@@ -755,6 +854,25 @@ const pfx = computed(() => {
       </div>
     </section>
 
+    <!-- FAQ Accordion Section -->
+    <section class="p-faq scroll-reveal">
+      <div class="section-inner">
+        <span class="section-label">{{ content.faqLabel }}</span>
+        <h2 class="section-title">{{ content.faqTitle }}</h2>
+        <div class="faq-list">
+          <details v-for="i in 6" :key="i" class="faq-item">
+            <summary class="faq-question">
+              <span>{{ content[`faq${i}Q`] }}</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{{ content[`faq${i}A`] }}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Developer CTA Section -->
     <section class="p-dev-cta scroll-reveal">
       <div class="dev-cta-inner">
@@ -927,8 +1045,8 @@ body.bsp-home .VPDoc .container {
 /* ══ HERO — Full-Bleed Cinematic ══════════════════════════════ */
 .p-hero {
   position: relative;
-  height: 100vh;
-  min-height: 640px;
+  height: 680px;
+  min-height: 580px;
   background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 45%, #e0ebff 100%);
   overflow: hidden;
   display: flex;
@@ -1114,15 +1232,11 @@ body.bsp-home .VPDoc .container {
   position: absolute;
   right: 0;
   top: 0;
-  width: 75%;
+  width: 100%;
   height: 100%;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
-  transition: width 0.3s ease;
-}
-.dark .p-hero-right {
-  width: 62%;
 }
 .p-hero-img {
   width: 100%;
@@ -1536,11 +1650,21 @@ body.bsp-home .VPDoc .container {
   .how-steps {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 5rem;
+    width: 100%;
+    margin: 0 auto;
   }
-  .how-connector {
-    transform: rotate(90deg);
-    margin-top: 0;
+  .how-step {
+    flex: none;
+    max-width: 360px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
   .p-split {
     flex-direction: column;
@@ -1684,7 +1808,7 @@ body.bsp-home .VPDoc .container {
 .how-connector {
   display: flex;
   align-items: center;
-  margin-top: 2.2rem;
+  margin-top: 3.8rem;
   flex-shrink: 0;
 }
 
@@ -1726,6 +1850,36 @@ body.bsp-home .VPDoc .container {
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
   line-height: 1.6;
+}
+
+/* ----- HOW IT WORKS · MOBILE ----- */
+@media (max-width: 1024px) {
+  .how-connector {
+    display: none !important;
+  }
+  .how-step + .how-connector + .how-step {
+    position: relative;
+    padding-top: 0;
+  }
+  .how-step + .how-connector + .how-step::before {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 50px;
+    margin: 1rem auto 1.5rem;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--vp-c-brand-1) 0px,
+      var(--vp-c-brand-1) 5px,
+      transparent 5px,
+      transparent 9px
+    );
+    animation: dash-down 1.5s linear infinite;
+  }
+  @keyframes dash-down {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 18px; }
+  }
 }
 
 /* ----- OPEN SOURCE BANNER ----- */
@@ -2208,6 +2362,228 @@ body.bsp-home .VPDoc .container {
 
   .p-split {
     gap: 2.5rem;
+  }
+}
+
+/* ══ FAQ Section ═══════════════════════════════════════════════ */
+.p-faq {
+  padding: 6rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  list-style: none;
+  transition: color 0.2s;
+}
+
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::marker { display: none; content: ''; }
+
+.faq-question:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--vp-c-text-3);
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 0 1.25rem;
+  animation: faq-slide-down 0.3s ease;
+}
+
+.faq-answer p {
+  color: var(--vp-c-text-2);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@keyframes faq-slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ Testimonials ═════════════════════════════════════════════ */
+.p-testimonials {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.testimonial-card {
+  position: relative;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.testimonial-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 8px 32px rgba(0, 100, 255, 0.08);
+}
+
+.dark .testimonial-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 100, 255, 0.15);
+}
+
+.testimonial-quote-icon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: var(--vp-c-brand-1);
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2, #4f46e5));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.testimonial-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-1);
+}
+
+.testimonial-role {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--vp-c-text-3);
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ══ Newsletter ═══════════════════════════════════════════════ */
+.p-newsletter {
+  padding: 5rem 2rem;
+  margin: 2rem auto;
+  max-width: 680px;
+  text-align: center;
+}
+
+.newsletter-inner {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+}
+
+.newsletter-inner h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-inner p {
+  color: var(--vp-c-text-2);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-input:focus {
+  border-color: var(--vp-c-brand-1);
+}
+
+.newsletter-btn {
+  white-space: nowrap;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-inner {
+    padding: 2.5rem 1.5rem;
   }
 }
 </style>

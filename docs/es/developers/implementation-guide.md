@@ -76,12 +76,12 @@ Antes de que cualquier institución pueda acceder a los datos del usuario, este 
 function ConsentDialog({ request }) {
   return (
     <div>
-      <h2>Data Access Request</h2>
-      <p>Institution: {request.ieo.name}</p>
-      <p>Scope: {request.scope.join(', ')}</p>
-      <p>Valid until: {new Date(request.period.end).toLocaleDateString()}</p>
-      <button onClick={() => issueConsent(request)}>Authorize</button>
-      <button onClick={() => denyConsent(request)}>Deny</button>
+      <h2>Solicitud de Acceso a Datos</h2>
+      <p>Institución: {request.ieo.name}</p>
+      <p>Alcance: {request.scope.join(', ')}</p>
+      <p>Válido hasta: {new Date(request.period.end).toLocaleDateString()}</p>
+      <button onClick={() => issueConsent(request)}>Autorizar</button>
+      <button onClick={() => denyConsent(request)}>Denegar</button>
     </div>
   );
 }
@@ -181,7 +181,7 @@ async function handleDataSubmission(payload) {
   });
 
   if (!verification.valid) {
-    throw new Error(`Consent invalid: ${verification.reason}`);
+    throw new Error(`Consentimiento inválido: ${verification.reason}`);
   }
 
   // Seguro para proceder
@@ -290,10 +290,10 @@ ARWEAVE_PORT=443
 ARWEAVE_PROTOCOL=https
 ARWEAVE_WALLET_PATH=./wallet.json
 
-BSP_BEO_REGISTRY_TX=<YOUR_BEO_TX_ID>
-BSP_IEO_REGISTRY_TX=<YOUR_IEO_TX_ID>
-BSP_ACCESS_CONTROL_TX=<YOUR_ACCESS_CONTROL_TX_ID>
-BSP_DOMAIN_REGISTRY_TX=<YOUR_DOMAIN_REGISTRY_TX_ID>
+BSP_BEO_REGISTRY_TX=<TU_BEO_TX_ID>
+BSP_IEO_REGISTRY_TX=<TU_IEO_TX_ID>
+BSP_ACCESS_CONTROL_TX=<TU_ACCESS_CONTROL_TX_ID>
+BSP_DOMAIN_REGISTRY_TX=<TU_DOMAIN_REGISTRY_TX_ID>
 
 PORT=3001
 ```
@@ -312,7 +312,7 @@ Restringe qué orígenes y API keys pueden escribir en tu relayer.
 
 ```env
 # .env — agregar esto
-ALLOWED_ORIGINS=https://yourapp.com,https://youradminpanel.com
+ALLOWED_ORIGINS=https://tuapp.com,https://tupaneladmin.com
 API_KEYS=key_abc123,key_def456   # generar claves aleatorias fuertes
 RATE_LIMIT_WRITES=100            # solicitudes de escritura por minuto por clave
 RATE_LIMIT_READS=1000            # solicitudes de lectura por minuto por clave
@@ -326,7 +326,7 @@ Cualquier app compatible con BSP puede apuntar a tu relayer configurando la URL 
 
 ```env
 # En bsp-id-web o cualquier consumidor del SDK
-NEXT_PUBLIC_BSP_RELAYER_URL=https://relayer.yourdomain.com
+NEXT_PUBLIC_BSP_RELAYER_URL=https://relayer.tudominio.com
 ```
 
 Las apps y SDKs son agnósticos al relayer. El mismo código `@bsp/sdk` funciona contra cualquier relayer compatible.

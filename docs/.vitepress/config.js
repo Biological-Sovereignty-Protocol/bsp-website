@@ -421,6 +421,31 @@ export default defineConfig({
             description: 'O protocolo que dá a cada humano soberania permanente sobre sua própria biologia.',
             themeConfig: {
                 description: 'BSP é o padrão criptográfico aberto para soberania de dados de saúde. Seja dono dos seus dados biológicos permanentemente no Arweave.',
+                outlineTitle: 'Nesta página',
+                returnToTopLabel: 'Voltar ao topo',
+                sidebarMenuLabel: 'Menu',
+                darkModeSwitchLabel: 'Tema',
+                lastUpdatedText: 'Atualizado em',
+                editLink: {
+                    pattern: 'https://github.com/Biological-Sovereignty-Protocol/bsp-spec/edit/main/docs/:path',
+                    text: 'Editar esta página'
+                },
+                docFooter: {
+                    prev: 'Anterior',
+                    next: 'Próximo'
+                },
+                search: {
+                    options: {
+                        translations: {
+                            button: { buttonText: 'Buscar', buttonAriaLabel: 'Buscar na documentação' },
+                            modal: {
+                                noResultsText: 'Nenhum resultado para',
+                                resetButtonTitle: 'Limpar',
+                                footer: { selectText: 'para selecionar', navigateText: 'para navegar', closeText: 'para fechar' }
+                            }
+                        }
+                    }
+                },
                 nav: [
                     {
                         text: 'Aprenda',
@@ -499,6 +524,31 @@ export default defineConfig({
             description: 'El protocolo que otorga a cada ser humano soberanía permanente sobre su propia biología.',
             themeConfig: {
                 description: 'BSP es el estándar criptográfico abierto para la soberanía de datos de salud. Sea dueño de sus datos biológicos permanentemente en Arweave.',
+                outlineTitle: 'En esta página',
+                returnToTopLabel: 'Volver arriba',
+                sidebarMenuLabel: 'Menú',
+                darkModeSwitchLabel: 'Tema',
+                lastUpdatedText: 'Actualizado el',
+                editLink: {
+                    pattern: 'https://github.com/Biological-Sovereignty-Protocol/bsp-spec/edit/main/docs/:path',
+                    text: 'Editar esta página'
+                },
+                docFooter: {
+                    prev: 'Anterior',
+                    next: 'Siguiente'
+                },
+                search: {
+                    options: {
+                        translations: {
+                            button: { buttonText: 'Buscar', buttonAriaLabel: 'Buscar en la documentación' },
+                            modal: {
+                                noResultsText: 'Sin resultados para',
+                                resetButtonTitle: 'Limpiar',
+                                footer: { selectText: 'para seleccionar', navigateText: 'para navegar', closeText: 'para cerrar' }
+                            }
+                        }
+                    }
+                },
                 nav: [
                     {
                         text: 'Aprende',

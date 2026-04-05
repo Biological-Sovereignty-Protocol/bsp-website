@@ -47,6 +47,28 @@ export default {
         document.body.classList.toggle('bsp-scrolled', window.scrollY > 60)
       }
       window.addEventListener('scroll', onScroll, { passive: true })
+
+      // Navbar order: physically move DOM elements to correct position
+      const reorderNav = () => {
+        const contentBody = document.querySelector('.VPNavBar .content-body')
+        if (!contentBody) return
+        const menu = contentBody.querySelector('.menu')
+        const search = contentBody.querySelector('.search')
+        if (!menu || !search) return
+        // Move menu to be the first child of content-body
+        contentBody.insertBefore(menu, contentBody.firstChild)
+        // Move search right after menu
+        menu.after(search)
+      }
+      // Run after mount and on route changes
+      setTimeout(reorderNav, 100)
+      if (router) {
+        const origFn = router.onAfterRouteChanged
+        router.onAfterRouteChanged = (to) => {
+          origFn && origFn(to)
+          setTimeout(reorderNav, 100)
+        }
+      }
     }
   }
 }
