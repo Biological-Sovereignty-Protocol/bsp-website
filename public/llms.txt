@@ -1,0 +1,44 @@
+# Biological Sovereignty Protocol (BSP)
+
+> The open cryptographic standard for health data sovereignty.
+
+BSP gives individuals permanent, cryptographic ownership of their biological data — from genomics to wearables. Built on Arweave. Powered by SmartWeave.
+
+## Core Concepts
+
+- **BEO (Biological Entity Object)**: A permanent cryptographic identity anchoring a person's health data on Arweave.
+- **BioRecord**: Standardized biological measurement format with 210+ biomarkers across 4 taxonomy levels.
+- **ConsentToken**: Cryptographically signed, time-bound, revocable access grants.
+- **IEO (Institutional Entity Object)**: Institutional identity for labs, platforms, and AI systems.
+- **Exchange Protocol**: REST API for requesting and sending consented biological data.
+
+## Specification
+
+- Specification Overview: https://biologicalsovereigntyprotocol.com/specification/overview
+- BEO Schema: https://biologicalsovereigntyprotocol.com/specification/beo
+- IEO Schema: https://biologicalsovereigntyprotocol.com/specification/ieo
+- BioRecord Schema: https://biologicalsovereigntyprotocol.com/specification/biorecord
+- Exchange Protocol: https://biologicalsovereigntyprotocol.com/specification/exchange
+- Governance: https://biologicalsovereigntyprotocol.com/specification/governance
+- Biomarker Taxonomy L1: https://biologicalsovereigntyprotocol.com/specification/taxonomy/level-1-core
+- Biomarker Taxonomy L2: https://biologicalsovereigntyprotocol.com/specification/taxonomy/level-2-standard
+- Biomarker Taxonomy L3: https://biologicalsovereigntyprotocol.com/specification/taxonomy/level-3-extended
+- Biomarker Taxonomy L4: https://biologicalsovereigntyprotocol.com/specification/taxonomy/level-4-device
+
+## Getting Started
+
+- What is BSP?: https://biologicalsovereigntyprotocol.com/what-is-bsp
+- Quickstart: https://biologicalsovereigntyprotocol.com/getting-started/quickstart
+- SDK Reference: https://biologicalsovereigntyprotocol.com/developers/sdk-reference
+- Whitepaper: https://biologicalsovereigntyprotocol.com/whitepaper
+
+## SDKs
+
+- TypeScript: npm install @bsp/sdk
+- Python: pip install bsp-sdk
+
+## Links
+
+- Website: https://biologicalsovereigntyprotocol.com
+- GitHub: https://github.com/Biological-Sovereignty-Protocol
+- Specification: https://github.com/Biological-Sovereignty-Protocol/bsp-spec

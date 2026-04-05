@@ -287,22 +287,63 @@ export default defineConfig({
     head: [
         ['meta', { name: 'theme-color', content: '#0076ff' }],
         ['meta', { property: 'og:type', content: 'website' }],
+        // Favicon
+        ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png' }],
+        ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' }],
+        ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }],
+        ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+        // Open Graph
+        ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:site_name', content: 'Biological Sovereignty Protocol' }],
-        ['meta', { property: 'og:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.jpg' }],
+        ['meta', { property: 'og:title', content: 'BSP — Biological Sovereignty Protocol' }],
+        ['meta', { property: 'og:description', content: 'Open cryptographic standard giving individuals permanent ownership of their biological data. Built on Arweave.' }],
+        ['meta', { property: 'og:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        ['meta', { property: 'og:image:width', content: '1200' }],
+        ['meta', { property: 'og:image:height', content: '630' }],
+        ['meta', { property: 'og:url', content: 'https://biologicalsovereigntyprotocol.com' }],
+        ['meta', { property: 'og:locale', content: 'en_US' }],
+        ['meta', { property: 'og:locale:alternate', content: 'pt_BR' }],
+        ['meta', { property: 'og:locale:alternate', content: 'es_ES' }],
+        // Twitter Card
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
         ['meta', { name: 'twitter:site', content: '@BSProtocol' }],
-        ['meta', { name: 'twitter:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.jpg' }],
+        ['meta', { name: 'twitter:title', content: 'BSP — Biological Sovereignty Protocol' }],
+        ['meta', { name: 'twitter:description', content: 'Open cryptographic standard for health data sovereignty. Own your biology permanently.' }],
+        ['meta', { name: 'twitter:image', content: 'https://biologicalsovereigntyprotocol.com/images/bsp-og-image.png' }],
+        // SEO extras
+        ['meta', { name: 'author', content: 'Ambrósio Institute' }],
+        ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' }],
         ['link', { rel: 'canonical', href: 'https://biologicalsovereigntyprotocol.com' }],
+        // Structured Data — Organization
         ['script', { type: 'application/ld+json' }, JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Biological Sovereignty Protocol",
+            "alternateName": "BSP",
             "url": "https://biologicalsovereigntyprotocol.com",
-            "logo": "https://biologicalsovereigntyprotocol.com/images/bsp-logo-dark.png",
-            "description": "Open cryptographic standard for health and longevity data sovereignty",
+            "logo": "https://biologicalsovereigntyprotocol.com/favicon.png",
+            "description": "Open cryptographic standard for health and longevity data sovereignty. Built on Arweave.",
+            "foundingDate": "2026",
+            "founder": {
+                "@type": "Organization",
+                "name": "Ambrósio Institute",
+                "url": "https://ambrosioinstitute.org"
+            },
             "sameAs": [
                 "https://github.com/Biological-Sovereignty-Protocol"
             ]
+        })],
+        // Structured Data — WebSite (enables Google Sitelinks Search)
+        ['script', { type: 'application/ld+json' }, JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Biological Sovereignty Protocol",
+            "url": "https://biologicalsovereigntyprotocol.com",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://biologicalsovereigntyprotocol.com/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
         })]
     ],
 
