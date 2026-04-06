@@ -534,6 +534,7 @@ export default defineConfig({
                             { text: 'Security & Blockchain', link: '/architecture/security-blockchain' }
                         ]
                     },
+                    { text: 'Create BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
                     '/': enSidebar
@@ -637,6 +638,7 @@ export default defineConfig({
                             { text: 'Segurança e Blockchain', link: '/pt/architecture/security-blockchain' }
                         ]
                     },
+                    { text: 'Criar BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
                     '/pt/': ptSidebar
@@ -740,6 +742,7 @@ export default defineConfig({
                             { text: 'Seguridad y Blockchain', link: '/es/architecture/security-blockchain' }
                         ]
                     },
+                    { text: 'Crear BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
                     '/es/': esSidebar
