@@ -1,3 +1,8 @@
+---
+title: "GitHub Repository Architecture"
+description: "Organization of BSP repositories across public and private GitHub organizations."
+---
+
 # GitHub Architecture
 
 > "The protocol belongs to the world. The intelligence belongs to Ambrósio. The sovereignty belongs to the individual."

@@ -1,3 +1,8 @@
+---
+title: "BSP Architecture Overview"
+description: "Three-layer architecture of the Biological Sovereignty Protocol — Identity, Data Schema, and Exchange layers."
+---
+
 # Protocol Architecture
 
 BSP is an open standard that defines how biological data is structured, stored, exchanged, and governed. It operates in three layers.

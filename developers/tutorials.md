@@ -1,3 +1,8 @@
+---
+title: "BSP Tutorials"
+description: "Step-by-step tutorials for creating BEOs, submitting BioRecords, and managing consent with BSP."
+---
+
 # Tutorials & Cookbooks
 
 These practical guides bridge the gap between protocol theory and working code. Use them as starting points for your own BSP integrations.

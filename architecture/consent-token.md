@@ -1,3 +1,8 @@
+---
+title: "Consent & AccessControl — BSP"
+description: "How ConsentTokens provide cryptographically signed, time-bound, revocable access control for biological data."
+---
+
 <div class="page-hero-image">
   <img src="/images/consent-flow.jpg" alt="Consent Flow" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>

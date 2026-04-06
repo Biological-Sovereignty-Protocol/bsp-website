@@ -1,3 +1,8 @@
+---
+title: "FAQ — Frequently Asked Questions"
+description: "Common questions about the Biological Sovereignty Protocol, data ownership, and getting started."
+---
+
 # Frequently Asked Questions (FAQ)
 
 Welcome to the Biological Sovereignty Protocol (BSP) FAQ. Here, we address the most common questions about the protocol, data sovereignty, identity, and the intelligence engine.

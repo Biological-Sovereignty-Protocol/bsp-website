@@ -1,3 +1,8 @@
+---
+title: "User Onboarding Guide"
+description: "Step-by-step guide for end users to create their biological identity and manage health data."
+---
+
 # User Onboarding Flow
 
 "The moment a person creates their BEO, they cross a threshold — from patient to sovereign."

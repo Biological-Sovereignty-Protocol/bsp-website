@@ -1,3 +1,8 @@
+---
+title: "Quickstart Guide"
+description: "Create your first BEO and submit a BioRecord in under 5 minutes with the BSP SDK."
+---
+
 <div class="page-hero-image">
   <img src="/images/quickstart-hero.jpg" alt="BSP Developer Quickstart — SDK integration" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>

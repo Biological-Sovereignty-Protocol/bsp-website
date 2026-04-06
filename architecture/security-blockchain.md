@@ -1,3 +1,8 @@
+---
+title: "Security & Blockchain — BSP"
+description: "Cryptographic security model, key management, and Arweave blockchain integration in BSP."
+---
+
 # Keys, Blockchain & Access
 
 > "How users, laboratories, and systems connect to the ecosystem — decentralized, without a central server, without an intermediary, without prior permission."

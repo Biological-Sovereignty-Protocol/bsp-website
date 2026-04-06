@@ -1,3 +1,8 @@
+---
+title: "BSP Certification Program"
+description: "Voluntary certification for platforms and developers implementing the Biological Sovereignty Protocol."
+---
+
 # BSP Certification Process
 
 The Biological Sovereignty Protocol (BSP) is inherently open. Any laboratory, wearable device, or application can create a BEO (Biological Entity Object) or submit BioRecords, provided they have the cryptographic consent of the individual. 

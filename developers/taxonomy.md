@@ -1,3 +1,8 @@
+---
+title: "Biomarker Taxonomy — BSP"
+description: "Universal biomarker classification system with 4 levels — Core, Standard, Extended, and Device."
+---
+
 # Biomarker Taxonomy
 
 The BSP taxonomy is the most comprehensive open biomarker classification system ever codified. It covers the complete spectrum of measurable human biology — from routine clinical lab tests to cutting-edge longevity markers to continuous wearable signals. The taxonomy is publicly published, freely available, and governed through an open improvement process.

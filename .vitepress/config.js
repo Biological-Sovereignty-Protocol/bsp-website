@@ -277,13 +277,40 @@ const esSidebar = [
 ]
 
 export default defineConfig({
-    title: "Biological Sovereignty Protocol",
-    description: "The protocol that gives every human being permanent sovereignty over their own biology.",
+    title: "BSP",
+    titleTemplate: ':title — Biological Sovereignty Protocol',
+    description: "Open cryptographic standard giving individuals permanent ownership of their biological data. Built on Arweave. 210+ biomarkers. MIT licensed.",
     cleanUrls: true,
     srcExclude: ['**/README.md', '**/LICENSE'],
+    lastUpdated: true,
 
     sitemap: {
-        hostname: 'https://biologicalsovereigntyprotocol.com'
+        hostname: 'https://biologicalsovereigntyprotocol.com',
+        transformItems: (items) => {
+            return items.map(item => {
+                // Set priority based on path depth
+                const depth = (item.url.match(/\//g) || []).length
+                if (item.url === '' || item.url === '/') {
+                    item.changefreq = 'weekly'
+                    item.priority = 1.0
+                } else if (item.url.includes('/specification/')) {
+                    item.changefreq = 'monthly'
+                    item.priority = 0.9
+                } else if (item.url.includes('/developers/') || item.url.includes('/getting-started/')) {
+                    item.changefreq = 'monthly'
+                    item.priority = 0.8
+                } else if (item.url.includes('/use-cases/') || item.url.includes('/architecture/')) {
+                    item.changefreq = 'monthly'
+                    item.priority = 0.7
+                } else if (item.url.startsWith('/pt/') || item.url.startsWith('/es/')) {
+                    item.priority = 0.6
+                } else {
+                    item.changefreq = 'monthly'
+                    item.priority = 0.5
+                }
+                return item
+            })
+        }
     },
     head: [
         ['meta', { name: 'theme-color', content: '#0076ff' }],

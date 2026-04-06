@@ -1,3 +1,8 @@
+---
+title: "BSP Payload Reference"
+description: "Complete reference of JSON payloads for BEO creation, BioRecord submission, and consent management."
+---
+
 # JSON Payload Examples
 
 This page details the exact data structures transmitted across the BSP network and permanently stored on Arweave. Understanding these payloads is critical for debugging and for developers writing zero-dependency integrations without the official SDKs.

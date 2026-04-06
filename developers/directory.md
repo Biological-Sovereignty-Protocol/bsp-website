@@ -1,3 +1,8 @@
+---
+title: "BSP Developer Directory"
+description: "Directory of tools, SDKs, and resources for developers building on BSP."
+---
+
 # Ecosystem Directory
 
 The Biological Sovereignty Protocol connects individuals to an open network of health institutions, hardware manufacturers, and intelligence platforms. 

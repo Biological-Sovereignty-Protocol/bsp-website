@@ -1,3 +1,8 @@
+---
+title: "Complete Biomarker Taxonomy List"
+description: "Full list of 210+ standardized biomarkers across 4 taxonomy levels in the BSP protocol."
+---
+
 # Complete Biomarker Taxonomy
 
 The BSP Taxonomy is the universal language for measuring biological state. It currently contains 210+ approved biomarkers divided into 25 categories and 4 access levels.

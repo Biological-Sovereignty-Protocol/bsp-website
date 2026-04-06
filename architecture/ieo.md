@@ -1,3 +1,8 @@
+---
+title: "IEO Architecture — Institutional Entity Object"
+description: "How institutions register and interact with the BSP protocol via Institutional Entity Objects."
+---
+
 <div class="page-hero-image">
   <img src="/images/ieo-institution.jpg" alt="IEO Institution" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>

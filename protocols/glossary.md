@@ -1,3 +1,8 @@
+---
+title: "Protocol Glossary"
+description: "Glossary of terms used in BSP protocol documentation and specifications."
+---
+
 # Canonical Glossary
 
 All terms, objects, types, contracts, and repositories in the BSP ecosystem defined precisely in a single reference.

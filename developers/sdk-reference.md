@@ -1,3 +1,8 @@
+---
+title: "SDK Reference — TypeScript & Python"
+description: "Official BSP SDK reference for TypeScript and Python. Installation, authentication, and API methods."
+---
+
 <div class="page-hero-image">
   <img src="/images/developers-sdk.jpg" alt="BSP SDK" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
