@@ -335,7 +335,17 @@ const hasSidebar = computed(() => {
       <!-- Secondary row: 4 colunas (Community, Ecosystem, Resources, Legal) -->
       <div class="footer-secondary">
 
-        <div class="footer-secondary-spacer"></div>
+        <!-- Brand (logo + GitHub) aligned with CTA above -->
+        <div class="footer-secondary-brand">
+          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="Biological Sovereignty Protocol" />
+          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="Biological Sovereignty Protocol" />
+          <p class="footer-tagline">{{ t.tagline }}</p>
+          <div class="social-links">
+            <a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
 
         <!-- Community -->
         <div class="footer-col-sm">
@@ -395,19 +405,6 @@ const hasSidebar = computed(() => {
       <!-- SEO Text Block -->
       <div class="footer-seo-text">
         <p>{{ t.seoText }}</p>
-      </div>
-
-      <!-- Brand row (moved from top) -->
-      <div class="footer-brand-row">
-        <div class="footer-brand-left">
-          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="Biological Sovereignty Protocol" />
-          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="Biological Sovereignty Protocol" />
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-        </div>
       </div>
 
       <!-- Bottom bar -->
@@ -519,18 +516,18 @@ const hasSidebar = computed(() => {
   box-shadow: 0 4px 16px rgba(0, 118, 255, 0.25);
 }
 
-/* Brand row (moved to bottom, before bottom bar) */
-.footer-brand-row {
+/* Brand in secondary row (replaces spacer) */
+.footer-secondary-brand {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--vp-c-divider);
+  flex-direction: column;
 }
 
-.footer-brand-left {
-  display: flex;
-  align-items: center;
+.footer-tagline {
+  color: var(--vp-c-text-2);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  max-width: 200px;
 }
 
 .footer-logo {
