@@ -532,7 +532,7 @@ const hasSidebar = computed(() => {
 }
 
 .footer-logo {
-  height: 48px;
+  height: 55px;
   width: auto;
   max-width: 200px;
   object-fit: contain;
