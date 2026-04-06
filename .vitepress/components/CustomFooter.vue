@@ -8,7 +8,7 @@ const router = useRouter()
 const t = computed(() => {
   if (lang.value === 'pt') {
     return {
-      tagline: 'Soberania permanente sobre a sua biologia.',
+      tagline: 'Sua biologia. Seus dados. Suas regras.',
       colLearn: 'Aprender',
       colProtocol: 'Protocolo',
       colDev: 'Desenvolvedores',
@@ -83,7 +83,7 @@ const t = computed(() => {
     }
   } else if (lang.value === 'es') {
     return {
-      tagline: 'Soberanía permanente sobre tu biología.',
+      tagline: 'Tu biología. Tus datos. Tus reglas.',
       colLearn: 'Aprender',
       colProtocol: 'Protocolo',
       colDev: 'Desarrolladores',
@@ -155,7 +155,7 @@ const t = computed(() => {
     }
   }
   return {
-    tagline: 'Permanent sovereignty over your biology.',
+    tagline: 'Your biology. Your data. Your rules.',
     colLearn: 'Learn',
     colProtocol: 'Protocol',
     colDev: 'Developers',
@@ -520,6 +520,7 @@ const hasSidebar = computed(() => {
 .footer-secondary-brand {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-tagline {
@@ -531,9 +532,9 @@ const hasSidebar = computed(() => {
 }
 
 .footer-logo {
-  height: 44px;
+  height: 72px;
   width: auto;
-  max-width: 200px;
+  max-width: 260px;
   object-fit: contain;
   display: block;
   margin-bottom: 1rem;
