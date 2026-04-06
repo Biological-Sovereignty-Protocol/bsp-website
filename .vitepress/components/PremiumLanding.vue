@@ -69,7 +69,7 @@ onMounted(() => {
 
   // Observe all animated elements
   const targets = document.querySelectorAll(
-    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-what, .p-usecases, .p-faq, .p-dev-cta, .p-open-banner, .p-cta, .arch-col, .how-step'
+    '.glass-card, .p-split, .p-architecture, .p-stats, .p-how, .p-what, .p-usecases, .p-beo-cta, .p-faq, .p-dev-cta, .p-open-banner, .p-cta, .arch-col, .how-step'
   )
   targets.forEach(el => scrollObserver.observe(el))
 })
@@ -205,6 +205,10 @@ const content = computed(() => {
       devStat2: 'Padrão de assinatura',
       devStat3: 'Armazenamento permanente',
       devStat4: 'Licença',
+      beoCtaLabel: 'COMECE AGORA',
+      beoCtaTitle: 'Crie sua Identidade Biológica',
+      beoCtaDesc: 'Seu BEO é uma identidade criptográfica permanente ancorada em você. Crie o seu em minutos — sem conta, sem banco de dados central.',
+      beoCtaBtn: 'Criar meu BEO',
 
       faqLabel: 'PERGUNTAS FREQUENTES',
       faqTitle: 'Dúvidas sobre o BSP',
@@ -350,6 +354,10 @@ const content = computed(() => {
       devStat2: 'Estándar de firma',
       devStat3: 'Almacenamiento permanente',
       devStat4: 'Licencia',
+      beoCtaLabel: 'EMPIEZA AHORA',
+      beoCtaTitle: 'Crea tu Identidad Biológica',
+      beoCtaDesc: 'Tu BEO es una identidad criptográfica permanente anclada a ti. Crea el tuyo en minutos — sin cuenta, sin base de datos central.',
+      beoCtaBtn: 'Crear mi BEO',
 
       faqLabel: 'PREGUNTAS FRECUENTES',
       faqTitle: 'Dudas sobre el BSP',
@@ -497,6 +505,10 @@ const content = computed(() => {
     devStat2: 'Signature standard',
     devStat3: 'Permanent storage',
     devStat4: 'License',
+    beoCtaLabel: 'GET STARTED',
+    beoCtaTitle: 'Create your Biological Identity',
+    beoCtaDesc: 'Your BEO is a permanent cryptographic identity anchored to you. Create yours in minutes — no account needed, no central database.',
+    beoCtaBtn: 'Create my BEO',
 
     faqLabel: 'FAQ',
     faqTitle: 'Frequently Asked Questions',
@@ -850,6 +862,24 @@ const pfx = computed(() => {
             <p>{{ content.uc4Desc }}</p>
             <a :href="`${pfx}/bips`" class="uc-link">{{ content.learnMore }} →</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Create BEO CTA Section -->
+    <section class="p-beo-cta scroll-reveal">
+      <div class="beo-cta-inner">
+        <div class="beo-cta-content">
+          <span class="section-label section-label--light">{{ content.beoCtaLabel }}</span>
+          <h2>{{ content.beoCtaTitle }}</h2>
+          <p>{{ content.beoCtaDesc }}</p>
+          <a href="https://id.biologicalsovereigntyprotocol.com/create" class="btn btn-brand-solid beo-cta-btn">
+            {{ content.beoCtaBtn }}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="beo-cta-visual">
+          <img src="/images/simbolo-bsp.png" alt="BSP" class="beo-cta-symbol" />
         </div>
       </div>
     </section>
@@ -2584,6 +2614,81 @@ body.bsp-home .VPDoc .container {
   }
   .newsletter-inner {
     padding: 2.5rem 1.5rem;
+  }
+}
+
+/* BEO CTA Section */
+.p-beo-cta {
+  margin: 6rem 0;
+  padding: 0 2rem;
+}
+
+.beo-cta-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem;
+  background: linear-gradient(135deg, #0a1628 0%, #0d2847 60%, #102a4a 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.beo-cta-content {
+  flex: 1;
+}
+
+.beo-cta-content h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.beo-cta-content p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.beo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.beo-cta-visual {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.beo-cta-symbol {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.15;
+}
+
+@media (max-width: 768px) {
+  .beo-cta-inner {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .beo-cta-content p {
+    max-width: 100%;
+  }
+  .beo-cta-visual {
+    display: none;
   }
 }
 </style>

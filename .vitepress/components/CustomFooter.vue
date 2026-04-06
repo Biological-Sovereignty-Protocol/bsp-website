@@ -346,6 +346,7 @@ const hasSidebar = computed(() => {
             <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
             <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">{{ t.contribute }}</a></li>
             <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
+            <li><a href="https://id.biologicalsovereigntyprotocol.com" target="_blank" rel="noopener">BSP ID</a></li>
           </ul>
         </div>
 
