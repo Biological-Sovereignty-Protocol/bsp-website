@@ -377,7 +377,6 @@ export default defineConfig({
         // SEO extras
         ['meta', { name: 'author', content: 'Ambrósio Institute' }],
         ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' }],
-        ['link', { rel: 'canonical', href: 'https://biologicalsovereigntyprotocol.com' }],
         // Structured Data — Organization
         ['script', { type: 'application/ld+json' }, JSON.stringify({
             "@context": "https://schema.org",
