@@ -284,6 +284,7 @@ export default defineConfig({
     srcExclude: ['**/README.md', '**/LICENSE'],
     lastUpdated: true,
 
+
     sitemap: {
         hostname: 'https://biologicalsovereigntyprotocol.com',
         transformItems: (items) => {
