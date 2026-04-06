@@ -341,6 +341,7 @@ const hasSidebar = computed(() => {
         <div class="footer-col-sm">
           <h4 class="col-title">{{ t.colCommunity }}</h4>
           <ul>
+            <li><a href="https://id.biologicalsovereigntyprotocol.com/create" target="_blank" rel="noopener">Create BEO</a></li>
             <li><a :href="`${pfx}/community`">{{ t.community }}</a></li>
             <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">{{ t.contribute }}</a></li>
             <li><a href="https://github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions" target="_blank" rel="noopener">{{ t.forum }}</a></li>
