@@ -264,16 +264,14 @@ const hasSidebar = computed(() => {
       <!-- Main row: brand + 4 primary columns -->
       <div class="footer-main">
 
-        <!-- Brand -->
-        <div class="footer-brand">
-          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="Biological Sovereignty Protocol" />
-          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="Biological Sovereignty Protocol" />
-          <p class="footer-tagline">{{ t.tagline }}</p>
-          <div class="social-links">
-            <a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-          </div>
+        <!-- Create BEO CTA (replaces brand position) -->
+        <div class="footer-cta">
+          <h4 class="footer-cta-title">Create your BEO</h4>
+          <p class="footer-cta-desc">{{ t.tagline }}</p>
+          <a href="https://id.biologicalsovereigntyprotocol.com/create" target="_blank" rel="noopener" class="footer-cta-btn">
+            Create BEO
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
         <!-- Learn -->
@@ -398,6 +396,19 @@ const hasSidebar = computed(() => {
         <p>{{ t.seoText }}</p>
       </div>
 
+      <!-- Brand row (moved from top) -->
+      <div class="footer-brand-row">
+        <div class="footer-brand-left">
+          <img src="/images/bsp-logo-dark.png" class="footer-logo footer-logo-light" alt="Biological Sovereignty Protocol" />
+          <img src="/images/bsp-logo-light.png" class="footer-logo footer-logo-dark" alt="Biological Sovereignty Protocol" />
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/Biological-Sovereignty-Protocol" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
       <!-- Bottom bar -->
       <div class="footer-bottom">
         <div class="bottom-left">
@@ -467,32 +478,71 @@ const hasSidebar = computed(() => {
   padding-bottom: 3rem;
 }
 
-/* Brand */
-.footer-brand {
+/* Create BEO CTA (top-left of footer) */
+.footer-cta {
   display: flex;
   flex-direction: column;
 }
 
+.footer-cta-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.5rem;
+}
+
+.footer-cta-desc {
+  color: var(--vp-c-text-2);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+  max-width: 220px;
+}
+
+.footer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.footer-cta-btn:hover {
+  background: var(--vp-c-brand-2, #0062d6);
+  box-shadow: 0 4px 16px rgba(0, 118, 255, 0.25);
+}
+
+/* Brand row (moved to bottom, before bottom bar) */
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.footer-brand-left {
+  display: flex;
+  align-items: center;
+}
+
 .footer-logo {
-  height: 56px;
+  height: 36px;
   width: auto;
-  max-width: 200px;
+  max-width: 160px;
   object-fit: contain;
   display: block;
-  margin-bottom: 1.2rem;
 }
 
 .footer-logo-dark { display: none; }
 .dark .footer-logo-light { display: none; }
 .dark .footer-logo-dark { display: block; }
-
-.footer-tagline {
-  color: var(--vp-c-text-2);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  margin-bottom: 1.2rem;
-  max-width: 200px;
-}
 
 .social-links {
   display: flex;
