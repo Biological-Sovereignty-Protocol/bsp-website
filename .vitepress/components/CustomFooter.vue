@@ -531,11 +531,12 @@ const hasSidebar = computed(() => {
 }
 
 .footer-logo {
-  height: 36px;
+  height: 44px;
   width: auto;
-  max-width: 160px;
+  max-width: 200px;
   object-fit: contain;
   display: block;
+  margin-bottom: 1rem;
 }
 
 .footer-logo-dark { display: none; }
