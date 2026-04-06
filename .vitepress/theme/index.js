@@ -6,6 +6,7 @@ import EcosystemFlowMcp from '../components/EcosystemFlowMcp.vue'
 import PremiumLanding from '../components/PremiumLanding.vue'
 import CustomFooter from '../components/CustomFooter.vue'
 import { h } from 'vue'
+import { registerWebMCPTools } from './webmcp.js'
 
 import CustomNotFound from './NotFound.vue'
 
@@ -41,6 +42,9 @@ export default {
     // Roda na carga inicial (SSR-safe)
     if (typeof window !== 'undefined') {
       updateBodyClass(window.location.pathname)
+
+      // Register WebMCP tools for AI agents
+      registerWebMCPTools()
 
       // Header opaco ao rolar
       const onScroll = () => {

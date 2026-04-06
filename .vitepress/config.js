@@ -303,7 +303,14 @@ export default defineConfig({
                     item.changefreq = 'monthly'
                     item.priority = 0.7
                 } else if (item.url.startsWith('/pt/') || item.url.startsWith('/es/')) {
+                    item.changefreq = 'monthly'
                     item.priority = 0.6
+                } else if (item.url.includes('/whitepaper')) {
+                    item.changefreq = 'yearly'
+                    item.priority = 0.9
+                } else if (item.url.includes('/roadmap') || item.url.includes('/community')) {
+                    item.changefreq = 'weekly'
+                    item.priority = 0.7
                 } else {
                     item.changefreq = 'monthly'
                     item.priority = 0.5
@@ -313,6 +320,9 @@ export default defineConfig({
         }
     },
     head: [
+        // WebMCP — expose tools to AI agents via navigator.modelContext
+        ['meta', { name: 'webmcp', content: 'enabled' }],
+        ['meta', { name: 'webmcp-tools', content: 'search_documentation,navigate_to_page,get_biomarker_info,get_beo_schema,get_sdk_info,switch_language' }],
         ['meta', { name: 'theme-color', content: '#0076ff' }],
         ['meta', { property: 'og:type', content: 'website' }],
         // Favicon
@@ -372,6 +382,29 @@ export default defineConfig({
                 "target": "https://biologicalsovereigntyprotocol.com/?q={search_term_string}",
                 "query-input": "required name=search_term_string"
             }
+        })],
+        // Structured Data — SoftwareApplication (SDK)
+        ['script', { type: 'application/ld+json' }, JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "BSP SDK",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cross-platform",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "url": "https://biologicalsovereigntyprotocol.com/developers/sdk-reference"
+        })],
+        // Structured Data — FAQPage
+        ['script', { type: 'application/ld+json' }, JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is BSP?", "acceptedAnswer": { "@type": "Answer", "text": "The Biological Sovereignty Protocol is an open protocol that gives every individual cryptographic ownership of their biological data — genomics, clinical records, wearables, and more." } },
+                { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "All data is permanently stored on the Arweave network, a decentralized storage blockchain. No company can delete or revoke your access." } },
+                { "@type": "Question", "name": "Do I need to pay to use BSP?", "acceptedAnswer": { "@type": "Answer", "text": "No. BSP is open source and MIT-licensed. Any developer can integrate for free. Arweave storage costs are minimal." } },
+                { "@type": "Question", "name": "How does consent work?", "acceptedAnswer": { "@type": "Answer", "text": "Every access requires a ConsentToken — cryptographically signed by the BEO holder. You define scope, time limits, and can revoke at any time." } },
+                { "@type": "Question", "name": "Can I integrate with existing systems (FHIR, HL7)?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BSP was designed to interoperate with existing standards. Our Exchange API translates between formats natively." } },
+                { "@type": "Question", "name": "Who is behind BSP?", "acceptedAnswer": { "@type": "Answer", "text": "BSP is maintained by the Ambrósio Institute and community-governed through BIPs (BSP Improvement Proposals). Anyone can propose changes." } }
+            ]
         })]
     ],
 

@@ -24,3 +24,7 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://biologicalsovereigntyprotocol.com/sitemap.xml
+Host: https://biologicalsovereigntyprotocol.com
+
+# LLM-friendly structured content
+# See: https://biologicalsovereigntyprotocol.com/llms.txt

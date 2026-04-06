@@ -1,6 +1,16 @@
 ---
 title: "Quickstart Guide"
 description: "Create your first BEO and submit a BioRecord in under 5 minutes with the BSP SDK."
+head:
+  - - meta
+    - property: og:title
+      content: "BSP Quickstart — Build in 5 Minutes"
+  - - meta
+    - property: og:description
+      content: "Create your first BEO and submit a BioRecord in under 5 minutes with the BSP SDK."
+  - - meta
+    - property: og:type
+      content: article
 ---
 
 <div class="page-hero-image">

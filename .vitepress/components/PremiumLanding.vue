@@ -567,8 +567,8 @@ const pfx = computed(() => {
           <h1 class="p-title">{{ content.heroTitle }}</h1>
           <p class="p-tagline">{{ content.heroTagline }}</p>
           <div class="p-actions">
-            <a :href="`${pfx}/getting-started/intro`" class="btn btn-brand">{{ content.btnPrimary }}</a>
-            <a :href="`${pfx}/whitepaper`" class="btn btn-hero-alt">{{ content.btnSecondary }}</a>
+            <a :href="`${pfx}/getting-started/intro`" class="btn btn-brand" tool-name="get_started" tool-description="Navigate to BSP quickstart guide">{{ content.btnPrimary }}</a>
+            <a :href="`${pfx}/whitepaper`" class="btn btn-hero-alt" tool-name="read_whitepaper" tool-description="Read the BSP protocol whitepaper">{{ content.btnSecondary }}</a>
           </div>
           <div class="p-hero-stats">
             <div class="hero-stat">

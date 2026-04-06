@@ -1,5 +1,15 @@
 ---
 title: Specification Overview
+head:
+  - - meta
+    - property: og:title
+      content: "BSP Specification Overview"
+  - - meta
+    - property: og:description
+      content: "The three-layer architecture of the Biological Sovereignty Protocol. BEO, IEO, and BioRecord schemas explained."
+  - - meta
+    - property: og:type
+      content: article
 ---
 
 <div class="page-hero-image">

@@ -4,6 +4,16 @@ sidebar: false
 outline: deep
 title: "BSP Whitepaper — Protocol Foundations & Vision"
 description: "The founding document of the Biological Sovereignty Protocol. Architecture, design principles, and the vision for permanent health data ownership."
+head:
+  - - meta
+    - property: og:title
+      content: "BSP Whitepaper — Protocol Foundations"
+  - - meta
+    - property: og:description
+      content: "The founding document of the Biological Sovereignty Protocol. Architecture, design principles, and the vision for permanent health data ownership."
+  - - meta
+    - property: og:type
+      content: article
 ---
 
 <div class="page-hero-image">

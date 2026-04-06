@@ -1,6 +1,16 @@
 ---
 title: "SDK Reference — TypeScript & Python"
 description: "Official BSP SDK reference for TypeScript and Python. Installation, authentication, and API methods."
+head:
+  - - meta
+    - property: og:title
+      content: "BSP SDK Reference — TypeScript & Python"
+  - - meta
+    - property: og:description
+      content: "Official BSP SDK reference for TypeScript and Python. Installation, authentication, and API methods."
+  - - meta
+    - property: og:type
+      content: article
 ---
 
 <div class="page-hero-image">
