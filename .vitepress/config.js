@@ -284,6 +284,31 @@ export default defineConfig({
     srcExclude: ['**/README.md', '**/LICENSE'],
     lastUpdated: true,
 
+    transformPageData(pageData) {
+        const canonicalUrl = `https://biologicalsovereigntyprotocol.com/${pageData.relativePath}`
+            .replace(/index\.md$/, '')
+            .replace(/\.md$/, '')
+
+        // Determine current lang and base path
+        let lang = 'en'
+        let basePath = pageData.relativePath
+        if (basePath.startsWith('pt/')) { lang = 'pt'; basePath = basePath.replace(/^pt\//, '') }
+        else if (basePath.startsWith('es/')) { lang = 'es'; basePath = basePath.replace(/^es\//, '') }
+
+        const cleanBase = basePath.replace(/index\.md$/, '').replace(/\.md$/, '')
+        const base = 'https://biologicalsovereigntyprotocol.com'
+
+        const hreflangTags = [
+            ['link', { rel: 'alternate', hreflang: 'en', href: `${base}/${cleanBase}` }],
+            ['link', { rel: 'alternate', hreflang: 'pt', href: `${base}/pt/${cleanBase}` }],
+            ['link', { rel: 'alternate', hreflang: 'es', href: `${base}/es/${cleanBase}` }],
+            ['link', { rel: 'alternate', hreflang: 'x-default', href: `${base}/${cleanBase}` }],
+            ['link', { rel: 'canonical', href: canonicalUrl }],
+        ]
+
+        pageData.frontmatter.head = pageData.frontmatter.head || []
+        pageData.frontmatter.head.push(...hreflangTags)
+    },
 
     sitemap: {
         hostname: 'https://biologicalsovereigntyprotocol.com',

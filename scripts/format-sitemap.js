@@ -14,8 +14,8 @@ while ((match = urlRegex.exec(xml)) !== null) {
   const lastmod = block.match(/<lastmod>(.*?)<\/lastmod>/)?.[1] || ''
   const changefreq = block.match(/<changefreq>(.*?)<\/changefreq>/)?.[1] || 'monthly'
   const priority = block.match(/<priority>(.*?)<\/priority>/)?.[1] || '0.5'
-  const alternates = [...block.matchAll(/<xhtml:link[^>]*href="([^"]*)"[^>]*hreflang="([^"]*)"[^/]*\/>/g)]
-    .map(m => ({ href: m[1], hreflang: m[2] }))
+  const alternates = [...block.matchAll(/<xhtml:link[^>]*?hreflang="([^"]*)"[^>]*?href="([^"]*)"[^>]*?\/?>/g)]
+    .map(m => ({ hreflang: m[1], href: m[2] }))
   urls.push({ loc, lastmod, changefreq, priority, alternates })
 }
 
