@@ -229,6 +229,35 @@ No single guardian can restore access alone. No central server is involved. The 
 
 ---
 
+## Destroy BEO — Sovereign Cryptographic Erasure
+
+LGPD Art. 18 / GDPR Art. 17 — Right to erasure. The BEO holder can permanently destroy their biological identity. **Irreversible.**
+
+1. Public key nullified — cryptographic erasure
+2. All ConsentTokens revoked via AccessControl
+3. Domain released from DomainRegistry
+4. Recovery config wiped
+5. Status set to `DESTROYED`
+
+```typescript
+{ function: 'destroyBEO', beoId, nonce, timestamp }
+// Requires Ed25519 signature with current private key
+```
+
+After destruction, no institution can access any biological data linked to this BEO.
+
+---
+
+## Revoke by Intent
+
+Selectively revoke all ConsentTokens for a specific intent while keeping others active.
+
+```typescript
+{ function: 'revokeByIntent', beoId, intent: 'SUBMIT_RECORD', nonce, timestamp }
+```
+
+---
+
 ## Example BEO (JSON)
 
 ```json
