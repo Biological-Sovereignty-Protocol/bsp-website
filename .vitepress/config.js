@@ -76,6 +76,9 @@ const enSidebar = [
             { text: 'Complete Taxonomy', link: '/developers/taxonomy-list' },
             { text: 'Certification Process', link: '/developers/certification' },
             { text: 'SDK Reference', link: '/developers/sdk-reference' },
+            { text: 'CLI Reference', link: '/developers/cli' },
+            { text: 'API Reference', link: '/developers/api-reference' },
+            { text: 'MCP Server', link: '/developers/mcp' },
             { text: 'Tutorials & Cookbooks', link: '/developers/tutorials' },
             { text: 'JSON Payloads', link: '/developers/payloads' },
             { text: 'Ecosystem Directory', link: '/developers/directory' }
@@ -168,6 +171,9 @@ const ptSidebar = [
             { text: 'Taxonomia Completa', link: '/pt/developers/taxonomy-list' },
             { text: 'Processo de Certificação', link: '/pt/developers/certification' },
             { text: 'Referência SDK', link: '/pt/developers/sdk-reference' },
+            { text: 'Referência CLI', link: '/developers/cli' },
+            { text: 'Referência API', link: '/developers/api-reference' },
+            { text: 'Servidor MCP', link: '/developers/mcp' },
             { text: 'Tutoriais e Guias', link: '/pt/developers/tutorials' },
             { text: 'Cargas JSON', link: '/pt/developers/payloads' },
             { text: 'Diretório do Ecossistema', link: '/pt/developers/directory' }
@@ -260,6 +266,9 @@ const esSidebar = [
             { text: 'Taxonomía Completa', link: '/es/developers/taxonomy-list' },
             { text: 'Proceso de Certificación', link: '/es/developers/certification' },
             { text: 'Referencia SDK', link: '/es/developers/sdk-reference' },
+            { text: 'Referencia CLI', link: '/developers/cli' },
+            { text: 'Referencia API', link: '/developers/api-reference' },
+            { text: 'Servidor MCP', link: '/developers/mcp' },
             { text: 'Tutoriales y Guías', link: '/es/developers/tutorials' },
             { text: 'Cargas JSON', link: '/es/developers/payloads' },
             { text: 'Directorio del Ecosistema', link: '/es/developers/directory' }
@@ -499,9 +508,10 @@ export default defineConfig({
                             { text: 'Quickstart', link: '/getting-started/quickstart' },
                             { text: 'Implementation Guide', link: '/developers/implementation-guide' },
                             { text: 'SDK Reference', link: '/developers/sdk-reference' },
+                            { text: 'CLI Reference', link: '/developers/cli' },
+                            { text: 'API Reference', link: '/developers/api-reference' },
+                            { text: 'MCP Server', link: '/developers/mcp' },
                             { text: 'Tutorials', link: '/developers/tutorials' },
-                            { text: 'Code Examples', link: '/developers/examples' },
-                            { text: 'Payload Reference', link: '/developers/payloads' },
                             { text: 'Certification', link: '/developers/certification' }
                         ]
                     },
