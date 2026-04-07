@@ -88,7 +88,7 @@ Estos repositorios contienen la infraestructura operativa y la inteligencia prop
 
 Los contratos son **inmutables tras el despliegue**. Su especificación es pública en `bsp-spec`.
 
-### `bsp-registry-api` — Portal de Certificación
+### `bsp-registry-api` — API Relayer Gasless
 La capa de flujo humano para la Certificación BSP voluntaria.
 
 | Lo que pasa por aquí | Lo que NUNCA pasa |
@@ -111,7 +111,7 @@ Convierte el análisis de AVA en la Puntuación de Vitalidad Ambrósio multidime
 ```
 1. bsp-spec           ← Fundación: el estándar que todo implementa
 2. bsp-contracts      ← Infraestructura on-chain (inmutable tras el despliegue)
-3. bsp-registry-api   ← Portal de certificación (flujo humano)
+3. bsp-registry-api   ← API relayer gasless (26 rutas)
 4. bsp-sdk-typescript ← Primer SDK (mayor cobertura de integración)
 5. bsp-mcp            ← Conectividad de IA (construido sobre el SDK TypeScript)
 6. bsp-sdk-python     ← SDK de laboratorio (sigue la misma especificación)

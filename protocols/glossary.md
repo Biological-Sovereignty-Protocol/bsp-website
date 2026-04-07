@@ -111,9 +111,10 @@ Mechanism for recovering a BEO private key without a central server. The holder 
 | `bsp-spec` | Public | Protocol specification |
 | `bsp-sdk-typescript` | Public | TypeScript SDK (`@bsp/sdk`) |
 | `bsp-sdk-python` | Public | Python SDK (`bsp-sdk`) |
-| `bsp-mcp` | Public | MCP server for AI agents |
+| `bsp-cli` | Public | CLI (`npx @bsp/cli`) — 22 commands |
+| `bsp-mcp` | Public | MCP server for AI agents (9 tools) |
 | `bsp-docs-repo` | Public | This documentation site |
-| `bsp-contracts` | Private | Smart contracts on Arweave |
-| `bsp-registry-api` | Private | Certification portal API |
+| `bsp-contracts` | Private | Smart contracts — source, tests, build, deploy |
+| `bsp-registry-api` | Private | Gasless relayer API — 26 REST routes |
 | `ava-core` | Private | AVA algorithm |
 | `sva-engine` | Private | SVA scoring engine |

@@ -15,7 +15,7 @@ Esses repositórios definem o padrão aberto. Qualquer pessoa pode clonar, contr
 Esses repositórios contêm a infraestrutura operacional do Instituto e a inteligência proprietária. São privados para proteger a vantagem competitiva central da organização.
 
 *   `bsp-contracts`: Os 5 contratos inteligentes implantados no Arweave (`BEORegistry`, `IEORegistry`, `DomainRegistry`, `AccessControl`, `Governance`). Consultáveis publicamente on-chain, mas o código de implantação é mantido aqui.
-*   `bsp-registry-api`: A API do Instituto para gerenciar o processo humano de Certificação BSP voluntária. *Dados biológicos nunca passam por esta API.*
+*   `bsp-registry-api`: API relayer que paga gas no Arweave e verifica assinaturas Ed25519. 26 rotas REST. *Dados biológicos nunca passam por esta API.*
 *   `ava-core`: O Algoritmo de Vitalidade Ambrósio. Modelos proprietários que analisam o envelhecimento biológico, processando BioRecords apenas quando um usuário inicia ativamente uma sessão.
 *   `sva-engine`: O motor de pontuação que converte a análise da AVA no multidimensional Score de Vitalidade Ambrósio (SVA) apresentado ao usuário.
 
@@ -24,7 +24,7 @@ As dependências ditam a ordem de construção do ecossistema:
 
 1.  `bsp-spec` (Fundação)
 2.  `bsp-contracts` (Contratos Inteligentes no Arweave)
-3.  `bsp-registry-api` (Portal de Certificação)
+3.  `bsp-registry-api` (API Relayer Gasless)
 4.  `bsp-sdk-typescript` (Integrações Web Principais)
 5.  `bsp-mcp` (Conectividade para Agentes de IA)
 6.  `bsp-sdk-python` (Pipelines de Laboratório e Pesquisa)

@@ -33,6 +33,21 @@ head:
 
 ---
 
+## Quick Option: Use the CLI
+
+If you want to interact with BSP without writing code:
+
+```bash
+npx @bsp/cli create yourname.bsp                    # Create identity
+npx @bsp/cli ieo create lab.bsp --type LAB --name "My Lab"  # Register institution
+npx @bsp/cli consent grant <beo> <ieo> --intents SUBMIT_RECORD --days 365
+npx @bsp/cli records read <beo> --token <tok> --json
+```
+
+See all 22 commands: [bsp-cli on GitHub](https://github.com/Biological-Sovereignty-Protocol/bsp-cli)
+
+---
+
 ## Part 1: Installation & Configuration
 
 ### Step 1: Install the bsp-sdk
