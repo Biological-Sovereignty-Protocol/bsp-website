@@ -66,7 +66,7 @@ Every individual and every institution in the BSP ecosystem has a permanent, dec
 
 The BEO is the center of gravity of the entire protocol. Every BioRecord, every consent, every interaction is anchored to a BEO.
 
-BEOs and IEOs are stored on the **Arweave** blockchain — permanent and decentralized. No company, government, or the Ambrósio Institute itself can delete or alter a registered identity.
+BEOs and IEOs are stored on the **Arweave** blockchain — persistent and decentralized. No company, government, or the Ambrósio Institute itself can alter a registered identity. The individual retains the right to render their data permanently inaccessible through cryptographic erasure.
 
 → See [`beo.md`](beo.md) and [`ieo.md`](ieo.md) for complete specifications.
 
@@ -79,7 +79,7 @@ BEOs and IEOs are stored on the **Arweave** blockchain — permanent and decentr
 Every biological measurement — a blood test result, a genomic marker, a wearable reading, a clinical assessment — is represented as a **BioRecord**.
 
 BioRecords are the atomic units of biological data in the BSP ecosystem. They are:
-- **Immutable** — once written, they cannot be altered
+- **Immutable** — once written, they cannot be altered (but can be made permanently inaccessible through cryptographic erasure)
 - **Anchored** — every BioRecord belongs to a specific BEO
 - **Classified** — every BioRecord carries a BSP taxonomy code
 - **Signed** — every BioRecord carries a cryptographic signature from the submitting entity
@@ -112,7 +112,11 @@ BSP records are stored on **Arweave** — a permanent, decentralized storage pro
 Smart contracts managing BEO identities, domain registrations, and access permissions are deployed via SmartWeave on Arweave. This ensures:
 - No single point of failure
 - No company (including Ambrósio Institute) can alter the rules unilaterally
-- Data written to BSP infrastructure exists permanently
+- Data written to BSP infrastructure persists with integrity, while the individual retains the right to cryptographic erasure
+
+### Sovereign Cryptographic Erasure
+
+BSP implements **Sovereign Cryptographic Erasure** as a core principle. All BioRecords are encrypted with the holder's Ed25519 public key. Destroying the private key renders the data permanently inaccessible — a stronger guarantee than traditional deletion. This satisfies GDPR Article 17 and LGPD Article 18 requirements for the right to erasure.
 
 The five smart contracts in the BSP infrastructure:
 

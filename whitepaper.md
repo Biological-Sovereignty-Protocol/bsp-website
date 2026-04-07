@@ -102,11 +102,11 @@ Every biological measurement — a blood test result, a genomic marker, a wearab
 
 Any system can attempt to submit a **BioRecord** to a **BEO**. There is no certification requirement at the protocol level. What governs access is the consent of the **BEO** holder — encoded in the AccessControl smart contract on Arweave. Without explicit authorization from the individual, no **BioRecord** submission is accepted. The individual is the gatekeeper, not an institutional authority.
 
-**BioRecords** are immutable once written. Corrections are submitted as new **BioRecords** that supersede previous records — preserving the complete audit trail. Each **BioRecord** carries: the **BSP** biomarker code, the measured value and unit, the reference range, the submitting entity, a cryptographic signature, and a timestamp.
+**BioRecords** are immutable once written. Corrections are submitted as new **BioRecords** that supersede previous records — preserving the complete audit trail. While the data itself cannot be altered on Arweave, the individual can permanently revoke all access to their records through cryptographic erasure, rendering the data unreadable and functionally erased (see Section 4.4). Each **BioRecord** carries: the **BSP** biomarker code, the measured value and unit, the reference range, the submitting entity, a cryptographic signature, and a timestamp.
 
 ### 2.4 — Decentralized Infrastructure
 
-**BSP** records are stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years through a mathematically sustainable endowment model. Once a **BioRecord** is written, it exists permanently, regardless of what happens to any company in the ecosystem — including the Ambrósio Institute.
+**BSP** records are stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years through a mathematically sustainable endowment model. Once a **BioRecord** is written, it persists on the network regardless of what happens to any company in the ecosystem — including the Ambrósio Institute. The individual can, at any time, render their records permanently inaccessible through cryptographic erasure (Section 4.4).
 
 Smart contracts managing **BEO** identities, .bsp domain registrations, and access permissions are deployed via SmartWeave on Arweave — ensuring that the rules of the protocol cannot be changed by any single actor. All critical parameter changes require multi-signature authorization from Institute keyholders.
 
@@ -165,14 +165,36 @@ The technical architecture of **BSP** is designed to make individual sovereignty
 | **Granular consent** | Every third-party access request requires explicit **BEO**-holder consent via the AccessControl smart contract. Permissions are scoped, revocable, and permanently auditable on-chain. |
 | **Open submission** | Any system can submit **BioRecords** to a **BEO** — subject to the holder's consent. There is no institutional gatekeeper. The individual decides who can write to their biological identity. |
 | **Portability** | Any data in a **BEO** can be exported in **BSP**-standard format at any time. No lock-in, no extraction fees. |
-| **Immutability** | **BioRecords** cannot be altered or deleted once written. The complete biological history is preserved permanently. |
-| **Cryptographic control** | Access is controlled by private keys held by the individual. The Ambrósio Institute cannot access a person's **BEO** without their explicit authorization. |
+| **Immutability with sovereign erasure** | **BioRecords** cannot be altered once written, preserving data integrity. However, the individual retains the power to make any record permanently inaccessible through cryptographic erasure (see Section 4.4). |
+| **Cryptographic control** | Access is controlled by private keys held by the individual. The Ambrósio Institute cannot access a person's **BEO** without their explicit authorization. Destroying the private key renders all associated data permanently unreadable — a guarantee stronger than traditional deletion. |
 
 ### 4.2 — How Consent Works
 
 When any system — a laboratory, a health app, an AI assistant — wants to submit data to or read data from a **BEO**, it requests authorization. The **BEO** holder receives the request in their app and signs an authorization transaction with their private key. This authorization is recorded permanently on the Arweave blockchain via the AccessControl smart contract.
 
 Authorizations are granular: the holder can specify which types of data a system can access, for how long, and for what purpose. Any authorization can be revoked at any time. Revocation is also recorded on-chain — creating a permanent, auditable record of every access decision the individual has ever made about their biological data.
+
+### 4.4 — Sovereign Cryptographic Erasure
+
+BSP implements a concept called **Sovereign Cryptographic Erasure**. While biological records are stored immutably on Arweave to ensure data integrity, the individual retains absolute control through their Ed25519 private key.
+
+**How it works:**
+- All BioRecords are encrypted with the holder's public key
+- Only the holder's private key can decrypt the data
+- If the holder destroys their key, the data becomes **permanently inaccessible and functionally erased**
+- No institution, platform, or the Ambrósio Institute can recover the data without the key
+
+**This provides a stronger guarantee than traditional deletion:**
+- Traditional systems: data is "deleted" but copies may exist in backups, logs, or third-party systems
+- BSP: data exists on Arweave but is **cryptographically impossible to read** without the destroyed key
+
+**Legal equivalence:** Under GDPR Article 17 (Right to Erasure) and LGPD Article 18 (Right to Deletion), rendering data permanently inaccessible and unusable is functionally equivalent to deletion. The data can no longer be associated with or used to identify the individual.
+
+**Key holder rights:**
+1. **Key Destruction** — permanently destroy the private key, making all data irrecoverable
+2. **Key Rotation** — generate a new key pair, re-encrypt data, invalidate the old key
+3. **Consent Revocation** — revoke all access tokens immediately (kill switch)
+4. **Selective Erasure** — revoke specific consent tokens to specific institutions
 
 ### 4.3 — Social Recovery Model
 

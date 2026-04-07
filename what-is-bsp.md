@@ -12,7 +12,7 @@ lang: en
 
 The Biological Sovereignty Protocol (BSP) is an open, permissionless protocol that gives individuals full ownership and control over their biological data — from genomics and clinical records to wearable metrics and microbiome profiles.
 
-Built on Arweave for permanent storage and using Ed25519 cryptography for tamper-proof consent, BSP removes institutions as gatekeepers of your most personal data.
+Built on Arweave for persistent storage and using Ed25519 cryptography for tamper-proof consent, BSP removes institutions as gatekeepers of your most personal data. You retain the right to cryptographically erase your data at any time by destroying your private key — rendering it permanently inaccessible.
 
 ## The problem
 
@@ -41,6 +41,7 @@ A cryptographically-signed authorization that you grant to an IEO for a specific
 With BSP, individuals can:
 - Own and control their complete biological record
 - Grant and revoke access to researchers in seconds
+- Cryptographically erase their data at any time — stronger than traditional deletion
 - Receive compensation when their data is used commercially
 - Port their data between providers without losing history
 
@@ -66,8 +67,11 @@ BSP v1 is deployed on Arweave mainnet. The Registry API and TypeScript SDK are p
 ### Can institutions reject BSP?
 They can choose not to use it — but they cannot prevent individuals from using it. BSP is permissionless.
 
+### Can I delete my data?
+Yes. BSP implements Sovereign Cryptographic Erasure. All your data is encrypted with your key. If you destroy your private key, the data becomes permanently unreadable — functionally erased. This is a stronger guarantee than traditional deletion, where copies often persist in backups and logs.
+
 ### How is BSP different from GDPR/HIPAA compliance?
-Those are legal frameworks. BSP is technical infrastructure. Compliance is enforced by cryptography, not paperwork.
+Those are legal frameworks. BSP is technical infrastructure. Compliance is enforced by cryptography, not paperwork. BSP's cryptographic erasure satisfies GDPR Article 17 and LGPD Article 18 by rendering data permanently inaccessible.
 
 ### Who maintains BSP?
 The Ambrosio Institute publishes the reference implementation. The protocol is governed by BIPs (BSP Improvement Proposals) — open to anyone.
