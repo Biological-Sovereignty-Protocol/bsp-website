@@ -73,6 +73,81 @@ const available = await resolver.isAvailable('newname.bsp')
 
 ---
 
+## Domain Transfer
+
+Institutional domains (type `institution.bsp`) can be transferred to a new owner entity. Individual domains are permanent and non-transferable — this section applies only to institutional domains.
+
+### Transfer Flow
+
+```text
+Current owner initiates transfer
+       │
+       ▼
+  TransferRequest created (status: PENDING)
+       │
+       ▼
+  New owner accepts transfer (signs with their key)
+       │
+       ▼
+  DomainRegistry updates ownership on-chain
+       │
+       ▼
+  Transfer complete — old owner loses all domain privileges
+```
+
+### Transfer Schema
+
+```typescript
+DomainTransferRequest {
+  domain:         string       // The .bsp domain being transferred (e.g. "fleury.bsp")
+  current_owner:  string       // Current owner's IEO ID
+  new_owner:      string       // New owner's IEO ID
+  reason:         string       // Human-readable justification
+  initiated_at:   ISO8601
+  expires_at:     ISO8601      // Transfer request expires after 30 days
+  signature:      string       // Current owner's Ed25519 signature
+  arweave_tx:     string       // On-chain record
+}
+
+DomainTransferAcceptance {
+  domain:         string
+  new_owner:      string       // New owner's IEO ID
+  accepted_at:    ISO8601
+  signature:      string       // New owner's Ed25519 signature
+  arweave_tx:     string       // On-chain record of completed transfer
+}
+```
+
+### Transfer Rules
+
+- Only institutional domains are transferable (individual, professional, research, and sub-institutional domains are non-transferable)
+- The current owner must initiate the transfer — the new owner can only accept, not request
+- Transfer requests expire after 30 days if not accepted
+- Both the initiation and the acceptance are recorded permanently on Arweave
+- Active consent tokens granted to the old owner's IEO are automatically revoked upon transfer completion
+- The Governance contract can block transfers for suspended IEOs
+
+### SDK Usage
+
+```typescript
+import { DomainManager } from '@bsp/sdk'
+
+const manager = new DomainManager({ ownerKey: currentOwnerPrivateKey })
+
+// Initiate transfer
+const transfer = await manager.initiateTransfer({
+  domain: 'oldlab.bsp',
+  newOwner: 'new-lab-ieo-id',
+  reason: 'Company acquisition — laboratory assets transferred'
+})
+
+// New owner accepts
+const newManager = new DomainManager({ ownerKey: newOwnerPrivateKey })
+await newManager.acceptTransfer(transfer.domain)
+```
+
+---
+
 ## Social Recovery Protocol
 
 If a BEO holder loses their private key, the guardian network enables recovery.

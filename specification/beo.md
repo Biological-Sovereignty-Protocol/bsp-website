@@ -136,6 +136,45 @@ BioRecords cannot be altered once written. Corrections are submitted as new BioR
 
 ---
 
+## Lock / Unlock BEO
+
+The BEO holder can temporarily **lock** their BEO, freezing all data exchange operations. While locked, the AccessControl smart contract rejects every transaction — reads, writes, and new consent requests all return error `BSP-E-014`.
+
+Locking does not revoke existing consent tokens. It suspends their effect until the BEO is unlocked. This is useful during key compromise investigations, extended travel, or any situation where the holder wants to pause all access without permanently revoking consents.
+
+### Lock
+
+```typescript
+import { BEOClient } from '@bsp/sdk'
+
+const client = new BEOClient({ ownerKey: myPrivateKey })
+
+await client.lock({
+  beo_id: '550e8400-...',
+  reason: 'Key compromise investigation'  // Optional, stored on-chain
+})
+// BEO is now frozen — all exchange operations rejected
+```
+
+### Unlock
+
+```typescript
+await client.unlock({
+  beo_id: '550e8400-...'
+})
+// BEO is active again — existing consent tokens resume effect
+```
+
+### Properties
+
+- Only the BEO holder (private key owner) can lock or unlock
+- Lock/unlock events are recorded permanently on Arweave
+- The `locked_at` field on the BEO object reflects the current lock timestamp (or `null` if unlocked)
+- Guardians cannot lock or unlock a BEO — only the holder
+- A locked BEO can still be recovered through the Social Recovery Protocol
+
+---
+
 ## Access Control
 
 All third-party access to a BEO is governed by the **AccessControl** smart contract on Arweave.

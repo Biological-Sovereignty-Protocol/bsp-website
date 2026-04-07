@@ -177,6 +177,69 @@ After revocation, any further use of the token is rejected by the AccessControl 
 
 ---
 
+### ADD_INTENT
+
+Add a new authorized operation to an existing consent token without revoking and re-issuing it.
+
+```typescript
+// Request (signed by holder)
+AddIntentRequest {
+  token_id:   string        // The consent token to modify
+  beo_id:     string
+  intent:     BSPIntent     // The intent to add (e.g. "READ_RECORDS")
+  signature:  string        // Holder's signature
+}
+
+// Response
+AddIntentResponse {
+  success:    boolean
+  token_id:   string
+  intents:    BSPIntent[]   // Updated list of intents on the token
+  arweave_tx: string        // On-chain record of the modification
+  timestamp:  ISO8601
+}
+```
+
+**Validation rules:**
+
+1. Token must exist, not be expired or revoked
+2. Caller must be the BEO holder (signature verification)
+3. Intent must be a valid BSPIntent type
+4. Intent must not already exist on the token (idempotent — returns success if duplicate)
+
+---
+
+### REMOVE_INTENT
+
+Remove an authorized operation from an existing consent token. If the last intent is removed, the token becomes effectively inactive (no operations authorized) but is not revoked.
+
+```typescript
+// Request (signed by holder)
+RemoveIntentRequest {
+  token_id:   string        // The consent token to modify
+  beo_id:     string
+  intent:     BSPIntent     // The intent to remove
+  signature:  string        // Holder's signature
+}
+
+// Response
+RemoveIntentResponse {
+  success:    boolean
+  token_id:   string
+  intents:    BSPIntent[]   // Updated list of intents on the token
+  arweave_tx: string        // On-chain record of the modification
+  timestamp:  ISO8601
+}
+```
+
+**Validation rules:**
+
+1. Token must exist, not be expired or revoked
+2. Caller must be the BEO holder (signature verification)
+3. Intent must currently exist on the token (returns error `BSP-E-013` if not found)
+
+---
+
 ## Error Codes
 
 | Code | Description |
@@ -193,6 +256,8 @@ After revocation, any further use of the token is rejected by the AccessControl 
 | `BSP-E-010` | Value outside plausible physiological range |
 | `BSP-E-011` | Arweave write failure — retry |
 | `BSP-E-012` | Signature verification failure |
+| `BSP-E-013` | Intent not found on token (for removeIntent) |
+| `BSP-E-014` | BEO is locked — all exchange operations suspended |
 
 ---
 

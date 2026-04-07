@@ -68,6 +68,11 @@ The BEO is the center of gravity of the entire protocol. Every BioRecord, every 
 
 BEOs and IEOs are stored on the **Arweave** blockchain — persistent and decentralized. No company, government, or the Ambrósio Institute itself can alter a registered identity. The individual retains the right to render their data permanently inaccessible through cryptographic erasure.
 
+Key identity operations include:
+
+- **Lock/Unlock** — Temporarily freeze a BEO to prevent any data exchange (useful during key compromise investigations or travel)
+- **Domain Transfer** — Transfer an institutional `.bsp` domain to a new owner entity, recorded on-chain with full audit trail
+
 → See [`beo.md`](beo.md) and [`ieo.md`](ieo.md) for complete specifications.
 
 ---
@@ -94,10 +99,12 @@ BioRecords are the atomic units of biological data in the BSP ecosystem. They ar
 **What it defines:** How data moves.
 
 The BSP Exchange Protocol defines the format of requests and responses between systems:
+
 - How any system submits data to a BEO
 - How a platform requests read access
 - How an AI engine queries a biological history
 - How consent tokens are structured and verified
+- How BEO holders manage their **intents** — adding or removing authorized operation types (`addIntent`/`removeIntent`) on active consent tokens without revoking and re-issuing them
 
 All exchange operations are subject to the **AccessControl** smart contract — the BEO holder's consent is required for every data transaction.
 
@@ -126,7 +133,7 @@ The five smart contracts in the BSP infrastructure:
 | **IEORegistry** | Manages institutional identities and certification status |
 | **DomainRegistry** | Controls the `.bsp` namespace — guarantees uniqueness |
 | **AccessControl** | Manages consent tokens — the true gatekeeper of the protocol |
-| **Governance** | Multi-signature authorization for critical protocol changes |
+| **Governance** | Multi-signature (2-of-3) authorization for critical protocol changes via `proposeAction`/`approveAction` |
 
 → See [`bsp-domain.md`](bsp-domain.md) for the `.bsp` domain system.
 → See [`governance.md`](governance.md) for the governance model.
