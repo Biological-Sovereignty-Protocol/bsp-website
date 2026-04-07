@@ -613,9 +613,10 @@ export default defineConfig({
                             { text: 'Início Rápido', link: '/pt/getting-started/quickstart' },
                             { text: 'Guia de Implementação', link: '/pt/developers/implementation-guide' },
                             { text: 'Referência SDK', link: '/pt/developers/sdk-reference' },
+                            { text: 'Referência CLI', link: '/developers/cli' },
+                            { text: 'Referência API', link: '/developers/api-reference' },
+                            { text: 'Servidor MCP', link: '/developers/mcp' },
                             { text: 'Tutoriais', link: '/pt/developers/tutorials' },
-                            { text: 'Exemplos de Código', link: '/pt/developers/examples' },
-                            { text: 'Referência de Payloads', link: '/pt/developers/payloads' },
                             { text: 'Certificação', link: '/pt/developers/certification' }
                         ]
                     },
@@ -717,9 +718,10 @@ export default defineConfig({
                             { text: 'Inicio Rápido', link: '/es/getting-started/quickstart' },
                             { text: 'Guía de Implementación', link: '/es/developers/implementation-guide' },
                             { text: 'Referencia SDK', link: '/es/developers/sdk-reference' },
+                            { text: 'Referencia CLI', link: '/developers/cli' },
+                            { text: 'Referencia API', link: '/developers/api-reference' },
+                            { text: 'Servidor MCP', link: '/developers/mcp' },
                             { text: 'Tutoriales', link: '/es/developers/tutorials' },
-                            { text: 'Ejemplos de Código', link: '/es/developers/examples' },
-                            { text: 'Referencia de Payloads', link: '/es/developers/payloads' },
                             { text: 'Certificación', link: '/es/developers/certification' }
                         ]
                     },
