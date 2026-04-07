@@ -192,4 +192,26 @@ Each IEO type is authorized for specific exchange intents:
 
 ---
 
+## Sovereignty Operations
+
+IEOs support the same data sovereignty operations available to BEO holders, adapted for institutional context:
+
+### Lock / Unlock
+
+An IEO can be **temporarily locked**, freezing all operations. While locked, no data can be submitted or read through this institution. The lock is reversible by the institution's key holder.
+
+### Key Rotation
+
+Institutions can **rotate their Ed25519 key pair** at any time. Upon rotation, the previous public key is invalidated and a new `key_version` is incremented. All active consent tokens referencing the old key are re-validated against the new key.
+
+### Cryptographic Erasure
+
+An IEO can be **permanently destroyed** through cryptographic erasure. This revokes all active consent tokens, invalidates the institutional key, and renders all submitted data irrecoverable. This operation is irreversible.
+
+### Social Recovery
+
+Institutions can configure **2-of-3 guardian recovery** using Shamir Secret Sharing, similar to BEO social recovery. If the institution loses access to its key, 2 of 3 designated guardians can authorize key replacement.
+
+---
+
 *Ambrósio Institute · ambrosioinstitute.org · biologicalsovereigntyprotocol.com*
