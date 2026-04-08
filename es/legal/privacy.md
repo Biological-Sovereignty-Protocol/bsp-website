@@ -46,7 +46,7 @@ Antes de enviar cualquier dato a través de una aplicación compatible con BSP, 
 
 Este sitio puede utilizar los siguientes servicios de terceros:
 
-- **Vercel** — alojamiento y analítica
+- **Coolify (self-hosted)** — alojamiento
 - **GitHub** — código fuente y seguimiento de problemas
 
 Cada servicio tiene su propia política de privacidad.
