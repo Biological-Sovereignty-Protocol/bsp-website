@@ -32,10 +32,12 @@ BSP gives individuals permanent, cryptographic ownership of their biological dat
 - SDK Reference: https://biologicalsovereigntyprotocol.com/developers/sdk-reference
 - Whitepaper: https://biologicalsovereigntyprotocol.com/whitepaper
 
-## SDKs
+## SDKs & Tools
 
-- TypeScript: npm install bsp-sdk
-- Python: pip install bsp-sdk
+- TypeScript SDK: npm install bsp-sdk
+- Python SDK: pip install bsp-sdk
+- CLI: npx bspctl (22 commands — create BEO, consent, IEO, export, destroy)
+- MCP Server: npx bsp-mcp (9 tools — connect AI agents to BSP with consent enforcement)
 
 ## Links
 
