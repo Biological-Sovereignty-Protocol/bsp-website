@@ -22,6 +22,7 @@ La Registry API es un relayer gasless. Verifica firmas Ed25519 y retransmite tra
 | `POST /api/relayer/beo/rotate-key` | Rotar clave Ed25519 | Ed25519 |
 | `POST /api/relayer/beo/recovery` | Actualizar config de recovery | Ed25519 |
 | `POST /api/relayer/beo/request-recovery` | Iniciar Social Recovery | Público |
+| `POST /api/relayer/beo/revoke-all` | Revocar todos los consent tokens de un BEO | Ed25519 |
 | `POST /api/relayer/consent` | Emitir ConsentToken | Ed25519 |
 
 ## Operaciones IEO
@@ -35,6 +36,18 @@ La Registry API es un relayer gasless. Verifica firmas Ed25519 y retransmite tra
 | `POST /api/ieo/rotate-key` | Rotar clave | Ed25519 |
 | `POST /api/ieo/contacts` | Actualizar endpoint/webhook | Ed25519 |
 | `POST /api/ieo/recovery` | Actualizar config de recovery | Ed25519 |
+| `POST /api/ieo/approve` | Aprobar propuesta de gobernanza (multisig 2-de-3) | X-Institute-Key |
+| `POST /api/ieo/certification` | Actualizar nivel de certificacion del IEO | X-Institute-Key |
+
+## Operaciones Guardian
+
+| Ruta | Descripcion | Auth |
+|------|-------------|------|
+| `POST /api/guardian/invite` | Titular del BEO invita a un guardian | Ed25519 |
+| `GET /api/guardian/accept/:token` | Renderiza pagina de aceptacion del guardian | Publico |
+| `POST /api/guardian/accept/:token` | Guardian acepta y registra clave publica Ed25519 | Publico |
+| `GET /api/guardian/confirm-recovery/:token` | Renderiza pagina de confirmacion de recovery | Publico |
+| `POST /api/guardian/confirm-recovery/:token` | Guardian confirma recovery (umbral 2-de-3 activa rotacion de clave) | Publico |
 
 ## Consultas (Lectura)
 
@@ -65,6 +78,18 @@ La Registry API es un relayer gasless. Verifica firmas Ed25519 y retransmite tra
 | `POST /api/exchange/records` | Enviar BioRecords | ConsentToken + Ed25519 |
 | `GET /api/exchange/records` | Leer BioRecords | ConsentToken + Ed25519 |
 | `POST /api/exchange/export` | Export soberano (JSON/CSV/FHIR_R4) | ConsentToken + Ed25519 |
+
+## Rate Limits
+
+| Grupo | Limite |
+|-------|--------|
+| Relayer BEO/IEO | 10 req/min |
+| Lecturas | 60 req/min por IP |
+| Escritura de consent | 15 req/min por IP |
+| Exchange submit | 10 req/min por IP |
+| Exchange read | 30 req/min por IP |
+| Export soberano | 5 req/min por IP |
+| Guardian invite | 5 req/min |
 
 ---
 

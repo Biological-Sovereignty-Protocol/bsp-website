@@ -24,6 +24,7 @@ Todas as operações de escrita exigem payload assinado com `nonce` (16+ chars) 
 | `POST /api/relayer/beo/rotate-key` | Rotacionar chave Ed25519 | Ed25519 |
 | `POST /api/relayer/beo/recovery` | Atualizar config de recovery | Ed25519 |
 | `POST /api/relayer/beo/request-recovery` | Iniciar Social Recovery | Público |
+| `POST /api/relayer/beo/revoke-all` | Revogar todos os consent tokens de um BEO | Ed25519 |
 | `POST /api/relayer/consent` | Emitir ConsentToken | Ed25519 |
 
 ---
@@ -39,6 +40,20 @@ Todas as operações de escrita exigem payload assinado com `nonce` (16+ chars) 
 | `POST /api/ieo/rotate-key` | Rotacionar chave | Ed25519 |
 | `POST /api/ieo/contacts` | Atualizar endpoint/webhook | Ed25519 |
 | `POST /api/ieo/recovery` | Atualizar config de recovery | Ed25519 |
+| `POST /api/ieo/approve` | Aprovar proposta de governanca (multisig 2-de-3) | X-Institute-Key |
+| `POST /api/ieo/certification` | Atualizar nivel de certificacao do IEO | X-Institute-Key |
+
+---
+
+## Operacoes Guardian
+
+| Rota | Descricao | Auth |
+|------|-----------|------|
+| `POST /api/guardian/invite` | Titular do BEO convida um guardiao | Ed25519 |
+| `GET /api/guardian/accept/:token` | Renderiza pagina de aceitacao do guardiao | Publico |
+| `POST /api/guardian/accept/:token` | Guardiao aceita e registra chave publica Ed25519 | Publico |
+| `GET /api/guardian/confirm-recovery/:token` | Renderiza pagina de confirmacao de recovery | Publico |
+| `POST /api/guardian/confirm-recovery/:token` | Guardiao confirma recovery (threshold 2-de-3 dispara rotacao de chave) | Publico |
 
 ---
 
@@ -90,6 +105,7 @@ Sem autenticação — lê estado público do Arweave.
 | Exchange submit | 10 req/min por IP |
 | Exchange read | 30 req/min por IP |
 | Export soberano | 5 req/min por IP |
+| Guardian invite | 5 req/min |
 
 ---
 

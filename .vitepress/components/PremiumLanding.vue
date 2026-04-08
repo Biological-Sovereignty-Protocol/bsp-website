@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 
 // Copy button for CLI block
 function copyCliCommand() {
-  const cmd = 'npm install @bsp/sdk'
+  const cmd = 'npm install bsp-sdk'
   if (navigator.clipboard) {
     navigator.clipboard.writeText(cmd)
   }
@@ -157,7 +157,7 @@ const content = computed(() => {
       openBannerSub: "Construído no Arweave. Alimentado pelo AO. Aberto para sempre.",
       openBannerBtn1: "Ver no GitHub",
       openBannerBtn2: "Ler a Especificação",
-      openBannerBtn3: "npm install @bsp/sdk",
+      openBannerBtn3: "npm install bsp-sdk",
 
       qc1Title: "Ler o Whitepaper",
       qc1Sub: "Fundamentos e visão do protocolo",
@@ -306,7 +306,7 @@ const content = computed(() => {
       openBannerSub: "Construido en Arweave. Impulsado por AO. Abierto para siempre.",
       openBannerBtn1: "Ver en GitHub",
       openBannerBtn2: "Leer la Especificación",
-      openBannerBtn3: "npm install @bsp/sdk",
+      openBannerBtn3: "npm install bsp-sdk",
 
       qc1Title: "Leer el Whitepaper",
       qc1Sub: "Fundamentos y visión del protocolo",
@@ -457,7 +457,7 @@ const content = computed(() => {
     openBannerSub: "Built on Arweave. Powered by AO. Open forever.",
     openBannerBtn1: "View on GitHub",
     openBannerBtn2: "Read the Spec",
-    openBannerBtn3: "npm install @bsp/sdk",
+    openBannerBtn3: "npm install bsp-sdk",
 
     qc1Title: "Read the Whitepaper",
     qc1Sub: "Protocol foundations and vision",
@@ -948,7 +948,7 @@ const pfx = computed(() => {
         </div>
         <div class="cli-terminal-body">
           <button class="cli-copy-btn" @click="copyCliCommand" aria-label="Copy command">Copy</button>
-          <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">npm install @bsp/sdk</span></div>
+          <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">npm install bsp-sdk</span></div>
           <div class="cli-line cli-comment"># initialize your biological identity</div>
           <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">bsp init --wallet ./wallet.json</span></div>
           <div class="cli-line cli-comment"># certify a health record with consent</div>
