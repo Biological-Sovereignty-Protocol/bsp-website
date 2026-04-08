@@ -127,3 +127,81 @@ if (!check.valid) {
   throw new Error(`Consent invalid: ${check.reason}`); // e.g., "TOKEN_EXPIRED"
 }
 ```
+
+---
+
+## BEO Management
+
+### `BEOClient`
+
+Manage Biological Entity Objects — create, lock, unlock, rotate key, destroy.
+
+```typescript
+const beoClient = new BEOClient(config)
+
+// Create
+const { beo, private_key, seed_phrase } = await beoClient.create({ domain: 'andre.bsp' })
+
+// Lock / Unlock
+await beoClient.lock(beoId)
+await beoClient.unlock(beoId)
+
+// Rotate key
+await beoClient.rotateKey(beoId, newSeedHex)
+
+// Destroy (LGPD/GDPR right to erasure — irreversible)
+await beoClient.destroy(beoId)
+
+// Request Social Recovery
+await beoClient.requestRecovery(beoId, newPublicKey)
+```
+
+---
+
+## IEO Management
+
+### `IEOClient`
+
+Manage Institutional Entity Objects after creation — lock, unlock, rotate key, update contacts, destroy.
+
+```typescript
+const ieoClient = new IEOClient(config)
+
+// Read
+const ieo = await ieoClient.get(ieoId)
+const ieo = await ieoClient.resolve('fleury.bsp')
+const { ieos } = await ieoClient.list({ type: 'LAB', status: 'ACTIVE' })
+
+// Lock / Unlock
+await ieoClient.lock(ieoId)
+await ieoClient.unlock(ieoId)
+
+// Rotate key
+await ieoClient.rotateKey(ieoId, newSeedHex)
+
+// Update contacts
+await ieoClient.updateContacts(ieoId, { apiEndpoint: 'https://...', webhookUrl: '...' })
+
+// Destroy (irreversible)
+await ieoClient.destroy(ieoId)
+
+// Verify certification
+const { certified, level } = await ieoClient.verifyCertification(ieoId)
+```
+
+### `IEOBuilder`
+
+Register new institutions on the protocol.
+
+```typescript
+const builder = new IEOBuilder({
+  domain: 'fleury.bsp',
+  name: 'Fleury Laboratórios',
+  ieo_type: 'LAB',
+  jurisdiction: 'BR',
+  legal_id: '60.840.055/0001-31',
+  contact: 'bsp@fleury.com.br',
+}, config)
+
+const { ieo, private_key, seed_phrase } = await builder.register()
+```
