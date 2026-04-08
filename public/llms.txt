@@ -34,7 +34,7 @@ BSP gives individuals permanent, cryptographic ownership of their biological dat
 
 ## SDKs
 
-- TypeScript: npm install @bsp/sdk
+- TypeScript: npm install bsp-sdk
 - Python: pip install bsp-sdk
 
 ## Links
