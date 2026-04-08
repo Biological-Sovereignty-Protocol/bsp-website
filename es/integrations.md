@@ -29,11 +29,11 @@ pip install bsp-sdk
 BSP proporciona una REST API para sistemas que no pueden usar un SDK directamente.
 
 ```
-POST /v1/beo/create
-GET  /v1/beo/{id}/biorecords
-POST /v1/biorecord/upload
-POST /v1/consent/grant
-DELETE /v1/consent/{token_id}
+POST /api/relayer/beo
+GET  /api/exchange/records
+POST /api/exchange/records
+POST /api/relayer/consent
+DELETE /api/consent/:tokenId
 ```
 
 ---

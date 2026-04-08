@@ -115,6 +115,6 @@ Mechanism for recovering a BEO private key without a central server. The holder 
 | `bsp-mcp` | Public | MCP server for AI agents (9 tools) |
 | `bsp-docs-repo` | Public | This documentation site |
 | `bsp-contracts` | Private | Smart contracts — source, tests, build, deploy |
-| `bsp-registry-api` | Private | Gasless relayer API — 26 REST routes |
+| `bsp-registry-api` | Private | Gasless relayer API — 36 REST routes |
 | `ava-core` | Private | AVA algorithm |
 | `sva-engine` | Private | SVA scoring engine |

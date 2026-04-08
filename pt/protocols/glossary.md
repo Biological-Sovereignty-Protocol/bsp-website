@@ -109,6 +109,6 @@ Mecanismo para recuperar uma chave privada de BEO sem um servidor central. O tit
 | `bsp-mcp` | Público | Servidor MCP para agentes de IA |
 | `bsp-docs-repo` | Público | Este site de documentação |
 | `bsp-contracts` | Privado | Contratos inteligentes no Arweave |
-| `bsp-registry-api` | Privado | API relayer gasless — 26 rotas REST |
+| `bsp-registry-api` | Privado | API relayer gasless — 36 rotas REST |
 | `ava-core` | Privado | Algoritmo AVA |
 | `sva-engine` | Privado | Motor de pontuação SVA |
