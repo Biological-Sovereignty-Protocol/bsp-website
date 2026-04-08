@@ -200,7 +200,7 @@ Después de la revocación, cualquier uso posterior del token es rechazado por e
 
 ```typescript
 // TypeScript — Enviar un BioRecord
-import { ExchangeClient, ConsentManager } from '@bsp/sdk'
+import { ExchangeClient, ConsentManager } from 'bsp-sdk'
 
 // Verificar si tenemos un token de consentimiento válido
 const consentManager = new ConsentManager({ ieoId: 'my-lab.bsp' })

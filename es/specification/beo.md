@@ -70,7 +70,7 @@ La creación de un BEO está **abierta a cualquiera**. No se requiere permiso de
 
 ```typescript
 // Usando bsp-sdk-typescript
-import { BEOClient } from '@bsp/sdk'
+import { BEOClient } from 'bsp-sdk'
 
 const client = new BEOClient()
 

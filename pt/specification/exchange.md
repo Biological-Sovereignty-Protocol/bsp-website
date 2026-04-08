@@ -200,7 +200,7 @@ Após a revogação, qualquer uso adicional do token é rejeitado pelo contrato 
 
 ```typescript
 // TypeScript — Submit a BioRecord
-import { ExchangeClient, ConsentManager } from '@bsp/sdk'
+import { ExchangeClient, ConsentManager } from 'bsp-sdk'
 
 // Check if we have a valid consent token
 const consentManager = new ConsentManager({ ieoId: 'my-lab.bsp' })

@@ -16,7 +16,7 @@ Adicione ao `claude_desktop_config.json` do Claude Desktop:
   "mcpServers": {
     "bsp": {
       "command": "npx",
-      "args": ["-y", "@bsp/mcp"],
+      "args": ["-y", "bsp-mcp"],
       "env": {
         "BSP_BEO_DOMAIN": "seunome.bsp",
         "BSP_CONSENT_TOKEN_ID": "tok_...",

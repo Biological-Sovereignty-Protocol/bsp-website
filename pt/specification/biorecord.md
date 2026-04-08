@@ -132,7 +132,7 @@ Qualquer sistema pode enviar um BioRecord para um BEO — sujeito ao consentimen
 
 ```typescript
 // SDK TypeScript
-import { BioRecordBuilder, ExchangeClient } from '@bsp/sdk'
+import { BioRecordBuilder, ExchangeClient } from 'bsp-sdk'
 
 const record = new BioRecordBuilder()
   .beoId('550e8400-e29b-41d4-a716-446655440000')

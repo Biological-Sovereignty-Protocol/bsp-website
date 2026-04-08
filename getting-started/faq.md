@@ -67,7 +67,7 @@ While the protocol is open to any laboratory, **BSP Certification (BSP-1 through
 ## 5. Development & Contributions
 
 ### I'm a developer. Where do I start?
-Head over to the [Developer Quickstart](/getting-started/quickstart) to install the TypeScript or Python SDK (`@bsp/sdk` or `bsp-sdk`). You can start submitting standardized BioRecords to your own BEO in minutes.
+Head over to the [Developer Quickstart](/getting-started/quickstart) to install the TypeScript or Python SDK (`bsp-sdk` or `bsp-sdk`). You can start submitting standardized BioRecords to your own BEO in minutes.
 
 ### How are new biomarkers added to the protocol?
 The BSP biomarker taxonomy is improved through the **BIP (BSP Improvement Proposal)** process. Any researcher or physician in the world can propose the inclusion of a new biological marker by submitting a formal BIP on our public GitHub repository. proposals are reviewed quarterly by the Ambrósio Institute's Scientific Council.

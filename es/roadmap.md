@@ -33,7 +33,7 @@ El camino hacia la soberanía biológica universal.
 ### Fase 2 — SDK y Herramientas para Desarrolladores
 **2025 Q2–Q3**
 
-- SDK TypeScript (`@bsp/sdk`) publicado en npm
+- SDK TypeScript (`bsp-sdk`) publicado en npm
 - SDK Python (`bsp-sdk`) publicado en PyPI
 - Herramientas CLI para gestión de BEO
 - Sitio de documentación BSP lanzado

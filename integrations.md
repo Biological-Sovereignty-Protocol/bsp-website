@@ -13,7 +13,7 @@ Connect your application to BSP. Whether you're building a health app, integrati
 ### TypeScript / JavaScript
 
 ```bash
-npm install @bsp/sdk
+npm install bsp-sdk
 ```
 
 Full reference: [SDK Reference](/developers/sdk-reference)
@@ -45,7 +45,7 @@ DELETE /v1/consent/{token_id}
 Export patient data from your EHR system to a BSP BioRecord. The patient receives cryptographic ownership.
 
 ```typescript
-import { BSPClient } from '@bsp/sdk'
+import { BSPClient } from 'bsp-sdk'
 
 const client = new BSPClient({ network: 'mainnet' })
 

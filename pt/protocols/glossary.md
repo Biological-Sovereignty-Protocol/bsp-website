@@ -104,7 +104,7 @@ Mecanismo para recuperar uma chave privada de BEO sem um servidor central. O tit
 | Repositório | Acesso | Finalidade |
 |------------|--------|---------|
 | `bsp-spec` | Público | Especificação do protocolo |
-| `bsp-sdk-typescript` | Público | SDK TypeScript (`@bsp/sdk`) |
+| `bsp-sdk-typescript` | Público | SDK TypeScript (`bsp-sdk`) |
 | `bsp-sdk-python` | Público | SDK Python (`bsp-sdk`) |
 | `bsp-mcp` | Público | Servidor MCP para agentes de IA |
 | `bsp-docs-repo` | Público | Este site de documentação |

@@ -19,7 +19,7 @@ head:
 
 # SDK Reference
 
-BSP provides official SDKs to streamline integration. Both `@bsp/sdk` (TypeScript) and `bsp-sdk` (Python) share the exact same architectural principles and class names.
+BSP provides official SDKs to streamline integration. Both `bsp-sdk` (TypeScript) and `bsp-sdk` (Python) share the exact same architectural principles and class names.
 
 > [!TIP]
 > The examples below use TypeScript syntax, but the Python equivalent is structurally identical, following synchronous or `async/await` patterns native to Python.
@@ -30,7 +30,7 @@ BSP provides official SDKs to streamline integration. Both `@bsp/sdk` (TypeScrip
 The primary entry point for the SDK. It handles connecting to Arweave, signing transactions, and managing identity.
 
 ```typescript
-import { BSPClient } from '@bsp/sdk';
+import { BSPClient } from 'bsp-sdk';
 
 // Initialize a client for an Institution (IEO)
 const client = new BSPClient({
@@ -46,7 +46,7 @@ const client = new BSPClient({
 Used to construct immutable, schema-valid data objects before submission.
 
 ```typescript
-import { BioRecordBuilder } from '@bsp/sdk';
+import { BioRecordBuilder } from 'bsp-sdk';
 
 const builder = new BioRecordBuilder(client);
 

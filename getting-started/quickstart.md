@@ -38,10 +38,10 @@ head:
 If you want to interact with BSP without writing code:
 
 ```bash
-npx @bsp/cli create yourname.bsp                    # Create identity
-npx @bsp/cli ieo create lab.bsp --type LAB --name "My Lab"  # Register institution
-npx @bsp/cli consent grant <beo> <ieo> --intents SUBMIT_RECORD --days 365
-npx @bsp/cli records read <beo> --token <tok> --json
+npx bspctl create yourname.bsp                    # Create identity
+npx bspctl ieo create lab.bsp --type LAB --name "My Lab"  # Register institution
+npx bspctl consent grant <beo> <ieo> --intents SUBMIT_RECORD --days 365
+npx bspctl records read <beo> --token <tok> --json
 ```
 
 See all 22 commands: [bsp-cli on GitHub](https://github.com/Biological-Sovereignty-Protocol/bsp-cli)
@@ -60,7 +60,7 @@ pip install bsp-sdk
 
 **TypeScript / Node.js**
 ```bash
-npm install @bsp/sdk
+npm install bsp-sdk
 ```
 
 ### Step 2: Configure Environment Variables

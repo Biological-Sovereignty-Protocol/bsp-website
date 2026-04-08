@@ -30,7 +30,7 @@ pip install bsp-sdk
 
 **TypeScript / Node.js**
 ```bash
-npm install @bsp/sdk
+npm install bsp-sdk
 ```
 
 ### Paso 2: Configurar Variables de Entorno

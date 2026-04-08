@@ -13,7 +13,7 @@ Conecte sua aplicação ao BSP. Seja para construir um app de saúde, integrar u
 ### TypeScript / JavaScript
 
 ```bash
-npm install @bsp/sdk
+npm install bsp-sdk
 ```
 
 Referência completa: [Referência do SDK](/pt/developers/sdk-reference)
@@ -45,7 +45,7 @@ DELETE /v1/consent/{token_id}
 Exporte dados do paciente do seu sistema de prontuário eletrônico para um BioRecord BSP. O paciente recebe propriedade criptográfica dos dados.
 
 ```typescript
-import { BSPClient } from '@bsp/sdk'
+import { BSPClient } from 'bsp-sdk'
 
 const client = new BSPClient({ network: 'mainnet' })
 

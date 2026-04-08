@@ -8,9 +8,9 @@ description: "Referencia completa de la interfaz de línea de comandos del BSP �
 Instale globalmente o ejecute via npx:
 
 ```bash
-npm install -g @bsp/cli
+npm install -g bspctl
 # o
-npx @bsp/cli --help
+npx bspctl --help
 ```
 
 ## Configuración

@@ -109,9 +109,9 @@ Mechanism for recovering a BEO private key without a central server. The holder 
 | Repository | Access | Purpose |
 |------------|--------|---------|
 | `bsp-spec` | Public | Protocol specification |
-| `bsp-sdk-typescript` | Public | TypeScript SDK (`@bsp/sdk`) |
+| `bsp-sdk-typescript` | Public | TypeScript SDK (`bsp-sdk`) |
 | `bsp-sdk-python` | Public | Python SDK (`bsp-sdk`) |
-| `bsp-cli` | Public | CLI (`npx @bsp/cli`) — 22 commands |
+| `bsp-cli` | Public | CLI (`npx bspctl`) — 22 commands |
 | `bsp-mcp` | Public | MCP server for AI agents (9 tools) |
 | `bsp-docs-repo` | Public | This documentation site |
 | `bsp-contracts` | Private | Smart contracts — source, tests, build, deploy |

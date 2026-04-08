@@ -45,10 +45,10 @@ bsp-spec/
 ```
 
 ### `bsp-sdk-typescript` — TypeScript SDK
-Published on npm as `@bsp/sdk`. For web platforms, mobile apps, and backend services.
+Published on npm as `bsp-sdk`. For web platforms, mobile apps, and backend services.
 
 ```bash
-npm install @bsp/sdk
+npm install bsp-sdk
 ```
 
 ### `bsp-sdk-python` — Python SDK

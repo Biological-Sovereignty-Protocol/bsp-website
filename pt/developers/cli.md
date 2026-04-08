@@ -8,9 +8,9 @@ description: "Referência completa da interface de linha de comando do BSP — g
 Instale globalmente ou execute via npx:
 
 ```bash
-npm install -g @bsp/cli
+npm install -g bspctl
 # ou
-npx @bsp/cli --help
+npx bspctl --help
 ```
 
 ## Configuração
@@ -141,7 +141,7 @@ Formatos: `JSON`, `CSV`, `FHIR_R4`
 ## Segurança
 
 - Chaves privadas nunca saem da sua máquina
-- Toda assinatura acontece localmente via `@bsp/sdk`
+- Toda assinatura acontece localmente via `bsp-sdk`
 - A API recebe apenas payloads assinados
 - Operações destrutivas exigem `--confirm`
 

@@ -6,7 +6,7 @@ A infraestrutura GitHub do BSP está dividida em duas organizações distintas �
 Esses repositórios definem o padrão aberto. Qualquer pessoa pode clonar, contribuir e construir sobre eles sem aprovação. Licenciados sob Creative Commons CC BY 4.0.
 
 *   `bsp-spec`: O repositório central de especificações (BEO, IEO, Exchange, Taxonomia, BIPs). A "lei pública" do protocolo.
-*   `bsp-sdk-typescript`: O SDK TypeScript oficial (`@bsp/sdk`) para integrações web, mobile e backend.
+*   `bsp-sdk-typescript`: O SDK TypeScript oficial (`bsp-sdk`) para integrações web, mobile e backend.
 *   `bsp-sdk-python`: O SDK Python oficial (`bsp-sdk`) para laboratórios, bioinformatas e pipelines de pesquisa.
 *   `bsp-mcp`: O servidor oficial Model Context Protocol. Conecta agentes de IA (Claude, GPT) ao protocolo BSP com consentimento ativo do usuário.
 *   `bsp-docs-repo`: O site de documentação pública (do qual você faz parte agora).
