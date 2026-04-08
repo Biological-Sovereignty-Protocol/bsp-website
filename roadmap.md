@@ -20,7 +20,7 @@ The path to universal biological sovereignty.
 - BEO and IEO specification drafted
 - Ed25519 signature scheme defined
 - Arweave storage model designed
-- Initial SmartWeave contract prototypes
+- Initial AO process prototypes (migrated from SmartWeave)
 
 ### Phase 1 — Core Protocol v1
 **2025 Q1**

@@ -33,7 +33,7 @@ Any system can attempt to submit a BioRecord to a BEO. What governs access is th
 
 BSP records are stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years. 
 
-Smart contracts managing BEO identities, `.bsp` domain registrations, and access permissions are deployed via SmartWeave on Arweave — ensuring that the rules of the protocol cannot be changed by any single actor.
+AO processes managing BEO identities, `.bsp` domain registrations, and access permissions run on Arweave's hyper-parallel compute platform — ensuring that the rules of the protocol cannot be changed by any single actor.
 
 ## The Sovereignty Model
 

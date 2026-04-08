@@ -1,6 +1,6 @@
 ---
 title: "Registros de Salud Descentralizados | BSP"
-description: "BSP usa Arweave y contratos SmartWeave para crear registros de salud verdaderamente permanentes y descentralizados. Sin servidor central, sin punto único de fallo."
+description: "BSP usa Arweave y procesos AO para crear registros de salud verdaderamente permanentes y descentralizados. Sin servidor central, sin punto único de fallo."
 ---
 
 # Registros de Salud Descentralizados que Duran Para Siempre
@@ -19,13 +19,13 @@ Los proyectos de **blockchain para datos de salud** de la última década compar
 
 El resultado es fragmentación de datos, infraestructura frágil y cero soberanía individual.
 
-## Cómo Arweave y SmartWeave Cambian la Ecuación
+## Cómo Arweave y AO Cambian la Ecuación
 
 BSP ancla los registros de salud en **Arweave** — un protocolo construido específicamente para almacenamiento permanente y de bajo costo. El modelo económico es una dotación única: pague una vez, almacene para siempre. Sin tarifas recurrentes, sin renovaciones.
 
 La garantía de permanencia es estructural. Los datos escritos en Arweave se replican en una red de mineros incentivados a almacenarlos durante 200+ años por el mecanismo de dotación criptográfica del protocolo.
 
-**Los contratos SmartWeave** añaden programabilidad sobre esta capa permanente. BSP usa SmartWeave para gestionar:
+**Los procesos AO** añaden computación hiper-paralela sobre esta capa permanente. BSP usa AO para gestionar:
 
 - **Control de acceso** — quién puede leer qué partes de un registro de salud, y bajo qué condiciones
 - **Tokens de consentimiento** — autorizaciones con límite de tiempo y aplicación criptográfica

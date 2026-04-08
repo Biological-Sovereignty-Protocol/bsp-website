@@ -37,7 +37,7 @@ Solo usted, y las instituciones que autorice explícitamente. Todos los BioRecor
 ## 3. Seguridad y Consentimiento
 
 ### ¿Cómo se aseguran mis datos?
-El control de su BEO está determinado por una **clave privada (Ed25519)** almacenada de forma segura en el enclave de hardware de su dispositivo (ej: Apple Secure Enclave). Las reglas de control de acceso (ConsentTokens) se ejecutan como contratos SmartWeave en la blockchain, haciéndolos matemáticamente inmunes a accesos no autorizados.
+El control de su BEO está determinado por una **clave privada (Ed25519)** almacenada de forma segura en el enclave de hardware de su dispositivo (ej: Apple Secure Enclave). Las reglas de control de acceso (ConsentTokens) se ejecutan como procesos AO en Arweave, haciéndolos matemáticamente inmunes a accesos no autorizados.
 
 ### ¿Qué pasa si pierdo mi teléfono o mi clave privada?
 Si pierde su dispositivo, tiene dos formas de recuperar su BEO:

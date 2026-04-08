@@ -12,7 +12,7 @@ O *Biological Sovereignty Protocol* foi desenhado intencionalmente usando um mod
 
 <Architecture3Layer />
 
-*(O diagrama acima mapeia o fluxo completo de dados: da submissão clínica na Máquina de Estado SmartWeave até o consumo do lado do cliente.)*
+*(O diagrama acima mapeia o fluxo completo de dados: da submissão clínica no Processo AO até o consumo do lado do cliente.)*
 
 ---
 
@@ -20,7 +20,7 @@ O *Biological Sovereignty Protocol* foi desenhado intencionalmente usando um mod
 
 No coração do protocolo, a Camada 1 descarta a AWS (Amazon) e os bancos de dados tradicionais (PostgreSQL, MongoDB) em prol de uma prova criptográfica resistente e perpétua.
 
-*   **Infraestrutura:** A "Permanet" Arweave e o Contrato Inteligente *Biological-State-Machine* (SmartWeave).
+*   **Infraestrutura:** A "Permaweb" Arweave e o Processo AO *Biological-State-Machine*.
 *   **Propósito:** Atua como o registrador imutável e descentralizado da verdade humana.
 *   **Responsabilidade:**
     *   Hospedar em cache os objetos gigantes JSON-LD (Cargas de *BioRecords*) permanentemente e para sempre usando uma prova global.
@@ -39,7 +39,7 @@ As tecnologias em Blockchain são notoriamente ineficientes para consultar arqui
 *   **Propósito:** Velocidade ultrarrápida (Cache) e Agregação.
 *   **Responsabilidade:**
     *   Constantemente escanear a Blockchain da L1 por novas carteiras BSP.
-    *   Normalizar as gigantes meta-tags SmartWeave que descrevem todas as interações do paciente nos blocos JSON em tempo real.
+    *   Normalizar as mensagens AO que descrevem todas as interações do paciente nos blocos JSON em tempo real.
     *   Fornecer endpoints ultrarrápidos, com 15ms de latência, que permitem aos aplicativos executar buscas (ex: *"Buscar os históricos de lipídios do usuário xyz6 durante todo o ano de 2024"*).
 
 A beleza desta camada é que os Nódulos da L2 podem **falhar a qualquer segundo** ou os servidores indexadores podem explodir sem afetar o ecossistema. Novas entidades L2 simplesmente lerão sincronamente tudo e clonarão as referências dos hashes imutáveis da Arweave para reviver toda a rede.
@@ -81,7 +81,7 @@ Qualquer sistema pode tentar submeter um BioRegistro a um BEO. O que governa o a
 
 Os registros BSP são armazenados na Arweave — um protocolo de armazenamento permanente e descentralizado projetado para preservar dados por mais de 200 anos.
 
-Contratos inteligentes que gerenciam identidades BEO, registros de domínio `.bsp` e permissões de acesso são implantados via SmartWeave na Arweave — garantindo que as regras do protocolo não possam ser alteradas por nenhum ator único.
+Processos AO que gerenciam identidades BEO, registros de domínio `.bsp` e permissões de acesso rodam na plataforma de computação hiper-paralela do Arweave — garantindo que as regras do protocolo não possam ser alteradas por nenhum ator único.
 
 ## O Modelo de Soberania
 

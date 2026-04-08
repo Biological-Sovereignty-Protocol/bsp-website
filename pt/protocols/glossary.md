@@ -31,23 +31,23 @@ A identidade institucional de qualquer organização, sistema ou profissional qu
 **AccessControl**
 O contrato BSP mais crítico. Gerencia todas as concessões de consentimento entre BEOs e IEOs. Qualquer sistema que tente gravar um BioRecord ou ler dados de BEO deve apresentar uma autorização válida registrada aqui. Sem a assinatura do titular, a transação é rejeitada pela blockchain — nenhum servidor pode contorná-la.
 
+**AO**
+Plataforma de computação hiper-paralela do Arweave. Os processos BSP rodam como processos AO no Arweave, usando Lua para lógica on-chain. Cada processo é permanente e se comunica via mensagens. SDK: `@permaweb/aoconnect`.
+
 **Arweave**
-Blockchain de armazenamento descentralizado. Pague uma vez — dados persistem por 200+ anos, garantidos por um modelo matemático de dotação. Os contratos inteligentes BSP rodam via SmartWeave no Arweave. Se o Ambrósio Institute deixar de existir, BEOs e BioRecords permanecem acessíveis para sempre.
+Blockchain de armazenamento descentralizado. Pague uma vez — dados persistem por 200+ anos, garantidos por um modelo matemático de dotação. Os processos BSP rodam como processos AO no Arweave. Se o Ambrósio Institute deixar de existir, BEOs e BioRecords permanecem acessíveis para sempre.
 
 **BEORegistry**
-Contrato SmartWeave no Arweave responsável por criar e indexar BEOs. **Aberto a qualquer pessoa** — não requer aprovação. Registra: endereço público, hash da chave pública, domínio e metadados do BEO.
+Processo AO no Arweave responsável por criar e indexar BEOs. **Aberto a qualquer pessoa** — não requer aprovação. Registra: endereço público, hash da chave pública, dom��nio e metadados do BEO.
 
 **DomainRegistry**
-Contrato inteligente que controla o namespace `.bsp`. Garante unicidade: `andre.bsp` pode existir apenas uma vez globalmente. Gerencia registros, transferências e revogações.
+Processo AO que controla o namespace `.bsp`. Garante unicidade: `andre.bsp` pode existir apenas uma vez globalmente. Gerencia registros, transferências e revogações.
 
-**Governança (contrato)**
-Contrato SmartWeave que controla modificações em outros contratos BSP. Implementa modelo de assinatura múltipla: operações críticas requerem assinaturas de pelo menos 2 dos 3 detentores de chaves do Instituto. Nenhum indivíduo — incluindo o fundador — pode modificar unilateralmente as regras do protocolo.
+**Governança (processo)**
+Processo AO que controla modificações em outros processos BSP. Implementa modelo de assinatura múltipla: operações críticas requerem assinaturas de pelo menos 2 dos 3 detentores de chaves do Instituto. Nenhum indivíduo — incluindo o fundador — pode modificar unilateralmente as regras do protocolo.
 
 **IEORegistry**
-Contrato SmartWeave que gerencia as instituições BSP-Certificadas. Registra quais instituições detêm certificação, em qual nível e com quais categorias autorizadas. Consultado pelo Ambrosio OS e outros apps para verificar credenciais.
-
-**SmartWeave**
-Framework de contratos inteligentes que roda no Arweave. Permite lógica programável na blockchain de armazenamento permanente do Arweave.
+Processo AO que gerencia as instituições BSP-Certificadas. Registra quais instituições detêm certificação, em qual nível e com quais categorias autorizadas. Consultado pelo Ambrosio OS e outros apps para verificar credenciais.
 
 ---
 

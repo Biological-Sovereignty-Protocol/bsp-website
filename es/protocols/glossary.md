@@ -31,8 +31,8 @@ Este documento es la referencia canónica para todos los términos técnicos, ob
     Contrato inteligente que controla el namespace `.bsp`, garantizando la unicidad global.
 *   **Governance**
     Contrato inteligente que controla las modificaciones a otros contratos BSP a través de un modelo multi-firma.
-*   **SmartWeave**
-    Framework de contratos inteligentes que corre sobre Arweave.
+*   **AO**
+    Plataforma de computación hiper-paralela de Arweave. Los procesos BSP corren como procesos AO en Arweave, usando Lua para lógica on-chain. Cada proceso es permanente y se comunica vía mensajes. SDK: `@permaweb/aoconnect`.
 
 ## Sección 3: Inteligencia Propietaria — AVA y SVA
 

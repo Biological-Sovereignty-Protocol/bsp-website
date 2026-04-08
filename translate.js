@@ -11,5 +11,5 @@ const __dirname = path.dirname(__filename);
 // dynamically for 40 files without an API key in the environment.
 
 // 3. Alternative approach: Since the content is highly technical Web3/Health data, 
-// blind machine translation (like Google Translate via script) would destroy the nuances (e.g., translating "SmartWeave" or "BEO").
+// blind machine translation (like Google Translate via script) would destroy the nuances (e.g., translating "AO" or "BEO").
 console.log("Translation script initialized. However, manual or batch LLM processing is required for technical accuracy of Web3 terms.")

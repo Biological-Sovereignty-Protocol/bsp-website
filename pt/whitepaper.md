@@ -97,7 +97,7 @@ Qualquer sistema pode tentar enviar um **BioRecord** para um **BEO**. Não há r
 
 Os registros **BSP** são armazenados no Arweave — um protocolo de armazenamento permanente e descentralizado projetado para preservar dados por 200+ anos por meio de um modelo de dotação matematicamente sustentável. Uma vez que um **BioRecord** é escrito, ele existe permanentemente, independentemente do que aconteça com qualquer empresa no ecossistema — incluindo o Ambrósio Institute.
 
-Os contratos inteligentes que gerenciam identidades **BEO**, registros de domínio .bsp e permissões de acesso são implantados via SmartWeave no Arweave — garantindo que as regras do protocolo não possam ser alteradas por nenhum agente único. Todas as alterações de parâmetros críticos requerem autorização de múltiplas assinaturas dos detentores de chaves do Instituto.
+Os processos AO que gerenciam identidades **BEO**, registros de domínio .bsp e permissões de acesso rodam na plataforma de computação hiper-paralela do Arweave — garantindo que as regras do protocolo não possam ser alteradas por nenhum agente único. Todas as alterações de parâmetros críticos requerem autorização de múltiplas assinaturas dos detentores de chaves do Instituto.
 
 ## 3. A Taxonomia de Biomarcadores
 
@@ -257,7 +257,7 @@ A taxonomia **BSP** e a especificação do protocolo evoluem por meio de um proc
 
 ### 7.3 — Governança de Contratos Inteligentes
 
-Os contratos **BSP** centrais — aqueles que governam o registro de identidade **BEO**, a alocação de domínio .bsp e as regras de controle de acesso — são implantados no Arweave via SmartWeave. Todos os parâmetros críticos requerem no mínimo dois dos três detentores de chaves autorizados do Instituto para assinar qualquer modificação. Nenhuma pessoa — incluindo o fundador do Instituto — pode unilateralmente alterar as regras do protocolo.
+Os processos **BSP** centrais — aqueles que governam o registro de identidade **BEO**, a alocação de domínio .bsp e as regras de controle de acesso — rodam como processos AO no Arweave. Todos os parâmetros críticos requerem no mínimo dois dos três detentores de chaves autorizados do Instituto para assinar qualquer modificação. Nenhuma pessoa — incluindo o fundador do Instituto — pode unilateralmente alterar as regras do protocolo.
 
 ## 8. O Ecossistema
 

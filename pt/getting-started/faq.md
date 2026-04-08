@@ -37,7 +37,7 @@ Apenas você e as instituições que você autorizar explicitamente. Todos os Bi
 ## 3. Segurança e Consentimento
 
 ### Como meus dados são protegidos?
-O controle do seu BEO é determinado por uma **chave privada (Ed25519)** armazenada com segurança no cofre de hardware do seu dispositivo (ex: Apple Secure Enclave). As regras de controle de acesso (ConsentTokens) são executadas como contratos SmartWeave na blockchain, tornando-as matematicamente imunes a desvios não autorizados.
+O controle do seu BEO é determinado por uma **chave privada (Ed25519)** armazenada com segurança no cofre de hardware do seu dispositivo (ex: Apple Secure Enclave). As regras de controle de acesso (ConsentTokens) são executadas como processos AO no Arweave, tornando-as matematicamente imunes a desvios não autorizados.
 
 ### O que acontece se eu perder meu celular ou minha chave privada?
 Se você perder seu dispositivo, você tem duas maneiras de recuperar seu BEO:

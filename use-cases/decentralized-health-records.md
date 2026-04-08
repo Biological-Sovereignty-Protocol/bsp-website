@@ -1,6 +1,6 @@
 ---
 title: "Decentralized Health Records | BSP"
-description: "BSP uses Arweave and SmartWeave contracts to create truly permanent, decentralized health records. No central server, no single point of failure."
+description: "BSP uses Arweave and AO processes to create truly permanent, decentralized health records. No central server, no single point of failure."
 ---
 
 # Decentralized Health Records That Last Forever
@@ -19,13 +19,13 @@ BSP takes a different approach: write once, persist forever.
 
 The result is fragmented data, fragile infrastructure, and zero individual sovereignty.
 
-## How Arweave and SmartWeave Change the Equation
+## How Arweave and AO Change the Equation
 
 BSP anchors health records on **Arweave** — a protocol built specifically for permanent, low-cost data storage. The economic model is a one-time endowment: pay once, store forever. There are no recurring fees, no renewal requirements, no dependency on continued participation by any party.
 
 The permanence guarantee is structural. Data written to Arweave is replicated across a network of miners incentivized to store it for 200+ years by the protocol's cryptographic endowment mechanism. Nothing in the BSP network needs to "stay alive" for your data to persist.
 
-**SmartWeave contracts** add programmability on top of this permanent layer. BSP uses SmartWeave to manage:
+**AO processes** add hyper-parallel compute on top of this permanent layer. BSP uses AO to manage:
 
 - **Access control** — who can read which portions of a health record, and under what conditions
 - **Consent tokens** — time-bounded, cryptographically enforced authorizations that don't depend on any API remaining operational

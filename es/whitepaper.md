@@ -97,7 +97,7 @@ Los **BioRecords** son inmutables una vez escritos. Las correcciones se envían 
 
 Los registros **BSP** se almacenan en Arweave — un protocolo de almacenamiento permanente y descentralizado diseñado para preservar datos durante 200+ años mediante un modelo de dotación matemáticamente sostenible. Una vez que se escribe un **BioRecord**, existe permanentemente, independientemente de lo que le suceda a cualquier empresa en el ecosistema — incluido el Ambrósio Institute.
 
-Los contratos inteligentes que gestionan identidades **BEO**, registros de dominio .bsp y permisos de acceso se despliegan via SmartWeave en Arweave — garantizando que las reglas del protocolo no puedan ser cambiadas por ningún actor único. Todos los cambios de parámetros críticos requieren autorización de múltiples firmas de los titulares de claves del Instituto.
+Los procesos AO que gestionan identidades **BEO**, registros de dominio .bsp y permisos de acceso corren en la plataforma de computación hiper-paralela de Arweave — garantizando que las reglas del protocolo no puedan ser cambiadas por ningún actor único. Todos los cambios de parámetros críticos requieren autorización de múltiples firmas de los titulares de claves del Instituto.
 
 ## 3. La Taxonomía de Biomarcadores
 
@@ -257,7 +257,7 @@ La taxonomía **BSP** y la especificación del protocolo evolucionan mediante un
 
 ### 7.3 — Gobernanza de Contratos Inteligentes
 
-Los contratos **BSP** centrales — los que gobiernan el registro de identidad **BEO**, la asignación de dominio .bsp y las reglas de control de acceso — se despliegan en Arweave via SmartWeave. Todos los parámetros críticos requieren un mínimo de dos de los tres titulares de claves autorizados del Instituto para firmar cualquier modificación. Ninguna persona — incluido el fundador del Instituto — puede cambiar unilateralmente las reglas del protocolo.
+Los procesos **BSP** centrales — los que gobiernan el registro de identidad **BEO**, la asignación de dominio .bsp y las reglas de control de acceso — corren como procesos AO en Arweave. Todos los parámetros críticos requieren un mínimo de dos de los tres titulares de claves autorizados del Instituto para firmar cualquier modificación. Ninguna persona — incluido el fundador del Instituto — puede cambiar unilateralmente las reglas del protocolo.
 
 ## 8. El Ecosistema
 

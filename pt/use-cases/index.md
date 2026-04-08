@@ -19,7 +19,7 @@ Tome posse permanente dos seus exames de sangue, registros médicos e dados de w
 
 ## [Registros de Saúde Descentralizados](/pt/use-cases/decentralized-health-records)
 
-Registros de saúde permanentes e verificáveis criptograficamente — sem depender de nenhuma instituição permanecer online. Construídos sobre Arweave + contratos SmartWeave.
+Registros de saúde permanentes e verificáveis criptograficamente — sem depender de nenhuma instituição permanecer online. Construídos sobre Arweave + processos AO.
 
 ---
 

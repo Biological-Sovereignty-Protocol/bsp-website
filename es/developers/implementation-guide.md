@@ -27,7 +27,7 @@ cp .env.example .env.local
 
 ### Paso 2 — Configurar la URL del relayer
 
-El relayer es la API off-chain que conecta tu app con los contratos SmartWeave de Arweave. Apunta tu app hacia él:
+El relayer es la API off-chain que conecta tu app con los procesos AO en Arweave. Apunta tu app hacia él:
 
 ```env
 # .env.local
@@ -247,9 +247,9 @@ records.forEach(record => {
 
 **Objetivo:** Ejecutar tu propia infraestructura BSP — tu propio nodo/relayer para una red privada o despliegue regional.
 
-### Paso 1 — Desplegar los contratos SmartWeave
+### Paso 1 — Desplegar los procesos AO
 
-BSP usa cuatro contratos SmartWeave en Arweave. Despliégalos en este orden (cada uno depende del anterior).
+BSP usa cuatro procesos AO en Arweave. Despliégalos en este orden (cada uno depende del anterior).
 
 ```bash
 cd bsp-spec/contracts  # o obtener del repositorio del registro
@@ -273,7 +273,7 @@ Guarda los cuatro IDs de transacción. Son permanentes e identifican tu desplieg
 
 ### Paso 2 — Configurar bsp-registry-api (el relayer)
 
-El relayer es la API HTTP con la que hablan tus apps. Maneja batching, caché y traduce llamadas REST a interacciones SmartWeave.
+El relayer es la API HTTP con la que hablan tus apps. Maneja batching, caché y traduce llamadas REST a mensajes AO.
 
 ```bash
 git clone https://github.com/Biological-Sovereignty-Protocol/bsp-registry-api

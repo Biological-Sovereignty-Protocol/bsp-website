@@ -96,7 +96,7 @@ Pague uma vez — os dados persistem por **200+ anos**, garantidos por um modelo
 
 ## Parte 4: Contratos Inteligentes — Regras Imutáveis
 
-Cinco contratos SmartWeave aplicam o protocolo no Arweave. Uma vez implantados, são imutáveis.
+Cinco processos AO aplicam o protocolo no Arweave. Uma vez implantados, são permanentes.
 
 | Contrato | Propósito | Quem Pode Chamar |
 |----------|---------|-------------|
@@ -172,7 +172,7 @@ Se o Relayer API paga pelas transações, como evitamos que agentes maliciosos i
 3. **Verificação do Relayer:** O app envia o payload + assinatura Base64 ao `bsp-registry-api`.
 4. **Verificação Zero-Trust:** O Relayer API obtém a chave pública do usuário do `BEORegistry` do Arweave. Verifica matematicamente a assinatura contra o payload.
    - **Assinatura Inválida:** A requisição é rejeitada imediatamente (`401 Unauthorized`). A API não gasta gas.
-   - **Assinatura Válida:** A API envolve a intenção exata do usuário em uma transação Arweave, paga o gas usando a carteira do Ambrósio Institute e a submete ao SmartWeave.
+   - **Assinatura Válida:** A API envolve a intenção exata do usuário em uma transação Arweave, paga o gas usando a carteira do Ambrósio Institute e a submete ao AO no Arweave.
 
 Isso garante **Soberania Criptográfica Absoluta**. Mesmo que o Relayer API fosse comprometido, ele não pode forjar consentimentos biológicos porque não possui a chave privada do usuário.
 

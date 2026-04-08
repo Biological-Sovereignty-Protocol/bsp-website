@@ -2,7 +2,7 @@
 
 > The open cryptographic standard for health data sovereignty.
 
-BSP gives individuals permanent, cryptographic ownership of their biological data — from genomics to wearables. Built on Arweave. Powered by SmartWeave.
+BSP gives individuals permanent, cryptographic ownership of their biological data — from genomics to wearables. Built on Arweave. Powered by AO.
 
 ## Core Concepts
 

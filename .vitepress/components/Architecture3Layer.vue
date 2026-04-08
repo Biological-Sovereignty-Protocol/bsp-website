@@ -34,7 +34,7 @@
     <g class="layer-1">
       <rect x="150" y="200" width="500" height="70" class="box-l1" filter="url(#glow-l1)" />
       <text x="400" y="235" font-weight="bold" font-size="20" class="text-l1" text-anchor="middle">Layer 1: Identity &amp; Consent</text>
-      <text x="400" y="255" font-size="13" fill="var(--vp-c-text-1)" text-anchor="middle">BEO / IEO SmartWeave Contracts on Arweave</text>
+      <text x="400" y="255" font-size="13" fill="var(--vp-c-text-1)" text-anchor="middle">BEO / IEO AO Processes on Arweave</text>
     </g>
 
     <!-- Connectors -->

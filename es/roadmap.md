@@ -20,7 +20,7 @@ El camino hacia la soberanía biológica universal.
 - Especificación de BEO e IEO redactada
 - Esquema de firma Ed25519 definido
 - Modelo de almacenamiento Arweave diseñado
-- Prototipos iniciales de contratos SmartWeave
+- Prototipos iniciales de procesos AO (migrados desde SmartWeave)
 
 ### Fase 1 — Protocolo Core v1
 **2025 Q1**
