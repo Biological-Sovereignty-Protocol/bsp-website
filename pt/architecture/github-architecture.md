@@ -15,7 +15,7 @@ Esses repositórios definem o padrão aberto. Qualquer pessoa pode clonar, contr
 Esses repositórios contêm a infraestrutura operacional do Instituto e a inteligência proprietária. São privados para proteger a vantagem competitiva central da organização.
 
 *   `bsp-contracts`: Os 5 contratos inteligentes implantados no Arweave (`BEORegistry`, `IEORegistry`, `DomainRegistry`, `AccessControl`, `Governance`). Consultáveis publicamente on-chain, mas o código de implantação é mantido aqui.
-*   `bsp-registry-api`: API relayer que paga gas no Arweave e verifica assinaturas Ed25519. 36 rotas REST. *Dados biológicos nunca passam por esta API.*
+*   `bsp-registry-api`: API relayer que paga gas no Arweave e verifica assinaturas Ed25519. 38 rotas REST. *Dados biológicos nunca passam por esta API.*
 *   `ava-core`: O Algoritmo de Vitalidade Ambrósio. Modelos proprietários que analisam o envelhecimento biológico, processando BioRecords apenas quando um usuário inicia ativamente uma sessão.
 *   `sva-engine`: O motor de pontuação que converte a análise da AVA no multidimensional Score de Vitalidade Ambrósio (SVA) apresentado ao usuário.
 

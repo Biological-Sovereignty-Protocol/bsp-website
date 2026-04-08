@@ -1,6 +1,6 @@
 ---
 title: "Referencia de la API"
-description: "Referencia completa de la API REST del BSP Registry — 36 rutas para operaciones BEO, IEO, consentimiento, exchange y consulta."
+description: "Referencia completa de la API REST del BSP Registry — 38 rutas para operaciones BEO, IEO, consentimiento, exchange y consulta."
 ---
 
 # Referencia de la API Registry

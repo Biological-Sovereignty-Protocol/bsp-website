@@ -111,7 +111,7 @@ Convierte el análisis de AVA en la Puntuación de Vitalidad Ambrósio multidime
 ```
 1. bsp-spec           ← Fundación: el estándar que todo implementa
 2. bsp-contracts      ← Infraestructura on-chain (inmutable tras el despliegue)
-3. bsp-registry-api   ← API relayer gasless (36 rutas)
+3. bsp-registry-api   ← API relayer gasless (38 rutas)
 4. bsp-sdk-typescript ← Primer SDK (mayor cobertura de integración)
 5. bsp-mcp            ← Conectividad de IA (construido sobre el SDK TypeScript)
 6. bsp-sdk-python     ← SDK de laboratorio (sigue la misma especificación)
