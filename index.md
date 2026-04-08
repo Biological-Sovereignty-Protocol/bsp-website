@@ -4,7 +4,7 @@ sidebar: false
 editLink: false
 title: "BSP — Biological Sovereignty Protocol"
 titleTemplate: false
-description: "Open cryptographic protocol for permanent biological data ownership. Your biology. Your data. Your rules. 210+ biomarkers, Arweave storage, MIT licensed."
+description: "Open cryptographic protocol for permanent biological data ownership. Your biology. Your data. Your rules. 210+ biomarkers, Arweave storage, Apache 2.0 licensed."
 head:
   - - meta
     - property: og:title
