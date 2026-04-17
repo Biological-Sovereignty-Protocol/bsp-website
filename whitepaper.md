@@ -92,23 +92,23 @@ A landmark study published in Nature Medicine in 2025 found that individuals who
 
 The **BEO** is the sovereign biological identity of every individual in the **BSP** ecosystem. It is the center of gravity of the entire protocol.
 
-A **BEO** is not an account on a platform. It is a permanent identity, stored on the Arweave blockchain, controlled exclusively by the individual through a private key. Every **BEO** is identified by a human-readable .bsp domain — a permanent biological address. For example, andre.bsp is a sovereign identity that belongs to that person for life and cannot be taken away by any company, government, or service provider.
+A **BEO** is not an account on a platform. It is a permanent identity, registered on the Aptos blockchain via the BEORegistry Move module and with associated data stored on Arweave, controlled exclusively by the individual through a private key. Every **BEO** is identified by a human-readable .bsp domain — a permanent biological address. For example, andre.bsp is a sovereign identity that belongs to that person for life and cannot be taken away by any company, government, or service provider.
 
-Creating a **BEO** requires no permission from the Ambrósio Institute or any other authority. Any individual, any application, or any system can create a **BEO** directly — using the bsp-sdk or interacting with the BEORegistry smart contract directly. The protocol is open at its foundation.
+Creating a **BEO** requires no permission from the Ambrósio Institute or any other authority. Any individual, any application, or any system can create a **BEO** directly — using the bsp-sdk or interacting with the BEORegistry smart contract on Aptos directly. The protocol is open at its foundation.
 
 ### 2.3 — The **BioRecord**
 
 Every biological measurement — a blood test result, a genomic marker, a wearable reading, an imaging report — is represented as a **BioRecord**. **BioRecords** are the atomic units of biological data in the **BSP** ecosystem.
 
-Any system can attempt to submit a **BioRecord** to a **BEO**. There is no certification requirement at the protocol level. What governs access is the consent of the **BEO** holder — encoded in the AccessControl smart contract on Arweave. Without explicit authorization from the individual, no **BioRecord** submission is accepted. The individual is the gatekeeper, not an institutional authority.
+Any system can attempt to submit a **BioRecord** to a **BEO**. There is no certification requirement at the protocol level. What governs access is the consent of the **BEO** holder — encoded in the AccessControl smart contract on Aptos. Without explicit authorization from the individual, no **BioRecord** submission is accepted. The individual is the gatekeeper, not an institutional authority.
 
 **BioRecords** are immutable once written. Corrections are submitted as new **BioRecords** that supersede previous records — preserving the complete audit trail. While the data itself cannot be altered on Arweave, the individual can permanently revoke all access to their records through cryptographic erasure, rendering the data unreadable and functionally erased (see Section 4.4). Each **BioRecord** carries: the **BSP** biomarker code, the measured value and unit, the reference range, the submitting entity, a cryptographic signature, and a timestamp.
 
 ### 2.4 — Decentralized Infrastructure
 
-**BSP** records are stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years through a mathematically sustainable endowment model. Once a **BioRecord** is written, it persists on the network regardless of what happens to any company in the ecosystem — including the Ambrósio Institute. The individual can, at any time, render their records permanently inaccessible through cryptographic erasure (Section 4.4).
+**BSP** uses a dual-layer blockchain architecture. **Aptos** serves as the execution layer — smart contracts written in Move manage **BEO** identities, .bsp domain registrations, access permissions, and consent tokens with sub-second finality. **Arweave** serves as the permanent storage layer — biological data (**BioRecords**) is stored on Arweave's decentralized storage protocol, designed to preserve data for 200+ years through a mathematically sustainable endowment model. Once a **BioRecord** is written, it persists on the network regardless of what happens to any company in the ecosystem — including the Ambrósio Institute. The individual can, at any time, render their records permanently inaccessible through cryptographic erasure (Section 4.4).
 
-AO processes managing **BEO** identities, .bsp domain registrations, and access permissions run on Arweave's hyper-parallel compute platform — ensuring that the rules of the protocol cannot be changed by any single actor. All critical parameter changes require multi-signature authorization from Institute keyholders.
+The Move resource model on Aptos ensures that protocol assets (BEOs, consent tokens, domain registrations) cannot be duplicated or lost — a structural guarantee enforced at the language level. Native Ed25519 signature support on Aptos aligns with BSP's cryptographic architecture. All critical parameter changes require multi-signature authorization from Institute keyholders.
 
 ## 3. The Biomarker Taxonomy
 
@@ -290,7 +290,7 @@ The **BSP** taxonomy and protocol specification evolve through an open proposal 
 
 ### 7.3 — Smart Contract Governance
 
-Core **BSP** processes — those governing **BEO** identity registration, .bsp domain allocation, and access control rules — run as AO processes on Arweave. All critical parameters require a minimum of two of three authorized Institute keyholders to sign any modification. No single person — including the Institute's founder — can unilaterally change the rules of the protocol.
+Core **BSP** processes — those governing **BEO** identity registration, .bsp domain allocation, and access control rules — are implemented as Move modules on Aptos. All critical parameters require a minimum of two of three authorized Institute keyholders to sign any modification. No single person — including the Institute's founder — can unilaterally change the rules of the protocol.
 
 ## 8. The Ecosystem
 

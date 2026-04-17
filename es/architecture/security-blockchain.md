@@ -96,7 +96,7 @@ Paga una vez — los datos persisten durante **200+ años**, garantizados por un
 
 ## Parte 4: Contratos Inteligentes — Reglas Inmutables
 
-Cinco procesos AO hacen cumplir el protocolo en Arweave. Una vez desplegados, son permanentes.
+Cinco módulos Move en Aptos hacen cumplir las reglas del protocolo. Una vez desplegados, son gobernados por autorización multi-sig.
 
 | Contrato | Propósito | Quién Puede Llamarlo |
 |----------|---------|-------------|
@@ -172,7 +172,7 @@ Si el Relayer API paga las transacciones, ¿cómo evitamos que actores malicioso
 3. **Verificación del Relayer:** La app envía el payload + firma Base64 al `bsp-registry-api`.
 4. **Verificación Zero-Trust:** El Relayer API obtiene la clave pública del usuario del `BEORegistry` de Arweave. Verifica matemáticamente la firma contra el payload.
    - ❌ **Firma Inválida:** La solicitud se rechaza inmediatamente (`401 Unauthorized`). La API no gasta gas.
-   - ✅ **Firma Válida:** La API envuelve la intención exacta del usuario en una transacción Arweave, paga el gas usando la cartera del Ambrósio Institute y la envía a AO en Arweave.
+   - ✅ **Firma Válida:** La API envuelve la intención exacta del usuario en una transacción Aptos, paga el gas usando la cartera del Ambrósio Institute y la envía a la blockchain Aptos. Los datos biológicos asociados se almacenan en Arweave.
 
 Esto garantiza **Soberanía Criptográfica Absoluta**. Incluso si el Relayer API fuera comprometido, no puede falsificar consentimientos biológicos porque no posee la clave privada del usuario.
 

@@ -20,13 +20,13 @@ O caminho para a soberania biológica universal.
 - Especificação do BEO e IEO redigida
 - Esquema de assinatura Ed25519 definido
 - Modelo de armazenamento Arweave projetado
-- Protótipos iniciais de processos AO (migrados do SmartWeave)
+- Protótipos iniciais de contratos inteligentes no Aptos (módulos Move)
 
 ### Fase 1 — Protocolo Core v1
 **2025 Q1**
 
-- Contratos de registro e gerenciamento de BEO implantados na Arweave
-- Contratos de registro de IEO implantados
+- Contratos de registro e gerenciamento de BEO implantados no Aptos
+- Contratos de registro de IEO implantados no Aptos
 - Emissão e revogação de ConsentToken
 - BSP Registry API (Node.js) — alpha pública
 

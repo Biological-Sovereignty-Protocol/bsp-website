@@ -10,7 +10,7 @@ title: BSP Domain System — .bsp
 
 ## Overview
 
-Every BEO and IEO in the BSP ecosystem is identified by a human-readable `.bsp` domain — a permanent, sovereign biological address registered on the Arweave blockchain via the DomainRegistry smart contract.
+Every BEO and IEO in the BSP ecosystem is identified by a human-readable `.bsp` domain — a permanent, sovereign biological address registered on the Aptos blockchain via the DomainRegistry Move module.
 
 The `.bsp` namespace is managed by the Ambrósio Institute. Domain assignment and uniqueness are enforced on-chain — not by a central server.
 
@@ -33,7 +33,7 @@ The `.bsp` namespace is managed by the Ambrósio Institute. Domain assignment an
 ## Domain Rules
 
 ### Permanence
-Individual domains are permanent and non-transferable. Once `andre.bsp` is claimed, it exists forever on Arweave and cannot be transferred to another person or deleted.
+Individual domains are permanent and non-transferable. Once `andre.bsp` is claimed, it exists forever on the Aptos blockchain and cannot be transferred to another person or deleted.
 
 ### Uniqueness
 The DomainRegistry smart contract guarantees that each `.bsp` domain can only exist once. No two entities can hold the same domain.

@@ -20,13 +20,13 @@ The path to universal biological sovereignty.
 - BEO and IEO specification drafted
 - Ed25519 signature scheme defined
 - Arweave storage model designed
-- Initial AO process prototypes (migrated from SmartWeave)
+- Initial smart contract prototypes on Aptos (Move modules)
 
 ### Phase 1 — Core Protocol v1
 **2025 Q1**
 
-- BEO registration and management contracts deployed on Arweave
-- IEO registry contracts deployed
+- BEO registration and management contracts deployed on Aptos
+- IEO registry contracts deployed on Aptos
 - ConsentToken issuance and revocation
 - BSP Registry API (Node.js) — public alpha
 

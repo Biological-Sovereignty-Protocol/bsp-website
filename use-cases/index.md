@@ -21,7 +21,7 @@ Take permanent ownership of your blood tests, medical records, and wearable data
 
 ## [Decentralized Health Records](/use-cases/decentralized-health-records)
 
-Permanent, cryptographically verified health records that don't depend on any institution staying online. Built on Arweave + AO processes.
+Permanent, cryptographically verified health records that don't depend on any institution staying online. Built on Aptos + Arweave.
 
 **Keywords:** decentralized health records, blockchain health data, decentralized medical records
 

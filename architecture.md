@@ -21,19 +21,22 @@ BSP is an open standard that defines how biological data is structured, stored, 
 
 The BEO is the sovereign biological identity of every individual in the BSP ecosystem. It is the center of gravity of the entire protocol.
 
-A BEO is not an account on a platform. It is a permanent identity, stored on the Arweave blockchain, controlled exclusively by the individual through a private key. Every BEO is identified by a human-readable `.bsp` domain — a permanent biological address (e.g., `andre.bsp`).
+A BEO is not an account on a platform. It is a permanent identity, registered on the Aptos blockchain via Move smart contracts and with associated data stored on Arweave, controlled exclusively by the individual through a private key. Every BEO is identified by a human-readable `.bsp` domain — a permanent biological address (e.g., `andre.bsp`).
 
 ## The BioRecord
 
 Every biological measurement — a blood test result, a genomic marker, a wearable reading, an imaging report — is represented as a BioRecord. 
 
-Any system can attempt to submit a BioRecord to a BEO. What governs access is the consent of the BEO holder, encoded in the `AccessControl` smart contract on Arweave. BioRecords are immutable once written.
+Any system can attempt to submit a BioRecord to a BEO. What governs access is the consent of the BEO holder, encoded in the `AccessControl` smart contract on Aptos. BioRecords are immutable once written.
 
-## Decentralized Infrastructure
+## Dual-Layer Infrastructure
 
-BSP records are stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years. 
+BSP uses a dual-layer blockchain architecture:
 
-AO processes managing BEO identities, `.bsp` domain registrations, and access permissions run on Arweave's hyper-parallel compute platform — ensuring that the rules of the protocol cannot be changed by any single actor.
+- **Execution Layer (Aptos):** Smart contracts written in Move manage BEO identities, `.bsp` domain registrations, access permissions, and consent tokens. Aptos provides sub-second finality, native Ed25519 signatures, and Move's resource model ensures assets cannot be duplicated or lost.
+- **Permanent Storage Layer (Arweave):** Biological data (BioRecords) is stored on Arweave — a permanent, decentralized storage protocol designed to preserve data for 200+ years.
+
+This separation ensures that the rules of the protocol cannot be changed by any single actor, while biological data persists permanently.
 
 ## The Sovereignty Model
 

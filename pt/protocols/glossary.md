@@ -31,23 +31,23 @@ A identidade institucional de qualquer organização, sistema ou profissional qu
 **AccessControl**
 O contrato BSP mais crítico. Gerencia todas as concessões de consentimento entre BEOs e IEOs. Qualquer sistema que tente gravar um BioRecord ou ler dados de BEO deve apresentar uma autorização válida registrada aqui. Sem a assinatura do titular, a transação é rejeitada pela blockchain — nenhum servidor pode contorná-la.
 
-**AO**
-Plataforma de computação hiper-paralela do Arweave. Os processos BSP rodam como processos AO no Arweave, usando Lua para lógica on-chain. Cada processo é permanente e se comunica via mensagens. SDK: `@permaweb/aoconnect`.
+**Aptos**
+Blockchain Layer 1 que serve como camada de execução do BSP. Contratos inteligentes são escritos em Move — uma linguagem de programação orientada a recursos que garante que ativos não possam ser duplicados ou perdidos. Aptos fornece finalidade sub-segundo e suporte nativo a assinaturas Ed25519. Os contratos inteligentes BSP (BEORegistry, IEORegistry, DomainRegistry, AccessControl, Governance) são implantados como módulos Move no Aptos.
 
 **Arweave**
-Blockchain de armazenamento descentralizado. Pague uma vez — dados persistem por 200+ anos, garantidos por um modelo matemático de dotação. Os processos BSP rodam como processos AO no Arweave. Se o Ambrósio Institute deixar de existir, BEOs e BioRecords permanecem acessíveis para sempre.
+Blockchain de armazenamento permanente descentralizado. Pague uma vez — dados persistem por 200+ anos, garantidos por um modelo matemático de dotação. O BSP usa o Arweave como camada de armazenamento permanente para dados biológicos (BioRecords). Se o Ambrósio Institute deixar de existir, os BioRecords permanecem acessíveis no Arweave para sempre.
 
 **BEORegistry**
-Processo AO no Arweave responsável por criar e indexar BEOs. **Aberto a qualquer pessoa** — não requer aprovação. Registra: endereço público, hash da chave pública, dom��nio e metadados do BEO.
+Módulo Move no Aptos responsável por criar e indexar BEOs. **Aberto a qualquer pessoa** — não requer aprovação. Registra: endereço público, hash da chave pública, domínio e metadados do BEO.
 
 **DomainRegistry**
-Processo AO que controla o namespace `.bsp`. Garante unicidade: `andre.bsp` pode existir apenas uma vez globalmente. Gerencia registros, transferências e revogações.
+Módulo Move no Aptos que controla o namespace `.bsp`. Garante unicidade: `andre.bsp` pode existir apenas uma vez globalmente. Gerencia registros, transferências e revogações.
 
-**Governança (processo)**
-Processo AO que controla modificações em outros processos BSP. Implementa modelo de assinatura múltipla: operações críticas requerem assinaturas de pelo menos 2 dos 3 detentores de chaves do Instituto. Nenhum indivíduo — incluindo o fundador — pode modificar unilateralmente as regras do protocolo.
+**Governança (módulo)**
+Módulo Move no Aptos que controla modificações em outros contratos BSP. Implementa modelo de assinatura múltipla: operações críticas requerem assinaturas de pelo menos 2 dos 3 detentores de chaves do Instituto. Nenhum indivíduo — incluindo o fundador — pode modificar unilateralmente as regras do protocolo.
 
 **IEORegistry**
-Processo AO que gerencia as instituições BSP-Certificadas. Registra quais instituições detêm certificação, em qual nível e com quais categorias autorizadas. Consultado pelo Ambrosio OS e outros apps para verificar credenciais.
+Módulo Move no Aptos que gerencia as instituições BSP-Certificadas. Registra quais instituições detêm certificação, em qual nível e com quais categorias autorizadas. Consultado pelo Ambrosio OS e outros apps para verificar credenciais.
 
 ---
 

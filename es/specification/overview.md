@@ -99,7 +99,7 @@ Todas las operaciones de intercambio están sujetas al contrato inteligente **Ac
 
 Los registros BSP se almacenan en **Arweave** — un protocolo de almacenamiento permanente y descentralizado diseñado para preservar datos durante 200+ años.
 
-Los procesos AO que gestionan las identidades BEO, los registros de dominio y los permisos de acceso corren en la plataforma de computación hiper-paralela de Arweave. Esto garantiza:
+Los contratos inteligentes Aptos (módulos Move) que gestionan las identidades BEO, los registros de dominio y los permisos de acceso proporcionan finalidad sub-segundo y garantías de seguridad orientadas a recursos. Esto garantiza:
 - No hay punto único de fallo
 - Ninguna empresa (incluido el Ambrósio Institute) puede alterar las reglas de forma unilateral
 - Los datos escritos en la infraestructura BSP existen permanentemente

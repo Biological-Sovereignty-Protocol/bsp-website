@@ -1,6 +1,6 @@
 ---
 title: "Decentralized Health Records | BSP"
-description: "BSP uses Arweave and AO processes to create truly permanent, decentralized health records. No central server, no single point of failure."
+description: "BSP uses Aptos smart contracts and Arweave permanent storage to create truly permanent, decentralized health records. No central server, no single point of failure."
 ---
 
 # Decentralized Health Records That Last Forever
@@ -19,17 +19,19 @@ BSP takes a different approach: write once, persist forever.
 
 The result is fragmented data, fragile infrastructure, and zero individual sovereignty.
 
-## How Arweave and AO Change the Equation
+## How Aptos and Arweave Change the Equation
 
-BSP anchors health records on **Arweave** — a protocol built specifically for permanent, low-cost data storage. The economic model is a one-time endowment: pay once, store forever. There are no recurring fees, no renewal requirements, no dependency on continued participation by any party.
+BSP uses a dual-layer architecture. **Aptos** serves as the execution layer — Move smart contracts manage access control, consent tokens, identity registries, and audit trails with sub-second finality. **Arweave** serves as the permanent storage layer — biological data is stored on a protocol built specifically for permanent, low-cost data storage. The economic model is a one-time endowment: pay once, store forever. There are no recurring fees, no renewal requirements, no dependency on continued participation by any party.
 
 The permanence guarantee is structural. Data written to Arweave is replicated across a network of miners incentivized to store it for 200+ years by the protocol's cryptographic endowment mechanism. Nothing in the BSP network needs to "stay alive" for your data to persist.
 
-**AO processes** add hyper-parallel compute on top of this permanent layer. BSP uses AO to manage:
+**Aptos smart contracts** (Move modules) handle the protocol logic:
 
 - **Access control** — who can read which portions of a health record, and under what conditions
 - **Consent tokens** — time-bounded, cryptographically enforced authorizations that don't depend on any API remaining operational
-- **Audit trails** — immutable logs of every access event, attached to the record itself
+- **Audit trails** — immutable logs of every access event, anchored on-chain
+
+Move's resource model ensures that protocol assets (BEOs, consent tokens, domain registrations) cannot be duplicated or lost — a structural guarantee enforced at the language level. Native Ed25519 support on Aptos aligns with BSP's cryptographic architecture.
 
 The combination gives you a health record that is simultaneously permanent, private, and auditable — without any of those properties depending on trusting a third party.
 

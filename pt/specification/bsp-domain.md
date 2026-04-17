@@ -10,7 +10,7 @@ title: Sistema de Domínios BSP — .bsp
 
 ## Visão Geral
 
-Todo BEO e IEO no ecossistema BSP é identificado por um domínio `.bsp` legível por humanos — um endereço biológico permanente e soberano registrado na blockchain Arweave via o contrato inteligente DomainRegistry.
+Todo BEO e IEO no ecossistema BSP é identificado por um domínio `.bsp` legível por humanos — um endereço biológico permanente e soberano registrado na blockchain Aptos via o módulo Move DomainRegistry.
 
 O namespace `.bsp` é gerenciado pelo Ambrósio Institute. A atribuição e unicidade de domínios são aplicadas on-chain — não por um servidor central.
 
@@ -33,7 +33,7 @@ O namespace `.bsp` é gerenciado pelo Ambrósio Institute. A atribuição e unic
 ## Regras de Domínio
 
 ### Permanência
-Domínios individuais são permanentes e intransferíveis. Uma vez que `andre.bsp` é registrado, existe para sempre no Arweave e não pode ser transferido para outra pessoa ou excluído.
+Domínios individuais são permanentes e intransferíveis. Uma vez que `andre.bsp` é registrado, existe para sempre na blockchain Aptos e não pode ser transferido para outra pessoa ou excluído.
 
 ### Unicidade
 O contrato inteligente DomainRegistry garante que cada domínio `.bsp` só pode existir uma vez. Duas entidades não podem ter o mesmo domínio.

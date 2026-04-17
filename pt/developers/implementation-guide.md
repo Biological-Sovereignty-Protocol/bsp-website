@@ -27,7 +27,7 @@ cp .env.example .env.local
 
 ### Passo 2 — Configurar a URL do relayer
 
-O relayer é a API off-chain que conecta seu app aos processos AO no Arweave. Aponte seu app para ele:
+O relayer é a API off-chain que conecta seu app aos contratos inteligentes Aptos e ao armazenamento Arweave. Aponte seu app para ele:
 
 ```env
 # .env.local
@@ -247,33 +247,34 @@ records.forEach(record => {
 
 **Objetivo:** Rodar sua própria infraestrutura BSP — seu próprio nó/relayer para uma rede privada ou implantação regional.
 
-### Passo 1 — Implantar os processos AO
+### Passo 1 — Implantar os módulos Move no Aptos
 
-O BSP usa quatro processos AO no Arweave. Implante-os nesta ordem (cada um depende do anterior).
+O BSP usa quatro módulos Move no Aptos. Implante-os nesta ordem (cada um depende do anterior).
 
 ```bash
 cd bsp-spec/contracts  # ou obtenha do repositório de registro
 
 # 1. BEORegistry — armazena todas as identidades de entidades biológicas
-arweave deploy BEORegistry --wallet ./wallet.json
+aptos move publish --named-addresses bsp=default --profile mainnet
 
 # 2. IEORegistry — armazena todas as identidades institucionais
-arweave deploy IEORegistry --wallet ./wallet.json
+# (incluído no mesmo pacote Move)
 
 # 3. AccessControl — gerencia tokens de consentimento e permissões de acesso
-arweave deploy AccessControl --wallet ./wallet.json \
-  --init '{"beoRegistry":"<BEO_TX_ID>","ieoRegistry":"<IEO_TX_ID>"}'
+# (incluído no mesmo pacote Move)
 
 # 4. DomainRegistry — gerencia o namespace .bsp
-arweave deploy DomainRegistry --wallet ./wallet.json \
-  --init '{"accessControl":"<ACCESS_CONTROL_TX_ID>"}'
+# (incluído no mesmo pacote Move)
+
+# Inicializar os contratos
+aptos move run --function-id default::bsp_init::initialize --profile mainnet
 ```
 
-Salve os quatro IDs de transação. São permanentes e identificam sua implantação.
+Salve o endereço de implantação. É permanente e identifica sua implantação.
 
 ### Passo 2 — Configurar o bsp-registry-api (o relayer)
 
-O relayer é a API HTTP com a qual seus apps se comunicam. Ele lida com batching, cache e tradução de chamadas REST em mensagens AO.
+O relayer é a API HTTP com a qual seus apps se comunicam. Ele lida com batching, cache e tradução de chamadas REST em transações Aptos e operações de armazenamento Arweave.
 
 ```bash
 git clone https://github.com/Biological-Sovereignty-Protocol/bsp-registry-api

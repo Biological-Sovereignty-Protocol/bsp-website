@@ -39,7 +39,7 @@ From the perspective of a person living within the ecosystem:
 | `bsp-spec` | Devs, Labs, Auditors | The public law of the protocol. |
 | `bsp-sdk` | App & Backend Devs | The builder's tools (Python/TypeScript). |
 | `bsp-mcp` | AI Platforms | Connects AI agents to the protocol with consent. |
-| `bsp-contracts` | Ambrósio Institute | Smart contracts on Arweave (identities live here). |
+| `bsp-contracts` | Ambrósio Institute | Smart contracts on Aptos (identities live here) + Arweave (permanent bio-data storage). |
 | `ava-core` | Ambrósio Institute | Proprietary intelligence (processes BioRecords). |
 | `sva-engine` | Ambrósio Institute | Produces the Vitality Score for the user. |
 

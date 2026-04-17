@@ -95,9 +95,9 @@ Los **BioRecords** son inmutables una vez escritos. Las correcciones se envían 
 
 ### 2.4 — Infraestructura Descentralizada
 
-Los registros **BSP** se almacenan en Arweave — un protocolo de almacenamiento permanente y descentralizado diseñado para preservar datos durante 200+ años mediante un modelo de dotación matemáticamente sostenible. Una vez que se escribe un **BioRecord**, existe permanentemente, independientemente de lo que le suceda a cualquier empresa en el ecosistema — incluido el Ambrósio Institute.
+El **BSP** utiliza una arquitectura blockchain de dos capas. **Aptos** sirve como capa de ejecución — contratos inteligentes escritos en Move gestionan identidades **BEO**, registros de dominio .bsp, permisos de acceso y tokens de consentimiento con finalidad sub-segundo. **Arweave** sirve como capa de almacenamiento permanente — los datos biológicos (**BioRecords**) se almacenan en el protocolo de almacenamiento descentralizado de Arweave, diseñado para preservar datos durante 200+ años mediante un modelo de dotación matemáticamente sostenible. Una vez que se escribe un **BioRecord**, existe permanentemente, independientemente de lo que le suceda a cualquier empresa en el ecosistema — incluido el Ambrósio Institute.
 
-Los procesos AO que gestionan identidades **BEO**, registros de dominio .bsp y permisos de acceso corren en la plataforma de computación hiper-paralela de Arweave — garantizando que las reglas del protocolo no puedan ser cambiadas por ningún actor único. Todos los cambios de parámetros críticos requieren autorización de múltiples firmas de los titulares de claves del Instituto.
+El modelo de recursos Move en Aptos garantiza que los activos del protocolo (BEOs, tokens de consentimiento, registros de dominio) no puedan ser duplicados o perdidos — una garantía estructural aplicada a nivel del lenguaje. El soporte nativo de firmas Ed25519 en Aptos se alinea con la arquitectura criptográfica del BSP. Todos los cambios de parámetros críticos requieren autorización de múltiples firmas de los titulares de claves del Instituto.
 
 ## 3. La Taxonomía de Biomarcadores
 
@@ -257,7 +257,7 @@ La taxonomía **BSP** y la especificación del protocolo evolucionan mediante un
 
 ### 7.3 — Gobernanza de Contratos Inteligentes
 
-Los procesos **BSP** centrales — los que gobiernan el registro de identidad **BEO**, la asignación de dominio .bsp y las reglas de control de acceso — corren como procesos AO en Arweave. Todos los parámetros críticos requieren un mínimo de dos de los tres titulares de claves autorizados del Instituto para firmar cualquier modificación. Ninguna persona — incluido el fundador del Instituto — puede cambiar unilateralmente las reglas del protocolo.
+Los procesos **BSP** centrales — los que gobiernan el registro de identidad **BEO**, la asignación de dominio .bsp y las reglas de control de acceso — están implementados como módulos Move en Aptos. Todos los parámetros críticos requieren un mínimo de dos de los tres titulares de claves autorizados del Instituto para firmar cualquier modificación. Ninguna persona — incluido el fundador del Instituto — puede cambiar unilateralmente las reglas del protocolo.
 
 ## 8. El Ecosistema
 

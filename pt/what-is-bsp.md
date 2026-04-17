@@ -12,7 +12,7 @@ lang: pt
 
 O Biological Sovereignty Protocol (BSP) é um protocolo aberto e sem permissão que dá aos indivíduos controle total sobre seus dados biológicos — de genômica e registros clínicos a métricas de wearables e perfis de microbioma.
 
-Construído sobre Arweave para armazenamento permanente e usando criptografia Ed25519 para consentimento à prova de adulteração, o BSP remove instituições como guardiões dos seus dados mais pessoais.
+Construído sobre uma arquitetura de duas camadas — **blockchain Aptos** para execução e gerenciamento de estado, **Arweave** para armazenamento permanente de bio-dados — e usando criptografia Ed25519 para consentimento à prova de adulteração, o BSP remove instituições como guardiões dos seus dados mais pessoais. Contratos inteligentes em Move no Aptos gerenciam registros de identidade, controle de acesso e consentimento com finalidade sub-segundo, enquanto o Arweave armazena os dados biológicos permanentemente.
 
 ## O problema
 
@@ -61,7 +61,7 @@ O BSP é totalmente open source. Nenhuma empresa controla o protocolo. Qualquer 
 Você. Seu BEO é assinado com sua chave privada. Nenhuma instituição pode modificá-lo sem sua assinatura.
 
 ### O BSP está em produção?
-O BSP v1 está implantado na mainnet da Arweave. A Registry API e o SDK TypeScript estão disponíveis publicamente.
+O BSP v1 está implantado na mainnet da Aptos (contratos inteligentes) com Arweave para armazenamento permanente de dados. A Registry API e o SDK TypeScript estão disponíveis publicamente.
 
 ### Instituições podem rejeitar o BSP?
 Podem escolher não usá-lo — mas não podem impedir indivíduos de usá-lo. O BSP é sem permissão.

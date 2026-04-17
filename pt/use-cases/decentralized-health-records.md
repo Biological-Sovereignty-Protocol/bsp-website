@@ -1,6 +1,6 @@
 ---
 title: "Registros de Saúde Descentralizados | BSP"
-description: "O BSP usa Arweave e processos AO para criar registros de saúde verdadeiramente permanentes e descentralizados. Sem servidor central, sem ponto único de falha."
+description: "O BSP usa contratos inteligentes Aptos e armazenamento permanente Arweave para criar registros de saúde verdadeiramente permanentes e descentralizados. Sem servidor central, sem ponto único de falha."
 ---
 
 # Registros de Saúde Descentralizados que Duram Para Sempre
@@ -19,17 +19,19 @@ Projetos de **blockchain para dados de saúde** da última década compartilham 
 
 O resultado é fragmentação de dados, infraestrutura frágil e zero soberania individual.
 
-## Como Arweave e AO Mudam a Equação
+## Como Aptos e Arweave Mudam a Equação
 
-O BSP ancora registros de saúde no **Arweave** — um protocolo construído especificamente para armazenamento permanente e de baixo custo. O modelo econômico é um endowment único: pague uma vez, armazene para sempre. Sem taxas recorrentes, sem renovações, sem dependência da participação contínua de qualquer parte.
+O BSP usa uma arquitetura de duas camadas. O **Aptos** serve como camada de execução — contratos inteligentes Move gerenciam controle de acesso, tokens de consentimento, registros de identidade e trilhas de auditoria com finalidade sub-segundo. O **Arweave** serve como camada de armazenamento permanente — dados biológicos são armazenados em um protocolo construído especificamente para armazenamento permanente e de baixo custo. O modelo econômico é um endowment único: pague uma vez, armazene para sempre. Sem taxas recorrentes, sem renovações, sem dependência da participação contínua de qualquer parte.
 
 A garantia de permanência é estrutural. Dados escritos no Arweave são replicados em uma rede de mineradores incentivados a armazená-los por 200+ anos pelo mecanismo de endowment criptográfico do protocolo.
 
-**Processos AO** adicionam computação hiper-paralela sobre essa camada permanente. O BSP usa AO para gerenciar:
+**Contratos inteligentes Aptos** (módulos Move) gerenciam a lógica do protocolo:
 
 - **Controle de acesso** — quem pode ler quais partes de um registro de saúde, e sob quais condições
 - **Tokens de consentimento** — autorizações com prazo definido e aplicação criptográfica que não dependem de nenhuma API permanecer operacional
-- **Trilhas de auditoria** — logs imutáveis de cada evento de acesso, anexados ao próprio registro
+- **Trilhas de auditoria** — logs imutáveis de cada evento de acesso, ancorados on-chain
+
+O modelo de recursos Move garante que os ativos do protocolo (BEOs, tokens de consentimento, registros de domínio) não possam ser duplicados ou perdidos — uma garantia estrutural aplicada no nível da linguagem.
 
 ## A Estrutura do Registro BSP
 

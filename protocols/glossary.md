@@ -36,23 +36,23 @@ The institutional identity of any organization, system, or professional that int
 **AccessControl**
 The most critical BSP contract. Manages all consent grants between BEOs and IEOs. Any system attempting to write a BioRecord or read BEO data must present a valid authorization registered here. Without the holder's signature, the transaction is rejected by the blockchain — no server can bypass it.
 
-**AO**
-Arweave's hyper-parallel compute platform. BSP processes run as AO processes on Arweave, using Lua for on-chain logic. Each process is permanent and communicates via messages. SDK: `@permaweb/aoconnect`.
+**Aptos**
+Layer 1 blockchain serving as BSP's execution layer. Smart contracts are written in Move — a resource-oriented programming language that ensures assets cannot be duplicated or lost. Aptos provides sub-second finality and native Ed25519 signature support. BSP smart contracts (BEORegistry, IEORegistry, DomainRegistry, AccessControl, Governance) are deployed as Move modules on Aptos.
 
 **Arweave**
-Decentralized storage blockchain. Pay once — data persists for 200+ years, guaranteed by a mathematical endowment model. BSP processes run as AO processes on Arweave. If the Ambrósio Institute ceases to exist, BEOs and BioRecords remain accessible forever.
+Decentralized permanent storage blockchain. Pay once — data persists for 200+ years, guaranteed by a mathematical endowment model. BSP uses Arweave as the permanent storage layer for biological data (BioRecords). If the Ambrósio Institute ceases to exist, BioRecords remain accessible on Arweave forever.
 
 **BEORegistry**
-AO process on Arweave responsible for creating and indexing BEOs. **Open to anyone** — no approval required. Records: public address, public key hash, domain, and BEO metadata.
+Move module on Aptos responsible for creating and indexing BEOs. **Open to anyone** — no approval required. Records: public address, public key hash, domain, and BEO metadata.
 
 **DomainRegistry**
-AO process controlling the `.bsp` namespace. Guarantees uniqueness: `andre.bsp` can exist only once globally. Manages registrations, transfers, and revocations.
+Move module on Aptos controlling the `.bsp` namespace. Guarantees uniqueness: `andre.bsp` can exist only once globally. Manages registrations, transfers, and revocations.
 
-**Governance (process)**
-AO process controlling modifications to other BSP processes. Implements multi-signature model: critical operations require signatures from at least 2 of 3 Institute keyholders. No individual — including the founder — can unilaterally modify protocol rules.
+**Governance (module)**
+Move module on Aptos controlling modifications to other BSP contracts. Implements multi-signature model: critical operations require signatures from at least 2 of 3 Institute keyholders. No individual — including the founder — can unilaterally modify protocol rules.
 
 **IEORegistry**
-AO process managing BSP-Certified institutions. Records which institutions hold certification, at which level, and with which authorized categories. Queried by Ambrosio OS and other apps to verify credentials.
+Move module on Aptos managing BSP-Certified institutions. Records which institutions hold certification, at which level, and with which authorized categories. Queried by Ambrosio OS and other apps to verify credentials.
 
 ---
 

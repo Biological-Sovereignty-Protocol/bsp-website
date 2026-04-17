@@ -31,8 +31,8 @@ Este documento es la referencia canónica para todos los términos técnicos, ob
     Contrato inteligente que controla el namespace `.bsp`, garantizando la unicidad global.
 *   **Governance**
     Contrato inteligente que controla las modificaciones a otros contratos BSP a través de un modelo multi-firma.
-*   **AO**
-    Plataforma de computación hiper-paralela de Arweave. Los procesos BSP corren como procesos AO en Arweave, usando Lua para lógica on-chain. Cada proceso es permanente y se comunica vía mensajes. SDK: `@permaweb/aoconnect`.
+*   **Aptos**
+    Blockchain Layer 1 que sirve como capa de ejecución del BSP. Los contratos inteligentes están escritos en Move — un lenguaje de programación orientado a recursos que garantiza que los activos no puedan ser duplicados o perdidos. Aptos proporciona finalidad sub-segundo y soporte nativo de firmas Ed25519. Los contratos inteligentes BSP (BEORegistry, IEORegistry, DomainRegistry, AccessControl, Governance) se despliegan como módulos Move en Aptos.
 
 ## Sección 3: Inteligencia Propietaria — AVA y SVA
 

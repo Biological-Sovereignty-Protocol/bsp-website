@@ -28,7 +28,7 @@ Cualquier sistema puede intentar enviar un BioRecord a un BEO. Lo que gobierna e
 
 Los registros BSP se almacenan en Arweave — un protocolo de almacenamiento permanente y descentralizado diseñado para preservar datos durante 200+ años.
 
-Los procesos AO que gestionan las identidades BEO, los registros de dominio `.bsp` y los permisos de acceso corren en la plataforma de computación hiper-paralela de Arweave — garantizando que las reglas del protocolo no puedan ser cambiadas por ningún actor individual.
+Los contratos inteligentes Move en Aptos gestionan las identidades BEO, los registros de dominio `.bsp` y los permisos de acceso con finalidad sub-segundo — garantizando que las reglas del protocolo no puedan ser cambiadas por ningún actor individual. Arweave almacena los datos biológicos permanentemente.
 
 ## El Modelo de Soberanía
 
