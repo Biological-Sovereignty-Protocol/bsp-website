@@ -139,4 +139,4 @@ GET /health
 
 ---
 
-→ [CLI Reference](./cli) · [SDK Reference](./sdk-reference) · [MCP Server](./mcp)
+→ [CLI Reference](/developers/cli) · [SDK Reference](/developers/sdk-reference) · [MCP Server](/developers/mcp)

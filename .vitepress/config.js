@@ -66,7 +66,11 @@ const enSidebar = [
         text: 'Community & Roadmap',
         items: [
             { text: 'Roadmap', link: '/roadmap' },
-            { text: 'Community', link: '/community' }
+            { text: 'Community', link: '/community' },
+            { text: 'About BSP', link: '/about' },
+            { text: 'Team', link: '/team' },
+            { text: 'Press & Media', link: '/press' },
+            { text: 'Changelog', link: '/changelog' }
         ]
     },
     {
@@ -131,6 +135,8 @@ const ptSidebar = [
             { text: 'Protocolo de Troca', link: '/pt/specification/exchange' },
             { text: 'Sistema de Domínios .bsp', link: '/pt/specification/bsp-domain' },
             { text: 'Governança', link: '/pt/specification/governance' },
+            { text: 'Referência API', link: '/pt/specification/api-reference' },
+            { text: 'Códigos de Biomarcadores', link: '/pt/specification/biomarker-codes' },
             {
                 text: 'Taxonomia L1',
                 items: [
@@ -161,7 +167,11 @@ const ptSidebar = [
         text: 'Comunidade e Roadmap',
         items: [
             { text: 'Roadmap', link: '/pt/roadmap' },
-            { text: 'Comunidade', link: '/pt/community' }
+            { text: 'Comunidade', link: '/pt/community' },
+            { text: 'Sobre o BSP', link: '/pt/about' },
+            { text: 'Time', link: '/pt/team' },
+            { text: 'Imprensa e Mídia', link: '/pt/press' },
+            { text: 'Changelog', link: '/pt/changelog' }
         ]
     },
     {
@@ -226,6 +236,8 @@ const esSidebar = [
             { text: 'Protocolo de Intercambio', link: '/es/specification/exchange' },
             { text: 'Sistema de Dominios .bsp', link: '/es/specification/bsp-domain' },
             { text: 'Gobernanza', link: '/es/specification/governance' },
+            { text: 'Referencia API', link: '/es/specification/api-reference' },
+            { text: 'Códigos de Biomarcadores', link: '/es/specification/biomarker-codes' },
             {
                 text: 'Taxonomía L1',
                 items: [
@@ -256,7 +268,11 @@ const esSidebar = [
         text: 'Comunidad y Roadmap',
         items: [
             { text: 'Roadmap', link: '/es/roadmap' },
-            { text: 'Comunidad', link: '/es/community' }
+            { text: 'Comunidad', link: '/es/community' },
+            { text: 'Acerca de BSP', link: '/es/about' },
+            { text: 'Equipo', link: '/es/team' },
+            { text: 'Prensa y Medios', link: '/es/press' },
+            { text: 'Changelog', link: '/es/changelog' }
         ]
     },
     {
