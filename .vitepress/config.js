@@ -34,6 +34,8 @@ const enSidebar = [
             { text: 'Exchange Protocol', link: '/specification/exchange' },
             { text: 'BSP Domain System', link: '/specification/bsp-domain' },
             { text: 'Governance', link: '/specification/governance' },
+            { text: 'API Reference', link: '/specification/api-reference' },
+            { text: 'Biomarker Codes', link: '/specification/biomarker-codes' },
             {
                 text: 'Biomarker Taxonomy',
                 items: [
