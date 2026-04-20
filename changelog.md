@@ -8,7 +8,18 @@ lang: en
 
 Major releases of the BSP specification. For code-level changes, see the [GitHub releases](https://github.com/Biological-Sovereignty-Protocol/bsp-spec/releases).
 
-## v1.0.0 — Current
+## v2.1.0 — Current
+
+**Cross-stack version alignment**
+
+- SDK (TypeScript, Python), CLI, MCP server, and the `bsp-website` package
+  itself now all share the `2.1.0` line. A BSP consumer can pin one major
+  and know every client surface matches.
+- Consolidated error catalog in `bsp-spec/docs/ERROR_CODES.md` — single
+  source of truth across contracts (78 abort codes), API (31 HTTP/machine
+  codes), and SDK/CLI/MCP client errors.
+
+## v1.0.0
 
 **Aptos + Arweave migration · MIT license · Public launch**
 

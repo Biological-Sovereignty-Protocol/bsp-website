@@ -1,7 +1,7 @@
 {
   "name": "website",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.1.0",
+  "description": "Documentation website for the Biological Sovereignty Protocol",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
