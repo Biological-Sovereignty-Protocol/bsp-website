@@ -491,7 +491,8 @@ export default defineConfig({
             }
         },
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/Biological-Sovereignty-Protocol' }
+            { icon: 'github', link: 'https://github.com/Biological-Sovereignty-Protocol' },
+            { icon: 'x', link: 'https://x.com/bsp_protocol' }
         ]
     },
 
