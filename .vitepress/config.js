@@ -373,6 +373,10 @@ export default defineConfig({
         }
     },
     head: [
+        // Responsive viewport (mobile-first)
+        ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' }],
+        // Charset (explicit)
+        ['meta', { charset: 'utf-8' }],
         // WebMCP — expose tools to AI agents via navigator.modelContext
         ['meta', { name: 'webmcp', content: 'enabled' }],
         ['meta', { name: 'webmcp-tools', content: 'search_documentation,navigate_to_page,get_biomarker_info,get_beo_schema,get_sdk_info,switch_language' }],
