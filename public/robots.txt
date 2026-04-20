@@ -24,6 +24,14 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://biologicalsovereigntyprotocol.com/sitemap.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-core.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-specification.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-developers.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-architecture.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-use-cases.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-community.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-pt.xml
+Sitemap: https://biologicalsovereigntyprotocol.com/sitemaps/sitemap-es.xml
 Host: https://biologicalsovereigntyprotocol.com
 
 # LLM-friendly structured content
