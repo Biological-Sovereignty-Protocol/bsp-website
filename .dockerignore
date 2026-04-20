@@ -1,0 +1,32 @@
+# Dependencies and build output
+node_modules
+.vitepress/dist
+.vitepress/cache
+dist
+build
+
+# VCS and editor
+.git
+.gitignore
+.github
+.vscode
+.idea
+*.swp
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Docs tooling artifacts not needed in build context (keep content .md files)
+# (content markdown files ARE needed for the VitePress build — do NOT exclude *.md)
+
+# Docker itself
+Dockerfile
+.dockerignore
