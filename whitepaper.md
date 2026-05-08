@@ -1,6 +1,6 @@
 ---
 layout: doc
-sidebar: false
+sidebar: true
 outline: deep
 title: "BSP Whitepaper v3.0"
 description: "Official BSP Whitepaper v3.0 — architecture, governance, economic model, threat model, and 50-year vision."
@@ -14,6 +14,38 @@ head:
   - - meta
     - property: og:type
       content: article
+---
+
+<div class="page-hero-image">
+  <img src="/images/whitepaper-hero.jpg" alt="BSP Whitepaper v3.0 — protocol specification document" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
+<div class="whitepaper-hero">
+  <div class="wp-badge">v 3.0</div>
+  <h1>Biological Sovereignty Protocol<br><span class="wp-subtitle">Official Whitepaper</span></h1>
+  <p class="wp-tagline">A sovereignty protocol for biological data in the algorithmic age — ownership, control, legacy, and inalienability, made technically executable.</p>
+  <div class="wp-meta">
+    <span>Published by the Ambrosio Institute · May 2026</span>
+    <span class="wp-divider">•</span>
+    <a href="https://biologicalsovereigntyprotocol.com" target="_blank">biologicalsovereigntyprotocol.com</a>
+  </div>
+</div>
+
+::: tip In 60 seconds
+Biological data is **ontologically distinct** from any other kind of data — it is **constitution**, not trace. The Biological Sovereignty Protocol (BSP) is open infrastructure that makes the four attributes of sovereignty technically executable: **ownership**, **control**, **legacy**, and **inalienability**. Three layers (BEO · BioRecord · Exchange) on Aptos Move + Arweave with cryptographic erasure for LGPD/GDPR compliance. Permissionless. No token. Stewardship via 2-of-3 multisig with 72h timelock and right-to-fork preserved by design.
+:::
+
+<HeroDiagram />
+
+## Quick navigation
+
+- **Part I — Philosophical Foundations** — sovereignty, biopower, civilizational stakes
+- **Part II — The Protocol** — three-layer technical specification
+- **Part III — Economics** — sustainability without a token
+- **Part IV — Institution & Governance** — stewardship, BIPs, right to fork
+- **Part V — Intelligence (AVA & SVA)** — algorithmic layer above the protocol
+- **Part VI — Horizon & Roadmap** — 50-year vision
+
 ---
 
 # Biological Sovereignty Protocol
