@@ -16,6 +16,8 @@ head:
       content: article
 ---
 
+> **Note:** This is the legacy v2 whitepaper. The current v3 (with expanded threat model, governance with teeth, full economic analysis, and a 50-year vision) is available in [Portuguese](/pt/whitepaper). English translation in progress.
+
 <div class="page-hero-image">
   <img src="/images/whitepaper-hero.jpg" alt="BSP Whitepaper — protocol specification document" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>

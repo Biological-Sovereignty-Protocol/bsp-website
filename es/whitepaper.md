@@ -5,6 +5,8 @@ outline: deep
 title: "**BSP** Whitepaper"
 ---
 
+> **Nota:** Este es el whitepaper legado v2. La versión actual v3 (con threat model ampliado, gobernanza con dientes, análisis económico completo y visión de 50 años) está disponible en [Portugués](/pt/whitepaper). Traducción al español en progreso.
+
 <div class="page-hero-image">
   <img src="/images/whitepaper-hero.jpg" alt="BSP Whitepaper — protocol specification document" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
 </div>
