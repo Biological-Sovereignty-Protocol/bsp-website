@@ -101,6 +101,198 @@ const enSidebar = [
     }
 ]
 
+const enWhitepaperSidebar = [
+    {
+        text: 'Whitepaper v3.0',
+        items: [
+            { text: 'Overview', link: '/whitepaper' },
+            { text: 'Abstract', link: '/whitepaper#abstract' },
+            { text: 'Executive Summary', link: '/whitepaper#executive-summary' },
+            { text: 'Visual Executive Summary', link: '/whitepaper#visual-executive-summary' },
+            { text: 'Table of Contents', link: '/whitepaper#table-of-contents' }
+        ]
+    },
+    {
+        text: 'Part I — Philosophy',
+        collapsed: false,
+        items: [
+            { text: 'Ch. 1 — Question of Sovereignty', link: '/whitepaper#chapter-1-the-question-of-sovereignty' },
+            { text: 'Ch. 2 — Biopower & the Algorithm', link: '/whitepaper#chapter-2-biopower-and-the-algorithm' },
+            { text: 'Ch. 3 — Civilizational Stakes', link: '/whitepaper#chapter-3-the-civilizational-stakes' }
+        ]
+    },
+    {
+        text: 'Part II — The Protocol',
+        collapsed: false,
+        items: [
+            { text: 'Three-layer Architecture', link: '/whitepaper#part-ii-the-protocol' },
+            { text: 'BEO — Identity', link: '/whitepaper#beo-biological-entity-owner' },
+            { text: 'BioRecord — Data', link: '/whitepaper#biorecord' },
+            { text: 'Exchange & Consent', link: '/whitepaper#exchange-protocol' },
+            { text: 'Cryptographic Erasure', link: '/whitepaper#cryptographic-erasure' }
+        ]
+    },
+    {
+        text: 'Part III — Economics',
+        collapsed: true,
+        items: [
+            { text: 'Sustainability without Token', link: '/whitepaper#part-iii-economics' }
+        ]
+    },
+    {
+        text: 'Part IV — Governance',
+        collapsed: true,
+        items: [
+            { text: 'Stewardship Model', link: '/whitepaper#part-iv-the-institution' },
+            { text: 'BIPs & Right to Fork', link: '/whitepaper#bip-process' }
+        ]
+    },
+    {
+        text: 'Part V — Intelligence',
+        collapsed: true,
+        items: [
+            { text: 'AVA & SVA', link: '/whitepaper#part-v-intelligence' }
+        ]
+    },
+    {
+        text: 'Part VI — Horizon',
+        collapsed: true,
+        items: [
+            { text: 'Roadmap & 50-year Vision', link: '/whitepaper#part-vi-the-horizon' },
+            { text: 'Conclusion', link: '/whitepaper#conclusion' },
+            { text: 'Appendices', link: '/whitepaper#appendices' }
+        ]
+    }
+]
+
+const ptWhitepaperSidebar = [
+    {
+        text: 'Whitepaper v3.0',
+        items: [
+            { text: 'Visão geral', link: '/pt/whitepaper' },
+            { text: 'Abstract', link: '/pt/whitepaper#abstract' },
+            { text: 'Sumário Executivo', link: '/pt/whitepaper#executive-summary' },
+            { text: 'Sumário Visual', link: '/pt/whitepaper#sumario-executivo-visual' },
+            { text: 'Tabela de Conteúdos', link: '/pt/whitepaper#tabela-de-conteudos' }
+        ]
+    },
+    {
+        text: 'Parte I — Filosofia',
+        collapsed: false,
+        items: [
+            { text: 'Cap. 1 — Soberania', link: '/pt/whitepaper#capitulo-1-a-questao-da-soberania' },
+            { text: 'Cap. 2 — Biopoder', link: '/pt/whitepaper#capitulo-2-biopoder-e-o-algoritmo' },
+            { text: 'Cap. 3 — Apostas Civilizacionais', link: '/pt/whitepaper#capitulo-3-as-apostas-civilizacionais' }
+        ]
+    },
+    {
+        text: 'Parte II — O Protocolo',
+        collapsed: false,
+        items: [
+            { text: 'Arquitetura em três camadas', link: '/pt/whitepaper#parte-ii-o-protocolo' },
+            { text: 'BEO — Identidade', link: '/pt/whitepaper#beo' },
+            { text: 'BioRecord — Dados', link: '/pt/whitepaper#biorecord' },
+            { text: 'Exchange & Consentimento', link: '/pt/whitepaper#exchange-protocol' },
+            { text: 'Cryptographic Erasure', link: '/pt/whitepaper#cryptographic-erasure' }
+        ]
+    },
+    {
+        text: 'Parte III — Economia',
+        collapsed: true,
+        items: [
+            { text: 'Sustentabilidade sem token', link: '/pt/whitepaper#parte-iii-a-economia' }
+        ]
+    },
+    {
+        text: 'Parte IV — Governança',
+        collapsed: true,
+        items: [
+            { text: 'Modelo de Stewardship', link: '/pt/whitepaper#parte-iv-a-instituicao' },
+            { text: 'BIPs & Direito de Fork', link: '/pt/whitepaper#processo-bip' }
+        ]
+    },
+    {
+        text: 'Parte V — Inteligência',
+        collapsed: true,
+        items: [
+            { text: 'AVA & SVA', link: '/pt/whitepaper#parte-v-a-inteligencia' }
+        ]
+    },
+    {
+        text: 'Parte VI — Horizonte',
+        collapsed: true,
+        items: [
+            { text: 'Roadmap & visão de 50 anos', link: '/pt/whitepaper#parte-vi-o-horizonte' },
+            { text: 'Conclusão', link: '/pt/whitepaper#conclusao' },
+            { text: 'Apêndices', link: '/pt/whitepaper#apendices' }
+        ]
+    }
+]
+
+const esWhitepaperSidebar = [
+    {
+        text: 'Whitepaper v3.0',
+        items: [
+            { text: 'Visión general', link: '/es/whitepaper' },
+            { text: 'Abstract', link: '/es/whitepaper#abstract' },
+            { text: 'Resumen Ejecutivo', link: '/es/whitepaper#executive-summary' },
+            { text: 'Resumen Visual', link: '/es/whitepaper#resumen-ejecutivo-visual' },
+            { text: 'Tabla de Contenidos', link: '/es/whitepaper#tabla-de-contenidos' }
+        ]
+    },
+    {
+        text: 'Parte I — Filosofía',
+        collapsed: false,
+        items: [
+            { text: 'Cap. 1 — Soberanía', link: '/es/whitepaper#capitulo-1' },
+            { text: 'Cap. 2 — Biopoder', link: '/es/whitepaper#capitulo-2' },
+            { text: 'Cap. 3 — Apuestas Civilizatorias', link: '/es/whitepaper#capitulo-3' }
+        ]
+    },
+    {
+        text: 'Parte II — El Protocolo',
+        collapsed: false,
+        items: [
+            { text: 'Arquitectura en tres capas', link: '/es/whitepaper#parte-ii-el-protocolo' },
+            { text: 'BEO — Identidad', link: '/es/whitepaper#beo' },
+            { text: 'BioRecord — Datos', link: '/es/whitepaper#biorecord' },
+            { text: 'Exchange & Consentimiento', link: '/es/whitepaper#exchange-protocol' },
+            { text: 'Cryptographic Erasure', link: '/es/whitepaper#cryptographic-erasure' }
+        ]
+    },
+    {
+        text: 'Parte III — Economía',
+        collapsed: true,
+        items: [
+            { text: 'Sostenibilidad sin token', link: '/es/whitepaper#parte-iii-la-economia' }
+        ]
+    },
+    {
+        text: 'Parte IV — Gobernanza',
+        collapsed: true,
+        items: [
+            { text: 'Modelo de Stewardship', link: '/es/whitepaper#parte-iv-la-institucion' },
+            { text: 'BIPs & Derecho de Fork', link: '/es/whitepaper#proceso-bip' }
+        ]
+    },
+    {
+        text: 'Parte V — Inteligencia',
+        collapsed: true,
+        items: [
+            { text: 'AVA & SVA', link: '/es/whitepaper#parte-v-la-inteligencia' }
+        ]
+    },
+    {
+        text: 'Parte VI — Horizonte',
+        collapsed: true,
+        items: [
+            { text: 'Roadmap & visión a 50 años', link: '/es/whitepaper#parte-vi-el-horizonte' },
+            { text: 'Conclusión', link: '/es/whitepaper#conclusion' },
+            { text: 'Apéndices', link: '/es/whitepaper#apendices' }
+        ]
+    }
+]
+
 const ptSidebar = [
     {
         text: 'Primeiros Passos',
@@ -570,6 +762,7 @@ export default defineConfig({
                     { text: 'Create BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
+                    '/whitepaper': enWhitepaperSidebar,
                     '/': enSidebar
                 }
             }
@@ -675,6 +868,7 @@ export default defineConfig({
                     { text: 'Criar BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
+                    '/pt/whitepaper': ptWhitepaperSidebar,
                     '/pt/': ptSidebar
                 }
             }
@@ -780,6 +974,7 @@ export default defineConfig({
                     { text: 'Crear BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
+                    '/es/whitepaper': esWhitepaperSidebar,
                     '/es/': esSidebar
                 }
             }

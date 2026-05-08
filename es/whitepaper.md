@@ -1,7 +1,52 @@
 ---
-title: Protocolo de Soberanía Biológica — Whitepaper v3.0
-description: Un protocolo de soberanía de datos biológicos para la era algorítmica
+layout: doc
+sidebar: true
+outline: deep
 lang: es
+title: "BSP Whitepaper v3.0"
+description: "Whitepaper oficial v3.0 del Biological Sovereignty Protocol — arquitectura, gobernanza, modelo económico, threat model y visión a 50 años."
+head:
+  - - meta
+    - property: og:title
+      content: "BSP Whitepaper v3.0 — Documento Fundacional"
+  - - meta
+    - property: og:description
+      content: "Documento fundacional del BSP. 220+ páginas. Arquitectura formal, gobernanza, economía, threat model, visión a 50 años."
+  - - meta
+    - property: og:type
+      content: article
+---
+
+<div class="page-hero-image">
+  <img src="/images/whitepaper-hero.jpg" alt="BSP Whitepaper v3.0 — documento de especificación del protocolo" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
+<div class="whitepaper-hero">
+  <div class="wp-badge">v 3.0</div>
+  <h1>Biological Sovereignty Protocol<br><span class="wp-subtitle">Whitepaper Oficial</span></h1>
+  <p class="wp-tagline">Un protocolo de soberanía para datos biológicos en la era algorítmica — propiedad, control, legado e inalienabilidad, vueltos técnicamente ejecutables.</p>
+  <div class="wp-meta">
+    <span>Publicado por el Instituto Ambrosio · Mayo de 2026</span>
+    <span class="wp-divider">•</span>
+    <a href="https://biologicalsovereigntyprotocol.com" target="_blank">biologicalsovereigntyprotocol.com</a>
+  </div>
+</div>
+
+::: tip En 60 segundos
+Los datos biológicos son **ontológicamente distintos** de cualquier otro tipo de dato — son **constitución**, no rastro. El Biological Sovereignty Protocol (BSP) es infraestructura abierta que torna los cuatro atributos de la soberanía técnicamente ejecutables: **propiedad**, **control**, **legado** e **inalienabilidad**. Tres capas (BEO · BioRecord · Exchange) sobre Aptos Move + Arweave con cryptographic erasure para conformidad LGPD/GDPR. Permissionless. Sin token. Stewardship vía multisig 2-de-3 con timelock de 72h y derecho de fork preservado por diseño.
+:::
+
+<HeroDiagram />
+
+## Navegación rápida
+
+- **Parte I — Fundamentos Filosóficos** — soberanía, biopoder, apuestas civilizatorias
+- **Parte II — El Protocolo** — especificación técnica en tres capas
+- **Parte III — Economía** — sostenibilidad sin token
+- **Parte IV — Institución & Gobernanza** — stewardship, BIPs, derecho de fork
+- **Parte V — Inteligencia (AVA & SVA)** — capa algorítmica sobre el protocolo
+- **Parte VI — Horizonte & Roadmap** — visión a 50 años
+
 ---
 
 # Biological Sovereignty Protocol

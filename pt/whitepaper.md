@@ -1,6 +1,6 @@
 ---
 layout: doc
-sidebar: false
+sidebar: true
 outline: deep
 title: "BSP Whitepaper v3.0"
 description: "Whitepaper oficial v3.0 do Biological Sovereignty Protocol — arquitetura, governança, modelo econômico, threat model e visão de 50 anos."
@@ -15,6 +15,39 @@ head:
     - property: og:type
       content: article
 ---
+
+<div class="page-hero-image">
+  <img src="/images/whitepaper-hero.jpg" alt="BSP Whitepaper v3.0 — documento de especificação do protocolo" style="width:100%;border-radius:16px;margin-bottom:2rem;box-shadow:0 8px 32px rgba(0,118,255,0.12);" />
+</div>
+
+<div class="whitepaper-hero">
+  <div class="wp-badge">v 3.0</div>
+  <h1>Biological Sovereignty Protocol<br><span class="wp-subtitle">Whitepaper Oficial</span></h1>
+  <p class="wp-tagline">Um protocolo de soberania para dados biológicos na era algorítmica — propriedade, controle, legado e inalienabilidade, tornados tecnicamente executáveis.</p>
+  <div class="wp-meta">
+    <span>Publicado pelo Instituto Ambrosio · Maio de 2026</span>
+    <span class="wp-divider">•</span>
+    <a href="https://biologicalsovereigntyprotocol.com" target="_blank">biologicalsovereigntyprotocol.com</a>
+  </div>
+</div>
+
+::: tip Em 60 segundos
+Dados biológicos são **ontologicamente distintos** de qualquer outro tipo de dado — são **constituição**, não rastro. O Biological Sovereignty Protocol (BSP) é infraestrutura aberta que torna os quatro atributos da soberania tecnicamente executáveis: **propriedade**, **controle**, **legado** e **inalienabilidade**. Três camadas (BEO · BioRecord · Exchange) sobre Aptos Move + Arweave com cryptographic erasure para conformidade LGPD/GDPR. Permissionless. Sem token. Stewardship via multisig 2-de-3 com timelock de 72h e direito de fork preservado por design.
+:::
+
+<HeroDiagram />
+
+## Navegação rápida
+
+- **Parte I — Fundamentos Filosóficos** — soberania, biopoder, apostas civilizacionais
+- **Parte II — O Protocolo** — especificação técnica em três camadas
+- **Parte III — Economia** — sustentabilidade sem token
+- **Parte IV — Instituição & Governança** — stewardship, BIPs, direito de fork
+- **Parte V — Inteligência (AVA & SVA)** — camada algorítmica sobre o protocolo
+- **Parte VI — Horizonte & Roadmap** — visão de 50 anos
+
+---
+
 # Biological Sovereignty Protocol
 
 ## Um Protocolo de Soberania Biológica para a Era Algorítmica
