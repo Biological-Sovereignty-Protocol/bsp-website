@@ -15,7 +15,6 @@ head:
     - property: og:type
       content: article
 ---
-
 # Biological Sovereignty Protocol
 
 ## Um Protocolo de Soberania Biológica para a Era Algorítmica
@@ -31,8 +30,8 @@ Maio de 2026
 **Hash do documento (SHA-256):** *a ser calculado sobre o artefato final consolidado*
 **DOI:** *em registro junto ao Zenodo / OpenAIRE*
 **ORCID do autor:** *em emissão*
-**Versão canônica:** `https://bsp.protocol/whitepaper-v3`
-**Repositório de fonte:** `github.com/ambrosiocompany/bsp-spec`
+**Versão canônica:** `https://biologicalsovereigntyprotocol.com/pt/whitepaper`
+**Repositório de fonte:** `github.com/Biological-Sovereignty-Protocol/bsp-spec`
 
 ---
 
@@ -192,7 +191,7 @@ Quem lê este documento é convidado a três tipos de ação. **Construir** — 
 
 A motivação declarada para o BSP é simultaneamente prática e civilizacional: garantir que a próxima geração — começando por seus próprios filhos — herde dados biológicos sob soberania, e não sob captura. A intenção institucional é de longo prazo, multi-geracional, e instrumentalizada por meio de vínculo fiduciário irrevogável entre o autor e o protocolo.
 
-**Contato público:** `andre@ambrosio.io`
+**Contato público:** via GitHub: github.com/Biological-Sovereignty-Protocol
 **Identidade BEO de referência:** `bsp://andre.ambrosio` (a ser publicada na rede principal)
 
 ---
@@ -203,7 +202,7 @@ A motivação declarada para o BSP é simultaneamente prática e civilizacional:
 Ambrosio, A. (2026). Biological Sovereignty Protocol:
 Um Protocolo de Soberania Biológica para a Era Algorítmica.
 Whitepaper v3.0. Instituto Ambrosio.
-https://bsp.protocol/whitepaper-v3
+https://biologicalsovereigntyprotocol.com/pt/whitepaper
 ```
 
 **BibTeX:**
@@ -217,7 +216,7 @@ https://bsp.protocol/whitepaper-v3
   number      = {v3.0},
   year        = {2026},
   month       = {5},
-  url         = {https://bsp.protocol/whitepaper-v3}
+  url         = {https://biologicalsovereigntyprotocol.com/pt/whitepaper}
 }
 ```
 
@@ -272,10 +271,6 @@ Boa leitura.
 
 — *Andre Ambrosio*
 *Maio de 2026*
-
-
----
-
 # Parte I — Fundamentos Filosóficos
 
 > *"O corpo é o último território sobre o qual ainda não há acordo de paz."*
@@ -603,10 +598,6 @@ O corpo humano é o último território. O BSP é uma proposta sobre como, neste
 - W3C. *Decentralized Identifiers (DIDs) v1.0*. W3C Recommendation, July 2022.
 - W3C. *Verifiable Credentials Data Model v2.0*. W3C Recommendation Candidate, 2024.
 - Zuboff, Shoshana. *The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power*. New York: PublicAffairs, 2019.
-
-
----
-
 # Parte II — O Protocolo
 
 > Especificação técnica rigorosa do Biological Sovereignty Protocol (BSP). Este documento é normativo. Um engenheiro deve conseguir implementar o BSP em outra blockchain (Solana, Ethereum, Sui) lendo apenas estas páginas, o apêndice de taxonomia e o catálogo de intents. Quando há conflito entre este documento e código de referência, **este documento prevalece** até que um BIP modifique a especificação.
@@ -2150,10 +2141,6 @@ Este documento é a Parte II. As Partes III (Governança), IV (Economia do Proto
 Implementadores: comecem por Capítulo 2 (BEO), depois 3 (BioRecord), depois 4 (Exchange). Capítulos 1 e 5 são contexto. Capítulo 6 é defensivo — útil quando comitês perguntam "por que não FHIR".
 
 A norma central: **separação de camadas + assinaturas Ed25519 verificadas on-chain + cryptographic erasure**. Tudo o resto é otimização ou política.
-
-
----
-
 # Parte III — A Economia (Sustentabilidade do Protocolo)
 
 > *"A tragédia dos comuns não é inevitável. É um resultado de instituições mal desenhadas."*
@@ -2640,10 +2627,6 @@ A pergunta correta não é "qual o ROI do BSP token?". É: **em 30 anos, o proto
 ---
 
 *Próxima Parte: IV — A Governança (Como o protocolo evolui sem capturar nem petrificar).*
-
-
----
-
 # Parte IV — A Instituição (Governança e Stewardship)
 
 > *"The Institute is a steward, not a beneficiary."*
@@ -2936,7 +2919,7 @@ O ciclo de vida de uma proposta segue seis fases:
 
 **Fase 1 — Draft (rascunho).** Qualquer pessoa pode submeter um BIP via Pull Request no repositório `bsp-spec/bips/`. O draft segue template padrão (`bip-template.md`) contendo: motivação, especificação técnica, análise de compatibilidade com os 5 First Principles do BSP, threat model, reference implementation (se aplicável), considerações de segurança, considerações de migração. Drafts incompletos podem ser fechados pelos editores BIP (ver 3.5).
 
-**Fase 2 — Discussion (discussão).** Após aceito como draft válido, o BIP entra em período mínimo de **30 dias corridos** de discussão pública. A discussão ocorre em fórum público dedicado (e.g., `forum.bsp-spec.org`) e nos comentários do PR. Este período é não-negociável para BIPs de Standards Track e Process. BIPs Informational podem ter discussion mais curto (15 dias mínimos).
+**Fase 2 — Discussion (discussão).** Após aceito como draft válido, o BIP entra em período mínimo de **30 dias corridos** de discussão pública. A discussão ocorre em fórum público dedicado (e.g., `github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions`) e nos comentários do PR. Este período é não-negociável para BIPs de Standards Track e Process. BIPs Informational podem ter discussion mais curto (15 dias mínimos).
 
 **Fase 3 — Review (revisão técnica).** O Comitê Técnico Científico (Capítulo 4) emite parecer formal por escrito, contendo: análise de compatibilidade com First Principles, análise de threat model, análise de security audit (quando aplicável), recomendação não-vinculante (aceitar / aceitar com modificações / rejeitar). O parecer é público.
 
@@ -3186,10 +3169,6 @@ O resto é teatro.
 
 *Parte IV — A Instituição (Governança e Stewardship). Whitepaper BSP v3.*
 *Instituto Ambrosio — São Paulo, Brasil.*
-
-
----
-
 # Parte V — A Inteligência (AVA & SVA)
 
 > *"Soberania não é onisciência. É o direito de saída."*
@@ -3473,7 +3452,7 @@ Content-Type: application/ld+json
 Authorization: Bearer <user-signed-token>
 
 {
-  "@context": "https://bsp.ambrosio.org/v1/context.jsonld",
+  "@context": "https://biologicalsovereigntyprotocol.com/v1/context.jsonld",
   "subject": "did:bsp:0xabc...",
   "ava_version": "1.3.2",
   "biorecords": [ ... ]
@@ -3658,10 +3637,6 @@ O leitor que sai deste capítulo deve:
 ---
 
 *Próximo capítulo: **Parte VI — Governança e o Processo BIP** (em desenvolvimento).*
-
-
----
-
 # Parte VI — O Horizonte
 
 > *"The future is already here — it's just not evenly distributed."*
@@ -4004,7 +3979,7 @@ O BSP é open source. A especificação é livre. Os SDKs estão em npm e PyPI.
 
 **Hoje:**
 - Leia a especificação técnica (Parte II e III deste whitepaper)
-- Clone os repositórios (github.com/ambrosio-company/bsp-*)
+- Clone os repositórios (github.com/Biological-Sovereignty-Protocol/bsp-*)
 - Rode um relayer local (`make relayer-local`)
 
 **Este mês:**
@@ -4042,7 +4017,7 @@ Pesquisa longitudinal de saúde sempre sofreu de duas patologias: **dados episó
 
 **Hoje:**
 - Avalie se seu estudo pode incluir BSP como mecanismo de coleta
-- Contate o Instituto Ambrosio para parceria research-grade (research@ambrosio.org)
+- Contate o Instituto Ambrosio para parceria research-grade (via GitHub Discussions: github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions)
 - Leia o protocolo AVA (whitepaper técnico separado, disponível 2027)
 
 **Este ano:**
@@ -4056,7 +4031,7 @@ LGPD, GDPR, HIPAA exigem portabilidade de dados de saúde. Na prática, "portabi
 
 **Hoje:**
 - Avalie BSP como mecanismo válido de portabilidade sob LGPD/GDPR
-- Solicite apresentação técnica ao Instituto Ambrosio (regulatory@ambrosio.org)
+- Solicite apresentação técnica ao Instituto Ambrosio (via GitHub Discussions: github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions)
 
 **Este ano:**
 - Considere recomendar BSP em frameworks de digital health
@@ -4086,7 +4061,7 @@ O BSP é **experimento prático** de soberania biológica. As perguntas que voc�
 
 **Hoje:**
 - Leia este whitepaper inteiro (Partes I-VI)
-- Engaje no fórum de governança (forum.bsp.org)
+- Engaje no fórum de governança (github.com/Biological-Sovereignty-Protocol/bsp-spec/discussions)
 - Submeta crítica (BIPs aceitam objeções fundamentadas)
 
 **Este ano:**
@@ -4126,10 +4101,6 @@ O horizonte é longo. O passo é hoje.
 - Stallman, Richard. *GNU General Public License.* Free Software Foundation, 1989.
 - Berners-Lee, Tim. *Information Management: A Proposal.* CERN, 1989/1990.
 - Gibson, William. *The Economist,* dezembro de 2003 (atribuição comum da frase "the future is already here").
-
-
----
-
 # Conclusão — A Escolha Civilizacional
 
 Toda infraestrutura crítica nasce de um instante em que uma escolha aparentemente técnica revela seu conteúdo civilizacional. O TCP/IP poderia ter sido proprietário; o protocolo aberto não era inevitável. O HTTP poderia ter sido licenciado; a decisão de Tim Berners-Lee de não patenteá-lo é a razão pela qual a web existe na forma que existe. O Bitcoin poderia ter sido outra plataforma centralizada de pagamentos; o desenho permissionless o tornou o que se tornou. Em cada um desses casos, a decisão crítica não foi o avanço técnico — foi o gesto institucional de não capturar.
@@ -4200,10 +4171,6 @@ Esse é o destino do BSP, se houver destino. E é por esse destino que vale ter 
 
 — *Andre Ambrosio*
 *Maio de 2026*
-
-
----
-
 # Apêndice A — Taxonomia BSP Completa
 
 > **Versão:** 1.0
@@ -4866,10 +4833,6 @@ A taxonomia BSP é **viva**. Categorias podem ser:
 - **Mapeamento padrão:** cada categoria possui mapeamento para LOINC, SNOMED-CT e/ou HL7 FHIR quando aplicável, publicado em `bsp-spec/taxonomy/<code>.mappings.json`.
 
 A taxonomia é o **vocabulário** do protocolo. Quem controla o vocabulário, em última análise, controla o pensamento. Por isso o controle da taxonomia é compartilhado: emendas exigem 2/3 do conselho do Instituto Ambrosio + janela pública de comentários ≥30 dias + ratificação por ≥3 IEOs independentes. A inércia é proposital — a estabilidade do vocabulário é uma característica, não um bug.
-
-
----
-
 # Apêndice B — Compliance LGPD / GDPR / HIPAA
 
 > **Aviso legal:** Este apêndice é descritivo e técnico. NÃO constitui parecer jurídico. Operadores que implementam BSP em jurisdições específicas DEVEM contratar consultoria jurídica local. O Instituto Ambrosio publica audit reports anuais e modelos de DPA (Data Processing Agreement), mas a responsabilidade final pelo cumprimento normativo recai sobre cada operador (relayer, IEO, integrador clínico).
@@ -5192,10 +5155,6 @@ Em algumas jurisdições, autoridades regulatórias ainda estão construindo ent
 LGPD, GDPR e HIPAA convergem em consentimento informado, segurança, direitos do titular, e accountability. BSP entrega cada um deles com primitivas criptográficas auditáveis. A ironia produtiva é esta: um sistema descentralizado e permissionless é mais auditável que um data lake corporativo centralizado.
 
 A frase de Lawrence Lessig — "code is law" — é literal aqui: o código do BSP **é** o cumprimento normativo materializado. Não exclui o trabalho jurídico humano, mas reduz radicalmente sua superfície.
-
-
----
-
 # Apêndice C — Glossário Completo
 
 > **Escopo:** Definições técnicas e contextuais dos termos centrais do Biological Sovereignty Protocol (BSP). Ordem alfabética. Quando um termo possui significado tanto da literatura geral quanto significado específico no contexto BSP, ambos são apresentados — o segundo após o marcador "**No BSP:**".
@@ -5472,10 +5431,6 @@ Esquema (Aayushya et al., 2023) que permite gerar ZK proof de controle de uma co
 - Para referências bibliográficas dos conceitos (Foucault, Ostrom, Bernstein, Horvath, etc.), ver Apêndice D.
 - Para mapeamentos jurídicos (LGPD/GDPR/HIPAA), ver Apêndice B.
 - Para taxonomia técnica de biomarcadores (BSP-LA, BSP-EP, etc.), ver Apêndice A.
-
-
----
-
 # Apêndice D — Bibliografia Geral
 
 > **Formato:** Híbrido APA / Chicago — autor(es), (ano), título em itálico ou aspas, periódico/editora, identificador (DOI, ISBN ou URL).
@@ -5756,10 +5711,6 @@ Esquema (Aayushya et al., 2023) que permite gerar ZK proof de controle de uma co
 **Acesso aberto.** Sempre que possível, indicamos versões em acesso aberto (preprints, repositórios institucionais, DOIs gratuitos). O Instituto Ambrosio mantém biblioteca digital com os PDFs das referências D14 e cópias autorizadas das obras principais para consulta de bolsistas e pesquisadores associados.
 
 **Convite à crítica acadêmica.** O BSP é projeto científico e político. Críticas, refutações e revisões pela comunidade acadêmica são bem-vindas via `bsp-spec/RESEARCH_FORUM.md`.
-
-
----
-
 # Apêndice E — Referências de Implementação
 
 > **Escopo:** Catálogo das implementações de referência do Biological Sovereignty Protocol (BSP) — repositórios, status de maturidade, versões, dependências e roadmap. Este apêndice é descritivo, não normativo: o protocolo (ver `bsp-spec`) é a fonte canônica; as implementações são manifestações concretas que evoluem no tempo.
@@ -5819,7 +5770,7 @@ Esquema (Aayushya et al., 2023) que permite gerar ZK proof de controle de uma co
 | `consent-validator`         | Valida ConsentTokens em tempo real                                           |
 | `webhook-dispatcher`        | Notifica IEOs/consumers sobre eventos relevantes                             |
 
-**Documentação OpenAPI:** publicada em `https://api.bsp.protocol/docs` (em desenvolvimento; URL final na release v1.0).
+**Documentação OpenAPI:** publicada em `https://api.biologicalsovereigntyprotocol.com/docs` (em desenvolvimento; URL final na release v1.0).
 
 **Modelos de operação:**
 1. **Hosted** — Instituto Ambrosio opera relayer público com tier free + tier paid.
@@ -5837,7 +5788,7 @@ Esquema (Aayushya et al., 2023) que permite gerar ZK proof de controle de uma co
 
 ### bsp-sdk-typescript
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-sdk-typescript
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-sdk-typescript
 - **Pacote npm:** `@biological-sovereignty-protocol/sdk`
 - **Status:** **beta**
 - **Versão atual:** v0.6.1
@@ -5847,7 +5798,7 @@ Esquema (Aayushya et al., 2023) que permite gerar ZK proof de controle de uma co
 ```typescript
 import { BSP } from '@biological-sovereignty-protocol/sdk';
 
-const client = BSP.connect({ network: 'mainnet', relayer: 'https://api.bsp.protocol' });
+const client = BSP.connect({ network: 'mainnet', relayer: 'https://api.biologicalsovereigntyprotocol.com' });
 
 await client.beo.register({ keypair });
 await client.ieo.submitRecord({ category: 'BSP-LA', payload, beo, authority });
@@ -5860,7 +5811,7 @@ const records = await client.records.query({ beo, categories });
 
 ### bsp-sdk-python
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-sdk-python
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-sdk-python
 - **Pacote PyPI:** `bsp-sdk`
 - **Status:** **alpha** (público a partir de Q2 2026)
 - **Versão atual:** v0.3.0
@@ -5870,7 +5821,7 @@ API equivalente ao SDK TypeScript, idiomática em Python (async/await, type hint
 
 ### bsp-cli
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-cli
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-cli
 - **Pacote npm:** `@biological-sovereignty-protocol/cli`
 - **Status:** **beta**
 - **Versão atual:** v0.5.2
@@ -5888,7 +5839,7 @@ bsp recovery setup --trustees <addresses> # configura multisig recovery
 
 ### bsp-mcp
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-mcp
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-mcp
 - **Tipo:** Model Context Protocol server (Anthropic MCP)
 - **Status:** **alpha**
 - **Versão atual:** v0.2.0
@@ -5900,11 +5851,11 @@ bsp recovery setup --trustees <addresses> # configura multisig recovery
 
 ### bsp-id-web
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-id-web
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-id-web
 - **Stack:** Next.js 16 (App Router), React 19, Tailwind CSS, shadcn/ui, viem (Ethereum-style typing patterns adaptados a Aptos)
 - **Status:** **beta**
 - **Versão atual:** v0.4.0
-- **URL de referência:** https://id.bsp.protocol (em soft launch)
+- **URL de referência:** https://id.biologicalsovereigntyprotocol.com (em soft launch)
 - **Função:** wallet web do BEO — permite criar identidade, gerenciar consents, visualizar BioRecords, configurar recovery
 
 ### bsp-id-mobile
@@ -5916,10 +5867,10 @@ bsp recovery setup --trustees <addresses> # configura multisig recovery
 
 ### bsp-website
 
-- **Repositório:** https://github.com/Ambrosio-Institute/bsp-website
+- **Repositório:** https://github.com/Biological-Sovereignty-Protocol/bsp-website
 - **Stack:** VitePress
 - **Status:** **stable**
-- **URL:** https://bsp.protocol
+- **URL:** https://biologicalsovereigntyprotocol.com
 - **Função:** site institucional + documentação técnica + portal de governance
 
 ---
