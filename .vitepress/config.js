@@ -683,8 +683,7 @@ export default defineConfig({
             }
         },
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/Biological-Sovereignty-Protocol' },
-            { icon: 'x', link: 'https://x.com/bsp_protocol' }
+            { icon: 'github', link: 'https://github.com/Biological-Sovereignty-Protocol' }
         ]
     },
 
@@ -762,7 +761,6 @@ export default defineConfig({
                     { text: 'Create BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
-                    '/whitepaper': enWhitepaperSidebar,
                     '/': enSidebar
                 }
             }
@@ -868,7 +866,6 @@ export default defineConfig({
                     { text: 'Criar BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
-                    '/pt/whitepaper': ptWhitepaperSidebar,
                     '/pt/': ptSidebar
                 }
             }
@@ -974,7 +971,6 @@ export default defineConfig({
                     { text: 'Crear BEO', link: 'https://id.biologicalsovereigntyprotocol.com/create' },
                 ],
                 sidebar: {
-                    '/es/whitepaper': esWhitepaperSidebar,
                     '/es/': esSidebar
                 }
             }
